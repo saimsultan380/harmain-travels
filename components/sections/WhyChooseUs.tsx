@@ -82,6 +82,7 @@ export function WhyChooseUs() {
                 fill
                 sizes="(max-width: 640px) calc(100vw - 12px), (max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
+                loading="lazy"
               />
             </div>
             <div className="order-1 lg:order-2">

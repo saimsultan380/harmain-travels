@@ -2,8 +2,9 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Globe } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Locale, useI18n } from "@/lib/i18n";
+import Image from "next/image";
 
 const languages: Record<Locale, { label: string; code: string }> = {
   en: { label: "English", code: "gb" },
@@ -41,9 +42,11 @@ export function LanguageSwitcher() {
         aria-expanded={isOpen}
       >
         <div className="w-5 h-5 rounded-full overflow-hidden border border-[var(--border)] flex-shrink-0 relative">
-          <img 
+          <Image 
             src={`https://flagcdn.com/w40/${languages[locale].code}.png`} 
             alt={languages[locale].label}
+            width={20}
+            height={20}
             className="w-full h-full object-cover scale-110 transition-transform duration-300 group-hover:scale-125"
           />
         </div>
@@ -79,9 +82,11 @@ export function LanguageSwitcher() {
                   aria-selected={locale === code}
                 >
                   <div className={`w-6 h-6 rounded-full overflow-hidden border border-[var(--border)] flex-shrink-0 shadow-sm ${locale === code ? 'border-white/40' : ''}`}>
-                    <img 
+                    <Image 
                       src={`https://flagcdn.com/w40/${languages[code].code}.png`} 
                       alt={languages[code].label}
+                      width={24}
+                      height={24}
                       className="w-full h-full object-cover scale-110 transition-transform duration-300 group-hover/item:scale-125"
                     />
                   </div>

@@ -65,13 +65,13 @@ export function Hero() {
         style={{ backgroundImage: "url('/images/hero%20bg%20image.avif')" }}
       />
       <video
-        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${videoReady ? "opacity-100" : "opacity-0"}`}
+        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${videoReady ? "opacity-100" : "opacity-0"}`}
         autoPlay
         loop
         muted
         playsInline
-        preload="auto"
-        poster="/images/hero%20bg%20image.avif"
+        preload="none"
+        onCanPlayThrough={() => setVideoReady(true)}
         onLoadedData={() => setVideoReady(true)}
       >
         <source src="/images/hero-bg-video.mp4" type="video/mp4" />

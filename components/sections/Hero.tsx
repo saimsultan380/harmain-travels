@@ -7,7 +7,6 @@ import { KaabaIllustration } from "@/components/graphics/KaabaIllustration";
 import { AnimatedCarOnRoad } from "@/components/graphics/AnimatedCarOnRoad";
 import { IslamicGeometricBg } from "@/components/graphics/IslamicGeometricBg";
 import { MoonCrescentIcon } from "@/components/graphics/MoonCrescentIcon";
-import { RouteMapGraphic } from "@/components/graphics/RouteMapGraphic";
 import { useI18n } from "@/lib/i18n";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 
@@ -26,6 +25,7 @@ const WhatsAppIcon = ({ size = 20, className = "" }: { size?: number; className?
 
 export function Hero() {
   const [particles, setParticles] = useState<any[]>([]);
+  const [videoReady, setVideoReady] = useState(false);
   const { t, tm } = useI18n();
 
   useEffect(() => {
@@ -60,14 +60,19 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen pt-24 overflow-hidden bg-[var(--bg)] flex flex-col items-center justify-center">
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/images/hero%20bg%20image.avif')" }}
+      />
       <video
-        className="absolute inset-0 h-full w-full object-cover"
+        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${videoReady ? "opacity-100" : "opacity-0"}`}
         autoPlay
         loop
         muted
         playsInline
-        preload="metadata"
+        preload="auto"
         poster="/images/hero%20bg%20image.avif"
+        onLoadedData={() => setVideoReady(true)}
       >
         <source src="/images/hero-bg-video.mp4" type="video/mp4" />
       </video>

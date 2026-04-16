@@ -74,7 +74,7 @@ export function Navbar() {
             <Link 
               key={link.name} 
               href={link.href}
-              className="relative font-body font-medium text-white hover:text-[var(--gold)] transition-colors group py-2"
+              className={`relative font-body font-medium hover:text-[var(--gold)] transition-colors group py-2 ${scrolled ? "text-[var(--text-1)]" : "text-white"}`}
             >
               {link.name}
               <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[var(--gold)] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
@@ -103,7 +103,7 @@ export function Navbar() {
           <ThemeToggle />
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="rounded-md p-1.5 text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]"
+            className={`rounded-md p-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)] ${scrolled ? "text-[var(--text-1)]" : "text-white"}`}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

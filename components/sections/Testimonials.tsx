@@ -3,11 +3,12 @@
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { testimonials } from "@/lib/data/testimonials";
 import { useI18n } from "@/lib/i18n";
-import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 
 export function Testimonials() {
   const { t } = useI18n();
+  const duplicatedTestimonials = [...testimonials, ...testimonials];
+
   return (
     <AnimatedSection id="testimonials" className="py-24 bg-[var(--bg)] border-t border-[var(--border)] overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
@@ -20,17 +21,12 @@ export function Testimonials() {
           </h2>
         </div>
 
-        <div className="relative w-full overflow-hidden flex items-center justify-center">
-          <motion.div 
-            className="flex gap-6 py-8"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            style={{ width: "200%" }}
-          >
-            {[...testimonials, ...testimonials].map((testimonial, i) => (
-              <motion.div 
-                key={i}
-                className="w-[350px] flex-shrink-0 bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-8 relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300"
+        <div className="group relative w-full overflow-hidden">
+          <div className="flex w-max py-8 animate-testimonials-marquee group-hover:[animation-play-state:paused]">
+            {duplicatedTestimonials.map((testimonial, i) => (
+              <div
+                key={`${testimonial.id}-${i}`}
+                className="w-[330px] md:w-[350px] mx-3 flex-shrink-0 bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-8 relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300"
               >
                 {/* Decorative Quote */}
                 <div className="absolute top-4 right-4 text-[var(--gold)] opacity-10 text-8xl font-serif leading-none select-none pointer-events-none">
@@ -54,9 +50,9 @@ export function Testimonials() {
                 <p className="text-[var(--text-2)] font-body text-base leading-relaxed relative z-10">
                   "{testimonial.text}"
                 </p>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </AnimatedSection>

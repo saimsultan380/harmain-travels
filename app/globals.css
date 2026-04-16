@@ -17,7 +17,7 @@
 
 .dark {
   --bg: #000000;
-  --bg-alt: #050505;
+  --bg-alt: #000000;
   --bg-card: #0A0A0A;
   --border: #1A1A1A;
   --border-dark: #262626;
@@ -68,6 +68,16 @@ h1, h2, h3, h4, h5, h6 {
 
 .animate-rotate-slow {
   animation: rotate-slow 150s linear infinite;
+}
+
+@keyframes testimonials-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-testimonials-marquee {
+  animation: testimonials-marquee 80s linear infinite;
+  will-change: transform;
 }
 
 /* Custom Scrollbar */

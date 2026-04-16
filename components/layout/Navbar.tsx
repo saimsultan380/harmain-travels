@@ -57,12 +57,12 @@ export function Navbar() {
           : "bg-transparent py-5"
       }`}
     >
-      <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between">
+      <div className="container mx-auto flex items-center justify-between px-3 sm:px-4 lg:px-8">
         
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <MoonCrescentIcon size={36} />
-          <div className="flex flex-col">
+        <Link href="/" className="group flex items-center gap-2 sm:gap-3">
+          <MoonCrescentIcon size={32} className="sm:w-9 sm:h-9" />
+          <div className="hidden flex-col sm:flex">
             <span className="font-heading font-extrabold text-[var(--gold)] text-xl leading-none tracking-tight">Haramain</span>
             <span className="font-body font-semibold text-[var(--green)] text-[11px] uppercase tracking-widest mt-1">{t("nav.brandBottom")}</span>
           </div>
@@ -74,7 +74,7 @@ export function Navbar() {
             <Link 
               key={link.name} 
               href={link.href}
-              className="relative font-body font-medium text-[var(--text-2)] hover:text-[var(--gold)] transition-colors group py-2"
+              className="relative font-body font-medium text-white hover:text-[var(--gold)] transition-colors group py-2"
             >
               {link.name}
               <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[var(--gold)] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
@@ -98,14 +98,14 @@ export function Navbar() {
         </div>
 
         {/* Mobile Menu Toggle */}
-        <div className="flex md:hidden items-center gap-4">
+        <div className="flex md:hidden items-center gap-2">
           <LanguageSwitcher />
           <ThemeToggle />
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-[var(--text-1)] p-2 focus:outline-none"
+            className="rounded-md p-1.5 text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]"
           >
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>

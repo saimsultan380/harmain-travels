@@ -36,7 +36,7 @@ export function LanguageSwitcher() {
     <div className="relative" ref={containerRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="group flex items-center gap-2.5 rounded-xl border border-[var(--border)] bg-[var(--bg-card)]/50 backdrop-blur-sm px-3.5 py-2 text-[var(--text-1)] hover:border-[var(--gold)] hover:bg-[var(--bg-card)] transition-all duration-300 shadow-sm active:scale-95"
+        className="group flex items-center gap-1.5 rounded-xl border border-[var(--border)] bg-[var(--bg-card)]/50 px-2 py-1.5 text-[var(--text-1)] shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-[var(--gold)] hover:bg-[var(--bg-card)] active:scale-95 sm:gap-2.5 sm:px-3.5 sm:py-2"
         aria-haspopup="listbox"
         aria-expanded={isOpen}
       >

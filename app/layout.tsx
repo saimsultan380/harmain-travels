@@ -41,7 +41,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${quicksand.variable} ${poppins.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col font-body bg-[var(--bg)] text-[var(--text-1)]" suppressHydrationWarning>
+      <body className="min-h-full flex flex-col overflow-x-hidden font-body bg-[var(--bg)] text-[var(--text-1)]" suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <I18nProvider>{children}</I18nProvider>
         </ThemeProvider>

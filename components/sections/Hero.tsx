@@ -60,6 +60,20 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen pt-24 overflow-hidden bg-[var(--bg)] flex flex-col items-center justify-center">
+      <video
+        className="absolute inset-0 h-full w-full object-cover"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="metadata"
+        poster="/images/hero%20bg%20image.avif"
+      >
+        <source src="/images/hero-bg-video.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-black/70" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/30 to-black/40" />
+
       <IslamicGeometricBg className="opacity-[0.03]" />
       
       {/* Floating Dots */}
@@ -104,17 +118,17 @@ export function Hero() {
           
           <motion.h1 
             variants={itemVariants}
-            className="text-4xl md:text-5xl lg:text-[72px] leading-tight font-heading font-extrabold text-[var(--text-1)] mb-6"
+            className="text-4xl md:text-5xl lg:text-[72px] leading-tight font-heading font-extrabold text-white mb-6"
           >
             <span className="block text-[var(--gold)]">{t("hero.titleGold")}</span>
-            <span className="block">{t("hero.titleMain")}</span>
+            <span className="block text-white">{t("hero.titleMain")}</span>
           </motion.h1>
           
-          <motion.p variants={itemVariants} className="text-[var(--text-2)] font-body text-lg max-w-xl mb-8 leading-relaxed">
+          <motion.p variants={itemVariants} className="text-white/85 font-body text-lg max-w-xl mb-8 leading-relaxed">
             {t("hero.subtitle")}
           </motion.p>
           
-          <motion.div variants={itemVariants} className="text-xl font-heading font-bold text-[var(--text-1)] mb-10 h-8">
+          <motion.div variants={itemVariants} className="text-xl font-heading font-bold text-white mb-10 h-8">
             <TypewriterText 
               texts={tm<string[]>("hero.typewriter", ["Makkah Transfer", "Madinah Transfer", "Jeddah Airport Pickup", "Ziyarat Tours"])} 
             />

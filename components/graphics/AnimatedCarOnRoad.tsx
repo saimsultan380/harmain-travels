@@ -16,9 +16,9 @@ export function AnimatedCarOnRoad({ className = "" }: { className?: string }) {
       
       {/* The Car Container */}
       <motion.div 
-        className="absolute bottom-5"
-        initial={{ x: "-100%" }}
-        animate={{ x: "100vw" }}
+        className="absolute bottom-5 left-0"
+        initial={{ x: "-120px" }}
+        animate={{ x: "calc(100% + 120px)" }}
         transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
       >
         <svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">

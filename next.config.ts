@@ -1,8 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: "export",
   allowedDevOrigins: ["192.168.100.10"],
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",

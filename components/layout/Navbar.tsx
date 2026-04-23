@@ -9,6 +9,7 @@ import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { useI18n } from "@/lib/i18n";
 import { Menu, X, ChevronDown, ChevronRight, Phone } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const WhatsAppIcon = ({ size = 20, className = "" }: { size?: number; className?: string }) => (
   <svg
@@ -40,6 +41,12 @@ export function Navbar() {
   const [hoveredChild, setHoveredChild] = useState<string | null>(null);
   const { t, tm } = useI18n();
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname === href || pathname.startsWith(href + "/");
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -113,7 +120,11 @@ export function Navbar() {
                 {item.href ? (
                   <Link 
                     href={item.href}
-                    className="px-3 py-2 flex items-center gap-1.5 font-body font-semibold text-sm transition-all rounded-lg text-[var(--text-1)] hover:bg-[var(--gold-soft)] hover:text-[var(--gold)]"
+                    className={`px-3 py-2 flex items-center gap-1.5 font-body font-semibold text-sm transition-all rounded-lg ${
+                      isActive(item.href)
+                        ? "bg-[var(--gold-soft)] text-[var(--gold)]"
+                        : "text-[var(--text-1)] hover:bg-[var(--gold-soft)] hover:text-[var(--gold)]"
+                    }`}
                   >
                     {item.label}
                   </Link>
@@ -144,7 +155,11 @@ export function Navbar() {
                               <Link
                                 key={child.label}
                                 href={child.href}
-                                className="block px-4 py-3 text-sm font-semibold text-[var(--text-1)] hover:text-[var(--gold)] hover:bg-[var(--gold-soft)] rounded-xl transition-all"
+                                className={`block px-4 py-3 text-sm font-semibold rounded-xl transition-all ${
+                                  isActive(child.href)
+                                    ? "bg-[var(--gold-soft)] text-[var(--gold)]"
+                                    : "text-[var(--text-1)] hover:text-[var(--gold)] hover:bg-[var(--gold-soft)]"
+                                }`}
                               >
                                 {child.label}
                               </Link>
@@ -166,8 +181,8 @@ export function Navbar() {
                                   <Link
                                     href={child.href}
                                     className={`flex items-center justify-between w-full px-4 py-3 text-sm font-semibold rounded-xl transition-all ${
-                                      hoveredChild === child.label 
-                                        ? "bg-[var(--gold)] text-white shadow-md" 
+                                      isActive(child.href) || hoveredChild === child.label
+                                        ? "bg-[var(--gold)] text-white shadow-md"
                                         : "text-[var(--text-1)] hover:bg-[var(--bg)]"
                                     }`}
                                   >
@@ -210,7 +225,11 @@ export function Navbar() {
                                         <Link
                                           key={subItem.label}
                                           href={subItem.href}
-                                          className="group/item flex items-center justify-between px-4 py-2.5 rounded-xl text-sm text-[var(--text-2)] hover:text-[var(--gold)] hover:bg-[var(--gold-soft)] transition-all"
+                                          className={`group/item flex items-center justify-between px-4 py-2.5 rounded-xl text-sm transition-all ${
+                                            isActive(subItem.href)
+                                              ? "text-[var(--gold)] bg-[var(--gold-soft)]"
+                                              : "text-[var(--text-2)] hover:text-[var(--gold)] hover:bg-[var(--gold-soft)]"
+                                          }`}
                                         >
                                           <span>{subItem.label}</span>
                                           <div className="w-6 h-6 rounded-lg bg-[var(--gold)]/0 group-hover/item:bg-[var(--gold)]/10 flex items-center justify-center transition-all">
@@ -303,7 +322,11 @@ export function Navbar() {
                         <Link
                           href={item.href}
                           onClick={() => setMobileMenuOpen(false)}
-                          className="flex items-center justify-between rounded-xl px-4 py-3.5 font-heading font-semibold text-lg text-[var(--text-1)] hover:bg-[var(--bg-alt)] transition-colors"
+                          className={`flex items-center justify-between rounded-xl px-4 py-3.5 font-heading font-semibold text-lg transition-colors ${
+                            isActive(item.href)
+                              ? "bg-[var(--gold-soft)] text-[var(--gold)]"
+                              : "text-[var(--text-1)] hover:bg-[var(--bg-alt)]"
+                          }`}
                         >
                           {item.label}
                         </Link>
@@ -337,7 +360,11 @@ export function Navbar() {
                                             key={sub.label}
                                             href={sub.href}
                                             onClick={() => setMobileMenuOpen(false)}
-                                            className="block px-4 py-2 text-sm font-medium text-[var(--text-2)] hover:text-[var(--gold)] border-l-2 border-transparent hover:border-[var(--gold)] transition-all"
+                                            className={`block px-4 py-2 text-sm font-medium border-l-2 transition-all ${
+                                              isActive(sub.href)
+                                                ? "text-[var(--gold)] border-[var(--gold)] bg-[var(--gold-soft)]"
+                                                : "text-[var(--text-2)] border-transparent hover:text-[var(--gold)] hover:border-[var(--gold)]"
+                                            }`}
                                           >
                                             {sub.label}
                                           </Link>
@@ -347,7 +374,11 @@ export function Navbar() {
                                       <Link
                                         href={child.href}
                                         onClick={() => setMobileMenuOpen(false)}
-                                        className="block px-4 py-2 font-semibold text-[var(--text-1)] hover:text-[var(--gold)]"
+                                        className={`block px-4 py-2 font-semibold transition-all ${
+                                          isActive(child.href)
+                                            ? "text-[var(--gold)] bg-[var(--gold-soft)]"
+                                            : "text-[var(--text-1)] hover:text-[var(--gold)]"
+                                        }`}
                                       >
                                         {child.label}
                                       </Link>

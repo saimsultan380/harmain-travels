@@ -22,7 +22,7 @@ export function Testimonials() {
         </div>
 
         <div className="group relative w-full overflow-hidden">
-          <div className="flex w-max py-8 animate-testimonials-marquee group-hover:[animation-play-state:paused]">
+          <div className="flex py-8 animate-testimonials-marquee group-hover:[animation-play-state:paused]">
             {duplicatedTestimonials.map((testimonial, i) => (
               <div
                 key={`${testimonial.id}-${i}`}

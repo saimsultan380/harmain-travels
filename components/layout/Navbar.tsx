@@ -39,6 +39,7 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [hoveredChild, setHoveredChild] = useState<string | null>(null);
+  const [activeChildAccordion, setActiveChildAccordion] = useState<string | null>(null);
   const { t, tm } = useI18n();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
@@ -155,7 +156,7 @@ export function Navbar() {
                               <Link
                                 key={child.label}
                                 href={child.href}
-                                className={`block px-4 py-3 text-sm font-semibold rounded-xl transition-all ${
+                                className={`block px-4 py-3 text-[14px] font-normal rounded-xl transition-all ${
                                   isActive(child.href)
                                     ? "bg-[var(--gold-soft)] text-[var(--gold)]"
                                     : "text-[var(--text-1)] hover:text-[var(--gold)] hover:bg-[var(--gold-soft)]"
@@ -180,7 +181,7 @@ export function Navbar() {
                                 {child.href && !child.items ? (
                                   <Link
                                     href={child.href}
-                                    className={`flex items-center justify-between w-full px-4 py-3 text-sm font-semibold rounded-xl transition-all ${
+                                    className={`flex items-center justify-between w-full px-4 py-3 text-[14px] font-normal rounded-xl transition-all ${
                                       isActive(child.href) || hoveredChild === child.label
                                         ? "bg-[var(--gold)] text-white shadow-md"
                                         : "text-[var(--text-1)] hover:bg-[var(--bg)]"
@@ -190,7 +191,7 @@ export function Navbar() {
                                   </Link>
                                 ) : (
                                   <div
-                                    className={`flex items-center justify-between w-full px-4 py-3 text-sm font-semibold rounded-xl transition-all cursor-default ${
+                                    className={`flex items-center justify-between w-full px-4 py-3 text-[14px] font-normal rounded-xl transition-all cursor-default ${
                                       hoveredChild === child.label 
                                         ? "bg-[var(--gold)] text-white shadow-md" 
                                         : "text-[var(--text-1)] hover:bg-[var(--bg)]"
@@ -225,7 +226,7 @@ export function Navbar() {
                                         <Link
                                           key={subItem.label}
                                           href={subItem.href}
-                                          className={`group/item flex items-center justify-between px-4 py-2.5 rounded-xl text-sm transition-all ${
+                                          className={`group/item flex items-center justify-between px-4 py-2.5 rounded-xl text-[14px] font-normal transition-all ${
                                             isActive(subItem.href)
                                               ? "text-[var(--gold)] bg-[var(--gold-soft)]"
                                               : "text-[var(--text-2)] hover:text-[var(--gold)] hover:bg-[var(--gold-soft)]"
@@ -352,29 +353,48 @@ export function Navbar() {
                                   <div key={child.label} className="p-2">
                                     {child.items ? (
                                       <div className="flex flex-col gap-1">
-                                        <div className="px-3 py-1 text-[var(--green)] font-heading font-bold text-[10px] uppercase tracking-widest bg-[var(--green-soft)] rounded-md w-fit mb-1">
+                                        <button
+                                          onClick={() => setActiveChildAccordion(activeChildAccordion === child.label ? null : child.label)}
+                                          className={`flex items-center justify-between w-full px-3 py-2 font-heading font-medium text-[14px] uppercase tracking-wider rounded-md transition-all ${
+                                            activeChildAccordion === child.label
+                                              ? "text-[var(--gold)] bg-[var(--gold-soft)]"
+                                              : "text-[var(--green)] bg-[var(--green-soft)] hover:bg-[var(--gold-soft)] hover:text-[var(--gold)]"
+                                          }`}
+                                        >
                                           {child.label}
-                                        </div>
-                                        {child.items.map((sub) => (
-                                          <Link
-                                            key={sub.label}
-                                            href={sub.href}
-                                            onClick={() => setMobileMenuOpen(false)}
-                                            className={`block px-4 py-2 text-sm font-medium border-l-2 transition-all ${
-                                              isActive(sub.href)
-                                                ? "text-[var(--gold)] border-[var(--gold)] bg-[var(--gold-soft)]"
-                                                : "text-[var(--text-2)] border-transparent hover:text-[var(--gold)] hover:border-[var(--gold)]"
-                                            }`}
-                                          >
-                                            {sub.label}
-                                          </Link>
-                                        ))}
+                                          <ChevronDown size={16} className={`transition-transform duration-300 ${activeChildAccordion === child.label ? "rotate-180" : ""}`} />
+                                        </button>
+                                        <AnimatePresence>
+                                          {activeChildAccordion === child.label && (
+                                            <motion.div
+                                              initial={{ height: 0, opacity: 0 }}
+                                              animate={{ height: "auto", opacity: 1 }}
+                                              exit={{ height: 0, opacity: 0 }}
+                                              className="overflow-hidden ml-2"
+                                            >
+                                              {child.items.map((sub) => (
+                                                <Link
+                                                  key={sub.label}
+                                                  href={sub.href}
+                                                  onClick={() => setMobileMenuOpen(false)}
+                                                  className={`block px-4 py-2 text-[14px] font-medium border-l-2 transition-all ${
+                                                    isActive(sub.href)
+                                                      ? "text-[var(--gold)] border-[var(--gold)] bg-[var(--gold-soft)]"
+                                                      : "text-[var(--text-2)] border-transparent hover:text-[var(--gold)] hover:border-[var(--gold)]"
+                                                  }`}
+                                                >
+                                                  {sub.label}
+                                                </Link>
+                                              ))}
+                                            </motion.div>
+                                          )}
+                                        </AnimatePresence>
                                       </div>
                                     ) : child.href ? (
                                       <Link
                                         href={child.href}
                                         onClick={() => setMobileMenuOpen(false)}
-                                        className={`block px-4 py-2 font-semibold transition-all ${
+                                        className={`block px-4 py-2 text-[14px] font-medium transition-all ${
                                           isActive(child.href)
                                             ? "text-[var(--gold)] bg-[var(--gold-soft)]"
                                             : "text-[var(--text-1)] hover:text-[var(--gold)]"

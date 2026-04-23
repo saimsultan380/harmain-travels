@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { BookOpen, Users, Heart, ArrowRight } from "lucide-react";
+import { BookOpen, Users, Heart, ArrowRight, Building, FileText } from "lucide-react";
 import { BorderTraceCard } from "@/components/ui/BorderTraceCard";
 
 export function OtherServices() {
@@ -33,6 +33,20 @@ export function OtherServices() {
       icon: BookOpen,
       color: "var(--gold)",
       href: "/umrah-guider-services"
+    },
+    {
+      title: "Hotel Booking Makkah",
+      desc: "Comfortable and affordable hotel accommodations near Haram in Makkah for your stay.",
+      icon: Building,
+      color: "var(--green)",
+      href: "/hotel-booking-makkah"
+    },
+    {
+      title: "Hotel Booking Madinah",
+      desc: "Comfortable and affordable hotel accommodations near Prophet's Mosque in Madinah for your stay.",
+      icon: Building,
+      color: "var(--gold)",
+      href: "/hotel-booking-madinah"
     }
   ];
 

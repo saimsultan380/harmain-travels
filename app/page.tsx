@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="flex min-h-screen flex-col overflow-x-hidden">
+      <main className="flex min-h-screen flex-col">
         <Hero />
         <Services />
         <OtherServices />

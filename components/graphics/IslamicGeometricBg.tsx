@@ -6,7 +6,7 @@ export function IslamicGeometricBg({ className = "", opacity = 0.03 }: { classNa
   return (
     <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`} style={{ opacity }}>
       <motion.div 
-        className="w-[200%] h-[200%] absolute -top-[50%] -left-[50%]"
+        className="w-[200%] h-[200%] absolute -top-[50%] -left-[50%] will-change-transform"
         animate={{ rotate: 360 }}
         transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
       >

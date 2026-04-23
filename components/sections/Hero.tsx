@@ -65,12 +65,12 @@ export function Hero() {
         style={{ backgroundImage: "url('/images/hero%20bg%20image.avif')" }}
       />
       <video
-        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${videoReady ? "opacity-100" : "opacity-0"}`}
+        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 will-change-transform ${videoReady ? "opacity-100" : "opacity-0"}`}
         autoPlay
         loop
         muted
         playsInline
-        preload="none"
+        preload="auto"
         onCanPlayThrough={() => setVideoReady(true)}
         onLoadedData={() => setVideoReady(true)}
       >
@@ -92,7 +92,8 @@ export function Hero() {
             backgroundColor: p.backgroundColor,
             left: p.left,
             bottom: "-10%",
-            opacity: p.opacity
+            opacity: p.opacity,
+            willChange: "transform"
           }}
           animate={{
             y: ["0vh", "-120vh"],

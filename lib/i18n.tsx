@@ -36,9 +36,70 @@ const messages = {
       cityList: ["Makkah", "Madinah", "Jeddah", "Riyadh"],
     },
     nav: {
-      links: ["Services", "Fleet", "Pricing", "Ziyarat", "About", "FAQ"],
       brandTop: "Haramain",
       brandBottom: "Umrah Taxi",
+      items: [
+        { label: "Home", href: "/" },
+        { 
+          label: "Our Services", 
+          children: [
+            {
+              label: "Our Taxi Services",
+              items: [
+                { label: "Airport Taxi Services", href: "/airport-taxi-services" },
+                { label: "Umrah Taxi Services", href: "/umrah-taxi-services" },
+                { label: "Hotel Transfers Taxi", href: "/hotel-transfers-taxi" },
+                { label: "Private Taxi Services", href: "/private-taxi-services" }
+              ]
+            },
+            {
+              label: "Our Other Services",
+              items: [
+                { label: "Damm Service", href: "/damm-services" },
+                { label: "Fidyah & Kaffarah", href: "/fidyah-and-kaffarah" },
+                { label: "Umrah & Hajj e Badal", href: "/hajj-and-umrah-badal" },
+                { label: "Qurbani Services", href: "/qurbani-services" },
+                { label: "Quran Waqf Services", href: "/quran-waqf-services" },
+                { label: "Umrah Guider Services", href: "/umrah-guider-services" },
+                { label: "Dates Distribution Services", href: "/dates-distribution-services" },
+                { label: "Food Package Distribution", href: "/food-package-distribution" },
+                { label: "Water Distribution Services", href: "/water-distribution-services" },
+                { label: "Umrah Guide and PDF", href: "/umrah-guide-and-pdf" }
+              ]
+            },
+            {
+              label: "Hotel Booking",
+              items: [
+                { label: "Hotel Booking Makkah", href: "/hotel-booking-makkah" },
+                { label: "Hotel Booking Madinah", href: "/hotel-booking-madinah" }
+              ]
+            }
+          ]
+        },
+        {
+          label: "Our Fleet & Routes",
+          children: [
+            { label: "Sedan", href: "/sedan-sonata-taxi" },
+            { label: "Minivan", href: "/hyundai-minivan-staria" },
+            { label: "GMC", href: "/gmc-yukon-xl" },
+            { label: "Hiace Microbus", href: "/toyota-hiace-or-hiroof-2" },
+            { label: "Coaster", href: "/coaster" },
+            { label: "Bus", href: "/bus" }
+          ]
+        },
+        { label: "Taxi Services Pricing", href: "/our-taxi-services-pricing" },
+        {
+          label: "Routes",
+          children: [
+            { label: "Makkah to Madinah", href: "/makkah-to-madinah" },
+            { label: "Madinah to Makkah", href: "/madinah-to-makkah" },
+            { label: "Jeddah Airport to Makkah", href: "/jeddah-airport-to-makkah" },
+            { label: "Makkah to Jeddah", href: "/makkah-to-jeddah" },
+            { label: "Madinah Airport to Hotels", href: "/madinah-aiport-to-hotels" }
+          ]
+        },
+        { label: "Book Now", href: "https://wa.me/966598401594" }
+      ]
     },
     hero: {
       badge: "Trusted Umrah Taxi Service",
@@ -242,6 +303,51 @@ const messages = {
       rights: "All rights reserved.",
       proud: "Proudly serving pilgrims across Saudi Arabia",
     },
+    airportTaxiPage: {
+      title: "Airport Transfers | Madinah Airport & Jeddah Airport Taxi",
+      heroTitle: "Airport Transfers",
+      heroSub: "Madinah Airport & Jeddah Airport Taxi",
+      introTitle: "Reliable Airport Transfers in Saudi Arabia",
+      introText1: "Your plane touches down after hours in the air. You are exhausted, juggling luggage, and trying to figure out how to reach your hotel. The airport feels overwhelming with crowds pushing everywhere. You need reliable transport right now, not confusion and stress.",
+      introText2: "We solved this problem completely. Our airport taxi in Saudi Arab service meets you at arrivals and takes you straight to your destination with no haggling and waiting. Just clean vehicles, professional drivers, and fixed prices you can trust.",
+      whyTitle: "Why Choose Professional Airport Transfers?",
+      whyText: "Airport transfers in Jeddah and Madinah make or break your first impression of Saudi Arabia. Landing in an unfamiliar country, you need someone reliable waiting for you. Random taxi drivers at airports often overcharge tourists. They take longer routes. They argue about prices at the end.",
+      whyDetail1: "We eliminate all these problems. When you book with Haramain Umrah Taxi, your driver tracks your flight automatically. Delays do not matter. We adjust pickup times without you calling us. Your driver waits at arrivals holding a sign with your name clearly printed. You spot him immediately and walk straight to your vehicle.",
+      whyDetail2: "Our vehicles stay clean and comfortable always. Air conditioning works perfectly. Seats feel comfortable even after long rides. You relax completely knowing you paid a fair, fixed price upfront.",
+      jeddahTitle: "Jeddah Airport Taxi Service",
+      jeddahSub: "King Abdulaziz International Airport",
+      jeddahText: "King Abdulaziz International Airport Jeddah serves as the main gateway for international pilgrims. This massive airport handles millions of passengers yearly. You need expert navigation here. Our Jeddah airport taxi service operates from all terminals 24/7 throughout the year.",
+      jeddahTerminals: "Most international flights land at Terminal 1. Our drivers know this terminal intimately. They wait at the correct exit gates, saving you from wandering around confused. The taxi at King Abdul Aziz International Airport, Jeddah, pickup process takes just minutes from landing to sitting in your vehicle. We serve the North Terminal too, which handles budget airlines. The Hajj Terminal activates during pilgrimage seasons for dedicated Hajj flights. Regardless of which terminal you arrive at, we pick you up efficiently. Our drivers communicate with you via WhatsApp, confirming exact meeting points before your arrival.",
+      distanceTitle: "Distance and Travel Time from Jeddah Airport",
+      distanceText1: "The Jeddah airport to Makkah distance spans approximately 92.2 kilometers. This journey takes 60-90 minutes, depending on traffic conditions. We know the fastest routes at different times of day. Morning and late evening usually offer smoother traffic flow.",
+      distanceText2: "Our taxi from Jeddah airport to Makkah drivers monitor traffic apps constantly. They choose alternate routes, avoiding congestion when needed. You reach Makkah hotels faster than with drivers unfamiliar with the area. Time savings matter when you are eager to perform your first Umrah rituals.",
+      distanceText3: "The drive passes through modern highways with excellent road conditions. You see the landscape gradually change from coastal plains to mountainous terrain approaching Makkah. Our drivers point out landmarks, helping you orient yourself in your new environment.",
+      directTitle: "Jeddah Airport to Makkah Taxi - Direct Transfer",
+      directText1: "Jeddah airport to Makkah taxi represents our most popular route. Our taxi from Jeddah airport to Makkah service includes Miqat stops when needed. If you arrive without Ihram, we take you to the designated Miqat points. Our driver waits patiently while you prepare for Umrah properly.",
+      directText2: "He shows you the facilities and ensures you complete everything correctly. Families with elderly members or young children appreciate our patience and care. We help load luggage.",
+      pricingTitle: "Pricing for Jeddah to Makkah Transfer",
+      pricingDetail: "Our sedan service from Jeddah Airport to Makkah costs SAR 250 for up to 4 passengers. The luxury GMC costs SAR 450 and seats 7 passengers comfortably. Staria costs SAR 300, accommodating 7 passengers with more luggage space. Larger groups travel in our Hiace microbus (12 passengers) for SAR 400 or Coaster (18 passengers) for SAR 600. These prices include fuel, tolls, and all charges. You pay nothing extra at journey's end.",
+      returnTitle: "Makkah to Jeddah Airport Taxi - Return Service",
+      returnText1: "Makkah to Jeddah airport taxi handles your departure just as professionally. You tell us your flight time. We calculate the perfect pickup time, ensuring you reach the airport with adequate check-in time. International flights need an early arrival. We factor this automatically into our timing.",
+      returnText2: "Our driver arrives at your Makkah hotel 10 minutes early. He helps with luggage loading. The Mecca to Jeddah airport journey follows the same efficient route we use for arrivals. You reach the airport relaxed and on time, never rushing or panicking about missing flights.",
+      busTitle: "Bus Service vs Private Taxi",
+      busText1: "The Makkah to Jeddah airport bus option exists for budget travelers. Buses cost less but offer no flexibility. They follow fixed schedules. You must reach the bus station yourself and share space with many passengers. Luggage space is limited.",
+      busText2: "Our private taxi costs more but saves you significant stress and time. You leave when you want. You do not adjust your schedule to bus timings and travel directly from your hotel door to the airport terminal. The extra cost is worth the convenience, especially after completing your spiritual journey.",
+      madinahTitle: "Madinah Airport Taxi Service",
+      madinahSub: "Prince Mohammad Bin Abdulaziz Airport",
+      madinahText: "The Prince Mohammad bin Abdulaziz International Airport transfer connects you to the Prophet's city beautifully. This smaller airport feels less overwhelming than Jeddah. Our Madinah airport taxi service operates here with the same excellence you expect. The Mohammed bin Abdulaziz airport is situated outside the main city. You cannot walk to hotels from here. Reliable transport becomes essential. Our airport taxi in Madinah meets you at the single terminal building.",
+      nabawiTitle: "Madinah Airport to Masjid Nabawi Taxi",
+      nabawiText1: "The taxi from Madinah Airport to masjid nabawi represents a sacred journey for pilgrims. The distance spans approximately 20-22 kilometers. This drive takes 20-30 minutes, depending on traffic around the mosque. Our Madinah Airport to masjid nabawi taxi service takes you directly to hotels near the Prophet's Mosque.",
+      nabawiText2: "The area around Masjid Nabawi features numerous hotels at different price ranges. Our drivers know them all by name and location. You do not explain complicated directions. Your luggage stays safe in our locked vehicle. This flexibility shows our understanding of pilgrims' priorities.",
+      madinahBusTitle: "Madinah Airport Bus Fare",
+      madinahBusText: "The Madinah airport to masjid nabawi bus fare costs significantly less than private taxis. However, buses do not run frequently. You might wait 30-60 minutes for the next bus. After long flights, this waiting feels exhausting. Buses drop you at main stations, not at your specific hotel. You still need additional transport with your luggage. The total time and hassle often equal or exceed private taxi costs when calculated properly. Our service provides better value considering comfort and convenience.",
+      intercityTitle: "Jeddah Airport to Madinah Taxi - Intercity Transfer",
+      intercityText1: "Some pilgrims fly directly to Jeddah but want to visit Madinah first. The Jeddah airport to Madinah taxi handles this longer journey. The distance is approximately 416 kilometers. This drive takes 4-5 hours on excellent highways.",
+      intercityText2: "Our taxi from Jeddah airport to Madinah service uses comfortable vehicles perfect for long journeys. We provide rest stops at clean facilities along the way. You stretch your legs and use the bathroom. We never rush you during these breaks. The drive passes through changing landscapes showing Saudi Arabia's geographical diversity. Our drivers explain what you see, making the journey educational and interesting.",
+      conclusionTitle: "Your Sacred Journey Starts Here",
+      conclusionText: "Your sacred journey deserves smooth, reliable transportation from the moment you land. Whether you need an airport taxi in Jeddah or airport transfers in Madinah, we serve you with professionalism and respect. At Haramain Umrah Taxi, we have perfected airport transfer services through years of dedicated work. Our fixed prices, licensed drivers, and 24/7 availability make us the trusted choice for thousands of pilgrims.",
+      pricingNote: "All prices include fuel, tolls, and all charges. No hidden costs.",
+    },
   },
   ar: {
     common: {
@@ -259,9 +365,70 @@ const messages = {
       cityList: ["مكة", "المدينة", "جدة", "الرياض"],
     },
     nav: {
-      links: ["الخدمات", "الأسطول", "الأسعار", "الزيارات", "من نحن", "الأسئلة"],
       brandTop: "الحرمين",
       brandBottom: "عمرة تاكسي",
+      items: [
+        { label: "الرئيسية", href: "/" },
+        { 
+          label: "خدماتنا", 
+          children: [
+            {
+              label: "خدمات التاكسي",
+              items: [
+                { label: "خدمات تاكسي المطار", href: "/airport-taxi-services" },
+                { label: "خدمات تاكسي العمرة", href: "/umrah-taxi-services" },
+                { label: "تاكسي نقل الفنادق", href: "/hotel-transfers-taxi" },
+                { label: "خدمة التاكسي الخاص", href: "/private-taxi-services" }
+              ]
+            },
+            {
+              label: "خدماتنا الأخرى",
+              items: [
+                { label: "خدمة الدم", href: "/damm-services" },
+                { label: "الفدية والكفارة", href: "/fidyah-and-kaffarah" },
+                { label: "بدل الحج والعمرة", href: "/hajj-and-umrah-badal" },
+                { label: "خدمات الأضحية", href: "/qurbani-services" },
+                { label: "خدمات وقف القرآن", href: "/quran-waqf-services" },
+                { label: "خدمات دليل العمرة", href: "/umrah-guider-services" },
+                { label: "خدمات توزيع التمر", href: "/dates-distribution-services" },
+                { label: "خدمات توزيع الطعام", href: "/food-package-distribution" },
+                { label: "خدمات توزيع الماء", href: "/water-distribution-services" },
+                { label: "دليل العمرة و PDF", href: "/umrah-guide-and-pdf" }
+              ]
+            },
+            {
+              label: "حجز الفنادق",
+              items: [
+                { label: "حجز فنادق مكة", href: "/hotel-booking-makkah" },
+                { label: "حجز فنادق المدينة", href: "/hotel-booking-madinah" }
+              ]
+            }
+          ]
+        },
+        {
+          label: "أسطولنا ومساراتنا",
+          children: [
+            { label: "سيدان", href: "/sedan-sonata-taxi" },
+            { label: "ميني فان", href: "/hyundai-minivan-staria" },
+            { label: "جي إم سي", href: "/gmc-yukon-xl" },
+            { label: "هايس ميكروباص", href: "/toyota-hiace-or-hiroof-2" },
+            { label: "كوستر", href: "/coaster" },
+            { label: "حافلة", href: "/bus" }
+          ]
+        },
+        { label: "أسعار خدمات التاكسي", href: "/our-taxi-services-pricing" },
+        {
+          label: "المسارات",
+          children: [
+            { label: "مكة إلى المدينة", href: "/makkah-to-madinah" },
+            { label: "المدينة إلى مكة", href: "/madinah-to-makkah" },
+            { label: "مطار جدة إلى مكة", href: "/jeddah-airport-to-makkah" },
+            { label: "مكة إلى جدة", href: "/makkah-to-jeddah" },
+            { label: "مطار المدينة إلى الفنادق", href: "/madinah-aiport-to-hotels" }
+          ]
+        },
+        { label: "احجز الآن", href: "https://wa.me/966598401594" }
+      ]
     },
     hero: {
       badge: "خدمة عمرة تاكسي موثوقة",
@@ -399,9 +566,70 @@ const messages = {
       cityList: ["Makkah", "Madinah", "Jeddah", "Riyadh"],
     },
     nav: {
-      links: ["Layanan", "Armada", "Harga", "Ziarah", "Tentang", "FAQ"],
       brandTop: "Haramain",
       brandBottom: "Umrah Taxi",
+      items: [
+        { label: "Beranda", href: "/" },
+        { 
+          label: "Layanan Kami", 
+          children: [
+            {
+              label: "Layanan Taksi Kami",
+              items: [
+                { label: "Layanan Taksi Bandara", href: "/airport-taxi-services" },
+                { label: "Layanan Taksi Umrah", href: "/umrah-taxi-services" },
+                { label: "Taksi Transfer Hotel", href: "/hotel-transfers-taxi" },
+                { label: "Layanan Taksi Pribadi", href: "/private-taxi-services" }
+              ]
+            },
+            {
+              label: "Layanan Lainnya",
+              items: [
+                { label: "Layanan Damm", href: "/damm-services" },
+                { label: "Fidyah & Kaffarah", href: "/fidyah-and-kaffarah" },
+                { label: "Badal Haji & Umrah", href: "/hajj-and-umrah-badal" },
+                { label: "Layanan Qurbani", href: "/qurbani-services" },
+                { label: "Layanan Waqaf Quran", href: "/quran-waqf-services" },
+                { label: "Layanan Pemandu Umrah", href: "/umrah-guider-services" },
+                { label: "Layanan Distribusi Kurma", href: "/dates-distribution-services" },
+                { label: "Layanan Distribusi Makanan", href: "/food-package-distribution" },
+                { label: "Layanan Distribusi Air", href: "/water-distribution-services" },
+                { label: "Panduan Umrah & PDF", href: "/umrah-guide-and-pdf" }
+              ]
+            },
+            {
+              label: "Pemesanan Hotel",
+              items: [
+                { label: "Pemesanan Hotel Makkah", href: "/hotel-booking-makkah" },
+                { label: "Pemesanan Hotel Madinah", href: "/hotel-booking-madinah" }
+              ]
+            }
+          ]
+        },
+        {
+          label: "Armada & Rute Kami",
+          children: [
+            { label: "Sedan", href: "/sedan-sonata-taxi" },
+            { label: "Minivan", href: "/hyundai-minivan-staria" },
+            { label: "GMC", href: "/gmc-yukon-xl" },
+            { label: "Hiace Microbus", href: "/toyota-hiace-or-hiroof-2" },
+            { label: "Coaster", href: "/coaster" },
+            { label: "Bus", href: "/bus" }
+          ]
+        },
+        { label: "Harga Layanan Taksi", href: "/our-taxi-services-pricing" },
+        {
+          label: "Rute",
+          children: [
+            { label: "Makkah ke Madinah", href: "/makkah-to-madinah" },
+            { label: "Madinah ke Makkah", href: "/madinah-to-makkah" },
+            { label: "Bandara Jeddah ke Makkah", href: "/jeddah-airport-to-makkah" },
+            { label: "Makkah ke Jeddah", href: "/makkah-to-jeddah" },
+            { label: "Bandara Madinah ke Hotel", href: "/madinah-aiport-to-hotels" }
+          ]
+        },
+        { label: "Pesan Sekarang", href: "https://wa.me/966598401594" }
+      ]
     },
     hero: {
       badge: "Layanan Taksi Umrah Terpercaya",
@@ -535,9 +763,70 @@ const messages = {
       cityList: ["Makkah", "Madinah", "Jeddah", "Riyadh"],
     },
     nav: {
-      links: ["Perkhidmatan", "Armada", "Harga", "Ziarah", "Tentang", "FAQ"],
       brandTop: "Haramain",
       brandBottom: "Umrah Taxi",
+      items: [
+        { label: "Utama", href: "/" },
+        { 
+          label: "Perkhidmatan Kami", 
+          children: [
+            {
+              label: "Perkhidmatan Teksi",
+              items: [
+                { label: "Teksi Lapangan Terbang", href: "/airport-taxi-services" },
+                { label: "Teksi Umrah", href: "/umrah-taxi-services" },
+                { label: "Teksi Transfer Hotel", href: "/hotel-transfers-taxi" },
+                { label: "Perkhidmatan Teksi Persendirian", href: "/private-taxi-services" }
+              ]
+            },
+            {
+              label: "Perkhidmatan Lain",
+              items: [
+                { label: "Perkhidmatan Damm", href: "/damm-services" },
+                { label: "Fidyah & Kaffarah", href: "/fidyah-and-kaffarah" },
+                { label: "Badal Haji & Umrah", href: "/hajj-and-umrah-badal" },
+                { label: "Perkhidmatan Qurbani", href: "/qurbani-services" },
+                { label: "Perkhidmatan Waqaf Quran", href: "/quran-waqf-services" },
+                { label: "Perkhidmatan Pemandu Umrah", href: "/umrah-guider-services" },
+                { label: "Perkhidmatan Pengagihan Kurma", href: "/dates-distribution-services" },
+                { label: "Perkhidmatan Pengagihan Makanan", href: "/food-package-distribution" },
+                { label: "Perkhidmatan Pengagihan Air", href: "/water-distribution-services" },
+                { label: "Panduan Umrah & PDF", href: "/umrah-guide-and-pdf" }
+              ]
+            },
+            {
+              label: "Tempah Hotel",
+              items: [
+                { label: "Tempah Hotel Makkah", href: "/hotel-booking-makkah" },
+                { label: "Tempah Hotel Madinah", href: "/hotel-booking-madinah" }
+              ]
+            }
+          ]
+        },
+        {
+          label: "Armada & Laluan Kami",
+          children: [
+            { label: "Sedan", href: "/sedan-sonata-taxi" },
+            { label: "Minivan", href: "/hyundai-minivan-staria" },
+            { label: "GMC", href: "/gmc-yukon-xl" },
+            { label: "Hiace Microbus", href: "/toyota-hiace-or-hiroof-2" },
+            { label: "Coaster", href: "/coaster" },
+            { label: "Bus", href: "/bus" }
+          ]
+        },
+        { label: "Harga Teksi", href: "/our-taxi-services-pricing" },
+        {
+          label: "Laluan",
+          children: [
+            { label: "Makkah ke Madinah", href: "/makkah-to-madinah" },
+            { label: "Madinah ke Makkah", href: "/madinah-to-makkah" },
+            { label: "Lapangan Terbang Jeddah ke Makkah", href: "/jeddah-airport-to-makkah" },
+            { label: "Makkah ke Jeddah", href: "/makkah-to-jeddah" },
+            { label: "Lapangan Terbang Madinah ke Hotel", href: "/madinah-aiport-to-hotels" }
+          ]
+        },
+        { label: "Tempah Sekarang", href: "https://wa.me/966598401594" }
+      ]
     },
     hero: {
       badge: "Perkhidmatan Teksi Umrah Dipercayai",

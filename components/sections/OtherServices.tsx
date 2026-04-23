@@ -10,25 +10,29 @@ export function OtherServices() {
       title: "Damm Service",
       desc: "Professional sacrifice services are performed according to Islamic guidelines on your behalf in the Holy Cities of Makkah and Madinah.",
       icon: Heart,
-      color: "var(--green)"
+      color: "var(--green)",
+      href: "/damm-services"
     },
     {
       title: "Umrah and Hajj Badal",
       desc: "Perform Umrah or Hajj through our qualified and experienced representatives when you are unable to travel yourself.",
       icon: Users,
-      color: "var(--gold)"
+      color: "var(--gold)",
+      href: "/hajj-and-umrah-badal"
     },
     {
       title: "Quran Waqaf",
       desc: "Donate and distribute beautiful copies of the Holy Quran as an ongoing charity for your loved ones or the deceased.",
       icon: BookOpen,
-      color: "var(--green)"
+      color: "var(--green)",
+      href: "/quran-waqf-services"
     },
     {
       title: "Umrah Guide",
       desc: "Complete step-by-step guidance and support services to ensure your Umrah journey is spiritually fulfilling.",
       icon: BookOpen,
-      color: "var(--gold)"
+      color: "var(--gold)",
+      href: "/umrah-guider-services"
     }
   ];
 
@@ -59,7 +63,7 @@ export function OtherServices() {
                 {service.desc}
               </p>
               
-              <a href="#" className="inline-flex items-center text-[var(--gold)] font-body font-semibold hover:text-[#8A7020] transition-colors mt-auto">
+              <a href={service.href} className="inline-flex items-center text-[var(--gold)] font-body font-semibold hover:text-[#8A7020] transition-colors mt-auto">
                 Learn More <ArrowRight size={16} className="ml-2" />
               </a>
             </BorderTraceCard>

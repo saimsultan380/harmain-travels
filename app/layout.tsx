@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Quicksand, Poppins } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { I18nProvider } from "@/lib/i18n";
+import { Canonical } from "@/components/SEO/Canonical";
 import "./globals.css";
 
 const quicksand = Quicksand({
@@ -39,9 +40,10 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${quicksand.variable} ${poppins.variable} h-full antialiased scroll-smooth overflow-x-hidden`}
+      className={`${quicksand.variable} ${poppins.variable} antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col overflow-x-hidden font-body bg-[var(--bg)] text-[var(--text-1)]" suppressHydrationWarning>
+      <body className="min-h-screen flex flex-col overflow-x-hidden font-body bg-[var(--bg)] text-[var(--text-1)]" suppressHydrationWarning>
+        <Canonical />
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <I18nProvider>{children}</I18nProvider>
         </ThemeProvider>

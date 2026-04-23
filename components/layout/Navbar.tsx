@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MoonCrescentIcon } from "@/components/graphics/MoonCrescentIcon";
 import { FacebookIcon, InstagramIcon, LinkedinIcon } from "@/components/graphics/SocialIcons";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { useI18n } from "@/lib/i18n";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight, Phone } from "lucide-react";
 import Link from "next/link";
 
 const WhatsAppIcon = ({ size = 20, className = "" }: { size?: number; className?: string }) => (
@@ -23,10 +23,23 @@ const WhatsAppIcon = ({ size = 20, className = "" }: { size?: number; className?
   </svg>
 );
 
+interface NavItem {
+  label: string;
+  href?: string;
+  children?: {
+    label: string;
+    items?: { label: string; href: string }[];
+    href?: string;
+  }[];
+}
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [hoveredChild, setHoveredChild] = useState<string | null>(null);
   const { t, tm } = useI18n();
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,156 +57,336 @@ export function Navbar() {
     };
   }, [mobileMenuOpen]);
 
-  const links = (tm<string[]>("nav.links", ["Services", "Fleet", "Pricing", "Ziyarat", "About", "FAQ"])).map((name, idx) => ({
-    name,
-    href: ["#services", "#fleet", "#pricing", "#ziyarat", "#about", "#faq"][idx] ?? "#",
-  }));
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setActiveDropdown(null);
+        setHoveredChild(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const navItems = tm<NavItem[]>("nav.items", []);
 
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? "bg-[var(--bg)]/80 backdrop-blur-md border-b border-[var(--gold)]/30 py-3 shadow-sm" 
-          : "bg-transparent py-5"
+          ? "bg-[var(--bg)]/90 backdrop-blur-md border-b border-[var(--gold)]/20 py-2 shadow-lg" 
+          : "bg-[var(--bg)] py-3 md:py-4 border-b border-[var(--border)]"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between px-3 sm:px-4 lg:px-8">
-        
-        {/* Logo */}
-        <Link href="/" className="group flex items-center gap-2 sm:gap-3">
-          <MoonCrescentIcon size={32} className="sm:w-9 sm:h-9" />
-          <div className="hidden flex-col sm:flex">
-            <span className="font-heading font-extrabold text-[var(--gold)] text-xl leading-none tracking-tight">Haramain</span>
-            <span className="font-body font-semibold text-[var(--green)] text-[11px] uppercase tracking-widest mt-1">{t("nav.brandBottom")}</span>
+      <div className="container mx-auto px-4 lg:px-8">
+        <div className="flex items-center justify-between">
+          
+          {/* Logo */}
+          <Link href="/" className="group flex items-center gap-2 sm:gap-3">
+            <MoonCrescentIcon size={32} className="sm:w-10 sm:h-10 transition-transform group-hover:scale-110 text-[var(--gold)]" />
+            <div className="flex flex-col">
+              <span className="font-heading font-extrabold text-xl leading-none tracking-tight text-[var(--text-1)]">Haramain</span>
+              <span className="font-body font-semibold text-[10px] uppercase tracking-[0.2em] mt-1 text-[var(--green)]">
+                {t("nav.brandBottom")}
+              </span>
+            </div>
+          </Link>
+
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-1">
+            {navItems.map((item) => (
+              <div 
+                key={item.label} 
+                className="relative group p-1"
+                onMouseEnter={() => {
+                  setActiveDropdown(item.label);
+                  if (item.children && item.children.length > 0) {
+                    setHoveredChild(item.children[0].label);
+                  }
+                }}
+                onMouseLeave={() => {
+                  setActiveDropdown(null);
+                  setHoveredChild(null);
+                }}
+              >
+                {item.href ? (
+                  <Link 
+                    href={item.href}
+                    className="px-3 py-2 flex items-center gap-1.5 font-body font-semibold text-sm transition-all rounded-lg text-[var(--text-1)] hover:bg-[var(--gold-soft)] hover:text-[var(--gold)]"
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <button 
+                    className="px-3 py-2 flex items-center gap-1.5 font-body font-semibold text-sm transition-all rounded-lg text-[var(--text-1)] hover:bg-[var(--gold-soft)] hover:text-[var(--gold)]"
+                  >
+                    {item.label}
+                    <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === item.label ? "rotate-180" : ""}`} />
+                  </button>
+                )}
+
+                {/* Submenu - Smart Side Hover */}
+                <AnimatePresence>
+                  {item.children && activeDropdown === item.label && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      className="absolute left-0 top-full mt-1 bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl shadow-2xl overflow-hidden"
+                    >
+                      {/* Check if all children are direct links (no sub-items) */}
+                      {item.children.every(child => !child.items) ? (
+                        /* Simple single-column list for direct links */
+                        <div className="p-2 min-w-[200px]">
+                          {item.children.map((child) => (
+                            child.href ? (
+                              <Link
+                                key={child.label}
+                                href={child.href}
+                                className="block px-4 py-3 text-sm font-semibold text-[var(--text-1)] hover:text-[var(--gold)] hover:bg-[var(--gold-soft)] rounded-xl transition-all"
+                              >
+                                {child.label}
+                              </Link>
+                            ) : null
+                          ))}
+                        </div>
+                      ) : (
+                        /* Complex two-panel layout for categories with sub-items */
+                        <div className="flex min-w-[600px]">
+                          {/* Sidebar (Categories) */}
+                          <div className="w-[260px] bg-[var(--bg-alt)]/50 border-r border-[var(--border)] p-2">
+                            {item.children.map((child) => (
+                              <div 
+                                key={child.label}
+                                onMouseEnter={() => setHoveredChild(child.label)}
+                                className="relative"
+                              >
+                                {child.href && !child.items ? (
+                                  <Link
+                                    href={child.href}
+                                    className={`flex items-center justify-between w-full px-4 py-3 text-sm font-semibold rounded-xl transition-all ${
+                                      hoveredChild === child.label 
+                                        ? "bg-[var(--gold)] text-white shadow-md" 
+                                        : "text-[var(--text-1)] hover:bg-[var(--bg)]"
+                                    }`}
+                                  >
+                                    {child.label}
+                                  </Link>
+                                ) : (
+                                  <div
+                                    className={`flex items-center justify-between w-full px-4 py-3 text-sm font-semibold rounded-xl transition-all cursor-default ${
+                                      hoveredChild === child.label 
+                                        ? "bg-[var(--gold)] text-white shadow-md" 
+                                        : "text-[var(--text-1)] hover:bg-[var(--bg)]"
+                                    }`}
+                                  >
+                                    {child.label}
+                                    {child.items && <ChevronRight size={14} className={hoveredChild === child.label ? "opacity-100" : "opacity-30"} />}
+                                  </div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Content Panel (Sub-items) */}
+                          <div className="flex-1 p-6 bg-[var(--bg-card)]">
+                            <AnimatePresence mode="wait">
+                              {item.children.map((child) => 
+                                hoveredChild === child.label && child.items ? (
+                                  <motion.div
+                                    key={child.label}
+                                    initial={{ opacity: 0, x: 10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: -10 }}
+                                    transition={{ duration: 0.2 }}
+                                    className="h-full"
+                                  >
+                                    <h4 className="text-[var(--gold)] font-heading font-bold text-[10px] uppercase tracking-[0.2em] mb-4 pb-2 border-b border-[var(--gold)]/10">
+                                      {child.label}
+                                    </h4>
+                                    <div className="grid grid-cols-1 gap-1">
+                                      {child.items.map((subItem) => (
+                                        <Link
+                                          key={subItem.label}
+                                          href={subItem.href}
+                                          className="group/item flex items-center justify-between px-4 py-2.5 rounded-xl text-sm text-[var(--text-2)] hover:text-[var(--gold)] hover:bg-[var(--gold-soft)] transition-all"
+                                        >
+                                          <span>{subItem.label}</span>
+                                          <div className="w-6 h-6 rounded-lg bg-[var(--gold)]/0 group-hover/item:bg-[var(--gold)]/10 flex items-center justify-center transition-all">
+                                            <ChevronRight size={12} className="opacity-0 group-hover/item:opacity-100 transition-all" />
+                                          </div>
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  </motion.div>
+                                ) : null
+                              )}
+                            </AnimatePresence>
+                            
+                            {/* Placeholder if no items */}
+                            {item.children.find(c => c.label === hoveredChild && !c.items) && (
+                              <div className="h-full flex flex-col items-center justify-center text-center opacity-40">
+                                <MoonCrescentIcon size={48} className="text-[var(--gold)] mb-4" />
+                                <p className="text-xs font-body italic">Direct Link Category</p>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      )}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </nav>
+
+          {/* Actions */}
+          <div className="hidden lg:flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <LanguageSwitcher />
+              <ThemeToggle />
+            </div>
           </div>
-        </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {links.map((link) => (
-            <Link 
-              key={link.name} 
-              href={link.href}
-              className={`relative font-body font-medium hover:text-[var(--gold)] transition-colors group py-2 ${scrolled ? "text-[var(--text-1)]" : "text-white"}`}
+          {/* Mobile Menu Toggle */}
+          <div className="flex lg:hidden items-center gap-3">
+            <LanguageSwitcher />
+            <ThemeToggle />
+            <button 
+              onClick={() => setMobileMenuOpen(true)}
+              className="rounded-xl p-2.5 border border-[var(--border)] text-[var(--text-1)] hover:bg-[var(--bg-alt)] transition-all"
             >
-              {link.name}
-              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[var(--gold)] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
-            </Link>
-          ))}
-        </nav>
-
-        {/* Actions */}
-        <div className="hidden md:flex items-center gap-4">
-          <LanguageSwitcher />
-          <ThemeToggle />
-          <a 
-            href="https://wa.me/966598401594" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-2.5 bg-[var(--green)] text-white font-body font-semibold rounded-lg hover:bg-[#006633] transition-colors shadow-md shadow-[var(--green-soft)]"
-          >
-            <WhatsAppIcon size={18} />
-            {t("common.whatsapp")}
-          </a>
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        <div className="flex md:hidden items-center gap-2">
-          <LanguageSwitcher />
-          <ThemeToggle />
-          <button 
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`rounded-md p-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)] ${scrolled ? "text-[var(--text-1)]" : "text-white"}`}
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+              <Menu size={24} />
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <div className="md:hidden">
-            <motion.button
-              type="button"
-              aria-label="Close mobile menu"
+          <div className="fixed inset-0 z-[60] lg:hidden">
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-black/45 backdrop-blur-[1px]"
               onClick={() => setMobileMenuOpen(false)}
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
             />
-
+            
             <motion.div
-              initial={{ x: "-100%" }}
+              initial={{ x: "100%" }}
               animate={{ x: 0 }}
-              exit={{ x: "-100%" }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className="fixed left-0 top-0 z-50 h-dvh w-[86%] max-w-[340px] overflow-y-auto border-r border-[var(--border)] bg-[var(--bg-card)] p-5 shadow-2xl"
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="absolute right-0 top-0 h-full w-[85%] max-w-[400px] bg-[var(--bg)] shadow-2xl flex flex-col"
             >
-              <div className="mb-6 flex items-center justify-between">
+              <div className="p-6 flex items-center justify-between border-b border-[var(--border)] bg-[var(--bg-alt)]/50">
                 <Link href="/" className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
-                  <MoonCrescentIcon size={28} />
-                  <span className="font-heading font-bold text-lg text-[var(--text-1)]">Haramain</span>
+                  <MoonCrescentIcon size={32} className="text-[var(--gold)]" />
+                  <span className="font-heading font-bold text-xl text-[var(--text-1)]">Haramain</span>
                 </Link>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="rounded-md border border-[var(--border)] p-2 text-[var(--text-1)]"
-                  aria-label="Close menu"
+                  className="rounded-xl border border-[var(--border)] p-2 text-[var(--text-1)] hover:bg-[var(--bg-card)] transition-colors"
                 >
-                  <X size={22} />
+                  <X size={24} />
                 </button>
               </div>
 
-              <div className="flex flex-col gap-2">
-                {links.map((link, i) => (
-                  <motion.div
-                    key={link.name}
-                    initial={{ opacity: 0, x: -16 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05 + 0.05 }}
-                  >
-                    <Link
-                      href={link.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="block rounded-lg border border-transparent px-3 py-2.5 font-heading font-semibold text-lg text-[var(--text-1)] transition-colors hover:border-[var(--border)] hover:bg-[var(--bg-alt)]"
-                    >
-                      {link.name}
-                    </Link>
-                  </motion.div>
-                ))}
+              <div className="flex-grow overflow-y-auto p-4 custom-scrollbar">
+                <div className="flex flex-col gap-2">
+                  {navItems.map((item, i) => (
+                    <div key={item.label} className="flex flex-col">
+                      {item.href ? (
+                        <Link
+                          href={item.href}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex items-center justify-between rounded-xl px-4 py-3.5 font-heading font-semibold text-lg text-[var(--text-1)] hover:bg-[var(--bg-alt)] transition-colors"
+                        >
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <div className="flex flex-col">
+                          <button
+                            onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
+                            className={`flex items-center justify-between rounded-xl px-4 py-3.5 font-heading font-semibold text-lg text-[var(--text-1)] transition-colors ${activeDropdown === item.label ? "bg-[var(--gold-soft)] text-[var(--gold)]" : "hover:bg-[var(--bg-alt)]"}`}
+                          >
+                            {item.label}
+                            <ChevronDown size={20} className={`transition-transform duration-300 ${activeDropdown === item.label ? "rotate-180" : ""}`} />
+                          </button>
+                          
+                          <AnimatePresence>
+                            {activeDropdown === item.label && item.children && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                className="overflow-hidden bg-[var(--bg-alt)]/50 rounded-xl mt-1 ml-2"
+                              >
+                                {item.children.map((child) => (
+                                  <div key={child.label} className="p-2">
+                                    {child.items ? (
+                                      <div className="flex flex-col gap-1">
+                                        <div className="px-3 py-1 text-[var(--green)] font-heading font-bold text-[10px] uppercase tracking-widest bg-[var(--green-soft)] rounded-md w-fit mb-1">
+                                          {child.label}
+                                        </div>
+                                        {child.items.map((sub) => (
+                                          <Link
+                                            key={sub.label}
+                                            href={sub.href}
+                                            onClick={() => setMobileMenuOpen(false)}
+                                            className="block px-4 py-2 text-sm font-medium text-[var(--text-2)] hover:text-[var(--gold)] border-l-2 border-transparent hover:border-[var(--gold)] transition-all"
+                                          >
+                                            {sub.label}
+                                          </Link>
+                                        ))}
+                                      </div>
+                                    ) : child.href ? (
+                                      <Link
+                                        href={child.href}
+                                        onClick={() => setMobileMenuOpen(false)}
+                                        className="block px-4 py-2 font-semibold text-[var(--text-1)] hover:text-[var(--gold)]"
+                                      >
+                                        {child.label}
+                                      </Link>
+                                    ) : null}
+                                  </div>
+                                ))}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              <motion.a
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                href="https://wa.me/966598401594"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-[var(--green)] px-5 py-3 font-body font-semibold text-white"
-              >
-                <WhatsAppIcon size={20} />
-                {t("common.bookOnWhatsApp")}
-              </motion.a>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-                className="mt-6 flex items-center gap-6 border-t border-[var(--border)] pt-5"
-              >
-                <a href="https://www.facebook.com/haramainumrahtaxii" target="_blank" rel="noopener noreferrer" className="text-[var(--text-2)] hover:text-[#1877F2] transition-colors">
-                  <FacebookIcon size={24} />
+              <div className="p-6 border-t border-[var(--border)] bg-[var(--bg-alt)]/30">
+                <a
+                  href="https://wa.me/966598401594"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex w-full items-center justify-center gap-3 rounded-2xl bg-[var(--green)] px-5 py-4 font-body font-bold text-white shadow-xl shadow-green-900/10 active:scale-95 transition-transform"
+                >
+                  <WhatsAppIcon size={24} />
+                  <span>{t("common.bookOnWhatsApp")}</span>
                 </a>
-                <a href="https://www.instagram.com/haramainumrah_taxi/" target="_blank" rel="noopener noreferrer" className="text-[var(--text-2)] hover:text-[#E4405F] transition-colors">
-                  <InstagramIcon size={24} />
-                </a>
-                <a href="https://www.linkedin.com/company/haramain-umrah-taxi" target="_blank" rel="noopener noreferrer" className="text-[var(--text-2)] hover:text-[#0A66C2] transition-colors">
-                  <LinkedinIcon size={24} />
-                </a>
-              </motion.div>
+                
+                <div className="mt-8 flex items-center justify-center gap-6">
+                  <a href="https://www.facebook.com/haramainumrahtaxii" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full flex items-center justify-center bg-[var(--bg-card)] border border-[var(--border)] text-[var(--text-2)] hover:text-[#1877F2] shadow-sm transition-all">
+                    <FacebookIcon size={22} />
+                  </a>
+                  <a href="https://www.instagram.com/haramainumrah_taxi/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full flex items-center justify-center bg-[var(--bg-card)] border border-[var(--border)] text-[var(--text-2)] hover:text-[#E4405F] shadow-sm transition-all">
+                    <InstagramIcon size={22} />
+                  </a>
+                  <a href="https://www.linkedin.com/company/haramain-umrah-taxi" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full flex items-center justify-center bg-[var(--bg-card)] border border-[var(--border)] text-[var(--text-2)] hover:text-[#0A66C2] shadow-sm transition-all">
+                    <LinkedinIcon size={22} />
+                  </a>
+                </div>
+              </div>
             </motion.div>
           </div>
         )}

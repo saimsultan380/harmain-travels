@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { BookOpen, Users, Heart, ArrowRight, Building, FileText } from "lucide-react";
+import { BookOpen, Users, Heart, ArrowRight, Building, FileText, Package, Utensils } from "lucide-react";
 import { BorderTraceCard } from "@/components/ui/BorderTraceCard";
 
 export function OtherServices() {
@@ -47,6 +47,20 @@ export function OtherServices() {
       icon: Building,
       color: "var(--gold)",
       href: "/hotel-booking-madinah"
+    },
+    {
+      title: "Qurbani Services",
+      desc: "Perform your Qurbani sacrifice during Hajj or Eid according to Islamic guidelines with proper distribution to the needy.",
+      icon: Package,
+      color: "var(--green)",
+      href: "/qurbani-services"
+    },
+    {
+      title: "Food Package Distribution",
+      desc: "Distribute food packages to pilgrims, fasting individuals, and needy families in the Holy Cities.",
+      icon: Utensils,
+      color: "var(--gold)",
+      href: "/food-package-distribution"
     }
   ];
 

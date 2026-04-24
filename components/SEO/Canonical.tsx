@@ -5,7 +5,7 @@ import Head from "next/head";
 
 export function Canonical() {
   const pathname = usePathname();
-  const siteUrl = "https://haramaintaxi.com"; // Adjust to actual domain
+  const siteUrl = "https://haramainumrahtaxi.com";
   const canonicalUrl = `${siteUrl}${pathname === "/" ? "" : pathname}`;
 
   return (

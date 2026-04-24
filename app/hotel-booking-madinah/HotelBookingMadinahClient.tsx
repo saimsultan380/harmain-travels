@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import type { ComponentType } from "react";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
@@ -73,33 +74,45 @@ function Card({
 }
 
 function HotelTable({ hotels, title }: { hotels: any[]; title: string }) {
+  const [selectedRowId, setSelectedRowId] = useState<string | null>(null);
+  
   return (
     <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 overflow-x-auto">
       <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-6">{title}</h3>
-      <table className="w-full min-w-[800px]">
+      <table className="w-full min-w-[800px] border-collapse">
         <thead>
-          <tr className="border-b border-[var(--border)]">
-            <th className="text-left py-4 px-4 text-[var(--text-1)] font-heading font-bold">Hotel Name</th>
-            <th className="text-center py-4 px-4 text-[var(--text-1)] font-heading font-bold">Stars</th>
-            <th className="text-center py-4 px-4 text-[var(--text-1)] font-heading font-bold">Rating</th>
-            <th className="text-center py-4 px-4 text-[var(--text-1)] font-heading font-bold">Distance</th>
-            <th className="text-left py-4 px-4 text-[var(--text-1)] font-heading font-bold">Location</th>
+          <tr>
+            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-left font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">Hotel Name</th>
+            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-center font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">Stars</th>
+            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-center font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">Rating</th>
+            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-center font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">Distance</th>
+            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-left font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">Location</th>
           </tr>
         </thead>
         <tbody>
           {hotels.map((hotel, index) => (
-            <tr key={index} className="border-b border-[var(--border)] last:border-0 hover:bg-[var(--bg-alt)]/30 transition-colors">
-              <td className="py-4 px-4 text-[var(--text-1)] font-body font-medium">{hotel.name}</td>
-              <td className="py-4 px-4 text-center">
+            <tr
+              key={index}
+              onClick={() => setSelectedRowId((prev: string | null) => (prev === hotel.name ? null : hotel.name))}
+              className={`cursor-pointer transition-colors ${
+                selectedRowId === hotel.name
+                  ? "bg-[var(--gold)]/15"
+                  : index % 2 === 0
+                    ? "bg-[var(--bg)]/40 hover:bg-[var(--green)]/10"
+                    : "bg-transparent hover:bg-[var(--green)]/10"
+              }`}
+            >
+              <td className="border border-[var(--border)] px-4 py-3 font-body text-sm font-semibold text-[var(--text-1)]">{hotel.name}</td>
+              <td className="border border-[var(--border)] px-4 py-3 text-center">
                 <div className="flex justify-center gap-1">
                   {[...Array(hotel.stars)].map((_, i) => (
                     <Star key={i} size={16} className="text-[var(--gold)] fill-[var(--gold)]" />
                   ))}
                 </div>
               </td>
-              <td className="py-4 px-4 text-center text-[var(--text-2)] font-body">{hotel.rating}</td>
-              <td className="py-4 px-4 text-center text-[var(--text-2)] font-body">{hotel.distance}</td>
-              <td className="py-4 px-4 text-[var(--text-2)] font-body">{hotel.location}</td>
+              <td className="border border-[var(--border)] px-4 py-3 text-center font-body text-sm text-[var(--text-2)]">{hotel.rating}</td>
+              <td className="border border-[var(--border)] px-4 py-3 text-center font-body text-sm text-[var(--text-2)]">{hotel.distance}</td>
+              <td className="border border-[var(--border)] px-4 py-3 font-body text-sm text-[var(--text-2)]">{hotel.location}</td>
             </tr>
           ))}
         </tbody>

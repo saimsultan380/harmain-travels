@@ -98,7 +98,8 @@ const messages = {
             { label: "Madinah Airport to Hotels", href: "/madinah-aiport-to-hotels" }
           ]
         },
-        { label: "Book Now", href: "https://wa.me/966598401594" }
+        { label: "Book Now", href: "https://wa.me/966598401594" },
+        { label: "Blog", href: "/blog" }
       ]
     },
     hero: {
@@ -427,7 +428,8 @@ const messages = {
             { label: "مطار المدينة إلى الفنادق", href: "/madinah-aiport-to-hotels" }
           ]
         },
-        { label: "احجز الآن", href: "https://wa.me/966598401594" }
+        { label: "احجز الآن", href: "https://wa.me/966598401594" },
+        { label: "المدونة", href: "/blog" }
       ]
     },
     hero: {
@@ -628,7 +630,8 @@ const messages = {
             { label: "Bandara Madinah ke Hotel", href: "/madinah-aiport-to-hotels" }
           ]
         },
-        { label: "Pesan Sekarang", href: "https://wa.me/966598401594" }
+        { label: "Pesan Sekarang", href: "https://wa.me/966598401594" },
+        { label: "Blog", href: "/blog" }
       ]
     },
     hero: {
@@ -825,7 +828,8 @@ const messages = {
             { label: "Lapangan Terbang Madinah ke Hotel", href: "/madinah-aiport-to-hotels" }
           ]
         },
-        { label: "Tempah Sekarang", href: "https://wa.me/966598401594" }
+        { label: "Tempah Sekarang", href: "https://wa.me/966598401594" },
+        { label: "Blog", href: "/blog" }
       ]
     },
     hero: {

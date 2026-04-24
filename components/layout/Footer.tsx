@@ -120,9 +120,10 @@ export function Footer() {
           <p className="text-[var(--text-3)] font-body text-sm">
             &copy; {new Date().getFullYear()} Haramain Umrah Taxi. All rights reserved.
           </p>
-          <p className="text-[var(--text-3)] font-body text-sm font-medium flex items-center gap-2">
-            Proudly serving pilgrims across Saudi Arabia <span className="text-[var(--green)]">🇸🇦</span>
-          </p>
+          <div className="flex items-center gap-6 text-[var(--text-3)] font-body text-sm">
+            <Link href="/privacy-policy" className="hover:text-[var(--gold)] transition-colors">Privacy Policy</Link>
+            <Link href="/terms-and-conditions" className="hover:text-[var(--gold)] transition-colors">Terms & Conditions</Link>
+          </div>
         </div>
       </div>
     </footer>

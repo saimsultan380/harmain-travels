@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Quicksand, Poppins } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { I18nProvider } from "@/lib/i18n";
-import { Canonical } from "@/components/SEO/Canonical";
 import "./globals.css";
 
 const quicksand = Quicksand({
@@ -29,6 +28,19 @@ export const metadata: Metadata = {
     "Haramain taxi",
     "Saudi Arabia taxi service",
   ],
+  openGraph: {
+    title: "Haramain Umrah Taxi — Premium Umrah Taxi Service",
+    description: "Your trusted Umrah taxi service across Makkah, Madinah & Jeddah. Fixed fares, licensed drivers, 24/7 availability.",
+    url: "https://haramainumrahtaxi.com",
+    siteName: "Haramain Umrah Taxi",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Haramain Umrah Taxi — Premium Umrah Taxi Service",
+    description: "Your trusted Umrah taxi service across Makkah, Madinah & Jeddah. Fixed fares, licensed drivers, 24/7 availability.",
+  },
 };
 
 export default function RootLayout({
@@ -43,7 +55,6 @@ export default function RootLayout({
       className={`${quicksand.variable} ${poppins.variable} antialiased scroll-smooth`}
     >
       <body className="min-h-screen flex flex-col overflow-x-hidden font-body bg-[var(--bg)] text-[var(--text-1)]" suppressHydrationWarning>
-        <Canonical />
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <I18nProvider>{children}</I18nProvider>
         </ThemeProvider>

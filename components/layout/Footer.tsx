@@ -9,7 +9,7 @@ export function Footer() {
   return (
     <footer className="bg-[var(--bg-card)] border-t-2 border-[var(--gold)] pt-16 pb-8">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           
           {/* Col 1: Brand */}
           <div>
@@ -68,20 +68,81 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Col 3: Cities */}
+          {/* Col 3: Our Fleets */}
           <div>
-            <h4 className="font-heading font-bold text-[var(--text-1)] text-lg mb-6">Cities We Cover</h4>
+            <h4 className="font-heading font-bold text-[var(--text-1)] text-lg mb-6">Our Fleets</h4>
             <ul className="space-y-4">
-              {['Makkah', 'Madinah', 'Jeddah', 'Taif', 'Badr', 'AlUla'].map((city, i) => (
-                <li key={i} className="flex items-center gap-2">
-                  <MapPin size={14} className="text-[var(--green)]" />
-                  <span className="text-[var(--text-2)] font-body text-sm">{city}</span>
-                </li>
-              ))}
+              <li>
+                <Link href="/sedan-sonata-taxi" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
+                  Sedan Sonata
+                </Link>
+              </li>
+              <li>
+                <Link href="/gmc-yukon-xl" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
+                  GMC Yukon XL
+                </Link>
+              </li>
+              <li>
+                <Link href="/toyota-hiace-or-hiroof-2" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
+                  Toyota Hiace
+                </Link>
+              </li>
+              <li>
+                <Link href="/hyundai-minivan-staria" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
+                  Hyundai Staria
+                </Link>
+              </li>
+              <li>
+                <Link href="/coaster" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
+                  Coaster Bus
+                </Link>
+              </li>
+              <li>
+                <Link href="/bus" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
+                  Luxury Bus
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Col 4: Contact */}
+          {/* Col 4: Routes */}
+          <div>
+            <h4 className="font-heading font-bold text-[var(--text-1)] text-lg mb-6">Routes</h4>
+            <ul className="space-y-4">
+              <li>
+                <Link href="/makkah-to-madinah" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
+                  Makkah to Madinah
+                </Link>
+              </li>
+              <li>
+                <Link href="/madinah-to-makkah" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
+                  Madinah to Makkah
+                </Link>
+              </li>
+              <li>
+                <Link href="/jeddah-airport-to-makkah" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
+                  Jeddah Airport to Makkah
+                </Link>
+              </li>
+              <li>
+                <Link href="/madinah-aiport-to-hotels" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
+                  Madinah Airport to Hotels
+                </Link>
+              </li>
+              <li>
+                <Link href="/makkah-to-jeddah" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
+                  Makkah to Jeddah
+                </Link>
+              </li>
+              <li>
+                <Link href="/hotel-transfers-taxi" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
+                  Hotel Transfers
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 5: Contact */}
           <div>
             <h4 className="font-heading font-bold text-[var(--text-1)] text-lg mb-6">Contact Us</h4>
             <ul className="space-y-4">

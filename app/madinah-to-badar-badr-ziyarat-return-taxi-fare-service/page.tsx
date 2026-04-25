@@ -5,6 +5,7 @@ import { Canonical } from "@/components/SEO/Canonical";
 import { Calendar, Clock, ArrowLeft, Share2 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
   title: "Madinah to Badar & Badr Ziyarat & Return Taxi Fare & Service - Haramain Umrah Taxi",
@@ -37,7 +38,7 @@ export default function BlogPostPage() {
             {/* Back Button */}
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-[var(--gold)] font-body font-semibold mb-8 hover:gap-3 transition-all"
+              className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />
               Back to Blog
@@ -46,7 +47,7 @@ export default function BlogPostPage() {
             {/* Article Container */}
             <article className="bg-[var(--bg)] border-2 border-t-[var(--gold)] border-b-[var(--green)] border-l-[var(--gold)] border-r-[var(--green)] rounded-2xl py-4 px-[10px] md:px-8 md:py-8 lg:px-12 lg:py-12 shadow-lg">
               {/* Category Badge */}
-              <span className="inline-block px-4 py-1.5 bg-[var(--gold)]/10 text-[var(--gold)] font-body text-sm font-semibold rounded-full mb-4">
+              <span className="inline-block px-4 py-1.5 bg-[var(--green)]/10 text-[var(--green)] font-body text-sm font-semibold rounded-full mb-4">
                 {post.categoryName}
               </span>
 
@@ -137,6 +138,8 @@ export default function BlogPostPage() {
                 
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">Book your Madinah to Badar taxi with Haramain Umrah Taxi and finish your ziyarat trip with comfort and tranquility.</p>
               </div>
+
+              <BlogNavigation currentPostId={post.id} />
 
               {/* Share Section */}
               <div className="mt-12 pt-8 border-t border-[var(--border)]">

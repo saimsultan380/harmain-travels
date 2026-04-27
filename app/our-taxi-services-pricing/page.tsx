@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { TaxiServicesPricingClient } from "./TaxiServicesPricingClient";
 
 export const metadata: Metadata = {
-  title: "Haramain Umrah Taxi Major Routes Pricing With Variety of Fleet Options",
+  title: "Haramain Umrah Taxi Services Pricing With Routes",
   description:
-    "View our comprehensive taxi pricing for all major routes in Saudi Arabia. Compare fares for Sedan, Minivan, GMC, Hiace, Coaster, and Bus across Makkah, Madinah, Jeddah, and more.",
+    "Haramain Umrah Taxi provides the best Taxi and Transport Services in Saudia, Makkah & Madinah. To Check Our Taxi Services Pricing with major routes, Click here!",
   keywords: [
     "Taxi pricing Saudi Arabia",
     "Umrah taxi fares",

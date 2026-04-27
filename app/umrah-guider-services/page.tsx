@@ -4,7 +4,7 @@ import { UmrahGuiderServicesClient } from "./UmrahGuiderServicesClient";
 export const metadata: Metadata = {
   title: "Umrah Guider| Umrah Guider Services in Makkah & Saudi Arab",
   description:
-    "Professional Umrah Guide services in Makkah and Saudi Arabia. Step-by-step ritual guidance, Ziyarat tours, religious counseling, and reliable transportation for a spiritually rewarding Umrah.",
+    "Need an Umrah Guider in Makkah? Our expert services ensure a smooth, enriching pilgrimage. Let us guide you through every step of your Umrah journey!",
   keywords: [
     "Umrah guide services",
     "Umrah guide in Makkah",

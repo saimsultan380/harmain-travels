@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { FidyahAndKaffarahClient } from "./FidyahAndKaffarahClient";
 
 export const metadata: Metadata = {
-  title: "Fidyah and Kaffarah Services| Meaning| Differences| Who Pays?",
+  title: "Fidyah and Kaffarah Services| Meaning| Differences| Who Pay?",
   description:
-    "Learn the meaning of Fidyah and Kaffarah, the differences between them, who pays each, and how Haramain Umrah Taxi can help you fulfill these obligations with a Shariah-compliant process.",
+    "We offer Fidyah and Kaffarah services by feeding the poor for your missed fasts (Fidyah) & by feeding 60 people or fasting for your broken fasts (Kaffarah)",
   keywords: [
     "Fidyah",
     "Kaffarah",

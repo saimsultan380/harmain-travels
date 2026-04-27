@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { QuranWaqfServicesClient } from "./QuranWaqfServicesClient";
 
 export const metadata: Metadata = {
-  title: "Quran Distribution Services and Waqaf Quran in Saudia & Makkah",
+  title: "Quran Distribution Services & Waqaf Quran in Saudia & Makkah",
   description:
-    "Donate Quran in Makkah and Madinah through our Quran distribution and Waqaf services. Authentic Mushaf Al-Madina with proof of placement and Sadaqah Jariyah.",
+    "Book Our Quran Distribution Services in Saudia & Makkah. Help share the Quran with those in need. Donate now to spread Quranic guidance and blessings!",
   keywords: [
     "Quran distribution in Saudi Arabia",
     "Waqaf Quran",

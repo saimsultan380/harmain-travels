@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { SedanSonataTaxiClient } from "./SedanSonataTaxiClient";
 
 export const metadata: Metadata = {
-  title: "Sedan Sonata Private Umrah Taxi or Car & Ziyarat Taxi in KSA: Call for Special Offers",
+  title: "Sedan Sonata (Camry) Taxi Services in Saudi Arab & Makkah",
   description:
-    "Book Hyundai Sonata private taxi for Umrah, Ziyarat, and airport transfers in KSA. Luxury sedan service in Makkah, Madinah, Jeddah with transparent fares and 24/7 availability.",
+    "Click to see Our routes, fares, and packages for Sedans Sonata (Camry) taxi in Makkah, Madina, Jeddah & Saudia. Book Ziyarat, Airport & Umrah Sonata taxi in KSA",
   keywords: [
     "Hyundai Sonata taxi",
     "Sedan taxi Saudi Arabia",

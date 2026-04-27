@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { QurbaniServicesClient } from "./QurbaniServicesClient";
 
 export const metadata: Metadata = {
-  title: "Qurbani| Sadaqah, Aqeeqah, Hajj Qurbani Services in  Makkah",
+  title: "Qurbani| Sadaqah, Aqeeqah, Hajj Qurbani Services in Makkah",
   description:
-    "Book Shariah-compliant Qurbani services in Makkah including Hajj Qurbani (Hady), Eid ul Adha, Aqeeqah, and Sadaqah. Verified process with proof.",
+    "We provide the best Qurbani Services in Makkah with proofs and transparency. We give Aqeeqah, Sadaqah, Eid ul Adha, Hady/Hajj Qurbani Services in Makkah",
   keywords: [
     "Qurbani services in Makkah",
     "Hajj Qurbani",

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { FoodPackageDistributionClient } from "./FoodPackageDistributionClient";
 
 export const metadata: Metadata = {
-  title: "Food Packages Distribution & Distributors Services in Saudi Arab",
+  title: "Food Packages Distribution & Distributors Services in Saudia",
   description:
-    "Reliable food package distribution services in Saudi Arabia. We deliver food parcels to needy people, families, and charities—with on-time delivery, volunteer assistance, and proof of distribution.",
+    "If you want to distribute food packages all over Saudi Arabia with transparency, you can avail our Food Package Distribution or Distributor Services. Contact Us",
   keywords: [
     "Food distribution services in Saudi Arabia",
     "Food package distribution",

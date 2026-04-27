@@ -15,8 +15,8 @@ import { FAQ } from "@/components/sections/FAQ";
 import { CTABanner } from "@/components/sections/CTABanner";
 
 export const metadata: Metadata = {
-  title: "Trusted Umrah Taxi Service Makkah & Madinah (24/7)",
-  description: "Fixed fares, licensed drivers, airport pickups & intercity transfers.",
+  title: "Haramain Umrah Taxi: Best Private Umrah Taxi Service Book",
+  description: "Haramain Umrah Taxi provides the best private umrah taxi services for families and pilgrims in Makkah & Madinah, Saudi Arabia. BOOK at Discounted Prices!",
   keywords: [
     "Umrah taxi",
     "Makkah taxi",

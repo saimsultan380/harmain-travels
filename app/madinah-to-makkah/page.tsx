@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { MadinahToMakkahClient } from "./MadinahToMakkahClient";
 
 export const metadata: Metadata = {
-  title: "Madinah to Makkah Taxi, Car, Bus | Madinah to Mecca Taxi Fare",
+  title: "Madinah to Makkah Taxi, Car, Bus| Madinah to Mecca Taxi Fare",
   description:
-    "Book reliable Madinah to Makkah taxi services with transparent fares. Choose from sedans, Staria, GMC, Coaster, Hiace, and buses for comfortable intercity travel between holy cities.",
+    "Haramain Umrah Taxi provides the best Madinah to Makkah taxi services. Our taxi fare from Madinah to Makkah is affordable with 24/7 availability. Call Now!",
   keywords: [
     "Madinah to Makkah taxi",
     "Madinah to Makkah fare",

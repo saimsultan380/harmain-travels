@@ -4,7 +4,7 @@ import { PrivateTaxiPageClient } from "./PrivateTaxiPageClient";
 export const metadata: Metadata = {
   title: "Private Taxi Services| Private Umrah Taxi Makkah & Madinah",
   description:
-    "Private Umrah taxi services for families in Makkah & Madinah. Enjoy exclusive vehicles, flexible stops, and stress-free airport and intercity transfers. Book on WhatsApp 24/7.",
+    "Book luxury 2-seater & 4-seater private umrah taxi service in Makkah and Madinah from Haramain Umrah Taxi. Get Discounted rates and offers! Limited TIme Offer",
   keywords: [
     "Private taxi services",
     "Private Umrah taxi",

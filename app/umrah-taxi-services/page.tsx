@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { UmrahTaxiPageClient } from "./UmrahTaxiPageClient";
 
 export const metadata: Metadata = {
-  title: "Online Umrah Taxi Services in Makkah & Madinah, Saudi Arabia",
-  description: "Book your Umrah taxi online in seconds. Safe, comfortable, and punctual taxi services across Makkah and Madinah. Fixed rates, licensed drivers, and 24/7 support.",
+  title: "Umrah Taxi Services in Makkah & Madinah, Saudi Arabia",
+  description: "Haramain Umrah Taxi offers best Umrah taxi services in Makkah & Madinah. Book private taxi for Umrah pilgrims with fixed rates & licensed drivers.",
   keywords: ["Umrah Taxi Services", "Makkah Taxi", "Madinah Taxi", "Online Umrah Taxi", "Umrah Transportation", "Haramain Umrah Taxi"],
   alternates: {
     canonical: "/umrah-taxi-services",

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { UmrahGuideAndPdfClient } from "./UmrahGuideAndPdfClient";
 
 export const metadata: Metadata = {
-  title: "Easy Umrah Guide & Steps|  PDF| Umrah Duas| Ihram Rules|",
+  title: "Easy Umrah Guide & Steps| PDF| Umrah Duas| Ihram Rules|",
   description:
-    "Complete step-by-step Umrah guide with PDF, duas, Ihram rules, and special precautions for men and women. Learn how to perform Umrah correctly with Arabic duas and English translations.",
+    "Click on link to get easy step-by-step Umrah Guide, it's PDF, Umrah Duas, Ihram Rules, Ziyarat Guide, Saee and Tawaf Dua & Guide, Do's and Don'ts of Umrah",
   keywords: [
     "Umrah guide",
     "Umrah steps",

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { MadinahAirportToHotelsClient } from "./MadinahAirportToHotelsClient";
 
 export const metadata: Metadata = {
-  title: "Madinah Airport to Hotel Taxi Services and Fares",
+  title: "Madinah Airport to Hotel Taxi Services and Fares: Book Now!",
   description:
-    "Book reliable Madinah Airport to hotel taxi services with transparent fixed fares. Choose from sedans, Staria, GMC, Coaster, Hiace, and buses for comfortable transfers to all Madinah hotels.",
+    "Get your Madinah Airport hotel taxi services starting from 170 SAR. We provide professional drivers and fixed rates. Book your ride online - available 24/7!",
   keywords: [
     "Madinah airport to hotel taxi",
     "Madinah airport to hotel fare",

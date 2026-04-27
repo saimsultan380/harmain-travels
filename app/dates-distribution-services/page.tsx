@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { DatesDistributionServicesClient } from "./DatesDistributionServicesClient";
 
 export const metadata: Metadata = {
-  title: "Khajoor & Dates Distribution Services in KSA Makkah & Madinah",
+  title: "Khajoor & Dates Distribution Services in KSA Makkah & Madina",
   description:
-    "Donate dates in Makkah and Madinah through our Khajoor distribution services. Sadaqah Jariyah with proof of distribution, especially during Ramadan for fasting pilgrims.",
+    "Looking for Khajoor & Dates Distribution Services in Makkah & Madinah? Trust Our Services as we ensure your generosity reaches those in need. Book Now!",
   keywords: [
     "Dates distribution in Makkah",
     "Khajoor distribution in Madinah",

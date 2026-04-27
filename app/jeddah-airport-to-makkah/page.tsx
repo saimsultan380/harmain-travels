@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { JeddahAirportToMakkahClient } from "./JeddahAirportToMakkahClient";
 
 export const metadata: Metadata = {
-  title: "Jeddah Airport to Makkah Taxi Services and Fares - Book Now",
+  title: "Jeddah Airport to Makkah Taxi Services and Fares: Book Now!",
   description:
-    "Book reliable Jeddah airport to Makkah taxi services with transparent fixed fares. Choose from sedans, Staria, GMC, Coaster, Hiace, and buses for comfortable airport transfers.",
+    "Get transparent Jeddah Airport to Makkah taxi services and fares on Haramain Umrah Taxi. We offer fixed pricing that starts from 250 SAR with online booking.",
   keywords: [
     "Jeddah airport to Makkah taxi",
     "Jeddah airport to Makkah fare",

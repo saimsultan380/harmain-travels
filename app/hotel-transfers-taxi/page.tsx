@@ -3,7 +3,7 @@ import { HotelTransfersClient } from "./HotelTransfersClient";
 
 export const metadata: Metadata = {
   title: "Hotel Transfer Services in Makkah, Madinah & Jeddah Book Now",
-  description: "Book smooth and comfortable hotel transfer taxi services in Makkah, Madinah, and Jeddah. We pick you up right at the airport and drop you at your hotel door.",
+  description: "Book reliable hotel transfer services in Makkah, Madinah & Jeddah. Haramain Umrah Taxi offer 24/7 airport to hotel taxi, professional drivers, fixed rates.",
   alternates: {
     canonical: "/hotel-transfers-taxi",
   }

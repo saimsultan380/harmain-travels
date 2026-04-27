@@ -4,7 +4,7 @@ import { HajjAndUmrahBadalClient } from "./HajjAndUmrahBadalClient";
 export const metadata: Metadata = {
   title: "Umrah & Hajj e Badal Services- We Perform Umrah/Hajj For You",
   description:
-    "Cannot travel for Umrah or Hajj? Our Umrah & Hajj e Badal services arrange a Shariah-compliant proxy pilgrimage performed with devotion on your behalf, with confirmation and documentation.",
+    "Umrah & Hajj e Badal means when another person performs Hajj or Umrah on behalf of someone else. We offer Umrah and Hajj Badal Services transparently",
   keywords: [
     "Umrah Badal",
     "Hajj Badal",

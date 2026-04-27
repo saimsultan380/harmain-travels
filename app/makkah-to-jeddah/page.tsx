@@ -4,7 +4,7 @@ import { MakkahToJeddahClient } from "./MakkahToJeddahClient";
 export const metadata: Metadata = {
   title: "Makkah to Jeddah Taxi, GMC, Bus & Fares: 24/7 Taxi Booking",
   description:
-    "Book reliable Makkah to Jeddah taxi services with transparent fixed fares. Choose from sedans, GMC, buses, and vans for comfortable transfers to Jeddah airport and city.",
+    "Book 24/7 Makkah to Jeddah taxi, GMC, or bus with ease. Your ride is just a call away with affordable fares, reliable service, luxury fleet and quick travel.",
   keywords: [
     "Makkah to Jeddah taxi",
     "Makkah to Jeddah fare",

@@ -4,7 +4,7 @@ import { DammServicesClient } from "./DammServicesClient";
 export const metadata: Metadata = {
   title: "Damm| What is Damm? How to Give/Pay Damm for Umrah & Hajj",
   description:
-    "Learn what Damm is in Hajj & Umrah, when it becomes obligatory, and how to give/pay Damm through a Shariah-compliant verified process in Makkah.",
+    "We provide economical Damm Services with transparency & proofs. Damm is sacrificial compensation required when rules are violated during Hajj or Umrah.",
   keywords: [
     "Damm",
     "What is Damm",

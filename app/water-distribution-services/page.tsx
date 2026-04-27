@@ -4,7 +4,7 @@ import { WaterDistributionServicesClient } from "./WaterDistributionServicesClie
 export const metadata: Metadata = {
   title: "Zamzam Water & Water Bottles Distribution Services in Saudia",
   description:
-    "Reliable Zamzam water and drinking water distribution services in Saudi Arabia. Delivery in Makkah, Madinah, Riyadh—with charitable options, proof of distribution, and Ramadan special services.",
+    "We provide Zamzam water, water bottles & gallons distribution services in Makkah, Madinah, Haram, and Saudi Arab with proper transparency. Visit & Book!",
   keywords: [
     "Zamzam water distribution",
     "Water bottles distribution Saudi Arabia",

@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Canonical } from "@/components/SEO/Canonical";
@@ -119,18 +116,13 @@ const blogPosts = [
 ];
 
 const POSTS_PER_PAGE = 9;
+const currentPage = 2;
+const totalPages = Math.ceil(blogPosts.length / POSTS_PER_PAGE);
+const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
+const endIndex = startIndex + POSTS_PER_PAGE;
+const currentPosts = blogPosts.slice(startIndex, endIndex);
 
-export default function BlogPage() {
-  const [selectedCategory, setSelectedCategory] = useState("all");
-
-  const filteredPosts =
-    selectedCategory === "all"
-      ? blogPosts
-      : blogPosts.filter((post) => post.categories.includes(selectedCategory));
-
-  const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
-  const currentPosts = filteredPosts.slice(0, POSTS_PER_PAGE);
-
+export default function BlogPage2() {
   return (
     <>
       <Canonical />
@@ -145,23 +137,6 @@ export default function BlogPage() {
             <p className="text-lg text-[var(--text-2)] font-body max-w-2xl mx-auto">
               Stay updated with the latest guides, tips, and information about Umrah travel, taxi services, and religious sites in Saudi Arabia.
             </p>
-          </div>
-
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setSelectedCategory(category.id)}
-                className={`px-6 py-2.5 rounded-full font-body font-medium text-sm transition-all ${
-                  selectedCategory === category.id
-                    ? "bg-[var(--gold)] text-white shadow-lg shadow-[var(--gold)]/20"
-                    : "bg-[var(--bg-alt)] border border-[var(--border)] text-[var(--text-2)] hover:border-[var(--green)] hover:text-[var(--green)]"
-                }`}
-              >
-                {category.name}
-              </button>
-            ))}
           </div>
 
           {/* Blog Posts Grid */}
@@ -249,33 +224,29 @@ export default function BlogPage() {
           )}
 
           {/* Pagination */}
-          {totalPages > 1 && (
-            <div className="flex items-center justify-center gap-2">
-              {/* Page Numbers */}
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
-                <Link
-                  key={pageNum}
-                  href={pageNum === 1 ? "/blog" : `/blog/page/${pageNum}`}
-                  className={`w-10 h-10 flex items-center justify-center rounded-xl font-body font-semibold transition-colors ${
-                    pageNum === 1
-                      ? "bg-[var(--gold)] text-white"
-                      : "bg-[var(--bg-alt)] border border-[var(--border)] text-[var(--text-1)] hover:border-[var(--gold)] hover:text-[var(--gold)]"
-                  }`}
-                >
-                  {pageNum}
-                </Link>
-              ))}
+          <div className="flex items-center justify-center gap-2">
+            {/* Previous Button */}
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[var(--bg-alt)] border border-[var(--border)] text-[var(--text-1)] hover:border-[var(--gold)] hover:text-[var(--gold)] transition-colors"
+            >
+              <ChevronLeft size={18} />
+              Previous
+            </Link>
 
-              {/* Next Button */}
-              <Link
-                href="/blog/page/2"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[var(--bg-alt)] border border-[var(--border)] text-[var(--text-1)] hover:border-[var(--gold)] hover:text-[var(--gold)] transition-colors"
-              >
-                Next
-                <ChevronRight size={18} />
-              </Link>
+            {/* Page Numbers */}
+            <Link
+              href="/blog"
+              className="w-10 h-10 flex items-center justify-center rounded-xl bg-[var(--bg-alt)] border border-[var(--border)] text-[var(--text-1)] hover:border-[var(--gold)] hover:text-[var(--gold)] font-body font-semibold transition-colors"
+            >
+              1
+            </Link>
+            <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-[var(--gold)] text-white font-body font-semibold">
+              2
             </div>
-          )}
+
+            {/* Next Button - disabled since this is the last page */}
+          </div>
         </div>
       </main>
       <Footer />

@@ -16,7 +16,6 @@ const nextConfig: NextConfig = {
         hostname: "haramainumrahtaxi.com",
       },
     ],
-    domains: ["localhost"],
   },
 };
 

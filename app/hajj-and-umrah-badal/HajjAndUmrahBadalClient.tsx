@@ -8,6 +8,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { IslamicGeometricBg } from "@/components/graphics/IslamicGeometricBg";
 import { AnimatedCarOnRoad } from "@/components/graphics/AnimatedCarOnRoad";
 import { Canonical } from "@/components/SEO/Canonical";
+import { useI18n } from "@/lib/i18n";
 import {
   ArrowRight,
   BadgeCheck,
@@ -19,7 +20,10 @@ import {
   HelpCircle,
   Phone,
   ShieldCheck,
+  Star,
+  Truck,
   UserCheck,
+  Users,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -87,6 +91,8 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 }
 
 export function HajjAndUmrahBadalClient() {
+  const { t } = useI18n();
+
   return (
     <div className="min-h-screen bg-[var(--bg)] selection:bg-[var(--gold-soft)] selection:text-[var(--gold)]">
       <Canonical />
@@ -111,7 +117,7 @@ export function HajjAndUmrahBadalClient() {
                 className="inline-block mb-6"
               >
                 <span className="px-4 py-1.5 rounded-full bg-[var(--gold)] text-white font-heading font-bold text-xs uppercase tracking-widest shadow-lg shadow-[var(--gold)]/20">
-                  Proxy Pilgrimage
+                  {t("hajjAndUmrahBadal.heroBadge")}
                 </span>
               </motion.div>
 
@@ -120,7 +126,7 @@ export function HajjAndUmrahBadalClient() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-6xl lg:text-[64px] font-heading font-extrabold !text-white mb-8 leading-tight"
               >
-                Umrah & Hajj e Badal Services- We Perform Umrah/Hajj For You
+                {t("hajjAndUmrahBadal.heroTitle")}
               </motion.h1>
 
               <motion.div
@@ -130,10 +136,10 @@ export function HajjAndUmrahBadalClient() {
                 className="max-w-3xl mx-auto mb-10 space-y-4"
               >
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Want to perform Umrah or Hajj but cannot travel?
+                  {t("hajjAndUmrahBadal.heroText1")}
                 </p>
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Let Haramain Umrah do it for you with our Umrah & Hajj e Badal services. Our team performs the sacred pilgrimage with devotion and sincerity on your behalf.
+                  {t("hajjAndUmrahBadal.heroText2")}
                 </p>
               </motion.div>
 
@@ -148,13 +154,13 @@ export function HajjAndUmrahBadalClient() {
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--green)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all border border-[var(--green)]/20"
                 >
                   <WhatsAppIcon />
-                  Book on WhatsApp Now
+                  {t("hajjAndUmrahBadal.heroBookBtn")}
                 </a>
                 <Link
                   href="#process"
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--bg-alt)] text-[var(--text-1)] font-heading font-bold rounded-xl border border-[var(--border)] hover:bg-[var(--gold)] hover:text-white transition-all shadow-sm"
                 >
-                  View Process
+                  {t("hajjAndUmrahBadal.heroProcessBtn")}
                   <ArrowRight size={20} />
                 </Link>
               </motion.div>
@@ -171,15 +177,15 @@ export function HajjAndUmrahBadalClient() {
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">
-                  Definition
+                  {t("hajjAndUmrahBadal.defBadge")}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">What is Hajj e Badal?</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{t("hajjAndUmrahBadal.defTitle")}</h2>
                 <div className="space-y-5">
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Hajj Badal and Hajj e Badal refer to the performance of the obligatory pilgrimage on behalf of those who have died without having done so, or those unable due to illness/disability. It is also known as Proxy Hajj.
+                    {t("hajjAndUmrahBadal.defP1")}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    The proxy carries out all rituals with devotion and sincerity: entering Ihram, Tawaf of the Kaaba, and Sa’i, with the intention to fulfill the duty on behalf of the person represented.
+                    {t("hajjAndUmrahBadal.defP2")}
                   </p>
                 </div>
               </div>
@@ -198,16 +204,16 @@ export function HajjAndUmrahBadalClient() {
                 <div className="w-12 h-12 bg-[var(--gold-soft)] rounded-xl flex items-center justify-center text-[var(--gold)] mb-6">
                   <UserCheck size={24} />
                 </div>
-                <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">Haramain Umrah’s Hajj Badal Service</h2>
+                <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">{t("hajjAndUmrahBadal.serviceTitle")}</h2>
                 <div className="space-y-4">
                   <p className="text-[var(--text-2)] text-[17px] leading-relaxed font-body">
-                    Haramain Umrah Taxi provides a trusted Hajj Badal (proxy Hajj) service for your parents or grandparents, living or deceased, or other relatives.
+                    {t("hajjAndUmrahBadal.serviceP1")}
                   </p>
                   <p className="text-[var(--text-2)] text-[17px] leading-relaxed font-body">
-                    A qualified student of knowledge from Makkah or Madinah—having already performed his own Hajj—performs one person’s Hajj Badal (Tamattu: Umrah + Hajj + sacrifice) with sincerity, in shaa Allah.
+                    {t("hajjAndUmrahBadal.serviceP2")}
                   </p>
                   <p className="text-[var(--text-2)] text-[17px] leading-relaxed font-body">
-                    Your fee also supports a student of knowledge, helping him care for himself and his family while studying.
+                    {t("hajjAndUmrahBadal.serviceP3")}
                   </p>
                 </div>
               </div>
@@ -220,18 +226,18 @@ export function HajjAndUmrahBadalClient() {
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">
-                  Umrah Badal
+                  {t("hajjAndUmrahBadal.umrahBadge")}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">What is Umrah Badal?</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{t("hajjAndUmrahBadal.umrahTitle")}</h2>
                 <div className="space-y-5">
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Umrah Badal is the performance of Umrah on behalf of a person who cannot do it due to illness, old age, disability, or permanent restriction. “Badal (بدل)” means substitution.
+                    {t("hajjAndUmrahBadal.umrahP1")}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    The proxy assumes the intention and fulfills Ihram, Tawaf, and Sa’i, striving to perform the rituals according to Shariah.
+                    {t("hajjAndUmrahBadal.umrahP2")}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    It is a charitable act that allows the one represented to gain the spiritual rewards of Umrah.
+                    {t("hajjAndUmrahBadal.umrahP3")}
                   </p>
                 </div>
               </div>
@@ -247,26 +253,26 @@ export function HajjAndUmrahBadalClient() {
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-48 -mt-48" />
 
               <div className="text-center mb-16 relative z-10">
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Specialties of Our Umrah and Hajj Badal Service</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{t("hajjAndUmrahBadal.specialtiesTitle")}</h2>
                 <p className="text-[var(--text-2)] font-body max-w-3xl mx-auto text-lg">
-                  A complete, respectful service focused on Shariah compliance, ease, and peace of mind.
+                  {t("hajjAndUmrahBadal.specialtiesDesc")}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-10 relative z-10">
                 <Card
-                  title="Discharge of Religious Duty"
-                  description="Fulfill Umrah/Hajj obligations when travel isn’t possible."
+                  title={t("hajjAndUmrahBadal.spec1Title")}
+                  description={t("hajjAndUmrahBadal.spec1Desc")}
                   icon={BadgeCheck}
                 />
                 <Card
-                  title="Convenience & Ease"
-                  description="We handle arrangements and preparation—saving you time and stress."
+                  title={t("hajjAndUmrahBadal.spec2Title")}
+                  description={t("hajjAndUmrahBadal.spec2Desc")}
                   icon={HeartHandshake}
                 />
                 <Card
-                  title="Expertise & Knowledge"
-                  description="Performed by individuals who understand rituals and Shariah requirements."
+                  title={t("hajjAndUmrahBadal.spec3Title")}
+                  description={t("hajjAndUmrahBadal.spec3Desc")}
                   icon={ShieldCheck}
                 />
               </div>
@@ -276,9 +282,9 @@ export function HajjAndUmrahBadalClient() {
                   <div className="flex items-start gap-3">
                     <BookOpen className="text-[var(--gold)] shrink-0 mt-0.5" size={20} />
                     <div>
-                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">Peace of Mind</h3>
+                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">{t("hajjAndUmrahBadal.spec4Title")}</h3>
                       <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">
-                        Your intentions are respected and fulfilled with sincerity and care.
+                        {t("hajjAndUmrahBadal.spec4Desc")}
                       </p>
                     </div>
                   </div>
@@ -287,9 +293,9 @@ export function HajjAndUmrahBadalClient() {
                   <div className="flex items-start gap-3">
                     <FileVideo className="text-[var(--gold)] shrink-0 mt-0.5" size={20} />
                     <div>
-                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">Documentation & Verification</h3>
+                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">{t("hajjAndUmrahBadal.spec5Title")}</h3>
                       <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">
-                        Receive confirmation and a video of key phases as proof of completion.
+                        {t("hajjAndUmrahBadal.spec5Desc")}
                       </p>
                     </div>
                   </div>
@@ -303,29 +309,29 @@ export function HajjAndUmrahBadalClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Process</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Process of Our Umrah and Hajj Badal Service</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("hajjAndUmrahBadal.processEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("hajjAndUmrahBadal.processTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <Card
-                  title="Provide Essential Information"
-                  description="Enter the person's name and gender, then add to cart."
+                  title={t("hajjAndUmrahBadal.step1Title")}
+                  description={t("hajjAndUmrahBadal.step1Desc")}
                   icon={ClipboardCheck}
                 />
                 <Card
-                  title="Complete Transaction"
-                  description="Review your cart and proceed to secure checkout."
+                  title={t("hajjAndUmrahBadal.step2Title")}
+                  description={t("hajjAndUmrahBadal.step2Desc")}
                   icon={ShieldCheck}
                 />
                 <Card
-                  title="Student Notified"
-                  description="We inform the student of knowledge with the exact details and requests."
+                  title={t("hajjAndUmrahBadal.step3Title")}
+                  description={t("hajjAndUmrahBadal.step3Desc")}
                   icon={UserCheck}
                 />
                 <Card
-                  title="Confirmation & Documentation"
-                  description="We email confirmation and provide a video as proof of completion."
+                  title={t("hajjAndUmrahBadal.step4Title")}
+                  description={t("hajjAndUmrahBadal.step4Desc")}
                   icon={FileVideo}
                 />
               </div>
@@ -337,19 +343,19 @@ export function HajjAndUmrahBadalClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto bg-[var(--bg-card)] border-2 border-[var(--gold)]/15 rounded-[48px] p-12 lg:p-20">
               <div className="text-center mb-10">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Hadith</span>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)]">Hadith Confirming Hajj/Umrah Badal</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("hajjAndUmrahBadal.hadithEyebrow")}</span>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)]">{t("hajjAndUmrahBadal.hadithTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7">
                   <p className="text-[var(--text-2)] font-body leading-relaxed">
-                    Abdullah ibn Abbas narrated: A woman asked about her old father who could not perform Hajj/Umrah. The Prophet ﷺ replied: “Yes, you may perform Hajj and Umrah on his behalf... Fulfill the obligations of your parents.” (Abu Dawood)
+                    {t("hajjAndUmrahBadal.hadith1")}
                   </p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7">
                   <p className="text-[var(--text-2)] font-body leading-relaxed">
-                    The Prophet ﷺ said: “Whoever performs Hajj for Allah’s sake... will return as if born anew...” and encouraged fulfilling pledges and debts. (Bukhari)
+                    {t("hajjAndUmrahBadal.hadith2")}
                   </p>
                 </div>
               </div>
@@ -361,30 +367,30 @@ export function HajjAndUmrahBadalClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">FAQ</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Frequently Asked Questions</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("hajjAndUmrahBadal.faqEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("hajjAndUmrahBadal.faqTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <FAQItem
-                  q="What is Hajj e Badal Service?"
-                  a="Hajj e Badal is the performance of Hajj on behalf of someone unable due to long illness, old age, or death."
+                  q={t("hajjAndUmrahBadal.faq1Q")}
+                  a={t("hajjAndUmrahBadal.faq1A")}
                 />
                 <FAQItem
-                  q="Hajj e badal ka tarika (Procedure of Hajj e Badal)"
-                  a="The proxy must have performed obligatory Hajj, intend on behalf of the person, mention them in Talbiyah, then perform all rituals as regular Hajj."
+                  q={t("hajjAndUmrahBadal.faq2Q")}
+                  a={t("hajjAndUmrahBadal.faq2A")}
                 />
                 <FAQItem
-                  q="Badal Hajj for a Deceased Person"
-                  a="Yes, it is allowed for someone obligated to do Hajj but died without performing it (Sahih Bukhari 1852, Sahih Muslim 1148)."
+                  q={t("hajjAndUmrahBadal.faq3Q")}
+                  a={t("hajjAndUmrahBadal.faq3A")}
                 />
                 <FAQItem
-                  q="Can we do Umrah Badal?"
-                  a="Yes, Umrah Badal is permissible if the person is permanently unable or has passed away without performing it."
+                  q={t("hajjAndUmrahBadal.faq4Q")}
+                  a={t("hajjAndUmrahBadal.faq4A")}
                 />
                 <FAQItem
-                  q="For whom may Hajj e Badal be performed?"
-                  a="For those who had the means but couldn't due to old age, prolonged illness, disability, or death (not temporary illness)."
+                  q={t("hajjAndUmrahBadal.faq5Q")}
+                  a={t("hajjAndUmrahBadal.faq5A")}
                 />
               </div>
             </div>
@@ -396,9 +402,9 @@ export function HajjAndUmrahBadalClient() {
             <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[40px] p-8 md:p-16 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-32 -mt-32" />
               <div className="relative z-10 text-center">
-                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">Book Umrah/Hajj Badal with Confidence</h2>
+                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">{t("hajjAndUmrahBadal.ctaTitle")}</h2>
                 <p className="text-[var(--text-2)] text-[18px] font-body mb-12 max-w-3xl mx-auto leading-relaxed">
-                  Leave everything to Haramain Umrah Taxi and have a hassle-free, spiritually fulfilling experience.
+                  {t("hajjAndUmrahBadal.ctaText")}
                 </p>
                 <div className="flex flex-wrap justify-center gap-6">
                   <a
@@ -408,14 +414,14 @@ export function HajjAndUmrahBadalClient() {
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--green)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <WhatsAppIcon size={24} />
-                    Book via WhatsApp Now
+                    {t("hajjAndUmrahBadal.ctaWhatsAppBtn")}
                   </a>
                   <a
                     href="tel:+966598401594"
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--gold)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <Phone size={24} />
-                    Call Us Direct
+                    {t("hajjAndUmrahBadal.ctaCallBtn")}
                   </a>
                 </div>
               </div>

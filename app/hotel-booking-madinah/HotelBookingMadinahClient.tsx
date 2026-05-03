@@ -9,6 +9,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { IslamicGeometricBg } from "@/components/graphics/IslamicGeometricBg";
 import { AnimatedCarOnRoad } from "@/components/graphics/AnimatedCarOnRoad";
 import { Canonical } from "@/components/SEO/Canonical";
+import { useI18n } from "@/lib/i18n";
 import {
   ArrowRight,
   BadgeCheck,
@@ -75,6 +76,7 @@ function Card({
 
 function HotelTable({ hotels, title }: { hotels: any[]; title: string }) {
   const [selectedRowId, setSelectedRowId] = useState<string | null>(null);
+  const { t } = useI18n();
   
   return (
     <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 overflow-x-auto">
@@ -82,11 +84,11 @@ function HotelTable({ hotels, title }: { hotels: any[]; title: string }) {
       <table className="w-full min-w-[800px] border-collapse">
         <thead>
           <tr>
-            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-left font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">Hotel Name</th>
-            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-center font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">Stars</th>
-            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-center font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">Rating</th>
-            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-center font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">Distance</th>
-            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-left font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">Location</th>
+            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-left font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">{t("hotelBookingMakkah.tableHeaderName", "Hotel Name")}</th>
+            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-center font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">{t("hotelBookingMakkah.tableHeaderStars", "Stars")}</th>
+            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-center font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">{t("hotelBookingMakkah.tableHeaderRating", "Rating")}</th>
+            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-center font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">{t("hotelBookingMakkah.tableHeaderDistance", "Distance")}</th>
+            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-left font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">{t("hotelBookingMakkah.tableHeaderLocation", "Location")}</th>
           </tr>
         </thead>
         <tbody>
@@ -122,6 +124,8 @@ function HotelTable({ hotels, title }: { hotels: any[]; title: string }) {
 }
 
 export function HotelBookingMadinahClient() {
+  const { t } = useI18n();
+
   const threeStarHotels = [
     { name: "Emaar Elite Hotel Madinah", stars: 3, rating: "3.9", distance: "700-800m", location: "Saad Bin Muaz, Central Area" },
     { name: "Nusk Al Eman", stars: 3, rating: "3.7", distance: "150m", location: "Abu Ayyub Al-Ansari, Bani Khidrah" },
@@ -203,7 +207,7 @@ export function HotelBookingMadinahClient() {
                 className="inline-block mb-6"
               >
                 <span className="px-4 py-1.5 rounded-full bg-[var(--gold)] text-white font-heading font-bold text-xs uppercase tracking-widest shadow-lg shadow-[var(--gold)]/20">
-                  Hotel Booking
+                  {t("hotelBookingMadinah.heroBadge")}
                 </span>
               </motion.div>
 
@@ -212,7 +216,7 @@ export function HotelBookingMadinahClient() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-6xl lg:text-[64px] font-heading font-extrabold !text-white mb-8 leading-tight"
               >
-                Hotel Booking in Madinah, Saudi Arabia | <span className="text-[var(--gold)]">Contact Us to Book</span>
+                {t("hotelBookingMadinah.heroTitle").split('|')[0]} | <span className="text-[var(--gold)]">{t("hotelBookingMadinah.heroTitle").split('|')[1]}</span>
               </motion.h1>
 
               <motion.div
@@ -222,10 +226,10 @@ export function HotelBookingMadinahClient() {
                 className="max-w-3xl mx-auto mb-10 space-y-4"
               >
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  At Haramain Umrah Taxi, we have been serving pilgrims in Madinah for years. Our hotel booking service brings you the same reliability and local expertise you trust from our taxi operations.
+                  {t("hotelBookingMadinah.heroText1")}
                 </p>
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  We connect you with the finest accommodations near Masjid Al Nabawi, ensuring your stay in the City of the Prophet (PBUH) is peaceful, comfortable, and spiritually fulfilling.
+                  {t("hotelBookingMadinah.heroText2")}
                 </p>
               </motion.div>
 
@@ -240,14 +244,14 @@ export function HotelBookingMadinahClient() {
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--green)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all border border-[var(--green)]/20"
                 >
                   <WhatsAppIcon />
-                  Book Hotel on WhatsApp
+                  {t("hotelBookingMadinah.heroBookBtn")}
                 </a>
                 <a
                   href="tel:+966598401594"
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--gold)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all shadow-sm"
                 >
                   <Phone size={20} />
-                  Call Us Now
+                  {t("hotelBookingMadinah.heroCallBtn")}
                 </a>
               </motion.div>
             </motion.div>
@@ -263,20 +267,29 @@ export function HotelBookingMadinahClient() {
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">
-                  About Us
+                  {t("hotelBookingMadinah.aboutBadge")}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Hotel Booking in Madinah: Call Us to Book Medina Hotels</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{t("hotelBookingMadinah.aboutTitle")}</h2>
                 <div className="space-y-5">
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Booking a hotel in Madinah should not be complicated. One call to Haramain Umrah Taxi, and we will do it for you.
+                    {t("hotelBookingMadinah.aboutP1")}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Our booking team has direct relationships with hotel managers across Madinah, which means faster confirmations, better room allocations, and rates that online platforms cannot match.
+                    {t("hotelBookingMadinah.aboutP2")}
                   </p>
                 </div>
               </div>
 
-              <ImagePlaceholder label="Image Placeholder: Madinah / Masjid Al Nabawi" />
+              <div className="rounded-[32px] border-2 border-[var(--border)] bg-[var(--bg)] p-2 shadow-sm">
+                <div className="aspect-video rounded-[28px] border border-[var(--border)] bg-[var(--bg-alt)] relative overflow-hidden">
+                  <img
+                    src="/images/Hotel Booking in Madinah.jpg"
+                    alt="Hotel Booking in Madinah"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
+              </div>
             </div>
           </div>
         </AnimatedSection>
@@ -285,34 +298,34 @@ export function HotelBookingMadinahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Advantages</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Advantages of Booking Through Us</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("hotelBookingMadinah.advantagesEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("hotelBookingMadinah.advantagesTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <Card
-                  title="Direct Access"
-                  description="Direct access to hotels that our drivers visit daily."
+                  title={t("hotelBookingMadinah.adv1Title")}
+                  description={t("hotelBookingMadinah.adv1Desc")}
                   icon={Truck}
                 />
                 <Card
-                  title="Insider Knowledge"
-                  description="Insider knowledge of which properties maintain quality standards."
+                  title={t("hotelBookingMadinah.adv2Title")}
+                  description={t("hotelBookingMadinah.adv2Desc")}
                   icon={ShieldCheck}
                 />
                 <Card
-                  title="Combined Packages"
-                  description="Combined hotel + taxi packages for maximum convenience."
+                  title={t("hotelBookingMadinah.adv3Title")}
+                  description={t("hotelBookingMadinah.adv3Desc")}
                   icon={BadgeCheck}
                 />
                 <Card
-                  title="Instant Confirmations"
-                  description="Instant confirmations without payment hassles."
+                  title={t("hotelBookingMadinah.adv4Title")}
+                  description={t("hotelBookingMadinah.adv4Desc")}
                   icon={CheckCircle2}
                 />
                 <Card
-                  title="Local Support"
-                  description="Local support team available 24/7 in Madinah."
+                  title={t("hotelBookingMadinah.adv5Title")}
+                  description={t("hotelBookingMadinah.adv5Desc")}
                   icon={Users}
                 />
               </div>
@@ -324,16 +337,16 @@ export function HotelBookingMadinahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Affordable</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Hotel Booking in Madinah Near Masjid Al Nabawi at Affordable Price</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("hotelBookingMadinah.affordableEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("hotelBookingMadinah.affordableTitle")}</h2>
                 <p className="mt-4 text-lg text-[var(--text-2)] max-w-3xl mx-auto font-body">
-                  We specialize in securing properties within 100-500 meters of Masjid Al-Nabawi. You can cover this distance comfortably in a 2-5 minute walk.
+                  {t("hotelBookingMadinah.affordableP1")}
                 </p>
               </div>
 
               <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/10 rounded-[32px] p-8 md:p-10">
                 <p className="text-[var(--text-2)] text-lg leading-relaxed font-body mb-6">
-                  Whether you want to book a cheap hotel in Madinah or prefer mid-range comfort, we ensure your accommodation has easy taxi access for Ziyarat trips, shopping, and airport transfers.
+                  {t("hotelBookingMadinah.affordableP2")}
                 </p>
               </div>
             </div>
@@ -344,14 +357,14 @@ export function HotelBookingMadinahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">3 Star</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">3 Star Hotel Booking in Madinah</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("hotelBookingMadinah.threeStarEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("hotelBookingMadinah.threeStarTitle")}</h2>
                 <p className="mt-4 text-lg text-[var(--text-2)] max-w-3xl mx-auto font-body">
-                  Exceptional value for budget-conscious pilgrims with clean rooms and essential amenities.
+                  {t("hotelBookingMadinah.threeStarP1")}
                 </p>
               </div>
 
-              <HotelTable hotels={threeStarHotels} title="3-Star Hotels In Madinah" />
+              <HotelTable hotels={threeStarHotels} title={t("hotelBookingMadinah.threeStarTableTitle")} />
             </div>
           </div>
         </AnimatedSection>
@@ -360,14 +373,14 @@ export function HotelBookingMadinahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">4 Star</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">4 Star Hotel Booking in Madinah</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("hotelBookingMadinah.fourStarEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("hotelBookingMadinah.fourStarTitle")}</h2>
                 <p className="mt-4 text-lg text-[var(--text-2)] max-w-3xl mx-auto font-body">
-                  Enhanced comfort without luxury pricing with superior rooms and optimal locations.
+                  {t("hotelBookingMadinah.fourStarP1")}
                 </p>
               </div>
 
-              <HotelTable hotels={fourStarHotels} title="4-Star Hotels In Madinah" />
+              <HotelTable hotels={fourStarHotels} title={t("hotelBookingMadinah.fourStarTableTitle")} />
             </div>
           </div>
         </AnimatedSection>
@@ -376,14 +389,14 @@ export function HotelBookingMadinahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">5 Star</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">5 Star Hotel Booking in Madinah</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("hotelBookingMadinah.fiveStarEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("hotelBookingMadinah.fiveStarTitle")}</h2>
                 <p className="mt-4 text-lg text-[var(--text-2)] max-w-3xl mx-auto font-body">
-                  Luxury properties with world-class hospitality and unbeatable proximity to the Prophet's Mosque.
+                  {t("hotelBookingMadinah.fiveStarP1")}
                 </p>
               </div>
 
-              <HotelTable hotels={fiveStarHotels} title="5-Star Premium Hotels In Madinah" />
+              <HotelTable hotels={fiveStarHotels} title={t("hotelBookingMadinah.fiveStarTableTitle")} />
             </div>
           </div>
         </AnimatedSection>
@@ -392,8 +405,8 @@ export function HotelBookingMadinahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">How to Book</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">How to Book Madinah Hotels in 5 Easy Steps?</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("hotelBookingMadinah.howToBookEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("hotelBookingMadinah.howToBookTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
@@ -401,36 +414,36 @@ export function HotelBookingMadinahClient() {
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-4">
                     <Phone size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Reach Out</h3>
-                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">Reach out via your preferred method.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{t("hotelBookingMadinah.step1Title")}</h3>
+                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">{t("hotelBookingMadinah.step1Desc")}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-6 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-4">
                     <Calendar size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Share Dates</h3>
-                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">Share arrival/departure dates.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{t("hotelBookingMadinah.step2Title")}</h3>
+                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">{t("hotelBookingMadinah.step2Desc")}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-6 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-4">
                     <Building2 size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Review Options</h3>
-                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">Review customized recommendations.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{t("hotelBookingMadinah.step3Title")}</h3>
+                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">{t("hotelBookingMadinah.step3Desc")}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-6 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-4">
                     <CheckCircle2 size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Select</h3>
-                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">Select your preferred accommodation.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{t("hotelBookingMadinah.step4Title")}</h3>
+                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">{t("hotelBookingMadinah.step4Desc")}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-6 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-4">
                     <BadgeCheck size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Confirm</h3>
-                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">Receive instant confirmation.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{t("hotelBookingMadinah.step5Title")}</h3>
+                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">{t("hotelBookingMadinah.step5Desc")}</p>
                 </div>
               </div>
             </div>
@@ -442,9 +455,9 @@ export function HotelBookingMadinahClient() {
             <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[40px] p-8 md:p-16 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-32 -mt-32" />
               <div className="relative z-10 text-center">
-                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">Ready to Secure Your Accommodation?</h2>
+                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">{t("hotelBookingMadinah.ctaTitle")}</h2>
                 <p className="text-[var(--text-2)] text-[18px] font-body mb-12 max-w-3xl mx-auto leading-relaxed">
-                  Contact Haramain Umrah Taxi now and let our local team find you the perfect hotel near Masjid Al Nabawi. We combine years of transportation experience with trusted hotel partnerships for a worry-free stay.
+                  {t("hotelBookingMadinah.ctaText")}
                 </p>
                 <div className="flex flex-wrap justify-center gap-6">
                   <a
@@ -454,14 +467,14 @@ export function HotelBookingMadinahClient() {
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--green)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <WhatsAppIcon size={24} />
-                    Book via WhatsApp Now
+                    {t("hotelBookingMadinah.ctaWhatsAppBtn")}
                   </a>
                   <a
                     href="tel:+966598401594"
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--gold)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <Phone size={24} />
-                    Call Us Direct
+                    {t("hotelBookingMadinah.ctaCallBtn")}
                   </a>
                 </div>
               </div>

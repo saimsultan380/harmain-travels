@@ -9,6 +9,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { IslamicGeometricBg } from "@/components/graphics/IslamicGeometricBg";
 import { AnimatedCarOnRoad } from "@/components/graphics/AnimatedCarOnRoad";
 import { Canonical } from "@/components/SEO/Canonical";
+import { useI18n } from "@/lib/i18n";
 import {
   ArrowRight,
   BadgeCheck,
@@ -130,6 +131,8 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 }
 
 export function MakkahToJeddahClient() {
+  const { t } = useI18n();
+
   return (
     <div className="min-h-screen bg-[var(--bg)] selection:bg-[var(--gold-soft)] selection:text-[var(--gold)]">
       <Canonical />
@@ -154,7 +157,7 @@ export function MakkahToJeddahClient() {
                 className="inline-block mb-6"
               >
                 <span className="px-4 py-1.5 rounded-full bg-[var(--gold)] text-white font-heading font-bold text-xs uppercase tracking-widest shadow-lg shadow-[var(--gold)]/20">
-                  Routes
+                  {t("makkahToJeddah.heroBadge")}
                 </span>
               </motion.div>
 
@@ -163,7 +166,7 @@ export function MakkahToJeddahClient() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-6xl lg:text-[64px] font-heading font-extrabold !text-white mb-8 leading-tight"
               >
-                Makkah to Jeddah Taxi, GMC, Bus & Fares: <span className="text-[var(--gold)]">24/7 Taxi Booking</span>
+                {t("makkahToJeddah.heroTitle").split(':')[0]}: <span className="text-[var(--gold)]">{t("makkahToJeddah.heroTitle").split(':')[1]}</span>
               </motion.h1>
 
               <motion.div
@@ -173,10 +176,10 @@ export function MakkahToJeddahClient() {
                 className="max-w-3xl mx-auto mb-10 space-y-4"
               >
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Are you searching for a reliable transportation service from Makkah to Jeddah? You've arrived at the perfect spot. We have years of experience helping tourists with this trip, so we are fully aware of your needs.
+                  {t("makkahToJeddah.heroText1")}
                 </p>
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Our taxi service runs day and night. Early morning flight? Late-night arrival? We are available to you 24/7.
+                  {t("makkahToJeddah.heroText2")}
                 </p>
               </motion.div>
 
@@ -191,14 +194,14 @@ export function MakkahToJeddahClient() {
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--green)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all border border-[var(--green)]/20"
                 >
                   <WhatsAppIcon />
-                  Book Taxi Now
+                  {t("makkahToJeddah.heroBookBtn")}
                 </a>
                 <a
                   href="tel:+966598401594"
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--gold)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all shadow-sm"
                 >
                   <Phone size={20} />
-                  Call Us Direct
+                  {t("makkahToJeddah.heroCallBtn")}
                 </a>
               </motion.div>
             </motion.div>
@@ -213,19 +216,19 @@ export function MakkahToJeddahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Online Booking</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Best Online Taxi Services from Makkah to Jeddah</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("makkahToJeddah.onlineBookingEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("makkahToJeddah.onlineBookingTitle")}</h2>
               </div>
 
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10">
                 <p className="text-[var(--text-2)] text-lg leading-relaxed font-body mb-6">
-                  Why spend time calling around when you can book online instantly? Our website works perfectly on your phone or computer.
+                  {t("makkahToJeddah.onlineBookingP1")}
                 </p>
                 <p className="text-[var(--text-2)] text-lg leading-relaxed font-body mb-6">
-                  You'll see the price upfront, pick your car, and get confirmation right away. Real-time updates keep you informed about your driver's location.
+                  {t("makkahToJeddah.onlineBookingP2")}
                 </p>
                 <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                  Most customers complete their booking in less than 90 seconds. That's faster than making a phone call and way easier than negotiating at the roadside.
+                  {t("makkahToJeddah.onlineBookingP3")}
                 </p>
               </div>
             </div>
@@ -236,50 +239,50 @@ export function MakkahToJeddahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Pricing</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Makkah to Jeddah Airport Taxi Services and Fixed Fares</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("makkahToJeddah.pricingEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("makkahToJeddah.pricingTitle")}</h2>
               </div>
 
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 overflow-x-auto mb-8">
-                <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-6">How much is Taxi from Makkah to Jeddah Airport? Price Details</h3>
+                <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-6">{t("makkahToJeddah.pricingTableTitle")}</h3>
                 <table className="w-full min-w-[600px]">
                   <thead>
                     <tr className="border-b border-[var(--border)]">
-                      <th className="text-left py-4 px-4 text-[var(--text-1)] font-heading font-bold">Vehicle Type</th>
-                      <th className="text-center py-4 px-4 text-[var(--text-1)] font-heading font-bold">Fare (SAR)</th>
+                      <th className="text-left py-4 px-4 text-[var(--text-1)] font-heading font-bold">{t("makkahToJeddah.tableVehicleType")}</th>
+                      <th className="text-center py-4 px-4 text-[var(--text-1)] font-heading font-bold">{t("makkahToJeddah.tableFare")}</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr className="border-b border-[var(--border)] hover:bg-[var(--bg-alt)]/30">
-                      <td className="py-4 px-4 text-[var(--text-1)] font-body font-medium">Sedan Cars</td>
+                      <td className="py-4 px-4 text-[var(--text-1)] font-body font-medium">{t("makkahToJeddah.vehicleSedanCars")}</td>
                       <td className="py-4 px-4 text-center text-[var(--text-2)] font-body font-bold text-[var(--gold)]">200 SAR</td>
                     </tr>
                     <tr className="border-b border-[var(--border)] hover:bg-[var(--bg-alt)]/30">
-                      <td className="py-4 px-4 text-[var(--text-1)] font-body font-medium">Premium Vehicles</td>
+                      <td className="py-4 px-4 text-[var(--text-1)] font-body font-medium">{t("makkahToJeddah.vehiclePremiumVehicles")}</td>
                       <td className="py-4 px-4 text-center text-[var(--text-2)] font-body font-bold text-[var(--gold)]">300 SAR</td>
                     </tr>
                     <tr className="border-b border-[var(--border)] hover:bg-[var(--bg-alt)]/30">
-                      <td className="py-4 px-4 text-[var(--text-1)] font-body font-medium">Group Vans</td>
+                      <td className="py-4 px-4 text-[var(--text-1)] font-body font-medium">{t("makkahToJeddah.vehicleGroupVans")}</td>
                       <td className="py-4 px-4 text-center text-[var(--text-2)] font-body font-bold text-[var(--gold)]">350 SAR</td>
                     </tr>
                     <tr className="hover:bg-[var(--bg-alt)]/30">
-                      <td className="py-4 px-4 text-[var(--text-1)] font-body font-medium">GMC SUVs</td>
+                      <td className="py-4 px-4 text-[var(--text-1)] font-body font-medium">{t("makkahToJeddah.vehicleGmcSuvs")}</td>
                       <td className="py-4 px-4 text-center text-[var(--text-2)] font-body font-bold text-[var(--gold)]">400 SAR</td>
                     </tr>
                   </tbody>
                 </table>
                 <p className="text-[var(--text-2)] text-base leading-relaxed font-body mt-6">
-                  These are fixed prices. No meter running, no peak hour charges, no haggling required. What you see is what you pay.
+                  {t("makkahToJeddah.pricingFixedP")}
                 </p>
               </div>
 
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10">
-                <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4">Standard City Transfer Rates</h3>
+                <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4">{t("makkahToJeddah.pricingCityRatesTitle")}</h3>
                 <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                  Not heading to the airport? Our regular Makkah to Jeddah taxi price for city destinations ranges from 200-400 SAR based on your specific location and vehicle preference.
+                  {t("makkahToJeddah.pricingCityRatesP1")}
                 </p>
                 <p className="text-[var(--text-2)] text-lg leading-relaxed font-body mt-4">
-                  We offer discounts for return bookings and group reservations. The more you travel with us, the better deals you get.
+                  {t("makkahToJeddah.pricingCityRatesP2")}
                 </p>
               </div>
             </div>
@@ -290,8 +293,8 @@ export function MakkahToJeddahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">How to Book</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Book Online Makkah to Jeddah Taxi Services</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("makkahToJeddah.howToBookEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("makkahToJeddah.howToBookTitle")}</h2>
               </div>
 
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10">
@@ -299,34 +302,34 @@ export function MakkahToJeddahClient() {
                   <div className="flex gap-4">
                     <div className="w-10 h-10 rounded-full bg-[var(--gold)] text-white flex items-center justify-center font-heading font-bold shrink-0">1</div>
                     <div>
-                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">Visit our website or call us directly</h3>
-                    <p className="text-[var(--text-2)] text-base leading-relaxed font-body">Start the booking process through our online platform or phone.</p>
+                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">{t("makkahToJeddah.step1Title")}</h3>
+                    <p className="text-[var(--text-2)] text-base leading-relaxed font-body">{t("makkahToJeddah.step1Desc")}</p>
                     </div>
                   </div>
                   <div className="flex gap-4">
                     <div className="w-10 h-10 rounded-full bg-[var(--gold)] text-white flex items-center justify-center font-heading font-bold shrink-0">2</div>
                     <div>
-                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">Select your preferred vehicle type</h3>
-                      <p className="text-[var(--text-2)] text-base leading-relaxed font-body">Choose from sedans, GMC, vans, or buses based on your needs.</p>
+                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">{t("makkahToJeddah.step2Title")}</h3>
+                      <p className="text-[var(--text-2)] text-base leading-relaxed font-body">{t("makkahToJeddah.step2Desc")}</p>
                     </div>
                   </div>
                   <div className="flex gap-4">
                     <div className="w-10 h-10 rounded-full bg-[var(--gold)] text-white flex items-center justify-center font-heading font-bold shrink-0">3</div>
                     <div>
-                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">Choose pickup time and location</h3>
-                      <p className="text-[var(--text-2)] text-base leading-relaxed font-body">Provide your pickup details for precise service.</p>
+                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">{t("makkahToJeddah.step3Title")}</h3>
+                      <p className="text-[var(--text-2)] text-base leading-relaxed font-body">{t("makkahToJeddah.step3Desc")}</p>
                     </div>
                   </div>
                   <div className="flex gap-4">
                     <div className="w-10 h-10 rounded-full bg-[var(--gold)] text-white flex items-center justify-center font-heading font-bold shrink-0">4</div>
                     <div>
-                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">Receive instant confirmation</h3>
-                      <p className="text-[var(--text-2)] text-base leading-relaxed font-body">Get your booking confirmation immediately.</p>
+                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">{t("makkahToJeddah.step4Title")}</h3>
+                      <p className="text-[var(--text-2)] text-base leading-relaxed font-body">{t("makkahToJeddah.step4Desc")}</p>
                     </div>
                   </div>
                 </div>
                 <p className="text-[var(--text-2)] text-lg leading-relaxed font-body mt-6">
-                  You can change or cancel your reservation up to 2 hours before pickup time. We accept cash, credit cards, and mobile payments for your convenience.
+                  {t("makkahToJeddah.howToBookFooter")}
                 </p>
               </div>
             </div>
@@ -337,26 +340,26 @@ export function MakkahToJeddahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Our Fleet</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Haramain Umrah Taxi Fleet for Makkah to Jeddah Services</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("makkahToJeddah.fleetEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("makkahToJeddah.fleetTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <Card
-                  title="Makkah to Jeddah GMC Vehicles"
-                  description="Our GMC fleet attracts families and groups who value space and comfort. These vehicles accommodate up to 7 passengers with generous luggage room."
+                  title={t("makkahToJeddah.fleetGmcTitle")}
+                  description={t("makkahToJeddah.fleetGmcDesc")}
                   imageLabel="GMC Yukon"
                   imageUrl="/images/fleet/luxury-gmc.png"
                 />
                 <Card
-                  title="Makkah to Jeddah Bus and Umrah Bus Services"
-                  description="Large groups love our bus options. We operate coaches ranging from 15-seat minibuses to 50-passenger full-size buses."
+                  title={t("makkahToJeddah.fleetBusTitle")}
+                  description={t("makkahToJeddah.fleetBusDesc")}
                   imageLabel="Bus"
                   imageUrl="/images/fleet/bus.png"
                 />
                 <Card
-                  title="Economy and Luxury Private Cars"
-                  description="Budget-conscious travelers appreciate our sedan options, while those seeking premium comfort choose our luxury vehicles."
+                  title={t("makkahToJeddah.fleetSedanTitle")}
+                  description={t("makkahToJeddah.fleetSedanDesc")}
                   imageLabel="Sedan Car"
                   imageUrl="/images/fleet/sedan.webp"
                 />
@@ -369,8 +372,8 @@ export function MakkahToJeddahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Why Us</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Why Travelers Choose Us for Makkah to Jeddah Journeys?</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("makkahToJeddah.whyUsEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("makkahToJeddah.whyUsTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -378,36 +381,36 @@ export function MakkahToJeddahClient() {
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
                     <ShieldCheck size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Clear Pricing</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">No additional costs or hidden fees.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{t("makkahToJeddah.why1Title")}</h3>
+                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{t("makkahToJeddah.why1Desc")}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
                     <Zap size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">24/7 Accessibility</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Available throughout Hajj and Umrah seasons.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{t("makkahToJeddah.why2Title")}</h3>
+                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{t("makkahToJeddah.why2Desc")}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
                     <Star size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Modern Vehicles</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Well-maintained automobiles for comfort.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{t("makkahToJeddah.why3Title")}</h3>
+                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{t("makkahToJeddah.why3Desc")}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
                     <BadgeCheck size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Multi-language Support</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Customer support in Urdu, English, and Arabic.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{t("makkahToJeddah.why4Title")}</h3>
+                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{t("makkahToJeddah.why4Desc")}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
                     <ShieldCheck size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Full Insurance</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Complete insurance coverage is provided.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{t("makkahToJeddah.why5Title")}</h3>
+                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{t("makkahToJeddah.why5Desc")}</p>
                 </div>
               </div>
             </div>
@@ -418,28 +421,28 @@ export function MakkahToJeddahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Route Info</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Route Details and Helpful Information</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("makkahToJeddah.routeInfoEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("makkahToJeddah.routeInfoTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10">
-                  <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4">Distance & Time</h3>
+                  <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4">{t("makkahToJeddah.distanceTimeTitle")}</h3>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body mb-4">
-                    The approximate distance between Makkah and Jeddah is 83.4 kilometers. To cut down on your journey time, our skilled drivers follow the best routes and are aware of patterns of traffic.
+                    {t("makkahToJeddah.distanceTimeP1")}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Typical journey time ranges from 50-75 minutes, depending on traffic conditions and your exact destinations. We track traffic in real-time and adjust routes accordingly.
+                    {t("makkahToJeddah.distanceTimeP2")}
                   </p>
                 </div>
 
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10">
-                  <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4">Popular Jeddah Locations We Serve</h3>
+                  <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4">{t("makkahToJeddah.jeddahLocationsTitle")}</h3>
                   <ul className="space-y-3 text-[var(--text-2)] text-base leading-relaxed font-body">
-                    <li className="flex gap-2"><MapPin size={16} className="text-[var(--gold)] mt-1 shrink-0" />King Abdulaziz International Airport (all terminals)</li>
-                    <li className="flex gap-2"><MapPin size={16} className="text-[var(--gold)] mt-1 shrink-0" />Downtown Jeddah hotels and business districts</li>
-                    <li className="flex gap-2"><MapPin size={16} className="text-[var(--gold)] mt-1 shrink-0" />Historic Al-Balad area</li>
-                    <li className="flex gap-2"><MapPin size={16} className="text-[var(--gold)] mt-1 shrink-0" />Corniche waterfront and shopping centers</li>
+                    <li className="flex gap-2"><MapPin size={16} className="text-[var(--gold)] mt-1 shrink-0" />{t("makkahToJeddah.location1")}</li>
+                    <li className="flex gap-2"><MapPin size={16} className="text-[var(--gold)] mt-1 shrink-0" />{t("makkahToJeddah.location2")}</li>
+                    <li className="flex gap-2"><MapPin size={16} className="text-[var(--gold)] mt-1 shrink-0" />{t("makkahToJeddah.location3")}</li>
+                    <li className="flex gap-2"><MapPin size={16} className="text-[var(--gold)] mt-1 shrink-0" />{t("makkahToJeddah.location4")}</li>
                   </ul>
                 </div>
               </div>
@@ -451,16 +454,16 @@ export function MakkahToJeddahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Safety</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Safety Standards and Passenger Comfort</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("makkahToJeddah.safetyEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("makkahToJeddah.safetyTitle")}</h2>
               </div>
 
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10">
                 <p className="text-[var(--text-2)] text-lg leading-relaxed font-body mb-6">
-                  Vehicle safety isn't negotiable for us. Every car undergoes scheduled maintenance checks. All drivers hold valid licenses and pass background verification.
+                  {t("makkahToJeddah.safetyP1")}
                 </p>
                 <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                  We follow strict hygiene protocols and ensure vehicles are clean before each trip. GPS tracking provides additional security for solo travelers.
+                  {t("makkahToJeddah.safetyP2")}
                 </p>
               </div>
             </div>
@@ -471,38 +474,38 @@ export function MakkahToJeddahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">FAQs</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Frequently Asked Questions</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("makkahToJeddah.faqsEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("makkahToJeddah.faqsTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 gap-6 max-w-3xl mx-auto">
                 <FAQItem
-                  question="How much is a taxi from Makkah to Jeddah?"
-                  answer="Taxi fares range from 200-400 SAR, depending on vehicle type. Sedan cars cost 200 SAR, while GMC vehicles cost 400 SAR."
+                  question={t("makkahToJeddah.faq1Q")}
+                  answer={t("makkahToJeddah.faq1A")}
                 />
                 <FAQItem
-                  question="Are taxis expensive in Jeddah?"
-                  answer="Our rates are competitive and fixed. You won't find surprise charges or inflated prices like some operators charge."
+                  question={t("makkahToJeddah.faq2Q")}
+                  answer={t("makkahToJeddah.faq2A")}
                 />
                 <FAQItem
-                  question="How much is a private car from Makkah to Jeddah?"
-                  answer="Private car rates start at 200 SAR for sedans and go up to 400 SAR for premium GMC vehicles."
+                  question={t("makkahToJeddah.faq3Q")}
+                  answer={t("makkahToJeddah.faq3A")}
                 />
                 <FAQItem
-                  question="How many hours is a taxi from Makkah to Jeddah?"
-                  answer="The journey takes 45 minutes to 1.5 hours, depending on traffic and your specific pickup/drop-off points."
+                  question={t("makkahToJeddah.faq4Q")}
+                  answer={t("makkahToJeddah.faq4A")}
                 />
                 <FAQItem
-                  question="How many hours is a taxi from Jeddah to Makkah?"
-                  answer="Return journey time is the same - 45 minutes to 1.5 hours covering the same 83.4-kilometer distance."
+                  question={t("makkahToJeddah.faq5Q")}
+                  answer={t("makkahToJeddah.faq5A")}
                 />
                 <FAQItem
-                  question="How much does a taxi cost from Makkah to Jeddah airport?"
-                  answer="Airport taxi service costs 200-400 SAR based on vehicle selection. Economy options start at 200 SAR."
+                  question={t("makkahToJeddah.faq6Q")}
+                  answer={t("makkahToJeddah.faq6A")}
                 />
                 <FAQItem
-                  question="Is it cheaper to book Makkah to Jeddah taxi in advance or at the airport?"
-                  answer="Pre-booking saves money and guarantees availability. Last-minute airport bookings often cost 10-20% more."
+                  question={t("makkahToJeddah.faq7Q")}
+                  answer={t("makkahToJeddah.faq7A")}
                 />
               </div>
             </div>
@@ -514,9 +517,9 @@ export function MakkahToJeddahClient() {
             <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[40px] p-8 md:p-16 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-32 -mt-32" />
               <div className="relative z-10 text-center">
-                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">Ready to Book Your Makkah to Jeddah Taxi?</h2>
+                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">{t("makkahToJeddah.ctaTitle")}</h2>
                 <p className="text-[var(--text-2)] text-[18px] font-body mb-12 max-w-3xl mx-auto leading-relaxed">
-                  Don't let transportation concerns affect your travel plans. Contact us today and join thousands of satisfied customers who trust us for their Makkah-Jeddah journeys.
+                  {t("makkahToJeddah.ctaText")}
                 </p>
                 <div className="flex flex-wrap justify-center gap-6">
                   <a
@@ -526,14 +529,14 @@ export function MakkahToJeddahClient() {
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--green)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <WhatsAppIcon size={24} />
-                    Book via WhatsApp Now
+                    {t("makkahToJeddah.ctaWhatsAppBtn")}
                   </a>
                   <a
                     href="tel:+966598401594"
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--gold)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <Phone size={24} />
-                    Call Us Direct
+                    {t("makkahToJeddah.ctaCallBtn")}
                   </a>
                 </div>
               </div>

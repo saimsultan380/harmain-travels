@@ -9,6 +9,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { IslamicGeometricBg } from "@/components/graphics/IslamicGeometricBg";
 import { AnimatedCarOnRoad } from "@/components/graphics/AnimatedCarOnRoad";
 import { Canonical } from "@/components/SEO/Canonical";
+import { useI18n } from "@/lib/i18n";
 import {
   ArrowRight,
   BadgeCheck,
@@ -130,6 +131,8 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 }
 
 export function MadinahAirportToHotelsClient() {
+  const { t } = useI18n();
+
   return (
     <div className="min-h-screen bg-[var(--bg)] selection:bg-[var(--gold-soft)] selection:text-[var(--gold)]">
       <Canonical />
@@ -154,7 +157,7 @@ export function MadinahAirportToHotelsClient() {
                 className="inline-block mb-6"
               >
                 <span className="px-4 py-1.5 rounded-full bg-[var(--gold)] text-white font-heading font-bold text-xs uppercase tracking-widest shadow-lg shadow-[var(--gold)]/20">
-                  Routes
+                  {t("madinahAirportToHotels.heroBadge")}
                 </span>
               </motion.div>
 
@@ -163,7 +166,7 @@ export function MadinahAirportToHotelsClient() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-6xl lg:text-[64px] font-heading font-extrabold !text-white mb-8 leading-tight"
               >
-                Madinah Airport to Hotel Taxi Services and <span className="text-[var(--gold)]">Fares</span>
+                {t("madinahAirportToHotels.heroTitle").split('and')[0]} and <span className="text-[var(--gold)]">{t("madinahAirportToHotels.heroTitle").split('and')[1]}</span>
               </motion.h1>
 
               <motion.div
@@ -173,10 +176,10 @@ export function MadinahAirportToHotelsClient() {
                 className="max-w-3xl mx-auto mb-10 space-y-4"
               >
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Landing at Prince Mohammad Bin Abdulaziz Airport in Madinah, with heavy luggage and no transportation, can ruin your spiritual journey before it even begins. Haramain Umrah Taxi eliminates this stress with reliable Madinah Airport to hotel taxi services.
+                  {t("madinahAirportToHotels.heroText1")}
                 </p>
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Our professional drivers wait for you at arrivals with your name board. Reserve your Madinah airport taxi services online before departure. Our booking system guarantees your ride upon landing.
+                  {t("madinahAirportToHotels.heroText2")}
                 </p>
               </motion.div>
 
@@ -191,14 +194,14 @@ export function MadinahAirportToHotelsClient() {
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--green)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all border border-[var(--green)]/20"
                 >
                   <WhatsAppIcon />
-                  Book Taxi Now
+                  {t("madinahAirportToHotels.heroBookBtn")}
                 </a>
                 <a
                   href="tel:+966598401594"
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--gold)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all shadow-sm"
                 >
                   <Phone size={20} />
-                  Call Us Direct
+                  {t("madinahAirportToHotels.heroCallBtn")}
                 </a>
               </motion.div>
             </motion.div>
@@ -213,19 +216,19 @@ export function MadinahAirportToHotelsClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Online Booking</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Best Online Taxi Services from Madinah Airport to Hotel</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("madinahAirportToHotels.onlineBookingEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("madinahAirportToHotels.onlineBookingTitle")}</h2>
               </div>
 
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10">
                 <p className="text-[var(--text-2)] text-lg leading-relaxed font-body mb-6">
-                  Our online taxi services from Madinah Airport to hotel save you time and money. Reserve your seat in advance through our digital platform. Get instant confirmation with driver details sent to your phone.
+                  {t("madinahAirportToHotels.onlineBookingP1")}
                 </p>
                 <p className="text-[var(--text-2)] text-lg leading-relaxed font-body mb-6">
-                  We specialize in Madinah airport pickups for Umrah pilgrims. Our drivers are aware of your religious schedule and prayer time requirements. They know the fastest routes to all major hotels in Madinah.
+                  {t("madinahAirportToHotels.onlineBookingP2")}
                 </p>
                 <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                  Our best taxi services from Madinah Airport to hotel include GPS tracking and 24/7 customer support. Your family's safety remains our top priority throughout the journey. Our professional drivers speak multiple languages to assist international pilgrims.
+                  {t("madinahAirportToHotels.onlineBookingP3")}
                 </p>
               </div>
             </div>
@@ -236,8 +239,8 @@ export function MadinahAirportToHotelsClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">How to Book</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Book Your Madinah Airport to Hotel Taxi Transfers</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("madinahAirportToHotels.howToBookEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("madinahAirportToHotels.howToBookTitle")}</h2>
               </div>
 
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10">
@@ -245,22 +248,22 @@ export function MadinahAirportToHotelsClient() {
                   <div className="flex gap-4">
                     <div className="w-10 h-10 rounded-full bg-[var(--gold)] text-white flex items-center justify-center font-heading font-bold shrink-0">1</div>
                     <div>
-                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">Select your arrival time and hotel destination</h3>
-                      <p className="text-[var(--text-2)] text-base leading-relaxed font-body">Provide your flight details and hotel information.</p>
+                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">{t("madinahAirportToHotels.step1Title")}</h3>
+                      <p className="text-[var(--text-2)] text-base leading-relaxed font-body">{t("madinahAirportToHotels.step1Desc")}</p>
                     </div>
                   </div>
                   <div className="flex gap-4">
                     <div className="w-10 h-10 rounded-full bg-[var(--gold)] text-white flex items-center justify-center font-heading font-bold shrink-0">2</div>
                     <div>
-                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">Choose your preferred vehicle type</h3>
-                      <p className="text-[var(--text-2)] text-base leading-relaxed font-body">Select from sedans, GMC, vans, or buses based on your needs.</p>
+                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">{t("madinahAirportToHotels.step2Title")}</h3>
+                      <p className="text-[var(--text-2)] text-base leading-relaxed font-body">{t("madinahAirportToHotels.step2Desc")}</p>
                     </div>
                   </div>
                   <div className="flex gap-4">
                     <div className="w-10 h-10 rounded-full bg-[var(--gold)] text-white flex items-center justify-center font-heading font-bold shrink-0">3</div>
                     <div>
-                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">Receive instant confirmation with driver contact</h3>
-                      <p className="text-[var(--text-2)] text-base leading-relaxed font-body">Get your booking confirmation immediately with driver details.</p>
+                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">{t("madinahAirportToHotels.step3Title")}</h3>
+                      <p className="text-[var(--text-2)] text-base leading-relaxed font-body">{t("madinahAirportToHotels.step3Desc")}</p>
                     </div>
                   </div>
                 </div>
@@ -273,28 +276,28 @@ export function MadinahAirportToHotelsClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Route Info</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Madinah Airport to Masjid Nabawi Taxi Services</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("madinahAirportToHotels.routeInfoEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("madinahAirportToHotels.routeInfoTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10">
-                  <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4">Distance & Time</h3>
+                  <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4">{t("madinahAirportToHotels.distanceTimeTitle")}</h3>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body mb-4">
-                    The journey from Madinah Airport to Masjid Nabawi spans 21.6 kilometers across sacred terrain. This 26-minute drive connects you to the Prophet's Mosque at reasonable rates every pilgrim can afford.
+                    {t("madinahAirportToHotels.distanceTimeP1")}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Our experienced drivers navigate the quickest paths to reduce your journey time. Group pilgrims often choose bus transportation from Madinah Airport to Masjid Nabawi for collective travel.
+                    {t("madinahAirportToHotels.distanceTimeP2")}
                   </p>
                 </div>
 
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10">
-                  <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4">Areas We Serve</h3>
+                  <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4">{t("madinahAirportToHotels.areasWeServeTitle")}</h3>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body mb-4">
-                    Our Madinah Airport to Sofitel hotel taxi service offers premium comfort. The Madinah Airport to Pullman Zamzam Medinah Hotel taxi puts you steps from Masjid Nabawi.
+                    {t("madinahAirportToHotels.areasWeServeP1")}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Other popular destinations include Madinah Airport to Ost Hotel, Madinah Airport to Dar al hijra hotel, Madinah Airport to Mirage Al Salam Hotel, Madinah Airport to Dar Al Taqwa Hotel, Madinah Airport to Anwar al Madinah hotel, Madinah Airport to Zaha Taiba hotel, and Madinah Airport to Taiba Front Hotel.
+                    {t("madinahAirportToHotels.areasWeServeP2")}
                   </p>
                 </div>
               </div>
@@ -306,62 +309,62 @@ export function MadinahAirportToHotelsClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Pricing</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Madinah Airport to Hotel Taxi Fares</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("madinahAirportToHotels.pricingEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("madinahAirportToHotels.pricingTitle")}</h2>
               </div>
 
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 overflow-x-auto mb-8">
-                <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-6">Current Madinah Airport to Hotel Rates</h3>
+                <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-6">{t("madinahAirportToHotels.pricingTableTitle")}</h3>
                 <table className="w-full min-w-[600px]">
                   <thead>
                     <tr className="border-b border-[var(--border)]">
-                      <th className="text-left py-4 px-4 text-[var(--text-1)] font-heading font-bold">Vehicle Type</th>
-                      <th className="text-center py-4 px-4 text-[var(--text-1)] font-heading font-bold">Fare (SAR)</th>
-                      <th className="text-center py-4 px-4 text-[var(--text-1)] font-heading font-bold">Description</th>
+                      <th className="text-left py-4 px-4 text-[var(--text-1)] font-heading font-bold">{t("madinahAirportToHotels.tableVehicleType")}</th>
+                      <th className="text-center py-4 px-4 text-[var(--text-1)] font-heading font-bold">{t("madinahAirportToHotels.tableFare")}</th>
+                      <th className="text-center py-4 px-4 text-[var(--text-1)] font-heading font-bold">{t("madinahAirportToHotels.tableDescription")}</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr className="border-b border-[var(--border)] hover:bg-[var(--bg-alt)]/30">
-                      <td className="py-4 px-4 text-[var(--text-1)] font-body font-medium">Sedan (Camry/Sonata)</td>
+                      <td className="py-4 px-4 text-[var(--text-1)] font-body font-medium">{t("madinahAirportToHotels.vehicleSedan")}</td>
                       <td className="py-4 px-4 text-center text-[var(--text-2)] font-body font-bold text-[var(--gold)]">170 SAR</td>
-                      <td className="py-4 px-4 text-center text-[var(--text-2)] font-body">Perfect for couples</td>
+                      <td className="py-4 px-4 text-center text-[var(--text-2)] font-body">{t("madinahAirportToHotels.descSedan")}</td>
                     </tr>
                     <tr className="border-b border-[var(--border)] hover:bg-[var(--bg-alt)]/30">
-                      <td className="py-4 px-4 text-[var(--text-1)] font-body font-medium">Staria (7-Seater)</td>
+                      <td className="py-4 px-4 text-[var(--text-1)] font-body font-medium">{t("madinahAirportToHotels.vehicleStaria")}</td>
                       <td className="py-4 px-4 text-center text-[var(--text-2)] font-body font-bold text-[var(--gold)]">200 SAR</td>
-                      <td className="py-4 px-4 text-center text-[var(--text-2)] font-body">Ideal for small groups</td>
+                      <td className="py-4 px-4 text-center text-[var(--text-2)] font-body">{t("madinahAirportToHotels.descStaria")}</td>
                     </tr>
                     <tr className="border-b border-[var(--border)] hover:bg-[var(--bg-alt)]/30">
-                      <td className="py-4 px-4 text-[var(--text-1)] font-body font-medium">Hi-Roof (10-Seater)</td>
+                      <td className="py-4 px-4 text-[var(--text-1)] font-body font-medium">{t("madinahAirportToHotels.vehicleHiRoof")}</td>
                       <td className="py-4 px-4 text-center text-[var(--text-2)] font-body font-bold text-[var(--gold)]">250 SAR</td>
-                      <td className="py-4 px-4 text-center text-[var(--text-2)] font-body">Spacious family vehicle</td>
+                      <td className="py-4 px-4 text-center text-[var(--text-2)] font-body">{t("madinahAirportToHotels.descHiRoof")}</td>
                     </tr>
                     <tr className="border-b border-[var(--border)] hover:bg-[var(--bg-alt)]/30">
-                      <td className="py-4 px-4 text-[var(--text-1)] font-body font-medium">GMC Yukon</td>
+                      <td className="py-4 px-4 text-[var(--text-1)] font-body font-medium">{t("madinahAirportToHotels.vehicleGmc")}</td>
                       <td className="py-4 px-4 text-center text-[var(--text-2)] font-body font-bold text-[var(--gold)]">350 SAR</td>
-                      <td className="py-4 px-4 text-center text-[var(--text-2)] font-body">Luxury comfort for families</td>
+                      <td className="py-4 px-4 text-center text-[var(--text-2)] font-body">{t("madinahAirportToHotels.descGmc")}</td>
                     </tr>
                     <tr className="border-b border-[var(--border)] hover:bg-[var(--bg-alt)]/30">
-                      <td className="py-4 px-4 text-[var(--text-1)] font-body font-medium">Coaster (18-Seater)</td>
+                      <td className="py-4 px-4 text-[var(--text-1)] font-body font-medium">{t("madinahAirportToHotels.vehicleCoaster")}</td>
                       <td className="py-4 px-4 text-center text-[var(--text-2)] font-body font-bold text-[var(--gold)]">370 SAR</td>
-                      <td className="py-4 px-4 text-center text-[var(--text-2)] font-body">Group transportation</td>
+                      <td className="py-4 px-4 text-center text-[var(--text-2)] font-body">{t("madinahAirportToHotels.descCoaster")}</td>
                     </tr>
                     <tr className="hover:bg-[var(--bg-alt)]/30">
-                      <td className="py-4 px-4 text-[var(--text-1)] font-body font-medium">Bus (50-Seater)</td>
+                      <td className="py-4 px-4 text-[var(--text-1)] font-body font-medium">{t("madinahAirportToHotels.vehicleBus")}</td>
                       <td className="py-4 px-4 text-center text-[var(--text-2)] font-body font-bold text-[var(--gold)]">600 SAR</td>
-                      <td className="py-4 px-4 text-center text-[var(--text-2)] font-body">Large pilgrim groups</td>
+                      <td className="py-4 px-4 text-center text-[var(--text-2)] font-body">{t("madinahAirportToHotels.descBus")}</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10">
-                <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4">How much is the Madinah Airport to Hotels Bus Price and Fare?</h3>
+                <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4">{t("madinahAirportToHotels.busPricingTitle")}</h3>
                 <p className="text-[var(--text-2)] text-lg leading-relaxed font-body mb-4">
-                  Bus from Madinah Airport to hotel costs significantly less per person for groups. A 50-seater bus costs 600 SAR from Madinah Airport to Madinah hotels. That's 12 SAR per person.
+                  {t("madinahAirportToHotels.busPricingP1")}
                 </p>
                 <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                  Families of 8 or more save up to 60% compared to separate taxis. Our buses include comfortable seating and climate control.
+                  {t("madinahAirportToHotels.busPricingP2")}
                 </p>
               </div>
             </div>
@@ -372,44 +375,44 @@ export function MadinahAirportToHotelsClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Our Fleet</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Haramain Umrah Taxi Fleet for Madinah Airport to Hotels</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("madinahAirportToHotels.fleetEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("madinahAirportToHotels.fleetTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <Card
-                  title="Sedan Vehicles (Camry/Sonata)"
-                  description="Provide reliable Madinah airport to hotels taxi services for couples. Starting at 170 SAR, these vehicles offer excellent value for hotel transfers."
+                  title={t("madinahAirportToHotels.fleetSedanTitle")}
+                  description={t("madinahAirportToHotels.fleetSedanDesc")}
                   imageLabel="Sedan Car"
                   imageUrl="/images/fleet/sedan.webp"
                 />
                 <Card
-                  title="GMC Yukon SUVs"
-                  description="Deliver premium Madinah airport to hotels taxi services at 350 SAR. Luxury features include leather seating and enhanced comfort systems."
+                  title={t("madinahAirportToHotels.fleetGmcTitle")}
+                  description={t("madinahAirportToHotels.fleetGmcDesc")}
                   imageLabel="GMC Yukon"
                   imageUrl="/images/fleet/luxury-gmc.png"
                 />
                 <Card
-                  title="Staria 7-Seater Vans"
-                  description="Serve extended families requiring spacious Madinah airport to hotels taxi services. Modern interiors accommodate luggage from long pilgrimages."
+                  title={t("madinahAirportToHotels.fleetStariaTitle")}
+                  description={t("madinahAirportToHotels.fleetStariaDesc")}
                   imageLabel="Staria Van"
                   imageUrl="/images/fleet/minivan.webp"
                 />
                 <Card
-                  title="Hi-Roof 10-Seater Vehicles"
-                  description="Handle medium groups needing reliable Madinah Airport to hotels taxi services. Flexible seating arrangements suit various family configurations."
+                  title={t("madinahAirportToHotels.fleetHiRoofTitle")}
+                  description={t("madinahAirportToHotels.fleetHiRoofDesc")}
                   imageLabel="Hiace Van"
                   imageUrl="/images/fleet/hiace-microbus.png"
                 />
                 <Card
-                  title="Coaster 18-Seater Buses"
-                  description="Coordinate organized group Madinah airport to hotels taxi services efficiently. Professional drivers manage multiple hotel drop-offs for tour groups."
+                  title={t("madinahAirportToHotels.fleetCoasterTitle")}
+                  description={t("madinahAirportToHotels.fleetCoasterDesc")}
                   imageLabel="Coaster"
                   imageUrl="/images/fleet/coaster.jpg"
                 />
                 <Card
-                  title="50-Seater Buses"
-                  description="Provide large-scale Madinah airport to hotels taxi services for pilgrim groups. Climate-controlled interiors ensure passenger comfort throughout hotel journeys."
+                  title={t("madinahAirportToHotels.fleetBusTitle")}
+                  description={t("madinahAirportToHotels.fleetBusDesc")}
                   imageLabel="Bus"
                   imageUrl="/images/fleet/bus.png"
                 />
@@ -422,26 +425,26 @@ export function MadinahAirportToHotelsClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">FAQs</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Frequently Asked Questions</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("madinahAirportToHotels.faqsEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("madinahAirportToHotels.faqsTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 gap-6 max-w-3xl mx-auto">
                 <FAQItem
-                  question="Can I get an English-speaking driver when traveling to Madinah?"
-                  answer="Our drivers communicate effectively in English with international visitors. They know hotel names, understand basic directions, and assist with simple city questions. This eliminates the communication difficulties you might face with standard airport transportation services."
+                  question={t("madinahAirportToHotels.faq1Q")}
+                  answer={t("madinahAirportToHotels.faq1A")}
                 />
                 <FAQItem
-                  question="Do your drivers know where the Umrah hotels are located in Madinah?"
-                  answer="Our team knows every major hotel around Masjid Nabawi and across the city. We regularly serve guests at properties like Hilton, Marriott, and local accommodations near the Prophet's Mosque. You avoid the frustration of explaining hotel locations to unfamiliar drivers."
+                  question={t("madinahAirportToHotels.faq2Q")}
+                  answer={t("madinahAirportToHotels.faq2A")}
                 />
                 <FAQItem
-                  question="Can families request child seats for airport hotel transfers?"
-                  answer="We have child seats when you mention your children's ages during the booking process. This keeps your family safe and compliant with local transportation requirements. Just let us know each child's age when making your reservation."
+                  question={t("madinahAirportToHotels.faq3Q")}
+                  answer={t("madinahAirportToHotels.faq3A")}
                 />
                 <FAQItem
-                  question="When should I reserve my airport hotel transfer?"
-                  answer="Book your ride 24 hours ahead for guaranteed service availability. We sometimes handle last-minute requests depending on fleet availability. During peak pilgrimage periods, reserve 2-3 days early to secure your preferred vehicle option."
+                  question={t("madinahAirportToHotels.faq4Q")}
+                  answer={t("madinahAirportToHotels.faq4A")}
                 />
               </div>
             </div>
@@ -453,9 +456,9 @@ export function MadinahAirportToHotelsClient() {
             <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[40px] p-8 md:p-16 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-32 -mt-32" />
               <div className="relative z-10 text-center">
-                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">Ready to Book Your Madinah Airport to Hotel Taxi?</h2>
+                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">{t("madinahAirportToHotels.ctaTitle")}</h2>
                 <p className="text-[var(--text-2)] text-[18px] font-body mb-12 max-w-3xl mx-auto leading-relaxed">
-                  Secure your Madinah Airport to Hotel taxi service now. Contact us for immediate reservation. Keep your spiritual journey peaceful - reserve now and travel comfortably.
+                  {t("madinahAirportToHotels.ctaText")}
                 </p>
                 <div className="flex flex-wrap justify-center gap-6">
                   <a
@@ -465,14 +468,14 @@ export function MadinahAirportToHotelsClient() {
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--green)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <WhatsAppIcon size={24} />
-                    Book via WhatsApp Now
+                    {t("madinahAirportToHotels.ctaWhatsAppBtn")}
                   </a>
                   <a
                     href="tel:+966598401594"
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--gold)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <Phone size={24} />
-                    Call Us Direct
+                    {t("madinahAirportToHotels.ctaCallBtn")}
                   </a>
                 </div>
               </div>

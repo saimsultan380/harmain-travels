@@ -8,6 +8,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { IslamicGeometricBg } from "@/components/graphics/IslamicGeometricBg";
 import { AnimatedCarOnRoad } from "@/components/graphics/AnimatedCarOnRoad";
 import { Canonical } from "@/components/SEO/Canonical";
+import { useI18n } from "@/lib/i18n";
 import {
   ArrowRight,
   BadgeCheck,
@@ -73,6 +74,8 @@ function Card({
 }
 
 export function QuranWaqfServicesClient() {
+  const { t } = useI18n();
+
   return (
     <div className="min-h-screen bg-[var(--bg)] selection:bg-[var(--gold-soft)] selection:text-[var(--gold)]">
       <Canonical />
@@ -97,7 +100,7 @@ export function QuranWaqfServicesClient() {
                 className="inline-block mb-6"
               >
                 <span className="px-4 py-1.5 rounded-full bg-[var(--gold)] text-white font-heading font-bold text-xs uppercase tracking-widest shadow-lg shadow-[var(--gold)]/20">
-                  Sadaqah Jariyah
+                  {t("quranWaqf.heroBadge")}
                 </span>
               </motion.div>
 
@@ -106,7 +109,7 @@ export function QuranWaqfServicesClient() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-6xl lg:text-[64px] font-heading font-extrabold !text-white mb-8 leading-tight"
               >
-                Quran Distribution Services and Waqaf Quran in <span className="text-[var(--gold)]">Saudia & Makkah</span>
+                {t("quranWaqf.heroTitle").split(' in ')[0]} in <span className="text-[var(--gold)]">{t("quranWaqf.heroTitle").split(' in ')[1]}</span>
               </motion.h1>
 
               <motion.div
@@ -116,10 +119,10 @@ export function QuranWaqfServicesClient() {
                 className="max-w-3xl mx-auto mb-10 space-y-4"
               >
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Have you ever wished to leave a permanent impression within the most holy locations on Earth?
+                  {t("quranWaqf.heroText1")}
                 </p>
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Imagine a pilgrim inside Masjid al-Haram or Masjid an-Nabawi holding the Quran you donated and reciting its words—praying for you. This is Sadaqah Jariyah that lasts beyond your lifetime.
+                  {t("quranWaqf.heroText2")}
                 </p>
               </motion.div>
 
@@ -134,13 +137,13 @@ export function QuranWaqfServicesClient() {
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--green)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all border border-[var(--green)]/20"
                 >
                   <WhatsAppIcon />
-                  Donate on WhatsApp Now
+                  {t("quranWaqf.heroDonateBtn")}
                 </a>
                 <Link
                   href="#services"
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--bg-alt)] text-[var(--text-1)] font-heading font-bold rounded-xl border border-[var(--border)] hover:bg-[var(--gold)] hover:text-white transition-all shadow-sm"
                 >
-                  View Services
+                  {t("quranWaqf.heroServicesBtn")}
                   <ArrowRight size={20} />
                 </Link>
               </motion.div>
@@ -157,18 +160,18 @@ export function QuranWaqfServicesClient() {
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">
-                  Impact
+                  {t("quranWaqf.impactBadge")}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Why Quran Distribution is Unparalleled Charity</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{t("quranWaqf.impactTitle")}</h2>
                 <div className="space-y-5">
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    The Quran is guidance from Allah, a source of peace and closeness to Him. When you donate a Quran in Saudi Arabia, you spread light and strengthen faith.
+                    {t("quranWaqf.impactP1")}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    One donated Quran in Masjid al-Haram or a school in Madinah may be read by hundreds or thousands of worshippers—each page turned, each verse recited brings you ongoing blessings.
+                    {t("quranWaqf.impactP2")}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    We use the widely accepted Mushaf Al-Madina, printed by the King Fahd Complex, ensuring authenticity and quality.
+                    {t("quranWaqf.impactP3")}
                   </p>
                 </div>
               </div>
@@ -182,32 +185,32 @@ export function QuranWaqfServicesClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Our Services</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Our Quran Distribution Services</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("quranWaqf.servicesEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("quranWaqf.servicesTitle")}</h2>
                 <p className="mt-4 text-lg text-[var(--text-2)] max-w-3xl mx-auto font-body">
-                  Distribution in Makkah and Madinah, Waqaf, charity for the poor, and personalized donation options.
+                  {t("quranWaqf.servicesDesc")}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <Card
-                  title="Distribution in Makkah & Madinah"
-                  description="We place Qurans within Masjid al-Haram and Al-Masjid an-Nabawi, where thousands use them daily."
+                  title={t("quranWaqf.service1Title")}
+                  description={t("quranWaqf.service1Desc")}
                   icon={BookOpen}
                 />
                 <Card
-                  title="Waqaf (Endowment)"
-                  description="A permanent act of charity—facilitate donation of Qurans to schools, mosques, or institutions."
+                  title={t("quranWaqf.service2Title")}
+                  description={t("quranWaqf.service2Desc")}
                   icon={Sparkles}
                 />
                 <Card
-                  title="Quran Charity in Saudia"
-                  description="Contribute to distribute Qurans to the poor who cannot purchase their own copy."
+                  title={t("quranWaqf.service3Title")}
+                  description={t("quranWaqf.service3Desc")}
                   icon={HandHeart}
                 />
                 <Card
-                  title="Personalized Donation"
-                  description="Donate for yourself, someone special, or as Sadaqah Jariyah for the departed."
+                  title={t("quranWaqf.service4Title")}
+                  description={t("quranWaqf.service4Desc")}
                   icon={Gift}
                 />
               </div>
@@ -221,31 +224,31 @@ export function QuranWaqfServicesClient() {
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-48 -mt-48" />
 
               <div className="text-center mb-16 relative z-10">
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Why Choose Haramain Umrah Taxi for Quran Charity?</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{t("quranWaqf.whyTitle")}</h2>
                 <p className="text-[var(--text-2)] font-body max-w-3xl mx-auto text-lg">
-                  Seamless process, guaranteed placement, transparency, and authentic Mushaf Al-Madina.
+                  {t("quranWaqf.whyDesc")}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
                 <Card
-                  title="Seamless Process"
-                  description="We handle procurement through proper placement in locations."
+                  title={t("quranWaqf.why1Title")}
+                  description={t("quranWaqf.why1Desc")}
                   icon={BadgeCheck}
                 />
                 <Card
-                  title="Guaranteed Placement"
-                  description="Every donated Quran reaches the right hands—mosque, madrasa, or worshipper."
+                  title={t("quranWaqf.why2Title")}
+                  description={t("quranWaqf.why2Desc")}
                   icon={ShieldCheck}
                 />
                 <Card
-                  title="Transparency & Evidence"
-                  description="We provide photographic and/or video proof of delivery."
+                  title={t("quranWaqf.why3Title")}
+                  description={t("quranWaqf.why3Desc")}
                   icon={CheckCircle2}
                 />
                 <Card
-                  title="Authenticity"
-                  description="We provide Mushaf Al-Madina with rigorous quality standards."
+                  title={t("quranWaqf.why4Title")}
+                  description={t("quranWaqf.why4Desc")}
                   icon={BookOpen}
                 />
               </div>
@@ -257,8 +260,8 @@ export function QuranWaqfServicesClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Get Involved</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">You Can Get Involved Today</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("quranWaqf.getInvolvedEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("quranWaqf.getInvolvedTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -266,27 +269,27 @@ export function QuranWaqfServicesClient() {
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mb-5">
                     <Phone size={22} />
                   </div>
-                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">Contact Us</h3>
+                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">{t("quranWaqf.step1Title")}</h3>
                   <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">
-                    Let us know how you would like to join our Quran distribution services in Saudi Arabia.
+                    {t("quranWaqf.step1Desc")}
                   </p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-8">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mb-5">
                     <Gift size={22} />
                   </div>
-                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">Choose Your Service</h3>
+                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">{t("quranWaqf.step2Title")}</h3>
                   <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">
-                    Distribute Qurans, endow (waqaf) a Quran in Makkah, or gift on behalf of someone.
+                    {t("quranWaqf.step2Desc")}
                   </p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-8">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mb-5">
                     <CheckCircle2 size={22} />
                   </div>
-                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">Get Proof</h3>
+                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">{t("quranWaqf.step3Title")}</h3>
                   <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">
-                    After completion, we send photographic or video proof of your charity.
+                    {t("quranWaqf.step3Desc")}
                   </p>
                 </div>
               </div>
@@ -299,9 +302,9 @@ export function QuranWaqfServicesClient() {
             <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[40px] p-8 md:p-16 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-32 -mt-32" />
               <div className="relative z-10 text-center">
-                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">Give a Quran and Get Eternal Rewards</h2>
+                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">{t("quranWaqf.ctaTitle")}</h2>
                 <p className="text-[var(--text-2)] text-[18px] font-body mb-12 max-w-3xl mx-auto leading-relaxed">
-                  By taking part in Quran distribution in Saudi Arabia, you illuminate hearts, strengthen faith, and create a source of blessings that endures eternally.
+                  {t("quranWaqf.ctaText")}
                 </p>
                 <div className="flex flex-wrap justify-center gap-6">
                   <a
@@ -311,14 +314,14 @@ export function QuranWaqfServicesClient() {
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--green)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <WhatsAppIcon size={24} />
-                    Donate via WhatsApp Now
+                    {t("quranWaqf.ctaWhatsAppBtn")}
                   </a>
                   <a
                     href="tel:+966598401594"
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--gold)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <Phone size={24} />
-                    Call Us Direct
+                    {t("quranWaqf.ctaCallBtn")}
                   </a>
                 </div>
               </div>

@@ -8,6 +8,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { IslamicGeometricBg } from "@/components/graphics/IslamicGeometricBg";
 import { AnimatedCarOnRoad } from "@/components/graphics/AnimatedCarOnRoad";
 import { Canonical } from "@/components/SEO/Canonical";
+import { useI18n } from "@/lib/i18n";
 import {
   ArrowRight,
   BadgeCheck,
@@ -73,6 +74,8 @@ function Card({
 }
 
 export function UmrahGuiderServicesClient() {
+  const { t } = useI18n();
+
   return (
     <div className="min-h-screen bg-[var(--bg)] selection:bg-[var(--gold-soft)] selection:text-[var(--gold)]">
       <Canonical />
@@ -97,7 +100,7 @@ export function UmrahGuiderServicesClient() {
                 className="inline-block mb-6"
               >
                 <span className="px-4 py-1.5 rounded-full bg-[var(--gold)] text-white font-heading font-bold text-xs uppercase tracking-widest shadow-lg shadow-[var(--gold)]/20">
-                  Expert Guidance
+                  {t("umrahGuider.heroBadge")}
                 </span>
               </motion.div>
 
@@ -106,7 +109,7 @@ export function UmrahGuiderServicesClient() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-6xl lg:text-[64px] font-heading font-extrabold !text-white mb-8 leading-tight"
               >
-                Umrah Guider| Umrah Guider Services in <span className="text-[var(--gold)]">Makkah & Saudi Arab</span>
+                {t("umrahGuider.heroTitle").split('|')[0]}| {t("umrahGuider.heroTitle").split('|')[1].split(' in ')[0]} in <span className="text-[var(--gold)]">{t("umrahGuider.heroTitle").split('|')[1].split(' in ')[1]}</span>
               </motion.h1>
 
               <motion.div
@@ -116,10 +119,10 @@ export function UmrahGuiderServicesClient() {
                 className="max-w-3xl mx-auto mb-10 space-y-4"
               >
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Carrying out Umrah is a spiritual act where believers cleanse their souls and get closer to Allah. For new pilgrims, navigating holy areas, understanding rituals, and managing logistics can be daunting.
+                  {t("umrahGuider.heroText1")}
                 </p>
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Professional Umrah Guides provide guidance and assistance throughout your Umrah experience, making it successful and rewarding.
+                  {t("umrahGuider.heroText2")}
                 </p>
               </motion.div>
 
@@ -134,13 +137,13 @@ export function UmrahGuiderServicesClient() {
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--green)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all border border-[var(--green)]/20"
                 >
                   <WhatsAppIcon />
-                  Book on WhatsApp Now
+                  {t("umrahGuider.heroBookBtn")}
                 </a>
                 <Link
                   href="#services"
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--bg-alt)] text-[var(--text-1)] font-heading font-bold rounded-xl border border-[var(--border)] hover:bg-[var(--gold)] hover:text-white transition-all shadow-sm"
                 >
-                  View Services
+                  {t("umrahGuider.heroServicesBtn")}
                   <ArrowRight size={20} />
                 </Link>
               </motion.div>
@@ -157,18 +160,18 @@ export function UmrahGuiderServicesClient() {
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">
-                  Importance
+                  {t("umrahGuider.importanceBadge")}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Why is the Umrah Guide Important?</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{t("umrahGuider.importanceTitle")}</h2>
                 <div className="space-y-5">
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Many pilgrims visit Makkah with little knowledge of rituals, schedules, and histories of sacred sites. An experienced Umrah Guide helps pilgrims understand the pilgrimage and perform each step properly.
+                    {t("umrahGuider.importanceP1")}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    With a properly guided tour, pilgrims can focus on worship and avoid common problems such as language barriers, navigation, and wastage of time.
+                    {t("umrahGuider.importanceP2")}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Beyond logistics, guides offer religious and historic insight into each rite—from Tawaf around Kaaba to Sa’i between Safa and Marwah—so you perform each step with sincerity and comprehension.
+                    {t("umrahGuider.importanceP3")}
                   </p>
                 </div>
               </div>
@@ -182,32 +185,32 @@ export function UmrahGuiderServicesClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Our Services</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Our Umrah Guide Services</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("umrahGuider.servicesEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("umrahGuider.servicesTitle")}</h2>
                 <p className="mt-4 text-lg text-[var(--text-2)] max-w-3xl mx-auto font-body">
-                  Best transportation, ritual directions, Ziyarat tours, and religious counseling for a well-organized Umrah.
+                  {t("umrahGuider.servicesDesc")}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <Card
-                  title="Best Transportation"
-                  description="Air-conditioned, secure taxi transportation for transfers between hotels, mosques, and places of interest."
+                  title={t("umrahGuider.service1Title")}
+                  description={t("umrahGuider.service1Desc")}
                   icon={Bus}
                 />
                 <Card
-                  title="Ritual Directions"
-                  description="Step-by-step guidance for Sa’i, Tawaf, and other primary Umrah rituals."
+                  title={t("umrahGuider.service2Title")}
+                  description={t("umrahGuider.service2Desc")}
                   icon={Compass}
                 />
                 <Card
-                  title="Ziyarat Tours"
-                  description="Guided visits to significant Islamic places in Makkah and Madinah, enriching your spiritual experience."
+                  title={t("umrahGuider.service3Title")}
+                  description={t("umrahGuider.service3Desc")}
                   icon={MapPin}
                 />
                 <Card
-                  title="Religious Counseling"
-                  description="Appropriate answers to religious queries grounded on genuine teachings."
+                  title={t("umrahGuider.service4Title")}
+                  description={t("umrahGuider.service4Desc")}
                   icon={BookOpen}
                 />
               </div>
@@ -221,9 +224,9 @@ export function UmrahGuiderServicesClient() {
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-48 -mt-48" />
 
               <div className="text-center mb-16 relative z-10">
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Reserving Your Umrah Guide Services</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{t("umrahGuider.reservingTitle")}</h2>
                 <p className="text-[var(--text-2)] font-body max-w-3xl mx-auto text-lg">
-                  Choosing a quality Umrah Guide service provider in Saudi Arabia can make all the difference for your Umrah experience.
+                  {t("umrahGuider.reservingDesc")}
                 </p>
               </div>
 
@@ -232,27 +235,27 @@ export function UmrahGuiderServicesClient() {
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mb-5">
                     <ShieldCheck size={22} />
                   </div>
-                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">Expert & Informed</h3>
+                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">{t("umrahGuider.why1Title")}</h3>
                   <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">
-                    Our guides are knowledgeable, respectful, and experienced in Umrah rituals.
+                    {t("umrahGuider.why1Desc")}
                   </p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-8">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mb-5">
                     <BadgeCheck size={22} />
                   </div>
-                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">Hassle-Free</h3>
+                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">{t("umrahGuider.why2Title")}</h3>
                   <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">
-                    We handle logistics so you can focus on worship and spiritual connection.
+                    {t("umrahGuider.why2Desc")}
                   </p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-8">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mb-5">
                     <Users size={22} />
                   </div>
-                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">Spiritually Rewarding</h3>
+                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">{t("umrahGuider.why3Title")}</h3>
                   <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">
-                    Our guidance helps you perform each step with sincerity and comprehension.
+                    {t("umrahGuider.why3Desc")}
                   </p>
                 </div>
               </div>
@@ -265,9 +268,9 @@ export function UmrahGuiderServicesClient() {
             <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[40px] p-8 md:p-16 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-32 -mt-32" />
               <div className="relative z-10 text-center">
-                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">Book Your Umrah Guide Today</h2>
+                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">{t("umrahGuider.ctaTitle")}</h2>
                 <p className="text-[var(--text-2)] text-[18px] font-body mb-12 max-w-3xl mx-auto leading-relaxed">
-                  Get in touch with us now to book our Umrah Guide services. We will guide you on this spiritual journey. May Allah accept your du'a and bless you with a fruitful and accepted Umrah. Ameen.
+                  {t("umrahGuider.ctaText")}
                 </p>
                 <div className="flex flex-wrap justify-center gap-6">
                   <a
@@ -277,14 +280,14 @@ export function UmrahGuiderServicesClient() {
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--green)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <WhatsAppIcon size={24} />
-                    Book via WhatsApp Now
+                    {t("umrahGuider.ctaWhatsAppBtn")}
                   </a>
                   <a
                     href="tel:+966598401594"
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--gold)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <Phone size={24} />
-                    Call Us Direct
+                    {t("umrahGuider.ctaCallBtn")}
                   </a>
                 </div>
               </div>

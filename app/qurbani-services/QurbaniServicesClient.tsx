@@ -8,6 +8,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { IslamicGeometricBg } from "@/components/graphics/IslamicGeometricBg";
 import { AnimatedCarOnRoad } from "@/components/graphics/AnimatedCarOnRoad";
 import { Canonical } from "@/components/SEO/Canonical";
+import { useI18n } from "@/lib/i18n";
 import {
   ArrowRight,
   BadgeCheck,
@@ -88,6 +89,8 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 }
 
 export function QurbaniServicesClient() {
+  const { t } = useI18n();
+
   return (
     <div className="min-h-screen bg-[var(--bg)] selection:bg-[var(--gold-soft)] selection:text-[var(--gold)]">
       <Canonical />
@@ -112,7 +115,7 @@ export function QurbaniServicesClient() {
                 className="inline-block mb-6"
               >
                 <span className="px-4 py-1.5 rounded-full bg-[var(--gold)] text-white font-heading font-bold text-xs uppercase tracking-widest shadow-lg shadow-[var(--gold)]/20">
-                  Qurbani in Makkah
+                  {t("qurbaniServices.heroBadge")}
                 </span>
               </motion.div>
 
@@ -121,7 +124,7 @@ export function QurbaniServicesClient() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-6xl lg:text-[64px] font-heading font-extrabold !text-white mb-8 leading-tight"
               >
-                Qurbani| Sadaqah, Aqeeqah, Hajj Qurbani Services in <span className="text-[var(--gold)]">Makkah</span>
+                {t("qurbaniServices.heroTitle").split('|')[0]}| <span className="text-[var(--gold)]">{t("qurbaniServices.heroTitle").split('|')[1]}</span>
               </motion.h1>
 
               <motion.div
@@ -131,10 +134,10 @@ export function QurbaniServicesClient() {
                 className="max-w-3xl mx-auto mb-10 space-y-4"
               >
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Qurbani is a spiritual act of devotion, submission, and gratitude toward Allah. Performing it in the holiest city—Makkah—connects you to the legacy of Prophet Ibrahim (AS) in a deeper way.
+                  {t("qurbaniServices.heroText1")}
                 </p>
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Haramain Umrah offers end-to-end Qurbani services in Makkah, ensuring every sacrifice is completed according to Islamic guidelines, with reliable meat distribution and proof.
+                  {t("qurbaniServices.heroText2")}
                 </p>
               </motion.div>
 
@@ -149,13 +152,13 @@ export function QurbaniServicesClient() {
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--green)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all border border-[var(--green)]/20"
                 >
                   <WhatsAppIcon />
-                  Book on WhatsApp Now
+                  {t("qurbaniServices.heroBookBtn")}
                 </a>
                 <Link
                   href="#types"
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--bg-alt)] text-[var(--text-1)] font-heading font-bold rounded-xl border border-[var(--border)] hover:bg-[var(--gold)] hover:text-white transition-all shadow-sm"
                 >
-                  View Services
+                  {t("qurbaniServices.heroServicesBtn")}
                   <ArrowRight size={20} />
                 </Link>
               </motion.div>
@@ -172,15 +175,15 @@ export function QurbaniServicesClient() {
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">
-                  Meaning
+                  {t("qurbaniServices.meaningBadge")}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Why Qurbani in Makkah is So Meaningful</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{t("qurbaniServices.meaningTitle")}</h2>
                 <div className="space-y-5">
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Qurbani is not just the sacrifice of an animal—it's a declaration of submitting to Allah’s will, inspired by Prophet Ibrahim’s (AS) devotion.
+                    {t("qurbaniServices.meaningP1")}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Whether it’s Sadaqah, Aqeeqah, Eid ul Adha, or Hajj sacrifices, each form offers spiritual enrichment and strengthens your connection with Allah.
+                    {t("qurbaniServices.meaningP2")}
                   </p>
                 </div>
               </div>
@@ -194,49 +197,49 @@ export function QurbaniServicesClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Types</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Types of Qurbani Services We Offer</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("qurbaniServices.typesEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("qurbaniServices.typesTitle")}</h2>
                 <p className="mt-4 text-lg text-[var(--text-2)] max-w-3xl mx-auto font-body">
-                  Hajj Qurbani (Hady), Eid ul Adha, non-Hajj Qurbani, Aqeeqah, Sadaqah, Nafl, and Damm (compensatory sacrifice).
+                  {t("qurbaniServices.typesDesc")}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <Card
-                  title="Hajj Qurbani (Hady)"
-                  description="Mandatory for Tamattu’ and Qiran. Performed within Makkah limits with proper distribution."
+                  title={t("qurbaniServices.type1Title")}
+                  description={t("qurbaniServices.type1Desc")}
                   icon={BadgeCheck}
                 />
                 <Card
-                  title="Eid ul Adha Qurbani"
-                  description="Goat, sheep, camel, or cow—with strict adherence to Islamic requirements."
+                  title={t("qurbaniServices.type2Title")}
+                  description={t("qurbaniServices.type2Desc")}
                   icon={Sparkles}
                 />
                 <Card
-                  title="Non-Hajj Qurbani in Makkah"
-                  description="Perform your sacrifice in Makkah even if you're abroad—handled end-to-end."
+                  title={t("qurbaniServices.type3Title")}
+                  description={t("qurbaniServices.type3Desc")}
                   icon={HeartHandshake}
                 />
                 <Card
-                  title="Aqeeqah"
-                  description="Celebrate a child's birth with a sunnah sacrifice in a blessed land."
+                  title={t("qurbaniServices.type4Title")}
+                  description={t("qurbaniServices.type4Desc")}
                   icon={Baby}
                 />
                 <Card
-                  title="Sadaqah Qurbani"
-                  description="A charitable sacrifice with organized meat distribution to the needy."
+                  title={t("qurbaniServices.type5Title")}
+                  description={t("qurbaniServices.type5Desc")}
                   icon={HandCoins}
                 />
                 <Card
-                  title="Damm (Compensatory Sacrifice)"
-                  description="If Damm becomes obligatory, we handle it with verified proof."
+                  title={t("qurbaniServices.type6Title")}
+                  description={t("qurbaniServices.type6Desc")}
                   icon={Scale}
                 />
               </div>
 
               <div className="mt-10 bg-[var(--bg-card)] border-2 border-[var(--gold)]/15 rounded-[40px] p-8 md:p-12">
                 <p className="text-[var(--text-2)] font-body leading-relaxed">
-                  For Damm specifically, you can also see our dedicated Damm page for more details.
+                  {t("qurbaniServices.dammNote")}
                 </p>
               </div>
             </div>
@@ -247,27 +250,27 @@ export function QurbaniServicesClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
-                <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">Types of Animals for Qurbani</h2>
+                <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">{t("qurbaniServices.animalsTitle")}</h2>
                 <ul className="space-y-3 text-[var(--text-2)] font-body">
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Sheep & Dumba: at least one year, free from defects</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Goats: at least one year, healthy, Shariah compliant</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Camels: at least five years, healthy</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Cows: at least two years, healthy</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{t("qurbaniServices.animal1")}</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{t("qurbaniServices.animal2")}</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{t("qurbaniServices.animal3")}</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{t("qurbaniServices.animal4")}</li>
                 </ul>
                 <p className="mt-5 text-[var(--text-2)] text-sm leading-relaxed font-body">
-                  We examine animals for Islamic suitability before selection.
+                  {t("qurbaniServices.animalsNote")}
                 </p>
               </div>
 
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
-                <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">Qurbani Rules</h2>
+                <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">{t("qurbaniServices.rulesTitle")}</h2>
                 <ul className="space-y-3 text-[var(--text-2)] font-body">
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Performed for Allah (SWT)</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Meat shared: self, family/friends, poor/needy</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Within prescribed days of Dhul Hijjah</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Healthy animal, minimum age, no defects</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Takbeer recited at time of slaughter</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Respectful treatment of the animal</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{t("qurbaniServices.rule1")}</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{t("qurbaniServices.rule2")}</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{t("qurbaniServices.rule3")}</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{t("qurbaniServices.rule4")}</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{t("qurbaniServices.rule5")}</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{t("qurbaniServices.rule6")}</li>
                 </ul>
               </div>
             </div>
@@ -280,26 +283,26 @@ export function QurbaniServicesClient() {
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-48 -mt-48" />
 
               <div className="text-center mb-16 relative z-10">
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Why Choose Haramain Umrah for Qurbani?</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{t("qurbaniServices.whyTitle")}</h2>
                 <p className="text-[var(--text-2)] font-body max-w-3xl mx-auto text-lg">
-                  Transparent booking, high-quality animals, Shariah compliance, and verified distribution.
+                  {t("qurbaniServices.whyDesc")}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-10 relative z-10">
                 <Card
-                  title="Hassle-Free Booking"
-                  description="Simple online booking and payment process."
+                  title={t("qurbaniServices.why1Title")}
+                  description={t("qurbaniServices.why1Desc")}
                   icon={ClipboardCheck}
                 />
                 <Card
-                  title="Shariah Compliance"
-                  description="All steps follow Qurbani laws as per Islam."
+                  title={t("qurbaniServices.why2Title")}
+                  description={t("qurbaniServices.why2Desc")}
                   icon={ShieldCheck}
                 />
                 <Card
-                  title="Reliable Distribution"
-                  description="We ensure meat reaches those who need it (poor, travelers, etc.)."
+                  title={t("qurbaniServices.why3Title")}
+                  description={t("qurbaniServices.why3Desc")}
                   icon={HeartHandshake}
                 />
               </div>
@@ -309,8 +312,8 @@ export function QurbaniServicesClient() {
                   <div className="flex items-start gap-3">
                     <BadgeCheck className="text-[var(--gold)] shrink-0 mt-0.5" size={20} />
                     <div>
-                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">High-Quality Animals</h3>
-                      <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">We select only healthy, suitable animals for sacrifice.</p>
+                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">{t("qurbaniServices.why4Title")}</h3>
+                      <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{t("qurbaniServices.why4Desc")}</p>
                     </div>
                   </div>
                 </div>
@@ -318,8 +321,8 @@ export function QurbaniServicesClient() {
                   <div className="flex items-start gap-3">
                     <Scale className="text-[var(--gold)] shrink-0 mt-0.5" size={20} />
                     <div>
-                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">Transparent Processing</h3>
-                      <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">You receive evidence for selection, Qurbani conduct, and distribution.</p>
+                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">{t("qurbaniServices.why5Title")}</h3>
+                      <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{t("qurbaniServices.why5Desc")}</p>
                     </div>
                   </div>
                 </div>
@@ -332,16 +335,16 @@ export function QurbaniServicesClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">FAQ</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Frequently Asked Questions</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("qurbaniServices.faqEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("qurbaniServices.faqTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <FAQItem q="Can I book my Qurbani online?" a="Yes, you can book Qurbani services for Makkah conveniently online." />
-                <FAQItem q="Who receives the meat of my Qurbani?" a="It is distributed among the poor and needy in Makkah, and you can receive proof of distribution." />
-                <FAQItem q="Will my Qurbani be accepted if performed through a service?" a="Yes, as long as the provider complies with Islamic laws and regulations." />
-                <FAQItem q="Will I have the liberty to choose animals for Qurbani?" a="Yes, you may choose your preferred animal type for Qurbani." />
-                <FAQItem q="What if I make a mistake during Hajj, for which Damm is obligatory?" a="You can fulfill your Damm requirement with our professional Damm services in Makkah." />
+                <FAQItem q={t("qurbaniServices.faq1Q")} a={t("qurbaniServices.faq1A")} />
+                <FAQItem q={t("qurbaniServices.faq2Q")} a={t("qurbaniServices.faq2A")} />
+                <FAQItem q={t("qurbaniServices.faq3Q")} a={t("qurbaniServices.faq3A")} />
+                <FAQItem q={t("qurbaniServices.faq4Q")} a={t("qurbaniServices.faq4A")} />
+                <FAQItem q={t("qurbaniServices.faq5Q")} a={t("qurbaniServices.faq5A")} />
               </div>
             </div>
           </div>
@@ -352,9 +355,9 @@ export function QurbaniServicesClient() {
             <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[40px] p-8 md:p-16 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-32 -mt-32" />
               <div className="relative z-10 text-center">
-                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">Book Your Qurbani Service in Makkah</h2>
+                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">{t("qurbaniServices.ctaTitle")}</h2>
                 <p className="text-[var(--text-2)] text-[18px] font-body mb-12 max-w-3xl mx-auto leading-relaxed">
-                  Let us handle the sacrifice and distribution correctly while you focus on worship.
+                  {t("qurbaniServices.ctaText")}
                 </p>
                 <div className="flex flex-wrap justify-center gap-6">
                   <a
@@ -364,14 +367,14 @@ export function QurbaniServicesClient() {
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--green)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <WhatsAppIcon size={24} />
-                    Book via WhatsApp Now
+                    {t("qurbaniServices.ctaWhatsAppBtn")}
                   </a>
                   <a
                     href="tel:+966598401594"
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--gold)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <Phone size={24} />
-                    Call Us Direct
+                    {t("qurbaniServices.ctaCallBtn")}
                   </a>
                 </div>
               </div>

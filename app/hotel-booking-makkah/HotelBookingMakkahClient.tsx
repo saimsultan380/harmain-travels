@@ -9,6 +9,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { IslamicGeometricBg } from "@/components/graphics/IslamicGeometricBg";
 import { AnimatedCarOnRoad } from "@/components/graphics/AnimatedCarOnRoad";
 import { Canonical } from "@/components/SEO/Canonical";
+import { useI18n } from "@/lib/i18n";
 import {
   ArrowRight,
   BadgeCheck,
@@ -75,6 +76,7 @@ function Card({
 
 function HotelTable({ hotels, title }: { hotels: any[]; title: string }) {
   const [selectedRowId, setSelectedRowId] = useState<string | null>(null);
+  const { t } = useI18n();
   
   return (
     <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 overflow-x-auto">
@@ -82,11 +84,11 @@ function HotelTable({ hotels, title }: { hotels: any[]; title: string }) {
       <table className="w-full min-w-[800px] border-collapse">
         <thead>
           <tr>
-            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-left font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">Hotel Name</th>
-            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-center font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">Stars</th>
-            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-center font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">Rating</th>
-            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-center font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">Distance</th>
-            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-left font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">Location</th>
+            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-left font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">{t("hotelBookingMakkah.tableHeaderName")}</th>
+            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-center font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">{t("hotelBookingMakkah.tableHeaderStars")}</th>
+            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-center font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">{t("hotelBookingMakkah.tableHeaderRating")}</th>
+            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-center font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">{t("hotelBookingMakkah.tableHeaderDistance")}</th>
+            <th className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-left font-heading text-sm uppercase tracking-wide text-[var(--text-1)]">{t("hotelBookingMakkah.tableHeaderLocation")}</th>
           </tr>
         </thead>
         <tbody>
@@ -122,6 +124,8 @@ function HotelTable({ hotels, title }: { hotels: any[]; title: string }) {
 }
 
 export function HotelBookingMakkahClient() {
+  const { t } = useI18n();
+
   const threeStarHotels = [
     { name: "Emaar Al Manar Hotel", stars: 3, rating: "4.4", distance: "700m (10-15 min)", location: "Ibrahim Khalil Road" },
     { name: "Emaar Al Khalil Hotel", stars: 3, rating: "4.0", distance: "500m", location: "Ibrahim Khalil Road" },
@@ -201,7 +205,7 @@ export function HotelBookingMakkahClient() {
                 className="inline-block mb-6"
               >
                 <span className="px-4 py-1.5 rounded-full bg-[var(--gold)] text-white font-heading font-bold text-xs uppercase tracking-widest shadow-lg shadow-[var(--gold)]/20">
-                  Hotel Booking
+                  {t("hotelBookingMakkah.heroBadge")}
                 </span>
               </motion.div>
 
@@ -210,7 +214,7 @@ export function HotelBookingMakkahClient() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-6xl lg:text-[64px] font-heading font-extrabold !text-white mb-8 leading-tight"
               >
-                Online Hotel Booking in Makkah | Hotels Near Haram | <span className="text-[var(--gold)]">Call Us</span>
+                {t("hotelBookingMakkah.heroTitle").split('|')[0]} | {t("hotelBookingMakkah.heroTitle").split('|')[1]} | <span className="text-[var(--gold)]">{t("hotelBookingMakkah.heroTitle").split('|')[2]}</span>
               </motion.h1>
 
               <motion.div
@@ -220,10 +224,10 @@ export function HotelBookingMakkahClient() {
                 className="max-w-3xl mx-auto mb-10 space-y-4"
               >
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  At Haramain Umrah Taxi, we're more than just your transportation partner. We've expanded our services to include hotel booking in Makkah.
+                  {t("hotelBookingMakkah.heroText1")}
                 </p>
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Our team knows every street, every neighborhood, and every hotel near Haram because we drive pilgrims there every single day.
+                  {t("hotelBookingMakkah.heroText2")}
                 </p>
               </motion.div>
 
@@ -238,14 +242,14 @@ export function HotelBookingMakkahClient() {
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--green)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all border border-[var(--green)]/20"
                 >
                   <WhatsAppIcon />
-                  Book Hotel on WhatsApp
+                  {t("hotelBookingMakkah.heroBookBtn")}
                 </a>
                 <a
                   href="tel:+966598401594"
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--gold)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all shadow-sm"
                 >
                   <Phone size={20} />
-                  Call Us Now
+                  {t("hotelBookingMakkah.heroCallBtn")}
                 </a>
               </motion.div>
             </motion.div>
@@ -261,20 +265,29 @@ export function HotelBookingMakkahClient() {
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">
-                  About Us
+                  {t("hotelBookingMakkah.aboutBadge")}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Hotel Booking in Makkah - Book Hotels With Us</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{t("hotelBookingMakkah.aboutTitle")}</h2>
                 <div className="space-y-5">
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    You already trust us with your transportation, now trust us with your accommodation too. Our drivers and booking team have firsthand knowledge of which hotels offer the best value, cleanliness, and accessibility.
+                    {t("hotelBookingMakkah.aboutP1")}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    We have built strong relationships with property owners across Makkah, allowing us to secure exclusive rates and priority bookings for our customers.
+                    {t("hotelBookingMakkah.aboutP2")}
                   </p>
                 </div>
               </div>
 
-              <ImagePlaceholder label="Image Placeholder: Hotel / Makkah / Haram" />
+              <div className="rounded-[32px] border-2 border-[var(--border)] bg-[var(--bg)] p-2 shadow-sm">
+                <div className="aspect-video rounded-[28px] border border-[var(--border)] bg-[var(--bg-alt)] relative overflow-hidden">
+                  <img
+                    src="/images/Hotel Booking in Makkah.jpg"
+                    alt="Hotel Booking in Makkah"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
+              </div>
             </div>
           </div>
         </AnimatedSection>
@@ -283,34 +296,34 @@ export function HotelBookingMakkahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Why Us</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Why Book Hotels Through Haramain Umrah Taxi?</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("hotelBookingMakkah.whyUsEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("hotelBookingMakkah.whyUsTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <Card
-                  title="Easy Taxi Access"
-                  description="We know which hotels have the easiest taxi access."
+                  title={t("hotelBookingMakkah.why1Title")}
+                  description={t("hotelBookingMakkah.why1Desc")}
                   icon={Truck}
                 />
                 <Card
-                  title="Direct Partnerships"
-                  description="Direct partnerships with 30+ properties near Haram."
+                  title={t("hotelBookingMakkah.why2Title")}
+                  description={t("hotelBookingMakkah.why2Desc")}
                   icon={Building2}
                 />
                 <Card
-                  title="Bundle Savings"
-                  description="Bundle your hotel + taxi services for extra savings."
+                  title={t("hotelBookingMakkah.why3Title")}
+                  description={t("hotelBookingMakkah.why3Desc")}
                   icon={BadgeCheck}
                 />
                 <Card
-                  title="Trusted Service"
-                  description="Same trusted service you rely on for transportation."
+                  title={t("hotelBookingMakkah.why4Title")}
+                  description={t("hotelBookingMakkah.why4Desc")}
                   icon={ShieldCheck}
                 />
                 <Card
-                  title="24/7 Support"
-                  description="24/7 support from people who know Makkah inside out."
+                  title={t("hotelBookingMakkah.why5Title")}
+                  description={t("hotelBookingMakkah.why5Desc")}
                   icon={Users}
                 />
               </div>
@@ -322,16 +335,16 @@ export function HotelBookingMakkahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Affordable</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Hotel Booking in Makkah Near Haram at Affordable Pricing</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("hotelBookingMakkah.affordableEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("hotelBookingMakkah.affordableTitle")}</h2>
                 <p className="mt-4 text-lg text-[var(--text-2)] max-w-3xl mx-auto font-body">
-                  We specialize in finding accommodations within 100-500 meters of Masjid al-Haram. You'll spend less time traveling and more time in worship.
+                  {t("hotelBookingMakkah.affordableP1")}
                 </p>
               </div>
 
               <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/10 rounded-[32px] p-8 md:p-10">
                 <p className="text-[var(--text-2)] text-lg leading-relaxed font-body mb-6">
-                  When you book a hotel in Makkah through us, you're getting insider knowledge that typical booking sites simply don't have. We can inform you about smooth drop-off points, luggage access, and locations to avoid traffic congestion.
+                  {t("hotelBookingMakkah.affordableP2")}
                 </p>
               </div>
             </div>
@@ -342,14 +355,14 @@ export function HotelBookingMakkahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">3 Star</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">3 Star Hotel Booking in Makkah</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("hotelBookingMakkah.threeStarEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("hotelBookingMakkah.threeStarTitle")}</h2>
                 <p className="mt-4 text-lg text-[var(--text-2)] max-w-3xl mx-auto font-body">
-                  Driver-recommended budget-friendly hotels with clean, comfortable rooms and essential amenities.
+                  {t("hotelBookingMakkah.threeStarP1")}
                 </p>
               </div>
 
-              <HotelTable hotels={threeStarHotels} title="Top 3-Star Hotels (Driver-Recommended)" />
+              <HotelTable hotels={threeStarHotels} title={t("hotelBookingMakkah.threeStarTableTitle")} />
             </div>
           </div>
         </AnimatedSection>
@@ -358,14 +371,14 @@ export function HotelBookingMakkahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">4 Star</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">4 Star Hotel Booking in Makkah</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("hotelBookingMakkah.fourStarEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("hotelBookingMakkah.fourStarTitle")}</h2>
                 <p className="mt-4 text-lg text-[var(--text-2)] max-w-3xl mx-auto font-body">
-                  Properties with superior facilities, prime locations, and convenient drop-off zones.
+                  {t("hotelBookingMakkah.fourStarP1")}
                 </p>
               </div>
 
-              <HotelTable hotels={fourStarHotels} title="Popular 4-Star Hotels" />
+              <HotelTable hotels={fourStarHotels} title={t("hotelBookingMakkah.fourStarTableTitle")} />
             </div>
           </div>
         </AnimatedSection>
@@ -374,14 +387,14 @@ export function HotelBookingMakkahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">5 Star</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">5 Star Hotel Booking in Makkah</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("hotelBookingMakkah.fiveStarEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("hotelBookingMakkah.fiveStarTitle")}</h2>
                 <p className="mt-4 text-lg text-[var(--text-2)] max-w-3xl mx-auto font-body">
-                  Premium properties with world-class amenities in the most accessible areas of the city.
+                  {t("hotelBookingMakkah.fiveStarP1")}
                 </p>
               </div>
 
-              <HotelTable hotels={fiveStarHotels} title="Premium 5-Star Hotels" />
+              <HotelTable hotels={fiveStarHotels} title={t("hotelBookingMakkah.fiveStarTableTitle")} />
             </div>
           </div>
         </AnimatedSection>
@@ -390,8 +403,8 @@ export function HotelBookingMakkahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">How to Book</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">How to Book Your Makkah Hotel With Us?</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("hotelBookingMakkah.howToBookEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("hotelBookingMakkah.howToBookTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
@@ -399,36 +412,36 @@ export function HotelBookingMakkahClient() {
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-4">
                     <Phone size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Contact Us</h3>
-                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">WhatsApp or call our booking team.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{t("hotelBookingMakkah.step1Title")}</h3>
+                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">{t("hotelBookingMakkah.step1Desc")}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-6 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-4">
                     <Calendar size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Share Details</h3>
-                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">Tell us dates, budget, and group size.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{t("hotelBookingMakkah.step2Title")}</h3>
+                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">{t("hotelBookingMakkah.step2Desc")}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-6 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-4">
                     <Building2 size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Review Options</h3>
-                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">Review driver-recommended hotels.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{t("hotelBookingMakkah.step3Title")}</h3>
+                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">{t("hotelBookingMakkah.step3Desc")}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-6 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-4">
                     <CheckCircle2 size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Confirm</h3>
-                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">Confirm and receive instant booking.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{t("hotelBookingMakkah.step4Title")}</h3>
+                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">{t("hotelBookingMakkah.step4Desc")}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-6 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-4">
                     <Truck size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Coordinate</h3>
-                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">Coordinate airport pickup simultaneously.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{t("hotelBookingMakkah.step5Title")}</h3>
+                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">{t("hotelBookingMakkah.step5Desc")}</p>
                 </div>
               </div>
             </div>
@@ -438,21 +451,30 @@ export function HotelBookingMakkahClient() {
         <AnimatedSection className="py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
-              <ImagePlaceholder label="Image Placeholder: Hotel Location / Map" />
+              <div className="rounded-[32px] border-2 border-[var(--border)] bg-[var(--bg)] p-2 shadow-sm">
+                <div className="aspect-video rounded-[28px] border border-[var(--border)] bg-[var(--bg-alt)] relative overflow-hidden">
+                  <img
+                    src="/images/Why Hotel Location Matters"
+                    alt="Why Hotel Location Matters"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
+              </div>
 
               <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/10 rounded-[32px] p-8 md:p-10 shadow-sm">
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">
-                  Location Matters
+                  {t("hotelBookingMakkah.locationBadge")}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Why Hotel Location Matters?</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{t("hotelBookingMakkah.locationTitle")}</h2>
                 <div className="space-y-5">
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Our drivers emphasize one thing: hotel location makes or breaks your Makkah experience. Ibrahim Khalil Road is ideal because it's well-connected.
+                    {t("hotelBookingMakkah.locationP1")}
                   </p>
                   <ul className="space-y-3 text-[var(--text-2)] text-base leading-relaxed font-body">
-                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Ajyad Road offers proximity with good vehicle access</li>
-                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Hijra Road provides excellent value on main routes</li>
-                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />We help you choose based on transportation needs</li>
+                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{t("hotelBookingMakkah.locationLi1")}</li>
+                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{t("hotelBookingMakkah.locationLi2")}</li>
+                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{t("hotelBookingMakkah.locationLi3")}</li>
                   </ul>
                 </div>
               </div>
@@ -465,9 +487,9 @@ export function HotelBookingMakkahClient() {
             <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[40px] p-8 md:p-16 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-32 -mt-32" />
               <div className="relative z-10 text-center">
-                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">Ready for Stress-Free Hotel Booking?</h2>
+                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">{t("hotelBookingMakkah.ctaTitle")}</h2>
                 <p className="text-[var(--text-2)] text-[18px] font-body mb-12 max-w-3xl mx-auto leading-relaxed">
-                  Contact Haramain Umrah Taxi today—the same trusted team that drives you safely now helps you stay comfortably. Book your hotel and taxi services together for the ultimate convenience and special package rates.
+                  {t("hotelBookingMakkah.ctaText")}
                 </p>
                 <div className="flex flex-wrap justify-center gap-6">
                   <a
@@ -477,14 +499,14 @@ export function HotelBookingMakkahClient() {
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--green)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <WhatsAppIcon size={24} />
-                    Book via WhatsApp Now
+                    {t("hotelBookingMakkah.ctaWhatsAppBtn")}
                   </a>
                   <a
                     href="tel:+966598401594"
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--gold)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <Phone size={24} />
-                    Call Us Direct
+                    {t("hotelBookingMakkah.ctaCallBtn")}
                   </a>
                 </div>
               </div>

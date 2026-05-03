@@ -8,6 +8,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { IslamicGeometricBg } from "@/components/graphics/IslamicGeometricBg";
 import { AnimatedCarOnRoad } from "@/components/graphics/AnimatedCarOnRoad";
 import { Canonical } from "@/components/SEO/Canonical";
+import { useI18n } from "@/lib/i18n";
 import {
   ArrowRight,
   BadgeCheck,
@@ -89,6 +90,8 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 }
 
 export function DatesDistributionServicesClient() {
+  const { t } = useI18n();
+
   return (
     <div className="min-h-screen bg-[var(--bg)] selection:bg-[var(--gold-soft)] selection:text-[var(--gold)]">
       <Canonical />
@@ -113,7 +116,7 @@ export function DatesDistributionServicesClient() {
                 className="inline-block mb-6"
               >
                 <span className="px-4 py-1.5 rounded-full bg-[var(--gold)] text-white font-heading font-bold text-xs uppercase tracking-widest shadow-lg shadow-[var(--gold)]/20">
-                  Sadaqah Jariyah
+                  {t("datesDistribution.heroBadge")}
                 </span>
               </motion.div>
 
@@ -122,7 +125,7 @@ export function DatesDistributionServicesClient() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-6xl lg:text-[64px] font-heading font-extrabold !text-white mb-8 leading-tight"
               >
-                Khajoor & Dates Distribution Services in <span className="text-[var(--gold)]">KSA Makkah & Madinah</span>
+                {t("datesDistribution.heroTitle").split(' in ')[0]} in <span className="text-[var(--gold)]">{t("datesDistribution.heroTitle").split(' in ')[1]}</span>
               </motion.h1>
 
               <motion.div
@@ -132,10 +135,10 @@ export function DatesDistributionServicesClient() {
                 className="max-w-3xl mx-auto mb-10 space-y-4"
               >
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Donation in the holy cities of Makkah and Madinah is a beautiful act rewarded with immense blessings. Dates donation is a valued act from the Sunnah of Prophet Muhammad (PBUH).
+                  {t("datesDistribution.heroText1")}
                 </p>
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  We offer dates distribution in Makkah and Madinah, ensuring your donation reaches needy people—including pilgrims and fasting individuals—with proof of distribution.
+                  {t("datesDistribution.heroText2")}
                 </p>
               </motion.div>
 
@@ -150,13 +153,13 @@ export function DatesDistributionServicesClient() {
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--green)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all border border-[var(--green)]/20"
                 >
                   <WhatsAppIcon />
-                  Donate on WhatsApp Now
+                  {t("datesDistribution.heroDonateBtn")}
                 </a>
                 <Link
                   href="#why"
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--bg-alt)] text-[var(--text-1)] font-heading font-bold rounded-xl border border-[var(--border)] hover:bg-[var(--gold)] hover:text-white transition-all shadow-sm"
                 >
-                  Learn More
+                  {t("datesDistribution.heroLearnMoreBtn")}
                   <ArrowRight size={20} />
                 </Link>
               </motion.div>
@@ -173,18 +176,18 @@ export function DatesDistributionServicesClient() {
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">
-                  Hadith
+                  {t("datesDistribution.hadithBadge")}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Why Dates Distribution is Highly Rewarding</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{t("datesDistribution.hadithTitle")}</h2>
                 <div className="space-y-5">
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    The Prophet (peace be upon him) said: "Whoever feeds a person fasting so that he breaks his fast, he gets a reward equal to their reward, without lessening their reward in any way." (Tirmidhi)
+                    {t("datesDistribution.hadithP1")}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Serving fasting people with dates in Makkah and Madinah—the holiest places on earth—brings immense spiritual rewards. Dates are healthy and hold a special place in Islam.
+                    {t("datesDistribution.hadithP2")}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    For those unable to be in Saudi Arabia, our service lets you achieve this good deed from anywhere—whether for yourself, family, or as Sadaqah Jariyah.
+                    {t("datesDistribution.hadithP3")}
                   </p>
                 </div>
               </div>
@@ -198,39 +201,39 @@ export function DatesDistributionServicesClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Why Us</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Why Use Haramain Umrah Taxi for Dates Distribution?</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("datesDistribution.whyUsEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("datesDistribution.whyUsTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <Card
-                  title="Effortless Process"
-                  description="Book with us, and we'll do the rest."
+                  title={t("datesDistribution.whyUs1Title")}
+                  description={t("datesDistribution.whyUs1Desc")}
                   icon={BadgeCheck}
                 />
                 <Card
-                  title="Service in Makkah & Madinah"
-                  description="We distribute dates in key areas for maximum benefit."
+                  title={t("datesDistribution.whyUs2Title")}
+                  description={t("datesDistribution.whyUs2Desc")}
                   icon={MapPin}
                 />
                 <Card
-                  title="Confirmation of Distribution"
-                  description="Obtain photos and videos that prove your donation."
+                  title={t("datesDistribution.whyUs3Title")}
+                  description={t("datesDistribution.whyUs3Desc")}
                   icon={CheckCircle2}
                 />
                 <Card
-                  title="Optimize Rewards in Ramadan"
-                  description="Coordinate distribution when all good works multiply."
+                  title={t("datesDistribution.whyUs4Title")}
+                  description={t("datesDistribution.whyUs4Desc")}
                   icon={Calendar}
                 />
                 <Card
-                  title="Personalized Options"
-                  description="Choose the number and location of deliveries."
+                  title={t("datesDistribution.whyUs5Title")}
+                  description={t("datesDistribution.whyUs5Desc")}
                   icon={Scale}
                 />
                 <Card
-                  title="Large & Small Order Support"
-                  description="From a few kilograms to bulk orders, we support all."
+                  title={t("datesDistribution.whyUs6Title")}
+                  description={t("datesDistribution.whyUs6Desc")}
                   icon={Truck}
                 />
               </div>
@@ -239,9 +242,9 @@ export function DatesDistributionServicesClient() {
                 <div className="flex items-start gap-3">
                   <ShieldCheck className="text-[var(--gold)] shrink-0 mt-0.5" size={24} />
                   <div>
-                    <h3 className="text-[var(--text-1)] font-heading font-bold text-xl mb-2">Reliable & Trustworthy Service</h3>
+                    <h3 className="text-[var(--text-1)] font-heading font-bold text-xl mb-2">{t("datesDistribution.reliableTitle")}</h3>
                     <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">
-                      Our personnel operate directly in the holy cities, making timely and respectful deliveries.
+                      {t("datesDistribution.reliableDesc")}
                     </p>
                   </div>
                 </div>
@@ -254,8 +257,8 @@ export function DatesDistributionServicesClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Process</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">How It Works</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("datesDistribution.processEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("datesDistribution.processTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
@@ -263,36 +266,36 @@ export function DatesDistributionServicesClient() {
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-4">
                     <Phone size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Contact Us</h3>
-                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">Share your preferred dates and location.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{t("datesDistribution.step1Title")}</h3>
+                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">{t("datesDistribution.step1Desc")}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-6 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-4">
                     <Scale size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Choose Package</h3>
-                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">How many dates would you like to distribute?</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{t("datesDistribution.step2Title")}</h3>
+                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">{t("datesDistribution.step2Desc")}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-6 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-4">
                     <BadgeCheck size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Confirm & Pay</h3>
-                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">Reserve your donation securely.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{t("datesDistribution.step3Title")}</h3>
+                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">{t("datesDistribution.step3Desc")}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-6 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-4">
                     <Truck size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">We Distribute</h3>
-                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">We give dates to needy pilgrims and fasting people.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{t("datesDistribution.step4Title")}</h3>
+                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">{t("datesDistribution.step4Desc")}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-6 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-4">
                     <CheckCircle2 size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Get Proof</h3>
-                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">Photos and videos for your peace of mind.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{t("datesDistribution.step5Title")}</h3>
+                  <p className="text-[var(--text-2)] text-xs leading-relaxed font-body">{t("datesDistribution.step5Desc")}</p>
                 </div>
               </div>
             </div>
@@ -306,18 +309,18 @@ export function DatesDistributionServicesClient() {
 
               <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/10 rounded-[32px] p-8 md:p-10 shadow-sm">
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">
-                  Ramadan
+                  {t("datesDistribution.ramadanBadge")}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Distribution of Special Dates in Ramadan</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{t("datesDistribution.ramadanTitle")}</h2>
                 <div className="space-y-5">
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Ramadan is the most rewarding time for charitable acts. Rewards for date donations in Ramadan are multiplied.
+                    {t("datesDistribution.ramadanP1")}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Thousands of pilgrims and locals fast in Makkah and Madinah, breaking their fasts in Masjid Al-Haram and Masjid An-Nabawi. With our service, you can have your dates distributed among these fasting believers before Iftar.
+                    {t("datesDistribution.ramadanP2")}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    You can also donate as almsgiving in memory of a departed loved one so they receive rewards as well.
+                    {t("datesDistribution.ramadanP3")}
                   </p>
                 </div>
               </div>
@@ -329,8 +332,8 @@ export function DatesDistributionServicesClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Significance</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">The Significance of Dates in Islamic Tradition</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("datesDistribution.significanceEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("datesDistribution.significanceTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -338,27 +341,27 @@ export function DatesDistributionServicesClient() {
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mb-5">
                     <Sparkles size={22} />
                   </div>
-                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">High in Nutrients</h3>
+                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">{t("datesDistribution.sig1Title")}</h3>
                   <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">
-                    Great energy source full of important vitamins and minerals.
+                    {t("datesDistribution.sig1Desc")}
                   </p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mb-5">
                     <HandHeart size={22} />
                   </div>
-                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">Easily Digestible</h3>
+                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">{t("datesDistribution.sig2Title")}</h3>
                   <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">
-                    Ideal for breaking the fast.
+                    {t("datesDistribution.sig2Desc")}
                   </p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mb-5">
                     <Gift size={22} />
                   </div>
-                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">Representative of Sunnah</h3>
+                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">{t("datesDistribution.sig3Title")}</h3>
                   <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">
-                    Following the Prophet Muhammad's (PBUH) example of breaking fast with dates.
+                    {t("datesDistribution.sig3Desc")}
                   </p>
                 </div>
               </div>
@@ -370,18 +373,18 @@ export function DatesDistributionServicesClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">FAQ</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Frequently Asked Questions</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("datesDistribution.faqEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("datesDistribution.faqTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <FAQItem
-                  q="What is the price of Ajwa dates in Madinah?"
-                  a="Premium Medium Ajwa: Around SAR 40 per kg. Jumbo/First-Class: SAR 120–150 per kg. Arjoon Ajwa Al Madinah (800g): SAR 111.95. Nakheel Alya Ajwa (250g): SAR 22.99."
+                  q={t("datesDistribution.faq1Q")}
+                  a={t("datesDistribution.faq1A")}
                 />
                 <FAQItem
-                  q="What is the price of Ajwa dates in Makkah?"
-                  a="Ajwa Qubaa Premium (1kg): ~SAR 116. Ajwa Al Madinah First Class (800g): ~SAR 92."
+                  q={t("datesDistribution.faq2Q")}
+                  a={t("datesDistribution.faq2A")}
                 />
               </div>
             </div>
@@ -393,9 +396,9 @@ export function DatesDistributionServicesClient() {
             <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[40px] p-8 md:p-16 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-32 -mt-32" />
               <div className="relative z-10 text-center">
-                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">Join This Great Cause Today</h2>
+                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">{t("datesDistribution.ctaTitle")}</h2>
                 <p className="text-[var(--text-2)] text-[18px] font-body mb-12 max-w-3xl mx-auto leading-relaxed">
-                  Don't miss this opportunity to distribute dates in Makkah and Madinah and earn unlimited rewards. Whether for a loved one, as Sadaqah, or for Allah's acceptance—this is your chance to make a difference.
+                  {t("datesDistribution.ctaText")}
                 </p>
                 <div className="flex flex-wrap justify-center gap-6">
                   <a
@@ -405,14 +408,14 @@ export function DatesDistributionServicesClient() {
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--green)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <WhatsAppIcon size={24} />
-                    Donate via WhatsApp Now
+                    {t("datesDistribution.ctaWhatsAppBtn")}
                   </a>
                   <a
                     href="tel:+966598401594"
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--gold)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <Phone size={24} />
-                    Call Us Direct
+                    {t("datesDistribution.ctaCallBtn")}
                   </a>
                 </div>
               </div>

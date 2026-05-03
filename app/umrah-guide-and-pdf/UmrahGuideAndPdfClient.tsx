@@ -8,6 +8,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { IslamicGeometricBg } from "@/components/graphics/IslamicGeometricBg";
 import { AnimatedCarOnRoad } from "@/components/graphics/AnimatedCarOnRoad";
 import { Canonical } from "@/components/SEO/Canonical";
+import { useI18n } from "@/lib/i18n";
 import {
   ArrowRight,
   BadgeCheck,
@@ -84,6 +85,8 @@ function DuaBox({ arabic, translation }: { arabic: string; translation: string }
 }
 
 export function UmrahGuideAndPdfClient() {
+  const { t } = useI18n();
+
   return (
     <div className="min-h-screen bg-[var(--bg)] selection:bg-[var(--gold-soft)] selection:text-[var(--gold)]">
       <Canonical />
@@ -108,7 +111,7 @@ export function UmrahGuideAndPdfClient() {
                 className="inline-block mb-6"
               >
                 <span className="px-4 py-1.5 rounded-full bg-[var(--gold)] text-white font-heading font-bold text-xs uppercase tracking-widest shadow-lg shadow-[var(--gold)]/20">
-                  Complete Guide
+                  {t("umrahGuidePdf.heroBadge")}
                 </span>
               </motion.div>
 
@@ -117,7 +120,7 @@ export function UmrahGuideAndPdfClient() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-6xl lg:text-[64px] font-heading font-extrabold !text-white mb-8 leading-tight"
               >
-                Easy Umrah Guide & Steps|  PDF| Umrah Duas| Ihram Rules|
+                {t("umrahGuidePdf.heroTitle")}
               </motion.h1>
 
               <motion.div
@@ -127,10 +130,10 @@ export function UmrahGuideAndPdfClient() {
                 className="max-w-3xl mx-auto mb-10 space-y-4"
               >
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Umrah is a religious pilgrimage made by Muslims in the holy city of Makkah. It is not obligatory like Hajj but is very rewarding and spiritually enriching.
+                  {t("umrahGuidePdf.heroText1")}
                 </p>
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  This step-by-step Umrah guide includes required duas, regulations for Ihram, and special precautions for men and women.
+                  {t("umrahGuidePdf.heroText2")}
                 </p>
               </motion.div>
 
@@ -145,13 +148,13 @@ export function UmrahGuideAndPdfClient() {
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--green)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all border border-[var(--green)]/20"
                 >
                   <WhatsAppIcon />
-                  Book Umrah Guide Now
+                  {t("umrahGuidePdf.heroBookBtn")}
                 </a>
                 <Link
                   href="#steps"
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--bg-alt)] text-[var(--text-1)] font-heading font-bold rounded-xl border border-[var(--border)] hover:bg-[var(--gold)] hover:text-white transition-all shadow-sm"
                 >
-                  View Steps
+                  {t("umrahGuidePdf.heroStepsBtn")}
                   <ArrowRight size={20} />
                 </Link>
               </motion.div>
@@ -168,15 +171,15 @@ export function UmrahGuideAndPdfClient() {
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">
-                  Introduction
+                  {t("umrahGuidePdf.introBadge")}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">The Spiritual Journey of Umrah</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{t("umrahGuidePdf.introTitle")}</h2>
                 <div className="space-y-5">
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Umrah consists of four major rites: Ihram, Tawaf, Sa'i, and Hal. It can be done at any time of the year and is a great way of seeking Allah's forgiveness.
+                    {t("umrahGuidePdf.introP1")}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    All the actions of Umrah follow the example of Prophet Ibrahim (AS) and Prophet Muhammad (PBUH).
+                    {t("umrahGuidePdf.introP2")}
                   </p>
                 </div>
               </div>
@@ -190,34 +193,34 @@ export function UmrahGuideAndPdfClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Preparation</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Preparation for Umrah</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("umrahGuidePdf.prepEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("umrahGuidePdf.prepTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <Card
-                  title="Sincere Intention (Niyyah)"
-                  description="Perform Umrah for Allah's sake alone."
+                  title={t("umrahGuidePdf.prep1Title")}
+                  description={t("umrahGuidePdf.prep1Desc")}
                   icon={Heart}
                 />
                 <Card
-                  title="Understanding Rituals"
-                  description="Learn each step to get it right."
+                  title={t("umrahGuidePdf.prep2Title")}
+                  description={t("umrahGuidePdf.prep2Desc")}
                   icon={BookOpen}
                 />
                 <Card
-                  title="Ghusl (Purification)"
-                  description="Clean the entire body before donning Ihram."
+                  title={t("umrahGuidePdf.prep3Title")}
+                  description={t("umrahGuidePdf.prep3Desc")}
                   icon={ShieldCheck}
                 />
                 <Card
-                  title="Financial Preparedness"
-                  description="Make all the expenses halal."
+                  title={t("umrahGuidePdf.prep4Title")}
+                  description={t("umrahGuidePdf.prep4Desc")}
                   icon={BadgeCheck}
                 />
                 <Card
-                  title="Personal Matters"
-                  description="Ask others for forgiveness and clear outstanding debts."
+                  title={t("umrahGuidePdf.prep5Title")}
+                  description={t("umrahGuidePdf.prep5Desc")}
                   icon={Users}
                 />
               </div>
@@ -229,8 +232,8 @@ export function UmrahGuideAndPdfClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Steps</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Step-by-Step Umrah Guide</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("umrahGuidePdf.stepsEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("umrahGuidePdf.stepsTitle")}</h2>
               </div>
 
               <div className="space-y-12">
@@ -240,21 +243,21 @@ export function UmrahGuideAndPdfClient() {
                       <span className="text-2xl font-heading font-bold">1</span>
                     </div>
                     <div>
-                      <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-2">Ihram & Niyyah (Entering the State of Ihram)</h3>
+                      <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-2">{t("umrahGuidePdf.step1Title")}</h3>
                       <p className="text-[var(--text-2)] text-base leading-relaxed font-body mb-6">
-                        Ihram is the sacred state required for the performance of Umrah. Men wear two white unstitched garments (Izar & Rida). Women dress in proper attire covering the whole body (except hands and face).
+                        {t("umrahGuidePdf.step1Desc")}
                       </p>
                     </div>
                   </div>
                   <DuaBox
-                    arabic="اللَّهُمَّ إِنِّي أُرِيدُ العُمْرَةَ فَيَسِّرْهَا لِي وَتَقَبَّلْهَا مِنِّي"
-                    translation="“Ya Allah, I am planning to do the Umrah, make it easy for me and accept it from me.”"
+                    arabic={t("umrahGuidePdf.step1Dua1Arabic")}
+                    translation={t("umrahGuidePdf.step1Dua1Translation")}
                   />
                   <div className="mt-6">
-                    <p className="text-[var(--text-2)] text-sm font-body mb-2">Recite Talbiyah:</p>
+                    <p className="text-[var(--text-2)] text-sm font-body mb-2">{t("umrahGuidePdf.step1TalbiyahLabel")}</p>
                     <DuaBox
-                      arabic="لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لاَ شَرِيكَ لَكَ لَبَّيْكَ، إِنَّ الحَمْدَ وَالنِّعْمَةَ لَكَ وَالمُلْكَ، لاَ شَرِيكَ لَكَ"
-                      translation="“Here I am, O Allah. There is no partner with You. Indeed, all the blessings and the grace and the kingdom are Yours.”"
+                      arabic={t("umrahGuidePdf.step1Dua2Arabic")}
+                      translation={t("umrahGuidePdf.step1Dua2Translation")}
                     />
                   </div>
                 </div>
@@ -265,15 +268,15 @@ export function UmrahGuideAndPdfClient() {
                       <span className="text-2xl font-heading font-bold">2</span>
                     </div>
                     <div>
-                      <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-2">Entering the Al-Haram</h3>
+                      <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-2">{t("umrahGuidePdf.step2Title")}</h3>
                       <p className="text-[var(--text-2)] text-base leading-relaxed font-body mb-6">
-                        Step with the right foot and say the dua. Walk towards the Ka'bah with a humble and respectful demeanour.
+                        {t("umrahGuidePdf.step2Desc")}
                       </p>
                     </div>
                   </div>
                   <DuaBox
-                    arabic="للهم افتح لي ابواب رحمت"
-                    translation="“Oh Allah, open the doors of mercy for me.”"
+                    arabic={t("umrahGuidePdf.step2DuaArabic")}
+                    translation={t("umrahGuidePdf.step2DuaTranslation")}
                   />
                 </div>
 
@@ -283,15 +286,15 @@ export function UmrahGuideAndPdfClient() {
                       <span className="text-2xl font-heading font-bold">3</span>
                     </div>
                     <div>
-                      <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-2">Tawaf (Circumambulation of the Ka'bah)</h3>
+                      <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-2">{t("umrahGuidePdf.step3Title")}</h3>
                       <p className="text-[var(--text-2)] text-base leading-relaxed font-body mb-6">
-                        Tawaf consists of seven circuits around the Ka'bah anticlockwise. Start with the Black Stone (Hajar al-Aswad). If possible, kiss or touch it. If not, point toward it with your right hand.
+                        {t("umrahGuidePdf.step3Desc")}
                       </p>
                     </div>
                   </div>
                   <DuaBox
-                    arabic="بسم الله، والله أكبر"
-                    translation="“In the name of Allah. Allah is the greatest.”"
+                    arabic={t("umrahGuidePdf.step3DuaArabic")}
+                    translation={t("umrahGuidePdf.step3DuaTranslation")}
                   />
                 </div>
 
@@ -301,15 +304,15 @@ export function UmrahGuideAndPdfClient() {
                       <span className="text-2xl font-heading font-bold">4</span>
                     </div>
                     <div>
-                      <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-2">Sa'i (Between Safa and Marwah)</h3>
+                      <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-2">{t("umrahGuidePdf.step4Title")}</h3>
                       <p className="text-[var(--text-2)] text-base leading-relaxed font-body mb-6">
-                        At the beginning of Safa, recite the verse from Surah Al-Baqarah. Walk seven rounds from Marwah to Safa. Men must cross between green lights, and women must cross normally.
+                        {t("umrahGuidePdf.step4Desc")}
                       </p>
                     </div>
                   </div>
                   <DuaBox
-                    arabic="إِنَّ الصَّفَا وَالمَرْوَةَ مِن شَعَائِرِ اللَّهِ"
-                    translation="“Indeed, Safa and Marwah are among the signs of Allah.” (Surah Al-Baqarah 2:158)"
+                    arabic={t("umrahGuidePdf.step4DuaArabic")}
+                    translation={t("umrahGuidePdf.step4DuaTranslation")}
                   />
                 </div>
 
@@ -319,14 +322,14 @@ export function UmrahGuideAndPdfClient() {
                       <span className="text-2xl font-heading font-bold">5</span>
                     </div>
                     <div>
-                      <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-2">Halq/Taqsir (Shaving or Trimming Hair)</h3>
+                      <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-2">{t("umrahGuidePdf.step5Title")}</h3>
                       <p className="text-[var(--text-2)] text-base leading-relaxed font-body mb-6">
-                        For men: Shave the head completely (Halq) or trim hair from all areas equally (Taqsir). For women: Clip a tip-of-the-fingertip amount of hair (only Taqsir is allowed).
+                        {t("umrahGuidePdf.step5Desc")}
                       </p>
                     </div>
                   </div>
                   <p className="text-[var(--text-2)] text-base leading-relaxed font-body">
-                    Once this step is complete, Umrah is finished. You are now allowed to leave Ihram.
+                    {t("umrahGuidePdf.step5Conclusion")}
                   </p>
                 </div>
               </div>
@@ -338,23 +341,23 @@ export function UmrahGuideAndPdfClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Duas</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Obligatory Duas for Umrah</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("umrahGuidePdf.duasEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("umrahGuidePdf.duasTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-4">Dua for Flying by Airplane</h3>
+                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-4">{t("umrahGuidePdf.dua1Title")}</h3>
                   <DuaBox
-                    arabic="سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ"
-                    translation="“Glory be to Him who subjected this unto us; we were incapable.”"
+                    arabic={t("umrahGuidePdf.dua1Arabic")}
+                    translation={t("umrahGuidePdf.dua1Translation")}
                   />
                 </div>
                 <div>
-                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-4">Dua for Tawaf</h3>
+                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-4">{t("umrahGuidePdf.dua2Title")}</h3>
                   <DuaBox
-                    arabic="رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ"
-                    translation="“Our Lord, grant us good in the world and the Hereafter and save us from the torment of the Fire.”"
+                    arabic={t("umrahGuidePdf.dua2Arabic")}
+                    translation={t("umrahGuidePdf.dua2Translation")}
                   />
                 </div>
               </div>
@@ -366,8 +369,8 @@ export function UmrahGuideAndPdfClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Special Rules</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Special Rules for Women</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("umrahGuidePdf.rulesEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("umrahGuidePdf.rulesTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -375,7 +378,7 @@ export function UmrahGuideAndPdfClient() {
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="text-[var(--green)] shrink-0 mt-0.5" size={20} />
                     <p className="text-[var(--text-2)] text-base leading-relaxed font-body">
-                      Women cannot wear perfume or makeup in Ihram.
+                      {t("umrahGuidePdf.rule1")}
                     </p>
                   </div>
                 </div>
@@ -383,7 +386,7 @@ export function UmrahGuideAndPdfClient() {
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="text-[var(--green)] shrink-0 mt-0.5" size={20} />
                     <p className="text-[var(--text-2)] text-base leading-relaxed font-body">
-                      Prayers during menses: Women are required to delay their Tawaf after their purification.
+                      {t("umrahGuidePdf.rule2")}
                     </p>
                   </div>
                 </div>
@@ -391,7 +394,7 @@ export function UmrahGuideAndPdfClient() {
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="text-[var(--green)] shrink-0 mt-0.5" size={20} />
                     <p className="text-[var(--text-2)] text-base leading-relaxed font-body">
-                      Modest attire must be worn, but face masks are not allowed while wearing Ihram.
+                      {t("umrahGuidePdf.rule3")}
                     </p>
                   </div>
                 </div>
@@ -405,9 +408,9 @@ export function UmrahGuideAndPdfClient() {
             <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[40px] p-8 md:p-16 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-32 -mt-32" />
               <div className="relative z-10 text-center">
-                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">Conclusion</h2>
+                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">{t("umrahGuidePdf.ctaTitle")}</h2>
                 <p className="text-[var(--text-2)] text-[18px] font-body mb-12 max-w-3xl mx-auto leading-relaxed">
-                  Performing the Umrah is a spiritually enriching experience which deepens faith and piety. May Allah accept your Umrah and bless you. Ameen!
+                  {t("umrahGuidePdf.ctaText")}
                 </p>
                 <div className="flex flex-wrap justify-center gap-6">
                   <a
@@ -417,14 +420,14 @@ export function UmrahGuideAndPdfClient() {
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--green)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <WhatsAppIcon size={24} />
-                    Book via WhatsApp Now
+                    {t("umrahGuidePdf.ctaWhatsAppBtn")}
                   </a>
                   <a
                     href="tel:+966598401594"
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--gold)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <Phone size={24} />
-                    Call Us Direct
+                    {t("umrahGuidePdf.ctaCallBtn")}
                   </a>
                 </div>
               </div>

@@ -9,6 +9,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { IslamicGeometricBg } from "@/components/graphics/IslamicGeometricBg";
 import { AnimatedCarOnRoad } from "@/components/graphics/AnimatedCarOnRoad";
 import { Canonical } from "@/components/SEO/Canonical";
+import { useI18n } from "@/lib/i18n";
 import {
   ArrowRight,
   BadgeCheck,
@@ -17,7 +18,7 @@ import {
   HelpCircle,
   MapPin,
   Phone,
-  ShieldCheck,
+  ShieldCheck, 
   Star,
   Users,
   Zap,
@@ -130,6 +131,8 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 }
 
 export function MadinahToMakkahClient() {
+  const { t } = useI18n();
+
   return (
     <div className="min-h-screen bg-[var(--bg)] selection:bg-[var(--gold-soft)] selection:text-[var(--gold)]">
       <Canonical />
@@ -154,7 +157,7 @@ export function MadinahToMakkahClient() {
                 className="inline-block mb-6"
               >
                 <span className="px-4 py-1.5 rounded-full bg-[var(--gold)] text-white font-heading font-bold text-xs uppercase tracking-widest shadow-lg shadow-[var(--gold)]/20">
-                  Routes
+                  {t("madinahToMakkah.heroBadge")}
                 </span>
               </motion.div>
 
@@ -163,7 +166,7 @@ export function MadinahToMakkahClient() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-6xl lg:text-[64px] font-heading font-extrabold !text-white mb-8 leading-tight"
               >
-                Madinah to Makkah Taxi, Car, Bus | <span className="text-[var(--gold)]">Madinah to Mecca Taxi Fare</span>
+                {t("madinahToMakkah.heroTitle").split('|')[0]} | <span className="text-[var(--gold)]">{t("madinahToMakkah.heroTitle").split('|')[1]}</span>
               </motion.h1>
 
               <motion.div
@@ -173,10 +176,10 @@ export function MadinahToMakkahClient() {
                 className="max-w-3xl mx-auto mb-10 space-y-4"
               >
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Every year, thousands of pilgrims and visitors make the sacred journey from Madinah to Makkah. To ensure this journey is peaceful, safe, and stress-free, Haramain Umrah Taxi offers professional Madinah to Makkah taxi services that are available for advance booking online.
+                  {t("madinahToMakkah.heroText1")}
                 </p>
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  By reserving your ride before you travel, you can secure a reliable vehicle, clear pricing, and punctual service.
+                  {t("madinahToMakkah.heroText2")}
                 </p>
               </motion.div>
 
@@ -191,14 +194,14 @@ export function MadinahToMakkahClient() {
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--green)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all border border-[var(--green)]/20"
                 >
                   <WhatsAppIcon />
-                  Book Taxi Now
+                  {t("madinahToMakkah.heroBookBtn")}
                 </a>
                 <a
                   href="tel:+966598401594"
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--gold)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all shadow-sm"
                 >
                   <Phone size={20} />
-                  Call Us Direct
+                  {t("madinahToMakkah.heroCallBtn")}
                 </a>
               </motion.div>
             </motion.div>
@@ -214,17 +217,17 @@ export function MadinahToMakkahClient() {
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">
-                  Distance & Travel
+                  {t("madinahToMakkah.distanceBadge")}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Distance from Madinah to Makkah</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{t("madinahToMakkah.distanceTitle")}</h2>
                 <div className="space-y-4 text-[var(--text-2)] text-lg leading-relaxed font-body">
-                  <p>The distance between Madinah and Makkah is about 450 kilometers by road. Travel time usually ranges between four and five hours depending on traffic and the type of transport chosen.</p>
-                  <p>For pilgrims heading to Masjid al-Haram, this journey is one of the most important parts of their trip.</p>
-                  <p>Choosing a private taxi from Madinah to Makkah makes the travel smooth and uninterrupted. Unlike public transport, private taxis give you flexibility, privacy, and convenience. Families, elderly pilgrims, and groups often find private transport the most comfortable choice.</p>
+                  <p>{t("madinahToMakkah.distanceP1")}</p>
+                  <p>{t("madinahToMakkah.distanceP2")}</p>
+                  <p>{t("madinahToMakkah.distanceP3")}</p>
                 </div>
               </div>
 
-              <ImagePlaceholder label="Image Placeholder: Madinah to Makkah Route Map" />
+              <ImagePlaceholder label={t("madinahToMakkah.distanceImageLabel")} />
             </div>
           </div>
         </AnimatedSection>
@@ -233,19 +236,19 @@ export function MadinahToMakkahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">How to Book</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Madinah to Makkah by Car or Private Car: How to Book?</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("madinahToMakkah.howToBookEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("madinahToMakkah.howToBookTitle")}</h2>
               </div>
 
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10">
                 <p className="text-[var(--text-2)] text-lg leading-relaxed font-body mb-6">
-                  Booking a Madinah to Makkah private car is simple and convenient with Haramain Umrah Taxi. You can reserve your ride online before leaving your hotel or even from your home country.
+                  {t("madinahToMakkah.howToBookP1")}
                 </p>
                 <p className="text-[var(--text-2)] text-lg leading-relaxed font-body mb-6">
-                  All you need to do is select your pickup point in Madinah, choose your preferred vehicle, and confirm the booking.
+                  {t("madinahToMakkah.howToBookP2")}
                 </p>
                 <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                  Once confirmed, your driver will meet you at your location on time, assist with luggage, and provide a comfortable transfer directly to Makkah. With a pre-booked taxi, you avoid long waits and unexpected fare increases.
+                  {t("madinahToMakkah.howToBookP3")}
                 </p>
               </div>
             </div>
@@ -256,44 +259,44 @@ export function MadinahToMakkahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Our Fleet</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Haramain Umrah Taxi Fleet for Madinah to Makkah</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("madinahToMakkah.fleetEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("madinahToMakkah.fleetTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <Card
-                  title="Private Car (Sedans): Camry and Sonata"
-                  description="Sedans are the most popular option for individuals, couples, or small families. Reliable and affordable for the long journey with comfort and luggage space."
+                  title={t("madinahToMakkah.fleetSedanTitle")}
+                  description={t("madinahToMakkah.fleetSedanDesc")}
                   imageLabel="Sedan Car"
                   imageUrl="/images/fleet/sedan.webp"
                 />
                 <Card
-                  title="Staria"
-                  description="For families or small groups, the Staria offers more seating capacity and extra luggage space. Excellent value when shared among passengers."
+                  title={t("madinahToMakkah.fleetStariaTitle")}
+                  description={t("madinahToMakkah.fleetStariaDesc")}
                   imageLabel="Staria Van"
                   imageUrl="/images/fleet/minivan.webp"
                 />
                 <Card
-                  title="Bus for Large Umrah Groups and Ziyarat"
-                  description="The most economical option for large groups. Fully air-conditioned with professional drivers experienced in managing group travel."
+                  title={t("madinahToMakkah.fleetBusTitle")}
+                  description={t("madinahToMakkah.fleetBusDesc")}
                   imageLabel="Bus"
                   imageUrl="/images/fleet/bus.png"
                 />
                 <Card
-                  title="GMC Yukon"
-                  description="Luxury SUV with spacious interiors, smooth driving, and modern facilities. Perfect for business travelers, families, and VIP pilgrims."
+                  title={t("madinahToMakkah.fleetGmcTitle")}
+                  description={t("madinahToMakkah.fleetGmcDesc")}
                   imageLabel="GMC Yukon"
                   imageUrl="/images/fleet/luxury-gmc.png"
                 />
                 <Card
-                  title="Coaster"
-                  description="Perfect for medium-sized groups who want a comfortable and affordable ride. Offers more seating than vans with plenty of luggage space."
+                  title={t("madinahToMakkah.fleetCoasterTitle")}
+                  description={t("madinahToMakkah.fleetCoasterDesc")}
                   imageLabel="Coaster"
                   imageUrl="/images/fleet/coaster.jpg"
                 />
                 <Card
-                  title="Hiace or Hiroof"
-                  description="Popular option for families and groups who need extra seating and luggage space. Affordable fares and spacious interiors for hassle-free transfers."
+                  title={t("madinahToMakkah.fleetHiaceTitle")}
+                  description={t("madinahToMakkah.fleetHiaceDesc")}
                   imageLabel="Hiace Van"
                   imageUrl="/images/fleet/hiace-microbus.png"
                 />
@@ -306,26 +309,26 @@ export function MadinahToMakkahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Pricing</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Madinah to Makkah Taxi Fares</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("madinahToMakkah.pricingEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("madinahToMakkah.pricingTitle")}</h2>
               </div>
 
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 mb-8">
                 <p className="text-[var(--text-2)] text-lg leading-relaxed font-body mb-6">
-                  When booking a Madinah to Makkah taxi, knowing the fare in advance is important. Haramain Umrah Taxi offers transparent pricing without hidden charges.
+                  {t("madinahToMakkah.pricingP1")}
                 </p>
                 <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                  The taxi fare from Madinah to Makkah depends on the type of vehicle you select. Sedans are the most budget-friendly, while larger vehicles like Staria, Coaster, or GMC Yukon are priced higher but ideal for families or groups.
+                  {t("madinahToMakkah.pricingP2")}
                 </p>
               </div>
 
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10">
-                <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4">How much Madinah to Makkah Bus Price and Fare?</h3>
+                <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4">{t("madinahToMakkah.busPricingTitle")}</h3>
                 <p className="text-[var(--text-2)] text-lg leading-relaxed font-body mb-6">
-                  For pilgrims traveling in groups, buses are an affordable solution. The Madinah to Makkah bus fare is designed to suit Umrah groups, schools, and large families.
+                  {t("madinahToMakkah.busPricingP1")}
                 </p>
                 <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                  Compared to booking multiple cars, a bus keeps everyone together and reduces the per-person cost. All options are air-conditioned and managed by experienced drivers.
+                  {t("madinahToMakkah.busPricingP2")}
                 </p>
               </div>
             </div>
@@ -336,8 +339,8 @@ export function MadinahToMakkahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Tips</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">How to Identify Affordable Taxi Service</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("madinahToMakkah.tipsEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("madinahToMakkah.tipsTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -345,29 +348,29 @@ export function MadinahToMakkahClient() {
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
                     <ShieldCheck size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Check Fare Structure</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Reputable companies provide transparent pricing online, allowing you to compare vehicles before booking.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{t("madinahToMakkah.tip1Title")}</h3>
+                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{t("madinahToMakkah.tip1Desc")}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
                     <Users size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Calculate Per Person Cost</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">A Staria may seem expensive but when shared among passengers, cost per head is often cheaper than booking two sedans.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{t("madinahToMakkah.tip2Title")}</h3>
+                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{t("madinahToMakkah.tip2Desc")}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
                     <Zap size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Book in Advance</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Reserving your taxi early guarantees the best Madinah to Makkah taxi fare during busy Umrah or Hajj seasons.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{t("madinahToMakkah.tip3Title")}</h3>
+                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{t("madinahToMakkah.tip3Desc")}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
                     <BadgeCheck size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Compare Vehicle Types</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Sedans have lowest fares, while premium SUVs and buses cost more but offer more space for groups.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{t("madinahToMakkah.tip4Title")}</h3>
+                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{t("madinahToMakkah.tip4Desc")}</p>
                 </div>
               </div>
             </div>
@@ -378,30 +381,30 @@ export function MadinahToMakkahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Travel Insights</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Additional Travel Insights for Madinah to Makkah Taxi</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("madinahToMakkah.insightsEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("madinahToMakkah.insightsTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-6">
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">Travel Time</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Around four to five hours depending on traffic.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">{t("madinahToMakkah.insight1Title")}</h3>
+                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{t("madinahToMakkah.insight1Desc")}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-6">
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">Best Choice for Families</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Staria and GMC Yukon are spacious and comfortable.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">{t("madinahToMakkah.insight2Title")}</h3>
+                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{t("madinahToMakkah.insight2Desc")}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-6">
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">Economical Options</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Sedans are budget-friendly for small groups, while buses are most cost-effective for large groups.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">{t("madinahToMakkah.insight3Title")}</h3>
+                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{t("madinahToMakkah.insight3Desc")}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-6">
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">Advance Booking</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Secures your ride and protects against last-minute fare increases.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">{t("madinahToMakkah.insight4Title")}</h3>
+                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{t("madinahToMakkah.insight4Desc")}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-6">
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">Peace of Mind</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Private transport provides comfort, privacy, and reliability compared to public options.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">{t("madinahToMakkah.insight5Title")}</h3>
+                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{t("madinahToMakkah.insight5Desc")}</p>
                 </div>
               </div>
             </div>
@@ -412,26 +415,26 @@ export function MadinahToMakkahClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">FAQs</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Frequently Asked Questions</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("madinahToMakkah.faqsEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("madinahToMakkah.faqsTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 gap-6 max-w-3xl mx-auto">
                 <FAQItem
-                  question="Are there luxury taxi options from Makkah to Madinah?"
-                  answer="Yes, for your trip between Makkah and Madinah, we provide outstanding luxury cab services. Our luxurious fleet consists of roomy, air-conditioned cars driven by skilled professionals. Every car has modern comforts, enough luggage room, and cozy seats to guarantee a relaxing journey."
+                  question={t("madinahToMakkah.faq1Q")}
+                  answer={t("madinahToMakkah.faq1A")}
                 />
                 <FAQItem
-                  question="Can I book a taxi in advance for Makkah, Madinah?"
-                  answer="Yes, Haramain Umrah Taxi actively encourages reservations made in advance via our easy-to-use web system. Making reservations in advance guarantees your desired car and departure time, particularly during the busiest times of the year for the Hajj and Umrah."
+                  question={t("madinahToMakkah.faq2Q")}
+                  answer={t("madinahToMakkah.faq2A")}
                 />
                 <FAQItem
-                  question="How much does it cost to travel from Madinah to Makkah?"
-                  answer="The price differs depending on your car selection and group size, but we have clear, fixed-price packages with no hidden fees. Our prices encompass roughly a 450-kilometer ride and include expert drivers, fuel, and tolls."
+                  question={t("madinahToMakkah.faq3Q")}
+                  answer={t("madinahToMakkah.faq3A")}
                 />
                 <FAQItem
-                  question="How much is a taxi from Madinah to Makkah?"
-                  answer="We provide competitive, fixed prices based on your chosen vehicle size and number of passengers. Unlike metered cabs with variable fares, our clear pricing means the quoted price is your actual bill. We have several options ranging from our regular Sedans to large vans."
+                  question={t("madinahToMakkah.faq4Q")}
+                  answer={t("madinahToMakkah.faq4A")}
                 />
               </div>
             </div>
@@ -443,9 +446,9 @@ export function MadinahToMakkahClient() {
             <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[40px] p-8 md:p-16 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-32 -mt-32" />
               <div className="relative z-10 text-center">
-                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">Book Your Madinah to Makkah Taxi Today</h2>
+                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">{t("madinahToMakkah.ctaTitle")}</h2>
                 <p className="text-[var(--text-2)] text-[18px] font-body mb-12 max-w-3xl mx-auto leading-relaxed">
-                  The journey from Madinah to Makkah is one of the most significant parts of a pilgrim's travel. Choose Haramain Umrah Taxi for comfort, affordability, and reliability. Book now and travel in complete peace of mind!
+                  {t("madinahToMakkah.ctaText")}
                 </p>
                 <div className="flex flex-wrap justify-center gap-6">
                   <a
@@ -455,14 +458,14 @@ export function MadinahToMakkahClient() {
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--green)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <WhatsAppIcon size={24} />
-                    Book via WhatsApp Now
+                    {t("madinahToMakkah.ctaWhatsAppBtn")}
                   </a>
                   <a
                     href="tel:+966598401594"
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--gold)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <Phone size={24} />
-                    Call Us Direct
+                    {t("madinahToMakkah.ctaCallBtn")}
                   </a>
                 </div>
               </div>

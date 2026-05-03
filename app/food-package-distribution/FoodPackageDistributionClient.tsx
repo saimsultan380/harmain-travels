@@ -8,6 +8,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { IslamicGeometricBg } from "@/components/graphics/IslamicGeometricBg";
 import { AnimatedCarOnRoad } from "@/components/graphics/AnimatedCarOnRoad";
 import { Canonical } from "@/components/SEO/Canonical";
+import { useI18n } from "@/lib/i18n";
 import {
   ArrowRight,
   BadgeCheck,
@@ -74,6 +75,8 @@ function Card({
 }
 
 export function FoodPackageDistributionClient() {
+  const { t } = useI18n();
+
   return (
     <div className="min-h-screen bg-[var(--bg)] selection:bg-[var(--gold-soft)] selection:text-[var(--gold)]">
       <Canonical />
@@ -98,7 +101,7 @@ export function FoodPackageDistributionClient() {
                 className="inline-block mb-6"
               >
                 <span className="px-4 py-1.5 rounded-full bg-[var(--gold)] text-white font-heading font-bold text-xs uppercase tracking-widest shadow-lg shadow-[var(--gold)]/20">
-                  Charity & Sadaqah
+                  {t("foodPackage.heroBadge")}
                 </span>
               </motion.div>
 
@@ -107,7 +110,7 @@ export function FoodPackageDistributionClient() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-6xl lg:text-[64px] font-heading font-extrabold !text-white mb-8 leading-tight"
               >
-                Food Packages Distribution & Distributors Services in <span className="text-[var(--gold)]">Saudi Arab</span>
+                {t("foodPackage.heroTitle").split(' in ')[0]} in <span className="text-[var(--gold)]">{t("foodPackage.heroTitle").split(' in ')[1]}</span>
               </motion.h1>
 
               <motion.div
@@ -117,10 +120,10 @@ export function FoodPackageDistributionClient() {
                 className="max-w-3xl mx-auto mb-10 space-y-4"
               >
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Saudi Arabia has a culture rich in generosity and hospitality, where food distribution services play a key role in assisting needy people.
+                  {t("foodPackage.heroText1")}
                 </p>
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Haramain Umrah Taxi is committed to offering food package distribution services in Saudi Arabia, ensuring food delivery is done promptly and effectively to individuals, charities, or organizations.
+                  {t("foodPackage.heroText2")}
                 </p>
               </motion.div>
 
@@ -135,13 +138,13 @@ export function FoodPackageDistributionClient() {
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--green)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all border border-[var(--green)]/20"
                 >
                   <WhatsAppIcon />
-                  Donate on WhatsApp Now
+                  {t("foodPackage.heroDonateBtn")}
                 </a>
                 <Link
                   href="#services"
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--bg-alt)] text-[var(--text-1)] font-heading font-bold rounded-xl border border-[var(--border)] hover:bg-[var(--gold)] hover:text-white transition-all shadow-sm"
                 >
-                  View Services
+                  {t("foodPackage.heroServicesBtn")}
                   <ArrowRight size={20} />
                 </Link>
               </motion.div>
@@ -158,18 +161,18 @@ export function FoodPackageDistributionClient() {
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">
-                  Our Mission
+                  {t("foodPackage.missionBadge")}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Reliable Food Distribution Services in Saudi Arabia</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{t("foodPackage.missionTitle")}</h2>
                 <div className="space-y-5">
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Food delivery in Saudi Arabia is not just about delivering food but about making a difference. Families and individuals rely on food delivery services, especially during Ramadan when demand is highest.
+                    {t("foodPackage.missionP1")}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    With high food costs and distribution challenges, a system is needed to ensure no one is left behind. Our volunteer food delivery services help distribute food parcels where they are most needed.
+                    {t("foodPackage.missionP2")}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Whether you are an individual donor or an organization arranging large food delivery, we have the resources to do it. Our team delivers to major cities and even remote areas where necessities might be lacking.
+                    {t("foodPackage.missionP3")}
                   </p>
                 </div>
               </div>
@@ -186,18 +189,18 @@ export function FoodPackageDistributionClient() {
 
               <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/10 rounded-[32px] p-8 md:p-10 shadow-sm">
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">
-                  Ramadan
+                  {t("foodPackage.ramadanBadge")}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Distribution During Ramadan</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{t("foodPackage.ramadanTitle")}</h2>
                 <div className="space-y-5">
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Ramadan is a special time when food distribution acquires even greater significance. It is a season of generosity, reflection, and communal unity.
+                    {t("foodPackage.ramadanP1")}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Some people desire to give but lack the resources and time. Our food package delivery during Ramadan ensures your donation reaches the right hands—whether Iftar food for fasting people or essential items for low-income families.
+                    {t("foodPackage.ramadanP2")}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    With our experience in large-scale distribution during the holy month, we make the experience smooth and hassle-free. Our volunteer workers distribute meals efficiently so every meal reaches the deserving.
+                    {t("foodPackage.ramadanP3")}
                   </p>
                 </div>
               </div>
@@ -209,39 +212,39 @@ export function FoodPackageDistributionClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Why Us</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Why Choose Haramain Umrah Taxi for Food Distribution?</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("foodPackage.whyUsEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("foodPackage.whyUsTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <Card
-                  title="On-Time Delivery"
-                  description="We ensure food packages are delivered on time, without delays."
+                  title={t("foodPackage.whyUs1Title")}
+                  description={t("foodPackage.whyUs1Desc")}
                   icon={Truck}
                 />
                 <Card
-                  title="Reliable Network"
-                  description="Our vast coverage across Saudi Arabia gives access to urban and rural areas."
+                  title={t("foodPackage.whyUs2Title")}
+                  description={t("foodPackage.whyUs2Desc")}
                   icon={ShieldCheck}
                 />
                 <Card
-                  title="Volunteer Assistance"
-                  description="Our volunteer team ensures meal distribution is smooth and organized."
+                  title={t("foodPackage.whyUs3Title")}
+                  description={t("foodPackage.whyUs3Desc")}
                   icon={Users}
                 />
                 <Card
-                  title="Customized Services"
-                  description="Cooked meals, non-perishable items, or bulk food packs—we fit diverse needs."
+                  title={t("foodPackage.whyUs4Title")}
+                  description={t("foodPackage.whyUs4Desc")}
                   icon={Sparkles}
                 />
                 <Card
-                  title="Transparency & Evidence"
-                  description="We provide photographic and/or video proof of delivery."
+                  title={t("foodPackage.whyUs5Title")}
+                  description={t("foodPackage.whyUs5Desc")}
                   icon={CheckCircle2}
                 />
                 <Card
-                  title="Professional Handling"
-                  description="Donations are handled professionally and respectfully."
+                  title={t("foodPackage.whyUs6Title")}
+                  description={t("foodPackage.whyUs6Desc")}
                   icon={BadgeCheck}
                 />
               </div>
@@ -255,9 +258,9 @@ export function FoodPackageDistributionClient() {
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-48 -mt-48" />
 
               <div className="text-center mb-16 relative z-10">
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Partner With Us for Greater Good</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{t("foodPackage.partnerTitle")}</h2>
                 <p className="text-[var(--text-2)] font-body max-w-3xl mx-auto text-lg">
-                  By partnering with Haramain Umrah Taxi, you are delivering effective food distribution and contributing to the greater good by helping underprivileged communities.
+                  {t("foodPackage.partnerDesc")}
                 </p>
               </div>
 
@@ -266,27 +269,27 @@ export function FoodPackageDistributionClient() {
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mb-5">
                     <Calendar size={22} />
                   </div>
-                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">Daily Meal Distribution</h3>
+                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">{t("foodPackage.serv1Title")}</h3>
                   <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">
-                    Regular food assistance for those in need.
+                    {t("foodPackage.serv1Desc")}
                   </p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-8">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mb-5">
                     <HandHeart size={22} />
                   </div>
-                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">Emergency Food Assistance</h3>
+                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">{t("foodPackage.serv2Title")}</h3>
                   <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">
-                    Quick response for urgent food needs.
+                    {t("foodPackage.serv2Desc")}
                   </p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-8">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mb-5">
                     <Gift size={22} />
                   </div>
-                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">Mass Donations During Ramadan</h3>
+                  <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">{t("foodPackage.serv3Title")}</h3>
                   <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">
-                    Large-scale distribution in the blessed month.
+                    {t("foodPackage.serv3Desc")}
                   </p>
                 </div>
               </div>
@@ -299,9 +302,9 @@ export function FoodPackageDistributionClient() {
             <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[40px] p-8 md:p-16 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-32 -mt-32" />
               <div className="relative z-10 text-center">
-                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">Distribute Blessings Today</h2>
+                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">{t("foodPackage.ctaTitle")}</h2>
                 <p className="text-[var(--text-2)] text-[18px] font-body mb-12 max-w-3xl mx-auto leading-relaxed">
-                  Haramain Umrah Taxi is committed to getting your food to the right people at the right time. Contact us today to arrange your food distribution in Saudi Arabia!
+                  {t("foodPackage.ctaText")}
                 </p>
                 <div className="flex flex-wrap justify-center gap-6">
                   <a
@@ -311,14 +314,14 @@ export function FoodPackageDistributionClient() {
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--green)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <WhatsAppIcon size={24} />
-                    Donate via WhatsApp Now
+                    {t("foodPackage.ctaWhatsAppBtn")}
                   </a>
                   <a
                     href="tel:+966598401594"
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--gold)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <Phone size={24} />
-                    Call Us Direct
+                    {t("foodPackage.ctaCallBtn")}
                   </a>
                 </div>
               </div>

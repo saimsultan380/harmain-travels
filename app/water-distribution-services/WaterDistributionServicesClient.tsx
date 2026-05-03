@@ -8,6 +8,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { IslamicGeometricBg } from "@/components/graphics/IslamicGeometricBg";
 import { AnimatedCarOnRoad } from "@/components/graphics/AnimatedCarOnRoad";
 import { Canonical } from "@/components/SEO/Canonical";
+import { useI18n } from "@/lib/i18n";
 import {
   ArrowRight,
   BadgeCheck,
@@ -89,6 +90,8 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 }
 
 export function WaterDistributionServicesClient() {
+  const { t } = useI18n();
+
   return (
     <div className="min-h-screen bg-[var(--bg)] selection:bg-[var(--gold-soft)] selection:text-[var(--gold)]">
       <Canonical />
@@ -113,7 +116,7 @@ export function WaterDistributionServicesClient() {
                 className="inline-block mb-6"
               >
                 <span className="px-4 py-1.5 rounded-full bg-[var(--gold)] text-white font-heading font-bold text-xs uppercase tracking-widest shadow-lg shadow-[var(--gold)]/20">
-                  Sadaqah Jariyah
+                  {t("waterDistribution.heroBadge")}
                 </span>
               </motion.div>
 
@@ -122,7 +125,7 @@ export function WaterDistributionServicesClient() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-6xl lg:text-[64px] font-heading font-extrabold !text-white mb-8 leading-tight"
               >
-                Zamzam Water & Water Bottles Distribution Services in <span className="text-[var(--gold)]">Saudia</span>
+                {t("waterDistribution.heroTitle").split(' in ')[0]} in <span className="text-[var(--gold)]">{t("waterDistribution.heroTitle").split(' in ')[1]}</span>
               </motion.h1>
 
               <motion.div
@@ -132,10 +135,10 @@ export function WaterDistributionServicesClient() {
                 className="max-w-3xl mx-auto mb-10 space-y-4"
               >
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Water is the source of all life, and it is all the more vital in the sacred lands of Makkah and Madinah. From blessed Zamzam water to clean drinking water, hydration is essential for residents and millions of pilgrims.
+                  {t("waterDistribution.heroText1")}
                 </p>
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Haramain Umrah Taxi provides water supply services in Saudi Arabia, ensuring no one remains thirsty in the holy cities. We also offer charitable water services with proof of distribution.
+                  {t("waterDistribution.heroText2")}
                 </p>
               </motion.div>
 
@@ -150,13 +153,13 @@ export function WaterDistributionServicesClient() {
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--green)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all border border-[var(--green)]/20"
                 >
                   <WhatsAppIcon />
-                  Order on WhatsApp Now
+                  {t("waterDistribution.heroOrderBtn")}
                 </a>
                 <Link
                   href="#services"
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--bg-alt)] text-[var(--text-1)] font-heading font-bold rounded-xl border border-[var(--border)] hover:bg-[var(--gold)] hover:text-white transition-all shadow-sm"
                 >
-                  View Services
+                  {t("waterDistribution.heroServicesBtn")}
                   <ArrowRight size={20} />
                 </Link>
               </motion.div>
@@ -172,42 +175,42 @@ export function WaterDistributionServicesClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Our Services</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Zamzam and Water Distribution Services</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("waterDistribution.servicesEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("waterDistribution.servicesTitle")}</h2>
                 <p className="mt-4 text-lg text-[var(--text-2)] max-w-3xl mx-auto font-body">
-                  Personalized delivery, charitable distribution, Ramadan services, bulk orders, and on-demand delivery for pilgrims and locals.
+                  {t("waterDistribution.servicesDesc")}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <Card
-                  title="Personalized Water Delivery"
-                  description="We deliver Zamzam and drinking water to your doorstep in Makkah, Madinah, and beyond."
+                  title={t("waterDistribution.service1Title")}
+                  description={t("waterDistribution.service1Desc")}
                   icon={Droplet}
                 />
                 <Card
-                  title="Charitable Distribution"
-                  description="Donate water to pilgrims, fasting individuals, and needy people with proof through photos and videos."
+                  title={t("waterDistribution.service2Title")}
+                  description={t("waterDistribution.service2Desc")}
                   icon={HandHeart}
                 />
                 <Card
-                  title="Special Ramadan Services"
-                  description="Water supply during the blessed month for Iftar and night prayers."
+                  title={t("waterDistribution.service3Title")}
+                  description={t("waterDistribution.service3Desc")}
                   icon={Calendar}
                 />
                 <Card
-                  title="Bulk Orders"
-                  description="Bulk orders for events, family gatherings, or mosque donations."
+                  title={t("waterDistribution.service4Title")}
+                  description={t("waterDistribution.service4Desc")}
                   icon={Truck}
                 />
                 <Card
-                  title="Water-on-Demand"
-                  description="Easy access to drinking water for pilgrims during Umrah, Hajj, or regular prayer."
+                  title={t("waterDistribution.service5Title")}
+                  description={t("waterDistribution.service5Desc")}
                   icon={Sparkles}
                 />
                 <Card
-                  title="Charity in Your Name"
-                  description="Give water in your name or in memory of a loved one as Sadaqah Jariyah."
+                  title={t("waterDistribution.service6Title")}
+                  description={t("waterDistribution.service6Desc")}
                   icon={Gift}
                 />
               </div>
@@ -222,18 +225,18 @@ export function WaterDistributionServicesClient() {
 
               <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/10 rounded-[32px] p-8 md:p-10 shadow-sm">
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">
-                  Charity
+                  {t("waterDistribution.charityBadge")}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Water & Zamzam Charity Distribution</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{t("waterDistribution.charityTitle")}</h2>
                 <div className="space-y-5">
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    The most rewarding deed in Islam is donating water to individuals. With Haramain Umrah Taxi, sponsoring Zamzam and drinking water donation is easy.
+                    {t("waterDistribution.charityP1")}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    We deliver water to Masjid Al-Haram, Masjid An-Nabawi, and congregation places where it is most needed.
+                    {t("waterDistribution.charityP2")}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    We provide full transparency by sending images and videos of the distribution so you can visualize the impact of your donation.
+                    {t("waterDistribution.charityP3")}
                   </p>
                 </div>
               </div>
@@ -246,17 +249,17 @@ export function WaterDistributionServicesClient() {
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">
-                  Ramadan
+                  {t("waterDistribution.ramadanBadge")}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Exclusive Zamzam & Water Services During Ramadan</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{t("waterDistribution.ramadanTitle")}</h2>
                 <div className="space-y-5">
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Ramadan is a time of enhanced piety, and keeping people hydrated is very rewarding. Our services during Ramadan include:
+                    {t("waterDistribution.ramadanP1")}
                   </p>
                   <ul className="space-y-3 text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Bulk Zamzam and drinking water donations</li>
-                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Iftar water distribution in mosques and gatherings</li>
-                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Ongoing service throughout the holy month</li>
+                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{t("waterDistribution.ramadanL1")}</li>
+                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{t("waterDistribution.ramadanL2")}</li>
+                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{t("waterDistribution.ramadanL3")}</li>
                   </ul>
                 </div>
               </div>
@@ -270,29 +273,29 @@ export function WaterDistributionServicesClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Why Us</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Why Choose Haramain Umrah Taxi for Zamzam and Water Distribution?</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("waterDistribution.whyUsEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("waterDistribution.whyUsTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <Card
-                  title="Reliable & Authentic Supply"
-                  description="We source Zamzam from verified sources and deliver clean, quality drinking water."
+                  title={t("waterDistribution.whyUs1Title")}
+                  description={t("waterDistribution.whyUs1Desc")}
                   icon={ShieldCheck}
                 />
                 <Card
-                  title="Convenience & Accessibility"
-                  description="Order and receive water in Makkah, Madinah, Riyadh, or anywhere."
+                  title={t("waterDistribution.whyUs2Title")}
+                  description={t("waterDistribution.whyUs2Desc")}
                   icon={BadgeCheck}
                 />
                 <Card
-                  title="Spiritual & Charitable Rewards"
-                  description="Assist in donating a good deed that continues to give back."
+                  title={t("waterDistribution.whyUs3Title")}
+                  description={t("waterDistribution.whyUs3Desc")}
                   icon={Sparkles}
                 />
                 <Card
-                  title="Distribution Proof"
-                  description="Full transparency with photos and videos of distribution."
+                  title={t("waterDistribution.whyUs4Title")}
+                  description={t("waterDistribution.whyUs4Desc")}
                   icon={CheckCircle2}
                 />
               </div>
@@ -304,22 +307,22 @@ export function WaterDistributionServicesClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">FAQ</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Frequently Asked Questions</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("waterDistribution.faqEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("waterDistribution.faqTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <FAQItem
-                  q="Where to Buy Zamzam Water in Makkah?"
-                  a="With our Zamzam water distribution in Makkah, you can easily obtain Zamzam through Haramain Umrah Taxi. We deliver to hotels, mosques, and homes."
+                  q={t("waterDistribution.faq1Q")}
+                  a={t("waterDistribution.faq1A")}
                 />
                 <FAQItem
-                  q="Where to Buy Zamzam Water in Madinah?"
-                  a="In Madinah, our service makes it easy for pilgrims to get original Zamzam at their doorstep, whether near Masjid an-Nabawi or other parts of the city."
+                  q={t("waterDistribution.faq2Q")}
+                  a={t("waterDistribution.faq2A")}
                 />
                 <FAQItem
-                  q="Where to Buy Zamzam Water in Riyadh?"
-                  a="We offer online distribution to Riyadh residents and visitors, ensuring fast and reliable delivery."
+                  q={t("waterDistribution.faq3Q")}
+                  a={t("waterDistribution.faq3A")}
                 />
               </div>
             </div>
@@ -331,9 +334,9 @@ export function WaterDistributionServicesClient() {
             <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[40px] p-8 md:p-16 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-32 -mt-32" />
               <div className="relative z-10 text-center">
-                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">Join Us Today!</h2>
+                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">{t("waterDistribution.ctaTitle")}</h2>
                 <p className="text-[var(--text-2)] text-[18px] font-body mb-12 max-w-3xl mx-auto leading-relaxed">
-                  Haramain Umrah Taxi is your ultimate partner for Zamzam water supply in Makkah, Madinah, or Riyadh—or for charity-based water services. Call us today and participate in a spiritually rewarding journey!
+                  {t("waterDistribution.ctaText")}
                 </p>
                 <div className="flex flex-wrap justify-center gap-6">
                   <a
@@ -343,14 +346,14 @@ export function WaterDistributionServicesClient() {
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--green)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <WhatsAppIcon size={24} />
-                    Order via WhatsApp Now
+                    {t("waterDistribution.ctaWhatsAppBtn")}
                   </a>
                   <a
                     href="tel:+966598401594"
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--gold)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <Phone size={24} />
-                    Call Us Direct
+                    {t("waterDistribution.ctaCallBtn")}
                   </a>
                 </div>
               </div>

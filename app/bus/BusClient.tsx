@@ -9,6 +9,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { IslamicGeometricBg } from "@/components/graphics/IslamicGeometricBg";
 import { AnimatedCarOnRoad } from "@/components/graphics/AnimatedCarOnRoad";
 import { Canonical } from "@/components/SEO/Canonical";
+import { useI18n } from "@/lib/i18n";
 import {
   ArrowRight,
   BadgeCheck,
@@ -75,14 +76,15 @@ function Card({
 }
 
 function PricingTable({ routes, title }: { routes: any[]; title: string }) {
+  const { t } = useI18n();
   return (
     <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 overflow-x-auto">
       <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-6">{title}</h3>
       <table className="w-full min-w-[600px]">
         <thead>
           <tr className="border-b border-[var(--border)]">
-            <th className="text-left py-4 px-4 text-[var(--text-1)] font-heading font-bold">Route</th>
-            <th className="text-center py-4 px-4 text-[var(--text-1)] font-heading font-bold">Fare (SAR)</th>
+            <th className="text-left py-4 px-4 text-[var(--text-1)] font-heading font-bold">{t("pricing.tableHeaderRoute", "Route")}</th>
+            <th className="text-center py-4 px-4 text-[var(--text-1)] font-heading font-bold">{t("pricing.tableHeaderFare", "Fare (SAR)")}</th>
           </tr>
         </thead>
         <tbody>
@@ -139,36 +141,18 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 }
 
 export function BusClient() {
-  const umrahMiqatRoutes = [
-    { route: "Makkah Hotel to Masjid Ayesha Miqat (Umrah)", fare: "400 SAR" },
-    { route: "Makkah Hotel to Jaranah Mosque Miqat (Umrah)", fare: "450 SAR" },
-  ];
+  const { t, tm } = useI18n();
 
-  const ziyaratRoutes = [
-    { route: "Makkah Ziyarat", fare: "500 SAR" },
-    { route: "Jaranah Miqat and Makkah Ziyarat", fare: "550 SAR" },
-    { route: "Madinah Ziyarat", fare: "500 SAR" },
-    { route: "Madinah Ziyarat + Wadi-e-Jinn", fare: "600 SAR" },
-    { route: "Madinah to Badr Ziyarat & Return", fare: "1000 SAR" },
-    { route: "Makkah to Taif Ziyarat & Return", fare: "1000 SAR" },
-  ];
+  const umrahMiqatRoutes = tm<any[]>("bus.routes.umrahMiqat", []);
+  const ziyaratRoutes = tm<any[]>("bus.routes.ziyarat", []);
+  const airportTrainRoutes = tm<any[]>("bus.routes.airportTrain", []);
+  const intercityRoutes = tm<any[]>("bus.routes.intercity", []);
+  const faqItems = tm<any[]>("bus.faqs", []);
+  const serviceItems = tm<string[]>("bus.serviceItems", []);
+  const specialties = tm<any[]>("bus.specialties", []);
+  const whyFeatures = tm<any[]>("bus.whyFeatures", []);
 
-  const airportTrainRoutes = [
-    { route: "Jeddah airport to Makkah", fare: "N/A" },
-    { route: "Makkah to Jeddah airport", fare: "800 SAR" },
-    { route: "Madinah Airport to Madinah Hotel", fare: "600 SAR" },
-    { route: "Madinah Hotel to Madinah Airport", fare: "500 SAR" },
-    { route: "Makkah Train Station to Hotel", fare: "500 SAR" },
-    { route: "Madinah Train Station to Hotel", fare: "500 SAR" },
-  ];
-
-  const intercityRoutes = [
-    { route: "Madinah to Makkah", fare: "1200 SAR" },
-    { route: "Jeddah to Madinah", fare: "1200 SAR" },
-    { route: "Madinah to Jeddah", fare: "1200 SAR" },
-    { route: "Makkah to Madinah via Badr", fare: "1400 SAR" },
-    { route: "Madinah to Makkah via Badr", fare: "1400 SAR" },
-  ];
+  const specialtyIcons = [Users, Star, Zap, BadgeCheck, Car, ShieldCheck];
 
   return (
     <div className="min-h-screen bg-[var(--bg)] selection:bg-[var(--gold-soft)] selection:text-[var(--gold)]">
@@ -194,7 +178,7 @@ export function BusClient() {
                 className="inline-block mb-6"
               >
                 <span className="px-4 py-1.5 rounded-full bg-[var(--gold)] text-white font-heading font-bold text-xs uppercase tracking-widest shadow-lg shadow-[var(--gold)]/20">
-                  Our Fleet
+                  {t("bus.heroBadge", "Our Fleet")}
                 </span>
               </motion.div>
 
@@ -203,7 +187,7 @@ export function BusClient() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-6xl lg:text-[64px] font-heading font-extrabold !text-white mb-8 leading-tight"
               >
-                Book Bus for Umrah & Ziyarat Groups in <span className="text-[var(--gold)]">Makkah & Madinah, KSA</span>
+                {t("bus.heroTitle", "Book Bus for Umrah & Ziyarat Groups in ")} <span className="text-[var(--gold)]">{t("bus.heroTitleHighlight", "Makkah & Madinah, KSA")}</span>
               </motion.h1>
 
               <motion.div
@@ -213,10 +197,10 @@ export function BusClient() {
                 className="max-w-3xl mx-auto mb-10 space-y-4"
               >
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  If you are traveling to Saudi Arabia for Umrah and Ziyarat, it requires spacious and reliable transportation. Haramain Umrah Taxi's Bus services provide the perfect transport solution for visitors and pilgrims who need safe and convenient travel.
+                  {t("bus.heroText1", "If you are traveling to Saudi Arabia for Umrah and Ziyarat, it requires spacious and reliable transportation. Haramain Umrah Taxi's Bus services provide the perfect transport solution for visitors and pilgrims who need safe and convenient travel.")}
                 </p>
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Perfect for families and large groups, our buses have multiple seats, ample legroom, and luggage space, ensuring a comfortable, air-conditioned journey.
+                  {t("bus.heroText2", "Perfect for families and large groups, our buses have multiple seats, ample legroom, and luggage space, ensuring a comfortable, air-conditioned journey.")}
                 </p>
               </motion.div>
 
@@ -231,14 +215,14 @@ export function BusClient() {
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--green)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all border border-[var(--green)]/20"
                 >
                   <WhatsAppIcon />
-                  Book Bus
+                  {t("bus.heroBookBtn", "Book Bus")}
                 </a>
                 <a
                   href="tel:+966598401594"
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--gold)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all shadow-sm"
                 >
                   <Phone size={20} />
-                  Call Us Now
+                  {t("bus.heroCallBtn", "Call Now")}
                 </a>
               </motion.div>
             </motion.div>
@@ -254,15 +238,16 @@ export function BusClient() {
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">
-                  Services
+                  {t("bus.servicesEyebrow", "Services")}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Bus Services in Saudi Arabia</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{t("bus.servicesTitle", "Bus Services in Saudi Arabia")}</h2>
                 <ul className="space-y-4 text-[var(--text-2)] text-lg leading-relaxed font-body">
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />Umrah Bus Services</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />Ziyarat Bus Services</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />Bus for Airport Transfers</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />Bus for City-to-City Transfers</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />Group Travel & Tourism</li>
+                  {serviceItems.map((item, idx) => (
+                    <li key={idx} className="flex gap-3">
+                      <CheckCircle2 className="text-[var(--green)] mt-1" size={20} />
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </div>
 
@@ -275,41 +260,19 @@ export function BusClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Specialties</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Specialties of Our Bus Services</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("bus.specialtiesEyebrow", "Specialties")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("bus.specialtiesTitle", "Specialties of Our Bus Services")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <Card
-                  title="Spacious Interiors"
-                  description="Ideal for families and groups."
-                  icon={Users}
-                />
-                <Card
-                  title="Air-Conditioned Comfort"
-                  description="Ensures a smooth and relaxing journey, regardless of the weather."
-                  icon={Star}
-                />
-                <Card
-                  title="Cost-Effective"
-                  description="Budget-friendly options for families and group travelers."
-                  icon={Zap}
-                />
-                <Card
-                  title="Professional Drivers"
-                  description="Experienced, courteous drivers for safe transportation."
-                  icon={BadgeCheck}
-                />
-                <Card
-                  title="Ample Luggage Space"
-                  description="Perfect for long trips requiring extra baggage."
-                  icon={Car}
-                />
-                <Card
-                  title="24/7 Availability"
-                  description="Ready for Umrah, Ziyarat, airport transfers, and intercity travel anytime."
-                  icon={ShieldCheck}
-                />
+                {specialties.map((spec, idx) => (
+                  <Card
+                    key={idx}
+                    title={spec.title}
+                    description={spec.description}
+                    icon={specialtyIcons[idx % specialtyIcons.length]}
+                  />
+                ))}
               </div>
             </div>
           </div>
@@ -319,15 +282,15 @@ export function BusClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Pricing</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Popular Routes and Bus Fares in Saudi Arabia</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("bus.pricingEyebrow", "Pricing")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("bus.pricingTitle", "Popular Routes and Bus Fares in Saudi Arabia")}</h2>
               </div>
 
               <div className="space-y-8">
-                <PricingTable routes={umrahMiqatRoutes} title="Umrah and Miqat Transfers" />
-                <PricingTable routes={ziyaratRoutes} title="Ziyarat Routes" />
-                <PricingTable routes={airportTrainRoutes} title="Airport and Train Station Transfers" />
-                <PricingTable routes={intercityRoutes} title="Intercity Transfers" />
+                <PricingTable routes={umrahMiqatRoutes} title={t("bus.pricingTables.umrahMiqat", "Umrah and Miqat Transfers")} />
+                <PricingTable routes={ziyaratRoutes} title={t("bus.pricingTables.ziyarat", "Ziarah Routes")} />
+                <PricingTable routes={airportTrainRoutes} title={t("bus.pricingTables.airportTrain", "Airport and Train Station Transfers")} />
+                <PricingTable routes={intercityRoutes} title={t("bus.pricingTables.intercity", "Intercity Transfers")} />
               </div>
             </div>
           </div>
@@ -337,39 +300,20 @@ export function BusClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Why Us</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Why Choose a Bus in Saudi Arabia?</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("bus.whyEyebrow", "Why Us")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("bus.whyTitle", "Why Choose a Bus in Saudi Arabia?")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
-                  <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
-                    <Users size={22} />
+                {whyFeatures.map((feature, idx) => (
+                  <div key={idx} className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
+                    <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
+                      {idx === 0 ? <Users size={22} /> : idx === 1 ? <BadgeCheck size={22} /> : idx === 2 ? <ShieldCheck size={22} /> : <Zap size={22} />}
+                    </div>
+                    <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{feature.title}</h3>
+                    <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{feature.description}</p>
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Spacious & Comfortable for Group Travel</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Ideal for families and large pilgrim groups.</p>
-                </div>
-                <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
-                  <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
-                    <BadgeCheck size={22} />
-                  </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Experienced & Courteous Drivers</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Well-trained professionals ensuring a safe journey.</p>
-                </div>
-                <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
-                  <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
-                    <ShieldCheck size={22} />
-                  </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Transparent & Affordable Pricing</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">No hidden fees, fixed rates.</p>
-                </div>
-                <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
-                  <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
-                    <Zap size={22} />
-                  </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">24/7 Service Availability</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Round-the-clock transport for all travel needs.</p>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -379,27 +323,18 @@ export function BusClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">FAQs</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Frequently Asked Questions</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("bus.faqEyebrow", "FAQ")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("bus.faqTitle", "Frequently Asked Questions")}</h2>
               </div>
 
               <div className="grid grid-cols-1 gap-6 max-w-3xl mx-auto">
-                <FAQItem
-                  question="What payment methods does Haramain Umrah Taxi accept for bus bookings?"
-                  answer="We give you several ways to pay for your ride. Cash works perfectly fine, just hand it to the driver when you finish your trip. You can also use digital payments or send us a bank transfer beforehand. We show you the exact price on our website before you book. Nobody likes surprise charges, so we never add hidden fees."
-                />
-                <FAQItem
-                  question="Can I book a bus for airport pickup at midnight?"
-                  answer="Yes, we drive passengers all day and all night without breaks. Need us at midnight or even 4 AM? We will be there waiting for you. Share your flight number when you book with us. Our drivers check if your plane runs late and wait accordingly. Your arrival time does not matter to us. We show up on schedule."
-                />
-                <FAQItem
-                  question="Do your buses have air conditioning and toilet facilities?"
-                  answer="Every single bus we operate has strong air conditioning installed. You stay cool even when the temperature outside hits 45 degrees. We keep the cabin at a comfortable temperature from start to finish. Some buses have toilets, depending on which model you book and how far you are traveling. Just let us know what you need when you make your reservation."
-                />
-                <FAQItem
-                  question="Can I cancel my bus booking?"
-                  answer="Plans change sometimes, and we totally understand that. You can cancel without any penalty if you do it 24 hours before your ride. Cancel within the time limit and we will refund your full payment. Need to change your pickup time or date instead? Call our support team right away. We will do everything possible to adjust your booking if we have space available."
-                />
+                {faqItems.map((faq, idx) => (
+                  <FAQItem
+                    key={idx}
+                    question={faq.question}
+                    answer={faq.answer}
+                  />
+                ))}
               </div>
             </div>
           </div>
@@ -410,9 +345,9 @@ export function BusClient() {
             <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[40px] p-8 md:p-16 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-32 -mt-32" />
               <div className="relative z-10 text-center">
-                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">Book Your Bus Now</h2>
+                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">{t("bus.ctaTitle", "Book Your Bus Now")}</h2>
                 <p className="text-[var(--text-2)] text-[18px] font-body mb-12 max-w-3xl mx-auto leading-relaxed">
-                  Enjoy a smooth and stress-free trip with our bus services in Jeddah, Madinah, and Makkah. Book today for a reliable and affordable journey.
+                  {t("bus.ctaText", "Enjoy a smooth and stress-free trip with our bus services in Jeddah, Madinah, and Makkah. Book today for a reliable and affordable journey.")}
                 </p>
                 <div className="flex flex-wrap justify-center gap-6">
                   <a
@@ -422,14 +357,14 @@ export function BusClient() {
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--green)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <WhatsAppIcon size={24} />
-                    Book via WhatsApp Now
+                    {t("bus.ctaWhatsAppBtn", "Book via WhatsApp Now")}
                   </a>
                   <a
                     href="tel:+966598401594"
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--gold)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <Phone size={24} />
-                    Call Us Direct
+                    {t("bus.ctaCallBtn", "Call Us Direct")}
                   </a>
                 </div>
               </div>

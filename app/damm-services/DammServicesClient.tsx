@@ -1,5 +1,6 @@
 "use client";
 
+import { useI18n } from "@/lib/i18n";
 import type { ComponentType } from "react";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
@@ -101,12 +102,17 @@ function FAQItem({
 }
 
 export function DammServicesClient() {
+  const { tm } = useI18n();
+  const d = tm<Record<string, any>>("dammServices", {});
+
   return (
     <div className="min-h-screen bg-[var(--bg)] selection:bg-[var(--gold-soft)] selection:text-[var(--gold)]">
       <Canonical />
       <Navbar />
 
       <main className="flex-grow overflow-hidden">
+
+        {/* HERO */}
         <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-[var(--bg)] overflow-hidden flex flex-col justify-center min-h-[85vh]">
           <div className="absolute inset-0 bg-[url('/images/damm-services.jpeg')] bg-cover bg-center bg-no-repeat z-0" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/65 to-black/80 z-10" />
@@ -125,7 +131,7 @@ export function DammServicesClient() {
                 className="inline-block mb-6"
               >
                 <span className="px-4 py-1.5 rounded-full bg-[var(--gold)] text-white font-heading font-bold text-xs uppercase tracking-widest shadow-lg shadow-[var(--gold)]/20">
-                  Shariah-Compliant Service
+                  {d.heroBadge ?? "Shariah-Compliant Service"}
                 </span>
               </motion.div>
 
@@ -134,7 +140,7 @@ export function DammServicesClient() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-6xl lg:text-[64px] font-heading font-extrabold !text-white mb-8 leading-tight"
               >
-                Damm| What is Damm? How to Give/Pay Damm for <span className="text-[var(--gold)]">Umrah</span> & <span className="text-[var(--gold)]">Hajj</span>
+                {d.heroTitle ?? "Damm | What is Damm? How to Give/Pay Damm for Umrah & Hajj"}
               </motion.h1>
 
               <motion.div
@@ -144,7 +150,7 @@ export function DammServicesClient() {
                 className="max-w-3xl mx-auto mb-10"
               >
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Learn what Damm means in Hajj and Umrah, when it becomes obligatory, and how to arrange it easily with verified proof.
+                  {d.heroText ?? "Learn what Damm means in Hajj and Umrah, when it becomes obligatory, and how to arrange it easily with verified proof."}
                 </p>
               </motion.div>
 
@@ -159,13 +165,13 @@ export function DammServicesClient() {
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--green)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all border border-[var(--green)]/20"
                 >
                   <WhatsAppIcon />
-                  Book on WhatsApp Now
+                  {d.heroBookBtn ?? "Book on WhatsApp Now"}
                 </a>
                 <Link
                   href="#faq"
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--bg-alt)] text-[var(--text-1)] font-heading font-bold rounded-xl border border-[var(--border)] hover:bg-[var(--gold)] hover:text-white transition-all shadow-sm"
                 >
-                  View FAQs
+                  {d.heroFaqBtn ?? "View FAQs"}
                   <ArrowRight size={20} />
                 </Link>
               </motion.div>
@@ -177,55 +183,67 @@ export function DammServicesClient() {
           </div>
         </section>
 
+        {/* WHAT IS DAMM */}
         <AnimatedSection className="py-24 bg-[var(--bg-alt)]/30 border-y border-[var(--border)]">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
               <div>
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">
-                  Basics
+                  {d.basicsEyebrow ?? "Basics"}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">What is Damm?</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">
+                  {d.basicsTitle ?? "What is Damm?"}
+                </h2>
                 <div className="space-y-6">
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    The term Damm refers to an obligatory expiation or penalty during the period of Hajj and Umrah if the pilgrim has committed a violation of the pilgrim regulations.
+                    {d.basicsText1 ?? "The term Damm refers to an obligatory expiation or penalty during the period of Hajj and Umrah if the pilgrim has committed a violation of the pilgrim regulations."}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Damm can be translated to sacrificial compensation in English, and it typically refers to the slaughter of an animal (Damm animal) to expiate the sins committed during the rituals.
+                    {d.basicsText2 ?? "Damm can be translated to sacrificial compensation in English, and it typically refers to the slaughter of an animal (Damm animal) to expiate the sins committed during the rituals."}
                   </p>
 
                   <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7">
-                    <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">Damm Meaning and Definition</h3>
+                    <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3">
+                      {d.meaningTitle ?? "Damm Meaning and Definition"}
+                    </h3>
                     <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">
-                      Islamic jurisprudence defines Damm to mean the slaughter of a goat or a sheep, or contributing to the sacrifice of a larger animal like a camel or a cow as an atonement for certain infractions. The sacrifice has to be done within Makkah and then given to the poor.
+                      {d.meaningText1 ?? "Islamic jurisprudence defines Damm to mean the slaughter of a goat or a sheep, or contributing to the sacrifice of a larger animal like a camel or a cow as an atonement for certain infractions. The sacrifice has to be done within Makkah and then given to the poor."}
                     </p>
                     <p className="text-[var(--text-2)] text-sm leading-relaxed font-body mt-4">
-                      Damm serves to remind one to comply with the regulations stipulated for Hajj and Umrah, emphasizing obedience and humility to Allah.
+                      {d.meaningText2 ?? "Damm serves to remind one to comply with the regulations stipulated for Hajj and Umrah, emphasizing obedience and humility to Allah."}
                     </p>
                   </div>
                 </div>
               </div>
 
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
-                <span className="text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest">Qur'an</span>
-                <p className="mt-4 text-[var(--text-1)] font-body text-lg leading-relaxed">
-                  وَأَتِمُّوا۟ ٱلْحَجَّ وَٱلْعُمْرَةَ لِلَّهِ ۚ فَإِنْ أُحْصِرْتُمْ فَمَا ٱسْتَيْسَرَ مِنَ ٱلْهَدْىِ (البقرة: ١٩٦)
+                <span className="text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest">
+                  {d.quranLabel ?? "Qur'an"}
+                </span>
+                <p className="mt-4 text-[var(--text-1)] font-body text-lg leading-relaxed" dir="rtl">
+                  {d.quranArabic ?? "وَأَتِمُّوا۟ ٱلْحَجَّ وَٱلْعُمْرَةَ لِلَّهِ ۚ فَإِنْ أُحْصِرْتُمْ فَمَا ٱسْتَيْسَرَ مِنَ ٱلْهَدْىِ (البقرة: ١٩٦)"}
                 </p>
                 <p className="mt-4 text-[var(--text-2)] font-body leading-relaxed">
-                  “And complete the Hajj and Umrah for Allah. But if you are prevented, then [offer] what can be obtained with ease of sacrificial animals.” (Surah Al-Baqarah 2:196)
+                  {d.quranTranslation ?? '"And complete the Hajj and Umrah for Allah. But if you are prevented, then [offer] what can be obtained with ease of sacrificial animals." (Surah Al-Baqarah 2:196)'}
                 </p>
               </div>
             </div>
           </div>
         </AnimatedSection>
 
+        {/* WHEN IS DAMM OBLIGATORY */}
         <AnimatedSection className="py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Obligation</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">When Damm is Obligatory?</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">
+                  {d.obligationEyebrow ?? "Obligation"}
+                </span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">
+                  {d.obligationTitle ?? "When Damm is Obligatory?"}
+                </h2>
                 <p className="mt-4 text-lg text-[var(--text-2)] max-w-3xl mx-auto font-body">
-                  Damm becomes obligatory under specific situations—omissions, Ihram violations, ritual faults, or missing essential rites.
+                  {d.obligationText ?? "Damm becomes obligatory under specific situations—omissions, Ihram violations, ritual faults, or missing essential rites."}
                 </p>
               </div>
 
@@ -233,95 +251,103 @@ export function DammServicesClient() {
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10">
                   <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-5 flex items-center gap-3">
                     <ClipboardCheck className="text-[var(--gold)]" />
-                    Common Situations
+                    {d.commonSituationsTitle ?? "Common Situations"}
                   </h3>
                   <ul className="space-y-3 text-[var(--text-2)] font-body">
-                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Omitting a Wajib act</li>
-                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Missing Tawaf al-Wada' during Hajj</li>
-                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Not spending the night in Muzdalifah or Mina</li>
-                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Performing Sa’i before Tawaf</li>
-                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Leaving Muzdalifah before Fajr</li>
+                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{d.commonSituation1 ?? "Omitting a Wajib act"}</li>
+                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{d.commonSituation2 ?? "Missing Tawaf al-Wada' during Hajj"}</li>
+                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{d.commonSituation3 ?? "Not spending the night in Muzdalifah or Mina"}</li>
+                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{d.commonSituation4 ?? "Performing Sa'i before Tawaf"}</li>
+                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{d.commonSituation5 ?? "Leaving Muzdalifah before Fajr"}</li>
                   </ul>
                 </div>
 
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10">
                   <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-5 flex items-center gap-3">
                     <Scale className="text-[var(--gold)]" />
-                    Ihram Restrictions & Other Violations
+                    {d.violationsTitle ?? "Ihram Restrictions & Other Violations"}
                   </h3>
                   <ul className="space-y-3 text-[var(--text-2)] font-body">
-                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Using perfumes, soaps, lotions, etc.</li>
-                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Trimming hair or nails before completing Umrah</li>
-                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Covering the head (men) or using gloves (women)</li>
-                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Hunting/killing animals inside the Haram zone</li>
-                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Wearing stitched clothes (men) during Ihram</li>
+                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{d.violation1 ?? "Using perfumes, soaps, lotions, etc."}</li>
+                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{d.violation2 ?? "Trimming hair or nails before completing Umrah"}</li>
+                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{d.violation3 ?? "Covering the head (men) or using gloves (women)"}</li>
+                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{d.violation4 ?? "Hunting/killing animals inside the Haram zone"}</li>
+                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{d.violation5 ?? "Wearing stitched clothes (men) during Ihram"}</li>
                   </ul>
                 </div>
               </div>
 
               <div className="mt-12 bg-[var(--bg-card)] border-2 border-[var(--gold)]/15 rounded-[40px] p-8 md:p-12 text-center">
                 <p className="text-[var(--text-2)] font-body leading-relaxed max-w-4xl mx-auto">
-                  The Prophet (PBUH) said:
+                  {d.hadithIntro ?? "The Prophet (PBUH) said:"}
                 </p>
-                <p className="mt-4 text-[var(--text-1)] font-body text-lg leading-relaxed">
-                  مَن حج فلم يرفث ولم يفسق رجع كيوم ولدته أمه (صحيح البخاري: ١٥٢١)
+                <p className="mt-4 text-[var(--text-1)] font-body text-lg leading-relaxed" dir="rtl">
+                  {d.hadithArabic ?? "مَن حج فلم يرفث ولم يفسق رجع كيوم ولدته أمه (صحيح البخاري: ١٥٢١)"}
                 </p>
                 <p className="mt-4 text-[var(--text-2)] font-body leading-relaxed max-w-4xl mx-auto">
-                  “Whoever performs Hajj and does not commit any obscenity or transgression will return as free from sins as the day he was born.” (Sahih al-Bukhari: 1521)
+                  {d.hadithTranslation ?? '"Whoever performs Hajj and does not commit any obscenity or transgression will return as free from sins as the day he was born." (Sahih al-Bukhari: 1521)'}
                 </p>
               </div>
             </div>
           </div>
         </AnimatedSection>
 
+        {/* HOW TO PAY DAMM */}
         <AnimatedSection className="py-24 bg-[var(--bg-alt)]/50 border-y border-[var(--border)]">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Process</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">How to Pay/Give Damm through Haramain Umrah Taxi?</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">
+                  {d.processEyebrow ?? "Process"}
+                </span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">
+                  {d.processTitle ?? "How to Pay/Give Damm through Haramain Umrah Taxi?"}
+                </h2>
                 <p className="mt-4 text-lg text-[var(--text-2)] max-w-3xl mx-auto font-body">
-                  We make the process Shariah-compliant, transparent, and verified with proof.
+                  {d.processText ?? "We make the process Shariah-compliant, transparent, and verified with proof."}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-                <StepCard num="01" title="Transparent Pricing" text="Book in advance with fixed pricing and no hidden charges." />
-                <StepCard num="02" title="Select Animal" text="Healthy goat/sheep or share in cow/camel, Shariah-compliant." />
-                <StepCard num="03" title="Makkah Sacrifice" text="Performed in approved Makkah slaughterhouses and distributed to the poor." />
-                <StepCard num="04" title="Verified Proof" text="Receive confirmation with evidence (receipt / proof options)." />
-                <StepCard num="05" title="Affordable Service" text="Convenient and economical with trustworthy partners." />
+                <StepCard num="01" title={d.step1Title ?? "Transparent Pricing"} text={d.step1Text ?? "Book in advance with fixed pricing and no hidden charges."} />
+                <StepCard num="02" title={d.step2Title ?? "Select Animal"} text={d.step2Text ?? "Healthy goat/sheep or share in cow/camel, Shariah-compliant."} />
+                <StepCard num="03" title={d.step3Title ?? "Makkah Sacrifice"} text={d.step3Text ?? "Performed in approved Makkah slaughterhouses and distributed to the poor."} />
+                <StepCard num="04" title={d.step4Title ?? "Verified Proof"} text={d.step4Text ?? "Receive confirmation with evidence (receipt / proof options)."} />
+                <StepCard num="05" title={d.step5Title ?? "Affordable Service"} text={d.step5Text ?? "Convenient and economical with trustworthy partners."} />
               </div>
             </div>
           </div>
         </AnimatedSection>
 
+        {/* WHY CHOOSE US */}
         <AnimatedSection className="py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto bg-[var(--bg-card)] border-2 border-[var(--gold)]/10 rounded-[48px] p-12 lg:p-20 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-48 -mt-48" />
 
               <div className="text-center mb-16 relative z-10">
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Why Choose Haramain Umrah Taxi for Damm Services?</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">
+                  {d.whyTitle ?? "Why Choose Haramain Umrah Taxi for Damm Services?"}
+                </h2>
                 <p className="text-[var(--text-2)] font-body max-w-3xl mx-auto text-lg">
-                  Trusted, verified, and Shariah-compliant handling of your Damm in Makkah.
+                  {d.whyText ?? "Trusted, verified, and Shariah-compliant handling of your Damm in Makkah."}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-10 relative z-10">
                 <FeatureCard
-                  title="Reliable & Trustworthy"
-                  description="We adhere to Islamic principles to ensure an authentic sacrifice."
+                  title={d.feature1Title ?? "Reliable & Trustworthy"}
+                  description={d.feature1Desc ?? "We adhere to Islamic principles to ensure an authentic sacrifice."}
                   icon={ShieldCheck}
                 />
                 <FeatureCard
-                  title="Hassle-Free"
-                  description="No need to find a butcher—we arrange everything for you."
+                  title={d.feature2Title ?? "Hassle-Free"}
+                  description={d.feature2Desc ?? "No need to find a butcher—we arrange everything for you."}
                   icon={HeartHandshake}
                 />
                 <FeatureCard
-                  title="Quick & Verified"
-                  description="Get confirmation with evidence so you feel reassured."
+                  title={d.feature3Title ?? "Quick & Verified"}
+                  description={d.feature3Desc ?? "Get confirmation with evidence so you feel reassured."}
                   icon={BadgeCheck}
                 />
               </div>
@@ -331,8 +357,12 @@ export function DammServicesClient() {
                   <div className="flex items-start gap-3">
                     <HandCoins className="text-[var(--gold)] shrink-0 mt-0.5" size={20} />
                     <div>
-                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">Affordable & Flat Rate Pricing</h3>
-                      <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">No hidden charges—flat fee only.</p>
+                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">
+                        {d.pricingTitle ?? "Affordable & Flat Rate Pricing"}
+                      </h3>
+                      <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">
+                        {d.pricingDesc ?? "No hidden charges—flat fee only."}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -340,61 +370,75 @@ export function DammServicesClient() {
                   <div className="flex items-start gap-3">
                     <BookOpen className="text-[var(--gold)] shrink-0 mt-0.5" size={20} />
                     <div>
-                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">Shariah-Compliant</h3>
-                      <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Sacrifice is performed under Islamic law and distributed locally.</p>
+                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">
+                        {d.shariahTitle ?? "Shariah-Compliant"}
+                      </h3>
+                      <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">
+                        {d.shariahDesc ?? "Sacrifice is performed under Islamic law and distributed locally."}
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div className="mt-12 text-center relative z-10">
-                <h3 className="text-2xl md:text-3xl font-heading font-bold text-[var(--text-1)] mb-4">Schedule Your Damm Service Now!</h3>
+                <h3 className="text-2xl md:text-3xl font-heading font-bold text-[var(--text-1)] mb-4">
+                  {d.scheduleTitle ?? "Schedule Your Damm Service Now!"}
+                </h3>
                 <p className="text-[var(--text-2)] font-body max-w-3xl mx-auto text-lg">
-                  Do you need Damm for Umrah or Damm for Hajj? We will professionally take care of the process with a quick, efficient, and reasonable option.
+                  {d.scheduleText ?? "Do you need Damm for Umrah or Damm for Hajj? We will professionally take care of the process with a quick, efficient, and reasonable option."}
                 </p>
               </div>
             </div>
           </div>
         </AnimatedSection>
 
+        {/* FAQ */}
         <AnimatedSection id="faq" className="py-24 bg-[var(--bg-alt)] border-y border-[var(--border)]">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">FAQ</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Frequently Asked Questions</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">
+                  {d.faqEyebrow ?? "FAQ"}
+                </span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">
+                  {d.faqTitle ?? "Frequently Asked Questions"}
+                </h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <FAQItem
-                  q="Is Damm the same as Fidyah?"
-                  a="No, Damm is an obligatory sacrifice, whereas Fidyah involves feeding the poor or fasting for minor mistakes."
+                  q={d.faq1Question ?? "Is Damm the same as Fidyah?"}
+                  a={d.faq1Answer ?? "No, Damm is an obligatory sacrifice, whereas Fidyah involves feeding the poor or fasting for minor mistakes."}
                 />
                 <FAQItem
-                  q="Can I pay Damm outside of Makkah?"
-                  a="No, Damm must be performed in Makkah and the meat distributed locally."
+                  q={d.faq2Question ?? "Can I pay Damm outside of Makkah?"}
+                  a={d.faq2Answer ?? "No, Damm must be performed in Makkah and the meat distributed locally."}
                 />
                 <FAQItem
-                  q="Can I perform Damm on behalf of someone else?"
-                  a="Yes, you may arrange Damm services for family members or friends."
+                  q={d.faq3Question ?? "Can I perform Damm on behalf of someone else?"}
+                  a={d.faq3Answer ?? "Yes, you may arrange Damm services for family members or friends."}
                 />
                 <FAQItem
-                  q="How do I ensure my Damm is accepted?"
-                  a="Use verified, Shariah-compliant services that provide confirmation and transparency."
+                  q={d.faq4Question ?? "How do I ensure my Damm is accepted?"}
+                  a={d.faq4Answer ?? "Use verified, Shariah-compliant services that provide confirmation and transparency."}
                 />
               </div>
             </div>
           </div>
         </AnimatedSection>
 
+        {/* CTA */}
         <AnimatedSection className="px-6 py-24 pb-32">
           <div className="max-w-7xl mx-auto lg:px-8">
             <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[40px] p-8 md:p-16 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-32 -mt-32" />
               <div className="relative z-10 text-center">
-                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">Book Your Damm with Peace of Mind</h2>
+                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">
+                  {d.ctaTitle ?? "Book Your Damm with Peace of Mind"}
+                </h2>
                 <p className="text-[var(--text-2)] text-[18px] font-body mb-12 max-w-3xl mx-auto leading-relaxed">
-                  Let us handle the sacrifice correctly while you focus on worship.
+                  {d.ctaText ?? "Let us handle the sacrifice correctly while you focus on worshid."}
                 </p>
                 <div className="flex flex-wrap justify-center gap-6">
                   <a
@@ -404,20 +448,21 @@ export function DammServicesClient() {
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--green)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <WhatsAppIcon size={24} />
-                    Book via WhatsApp Now
+                    {d.ctaWhatsAppBtn ?? "Book via WhatsApp Now"}
                   </a>
                   <a
                     href="tel:+966598401594"
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--gold)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <Phone size={24} />
-                    Call Us Direct
+                    {d.ctaCallBtn ?? "Call Us Direct"}
                   </a>
                 </div>
               </div>
             </div>
           </div>
         </AnimatedSection>
+
       </main>
 
       <Footer />

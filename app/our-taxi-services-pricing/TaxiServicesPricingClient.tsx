@@ -8,9 +8,9 @@ import { Canonical } from "@/components/SEO/Canonical";
 import { pricingRows, vehicleColumns } from "@/lib/data/pricing";
 import { useI18n } from "@/lib/i18n";
 
-function formatPrice(value: number | null) {
-  if (value === null) return "N/A";
-  return `SAR ${value}`;
+function formatPrice(value: number | null, t: any) {
+  if (value === null) return t("common.na", "N/A");
+  return `${t("common.sar", "SAR")} ${value}`;
 }
 
 export function TaxiServicesPricingClient() {
@@ -32,7 +32,7 @@ export function TaxiServicesPricingClient() {
                 {t("pricing.eyebrow")}
               </span>
               <h1 className="mt-4 font-heading text-4xl font-bold !text-white md:text-[48px]">
-                Haramain Umrah Taxi Major Routes Pricing With Variety of Fleet Options
+                {t("pricing.pageTitle", "Haramain Umrah Taxi Major Routes Pricing With Variety of Fleet Options")}
               </h1>
               <p className="mt-4 font-body text-white/90">
                 {t("pricing.subtitle")}
@@ -45,7 +45,7 @@ export function TaxiServicesPricingClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mx-auto max-w-7xl">
               <div className="rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] p-3 md:p-5">
-                <div className="overflow-x-auto">
+                <div className="w-full max-w-full overflow-x-auto overscroll-x-contain">
                   <table className="w-full min-w-[1100px] border-collapse">
                     <thead>
                       <tr>
@@ -57,8 +57,12 @@ export function TaxiServicesPricingClient() {
                             key={column.key}
                             className="border border-[var(--border)] bg-[var(--green)]/10 px-4 py-3 text-center"
                           >
-                            <p className="font-heading text-sm font-bold uppercase text-[var(--text-1)]">{column.label}</p>
-                            <p className="mt-1 text-xs font-body text-[var(--text-2)]">{column.subLabel}</p>
+                            <p className="font-heading text-sm font-bold uppercase text-[var(--text-1)]">
+                              {t(`pricing.vehicles.${column.key}.label`, column.label)}
+                            </p>
+                            <p className="mt-1 text-xs font-body text-[var(--text-2)]">
+                              {t(`pricing.vehicles.${column.key}.subLabel`, column.subLabel)}
+                            </p>
                           </th>
                         ))}
                       </tr>
@@ -77,11 +81,11 @@ export function TaxiServicesPricingClient() {
                           }`}
                         >
                           <td className="border border-[var(--border)] px-4 py-3 font-body text-sm font-semibold text-[var(--text-1)]">
-                            {row.route}
+                            {t(`pricing.routes.${row.id}`, row.route)}
                           </td>
                           {vehicleColumns.map((column) => (
                             <td key={column.key} className="border border-[var(--border)] px-4 py-3 text-center font-body text-sm text-[var(--text-2)]">
-                              {formatPrice(row[column.key])}
+                              {formatPrice(row[column.key], t)}
                             </td>
                           ))}
                         </tr>

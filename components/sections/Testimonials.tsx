@@ -1,12 +1,18 @@
 "use client";
 
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { testimonials } from "@/lib/data/testimonials";
 import { useI18n } from "@/lib/i18n";
 import { Star } from "lucide-react";
 
 export function Testimonials() {
-  const { t } = useI18n();
+  const { t, tm } = useI18n();
+  const testimonials = tm("testimonials.items") as Array<{
+    id: number;
+    name: string;
+    text: string;
+    rating: number;
+    initials: string;
+  }>;
   const duplicatedTestimonials = [...testimonials, ...testimonials];
 
   return (
@@ -21,8 +27,8 @@ export function Testimonials() {
           </h2>
         </div>
 
-        <div className="group relative w-full overflow-hidden">
-          <div className="flex py-8 animate-testimonials-marquee group-hover:[animation-play-state:paused]">
+        <div className="group relative w-full overflow-hidden" style={{ contain: "paint" }}>
+          <div className="flex py-8 animate-testimonials-marquee group-hover:[animation-play-state:paused]" style={{ contain: "paint" }}>
             {duplicatedTestimonials.map((testimonial, i) => (
               <div
                 key={`${testimonial.id}-${i}`}

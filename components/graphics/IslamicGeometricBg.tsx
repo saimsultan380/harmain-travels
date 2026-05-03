@@ -4,9 +4,10 @@ import { motion } from "framer-motion";
 
 export function IslamicGeometricBg({ className = "", opacity = 0.03 }: { className?: string, opacity?: number }) {
   return (
-    <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`} style={{ opacity }}>
+    <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`} style={{ opacity, contain: "paint" }}>
       <motion.div 
         className="w-[200%] h-[200%] absolute -top-[50%] -left-[50%] will-change-transform"
+        style={{ contain: "paint" }}
         animate={{ rotate: 360 }}
         transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
       >

@@ -9,6 +9,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { IslamicGeometricBg } from "@/components/graphics/IslamicGeometricBg";
 import { AnimatedCarOnRoad } from "@/components/graphics/AnimatedCarOnRoad";
 import { Canonical } from "@/components/SEO/Canonical";
+import { useI18n } from "@/lib/i18n";
 import {
   ArrowRight,
   BadgeCheck,
@@ -75,14 +76,15 @@ function Card({
 }
 
 function PricingTable({ routes, title }: { routes: any[]; title: string }) {
+  const { t } = useI18n();
   return (
     <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 overflow-x-auto">
       <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-6">{title}</h3>
       <table className="w-full min-w-[600px]">
         <thead>
           <tr className="border-b border-[var(--border)]">
-            <th className="text-left py-4 px-4 text-[var(--text-1)] font-heading font-bold">Route</th>
-            <th className="text-center py-4 px-4 text-[var(--text-1)] font-heading font-bold">Fare (SAR)</th>
+            <th className="text-left py-4 px-4 text-[var(--text-1)] font-heading font-bold">{t("pricing.tableHeaderRoute", "Route")}</th>
+            <th className="text-center py-4 px-4 text-[var(--text-1)] font-heading font-bold">{t("pricing.tableHeaderFare", "Fare (SAR)")}</th>
           </tr>
         </thead>
         <tbody>
@@ -139,36 +141,18 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 }
 
 export function ToyotaHiaceOrHiroof2Client() {
-  const umrahMiqatRoutes = [
-    { route: "Makkah Hotel to Masjid Ayesha Miqat (Umrah)", fare: "200 SAR" },
-    { route: "Makkah Hotel to Jaranah Mosque Miqat (Umrah)", fare: "250 SAR" },
-  ];
+  const { t, tm } = useI18n();
 
-  const ziyaratRoutes = [
-    { route: "Makkah Ziyarat", fare: "330 SAR" },
-    { route: "Jaranah Miqat and Makkah Ziyarat", fare: "380 SAR" },
-    { route: "Madinah Ziyarat", fare: "270 SAR" },
-    { route: "Madinah Ziyarat + Wadi-e-Jinn", fare: "370 SAR" },
-    { route: "Madinah to Badr Ziyarat & Back", fare: "550 SAR" },
-    { route: "Taif Ziyarat & Back to Makkah", fare: "550 SAR" },
-  ];
+  const umrahMiqatRoutes = tm<any[]>("toyotaHiace.routes.umrahMiqat", []);
+  const ziyaratRoutes = tm<any[]>("toyotaHiace.routes.ziyarat", []);
+  const airportTrainRoutes = tm<any[]>("toyotaHiace.routes.airportTrain", []);
+  const intercityRoutes = tm<any[]>("toyotaHiace.routes.intercity", []);
+  const faqItems = tm<any[]>("toyotaHiace.faqs", []);
+  const serviceItems = tm<string[]>("toyotaHiace.serviceItems", []);
+  const specialties = tm<any[]>("toyotaHiace.specialties", []);
+  const whyFeatures = tm<any[]>("toyotaHiace.whyFeatures", []);
 
-  const airportTrainRoutes = [
-    { route: "Jeddah to Makkah", fare: "400 SAR" },
-    { route: "Makkah to Jeddah airport", fare: "280 SAR" },
-    { route: "Madinah Airport to Madinah Hotel", fare: "250 SAR" },
-    { route: "Madinah Hotel to Madinah Airport", fare: "200 SAR" },
-    { route: "Makkah Train Station to Hotel", fare: "200 SAR" },
-    { route: "Madinah Train Station to Hotel", fare: "200 SAR" },
-  ];
-
-  const intercityRoutes = [
-    { route: "Madinah and Makkah", fare: "550 SAR" },
-    { route: "Jeddah to Madinah", fare: "550 SAR" },
-    { route: "Madinah to Jeddah", fare: "550 SAR" },
-    { route: "Makkah to Madinah by Badr", fare: "650 SAR" },
-    { route: "Madinah to Makkah via Badr", fare: "650 SAR" },
-  ];
+  const specialtyIcons = [Users, Zap, ShieldCheck, Car, BadgeCheck, Star];
 
   return (
     <div className="min-h-screen bg-[var(--bg)] selection:bg-[var(--gold-soft)] selection:text-[var(--gold)]">
@@ -194,7 +178,7 @@ export function ToyotaHiaceOrHiroof2Client() {
                 className="inline-block mb-6"
               >
                 <span className="px-4 py-1.5 rounded-full bg-[var(--gold)] text-white font-heading font-bold text-xs uppercase tracking-widest shadow-lg shadow-[var(--gold)]/20">
-                  Our Fleet
+                  {t("toyotaHiace.heroBadge", "Our Fleet")}
                 </span>
               </motion.div>
 
@@ -203,7 +187,8 @@ export function ToyotaHiaceOrHiroof2Client() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-6xl lg:text-[64px] font-heading font-extrabold !text-white mb-8 leading-tight"
               >
-                Book Ziyarat & Umrah <span className="text-[var(--gold)]">Hi-Ace or Hi-Roof</span> in Makkah & Madinah, KSA
+                {t("toyotaHiace.heroTitle", "Toyota Hiace / Hiroof 12 Seater Taxi KSA | ")} 
+                <span className="text-[var(--gold)]">{t("toyotaHiace.heroTitleHighlight", "Toyota Hiace Taxi Ziarah & Umrah")}</span>
               </motion.h1>
 
               <motion.div
@@ -213,10 +198,10 @@ export function ToyotaHiaceOrHiroof2Client() {
                 className="max-w-3xl mx-auto mb-10 space-y-4"
               >
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Umrah and Ziyarat in Saudi Arabia require comfortable, spacious, and dependable transportation. Haramain Umrah Taxi's Hiace and Hi-roof services provide an efficient travel solution for pilgrims and visitors across Jeddah, Madinah, and Makkah.
+                  {t("toyotaHiace.heroText1", "For small groups and large families visiting Saudi Arabia, the Toyota Hiace / Hiroof remains the most trusted and practical transport solution.")}
                 </p>
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Designed for families and groups, our Toyota Hiace taxi offers multiple seats, generous legroom, and ample baggage space.
+                  {t("toyotaHiace.heroText2", "With a 12-seater capacity and exceptional fuel efficiency, the Hiace combines space, reliability, and affordability for your Ziarah and Umrah needs.")}
                 </p>
               </motion.div>
 
@@ -231,14 +216,14 @@ export function ToyotaHiaceOrHiroof2Client() {
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--green)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all border border-[var(--green)]/20"
                 >
                   <WhatsAppIcon />
-                  Book Hiace Taxi
+                  {t("toyotaHiace.heroBookBtn", "Book Hiace Taxi")}
                 </a>
                 <a
                   href="tel:+966598401594"
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--gold)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all shadow-sm"
                 >
                   <Phone size={20} />
-                  Call Us Now
+                  {t("toyotaHiace.heroCallBtn", "Call Now")}
                 </a>
               </motion.div>
             </motion.div>
@@ -254,16 +239,16 @@ export function ToyotaHiaceOrHiroof2Client() {
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">
-                  Services
+                  {t("toyotaHiace.servicesEyebrow", "Services")}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Toyota Hiace or Hi-Roof Taxi Services in Saudi Arabia</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{t("toyotaHiace.servicesTitle", "Toyota Hiace / Hiroof Taxi Services in Saudi Arabia")}</h2>
                 <ul className="space-y-4 text-[var(--text-2)] text-lg leading-relaxed font-body">
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />Toyota Hiace or Hi-Roof for Umrah</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />Toyota Hiace or Hi-Roof for Ziyarat</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />Toyota Hiace or Hi-Roof Airport Transfers</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />Toyota Hiace or Hi-Roof City-to-City Transfers</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />Toyota Hiace or Hi-Roof Private Taxi Service</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />Group Travel & Tourism</li>
+                  {serviceItems.map((item, idx) => (
+                    <li key={idx} className="flex gap-3">
+                      <CheckCircle2 className="text-[var(--green)] mt-1" size={20} />
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </div>
 
@@ -276,41 +261,19 @@ export function ToyotaHiaceOrHiroof2Client() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Specialties</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Specialties of our Toyota Hiace or Hi-Roof</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("toyotaHiace.specialtiesEyebrow", "Specialties")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("toyotaHiace.specialtiesTitle", "Toyota Hiace / Hiroof Taxi Specialties")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <Card
-                  title="Spacious Interior"
-                  description="Perfect for families and friends who visit in groups."
-                  icon={Users}
-                />
-                <Card
-                  title="Air-Conditioned Comfort"
-                  description="Ensures a smooth and relaxing journey, regardless of the weather."
-                  icon={Star}
-                />
-                <Card
-                  title="Cost-Effective"
-                  description="Affordable for families and for group travelers."
-                  icon={Zap}
-                />
-                <Card
-                  title="Professional Drivers"
-                  description="Highly experienced and courteous drivers ensure safe and smooth transportation."
-                  icon={BadgeCheck}
-                />
-                <Card
-                  title="Ample Luggage Area"
-                  description="Ideal for those who have luggage for lengthy trips."
-                  icon={Car}
-                />
-                <Card
-                  title="24/7 Availability"
-                  description="Available 24/7 for city-to-city transfers, Umrah, Ziyarat, and airport transfers."
-                  icon={ShieldCheck}
-                />
+                {specialties.map((spec, idx) => (
+                  <Card
+                    key={idx}
+                    title={spec.title}
+                    description={spec.description}
+                    icon={specialtyIcons[idx % specialtyIcons.length]}
+                  />
+                ))}
               </div>
             </div>
           </div>
@@ -320,15 +283,15 @@ export function ToyotaHiaceOrHiroof2Client() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Pricing</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Popular Routes and Toyota Hiace or HiRoof Taxi Fares in KSA</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("toyotaHiace.pricingEyebrow", "Pricing")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("toyotaHiace.pricingTitle", "Popular Routes and Toyota Hiace / Hiroof Taxi Fares in KSA")}</h2>
               </div>
 
               <div className="space-y-8">
-                <PricingTable routes={umrahMiqatRoutes} title="Umrah and Miqat Transfers" />
-                <PricingTable routes={ziyaratRoutes} title="Ziyarat Routes" />
-                <PricingTable routes={airportTrainRoutes} title="Airport and Train Station Transfers" />
-                <PricingTable routes={intercityRoutes} title="Intercity Transfers" />
+                <PricingTable routes={umrahMiqatRoutes} title={t("toyotaHiace.pricingTables.umrahMiqat", "Umrah and Miqat Transfer")} />
+                <PricingTable routes={ziyaratRoutes} title={t("toyotaHiace.pricingTables.ziyarat", "Ziarah Routes")} />
+                <PricingTable routes={airportTrainRoutes} title={t("toyotaHiace.pricingTables.airportTrain", "Airport and Train Station Transfer")} />
+                <PricingTable routes={intercityRoutes} title={t("toyotaHiace.pricingTables.intercity", "Intercity Transfer")} />
               </div>
             </div>
           </div>
@@ -338,39 +301,20 @@ export function ToyotaHiaceOrHiroof2Client() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Why Us</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Why Choose a Toyota Hiace or HiRoof Taxi in Saudi Arabia?</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("toyotaHiace.whyEyebrow", "Why Us")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("toyotaHiace.whyTitle", "Why Choose Our Toyota Hiace / Hiroof Taxi in Saudi Arabia?")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
-                  <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
-                    <Users size={22} />
+                {whyFeatures.map((feature, idx) => (
+                  <div key={idx} className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
+                    <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
+                      {idx === 0 ? <Users size={22} /> : idx === 1 ? <BadgeCheck size={22} /> : idx === 2 ? <ShieldCheck size={22} /> : <Zap size={22} />}
+                    </div>
+                    <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{feature.title}</h3>
+                    <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{feature.description}</p>
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Spacious & Cozy for Group Holidays</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Ideal for families and group travelers.</p>
-                </div>
-                <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
-                  <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
-                    <BadgeCheck size={22} />
-                  </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Well-Trained Drivers</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Experienced professionals who ensure a safe and smooth trip.</p>
-                </div>
-                <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
-                  <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
-                    <ShieldCheck size={22} />
-                  </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Transparent & Reasonable Charges</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">No hidden charges, honest pricing.</p>
-                </div>
-                <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
-                  <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
-                    <Zap size={22} />
-                  </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">24/7 Service Availability</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">24-hour round-the-clock services for any travel need.</p>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -380,31 +324,18 @@ export function ToyotaHiaceOrHiroof2Client() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">FAQs</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Frequently Asked Questions</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("toyotaHiace.faqEyebrow", "FAQ")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("toyotaHiace.faqTitle", "Frequently Asked Questions")}</h2>
               </div>
 
               <div className="grid grid-cols-1 gap-6 max-w-3xl mx-auto">
-                <FAQItem
-                  question="What is the difference between Hiace and HiRoof?"
-                  answer="The HiRoof has a higher ceiling height than the standard Hiace. Both vehicles seat the same number of passengers. HiRoof provides more headroom and vertical space inside. This makes it more comfortable for taller passengers and easier luggage storage."
-                />
-                <FAQItem
-                  question="How many people can travel in a Toyota Hiace taxi?"
-                  answer="A Toyota Hiace comfortably seats up to 13 passengers. This makes it perfect for group travel and families. The vehicle also has ample space for luggage and personal belongings. You can travel together without splitting into multiple vehicles."
-                />
-                <FAQItem
-                  question="Can I stop for bathroom breaks during long trips?"
-                  answer="Yes, drivers allow bathroom and refreshment stops during long journeys. The driver will suggest safe rest areas along the route. You can request stops at any time during your trip. Most intercity trips include planned breaks for passenger comfort."
-                />
-                <FAQItem
-                  question="Do you provide child seats in Hiace taxis?"
-                  answer="Yes, we can arrange child seats upon request during booking. You must inform us about the child's age and weight in advance. Availability of child seats depends on your specific requirements. We recommend booking early if you need special seating arrangements."
-                />
-                <FAQItem
-                  question="What happens if my flight arrives late at night?"
-                  answer="Our service operates 24/7 to accommodate all flight schedules. Your driver will track your flight arrival time automatically. We wait for delayed flights at no extra charge. Simply provide your flight number during booking for seamless pickup."
-                />
+                {faqItems.map((faq, idx) => (
+                  <FAQItem
+                    key={idx}
+                    question={faq.question}
+                    answer={faq.answer}
+                  />
+                ))}
               </div>
             </div>
           </div>
@@ -415,9 +346,9 @@ export function ToyotaHiaceOrHiroof2Client() {
             <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[40px] p-8 md:p-16 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-32 -mt-32" />
               <div className="relative z-10 text-center">
-                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">Book Your Toyota Hiace or Hi-Roof Now</h2>
+                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">{t("toyotaHiace.ctaTitle", "Book Your Toyota Hiace / Hiroof Taxi Today")}</h2>
                 <p className="text-[var(--text-2)] text-[18px] font-body mb-12 max-w-3xl mx-auto leading-relaxed">
-                  Experience a smooth trip in our Toyota Hiace or HiRoof taxi in Jeddah, Madinah, and Makkah. Book today for a convenient and smooth trip.
+                  {t("toyotaHiace.ctaText", "Experience reliable and spacious group transport with our Toyota Hiace / Hiroof taxi in Makkah, Madinah, and Jeddah. Book now and enjoy a hassle-free journey!")}
                 </p>
                 <div className="flex flex-wrap justify-center gap-6">
                   <a
@@ -427,14 +358,14 @@ export function ToyotaHiaceOrHiroof2Client() {
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--green)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <WhatsAppIcon size={24} />
-                    Book via WhatsApp Now
+                    {t("toyotaHiace.ctaWhatsAppBtn", "Book via WhatsApp Now")}
                   </a>
                   <a
                     href="tel:+966598401594"
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--gold)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <Phone size={24} />
-                    Call Us Direct
+                    {t("toyotaHiace.ctaCallBtn", "Call Us Directly")}
                   </a>
                 </div>
               </div>

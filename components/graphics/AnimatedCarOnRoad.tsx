@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export function AnimatedCarOnRoad({ className = "" }: { className?: string }) {
   return (
-    <div className={`relative w-full h-32 overflow-hidden ${className}`}>
+    <div className={`relative w-full h-32 overflow-hidden ${className}`} style={{ contain: "paint" }}>
       {/* The Road */}
       <div className="absolute bottom-4 left-0 w-full h-1 bg-[var(--border-dark)]" />
       <motion.div 

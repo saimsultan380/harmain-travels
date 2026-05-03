@@ -1,5 +1,6 @@
 "use client";
 
+import { useI18n } from "@/lib/i18n";
 import type { ComponentType } from "react";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
@@ -83,6 +84,9 @@ function StepCard({
 }
 
 export function PrivateTaxiPageClient() {
+  const { tm } = useI18n();
+  const p = tm<Record<string, any>>("privateTaxi", {});
+
   return (
     <div className="min-h-screen bg-[var(--bg)] selection:bg-[var(--gold-soft)] selection:text-[var(--gold)]">
       <Canonical />
@@ -107,34 +111,34 @@ export function PrivateTaxiPageClient() {
                 className="inline-block mb-6"
               >
                 <span className="px-4 py-1.5 rounded-full bg-[var(--gold)] text-white font-heading font-bold text-xs uppercase tracking-widest shadow-lg shadow-[var(--gold)]/20">
-                  Private Umrah Taxi
+                  {p.heroBadge ?? "Private Umrah Taxi"}
                 </span>
               </motion.div>
 
               <motion.h1
-                initial={{ opacity: 0, y: 18 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-4xl md:text-6xl lg:text-[72px] font-heading font-extrabold !text-white mb-8 leading-tight"
+                className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold !text-white mb-8 leading-tight"
               >
-                Private Taxi Services| Private Umrah Taxi <span className="text-[var(--gold)]">Makkah</span> & <span className="text-[var(--gold)]">Madinah</span>
+                {p.heroTitle ?? "Private Taxi Services| Private Umrah Taxi"} <span className="text-[var(--gold)]">{p.heroCities ?? "Makkah"}</span> {p.heroCities2 ?? "&"} <span className="text-[var(--gold)]">{p.heroCities3 ?? "Madinah"}</span>
               </motion.h1>
 
               <motion.div
-                initial={{ opacity: 0, y: 18 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
                 className="max-w-3xl mx-auto mb-10 space-y-4"
               >
-                <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  After 12 hours of flights, your exhausted family deserves better than squeezing into crowded vehicles, making five stops before reaching your hotel.
+                <p className="text-lg text-white/90 leading-relaxed font-body">
+                  {p.heroText1 ?? "After 12 hours of flights, your exhausted family deserves better than squeezing into crowded vehicles, making five stops before reaching your hotel."}
                 </p>
-                <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Our private umrah taxi gives you the whole vehicle to your family, direct to your destination. No detours. No strangers are listening to your conversations, and no fighting for luggage space.
+                <p className="text-lg text-white/90 leading-relaxed font-body">
+                  {p.heroText2 ?? "Our private umrah taxi gives you the whole vehicle to your family, direct to your destination. No detours. No strangers are listening to your conversations, and no fighting for luggage space."}
                 </p>
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, y: 18 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
                 className="flex flex-wrap justify-center gap-4"
@@ -144,13 +148,13 @@ export function PrivateTaxiPageClient() {
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--green)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all border border-[var(--green)]/20"
                 >
                   <WhatsAppIcon />
-                  Book on WhatsApp Now
+                  {p.heroBookBtn ?? "Book on WhatsApp Now"}
                 </a>
                 <Link
                   href="#how-to-book"
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--bg-alt)] text-[var(--text-1)] font-heading font-bold rounded-xl border border-[var(--border)] hover:bg-[var(--gold)] hover:text-white transition-all shadow-sm"
                 >
-                  How to Book
+                  {p.heroHowToBookBtn ?? "How to Book"}
                   <ArrowRight size={20} />
                 </Link>
               </motion.div>
@@ -164,45 +168,43 @@ export function PrivateTaxiPageClient() {
 
         <AnimatedSection className="py-24 bg-[var(--bg-alt)]/30 border-y border-[var(--border)]">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-              <div>
-                <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">
-                  Built for Families
-                </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Private Umrah Taxi for Families</h2>
-                <div className="space-y-6">
+            <div className="max-w-7xl mx-auto">
+              <div className="text-center mb-16">
+                <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">{p.familiesEyebrow ?? "Built for Families"}</div>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{p.familiesTitle ?? "Private Umrah Taxi for Families"}</h2>
+                <div className="max-w-3xl mx-auto space-y-6">
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    We at Haramain Umrah Taxi offer private Umrah taxi for families that understand unique family needs perfectly. Mothers nursing babies need privacy. Elderly parents need frequent rest stops. Children get restless on long drives, requiring breaks for stretching and playing.
+                    {p.familiesText1 ?? "We at Haramain Umrah Taxi offer private Umrah taxi for families that understand unique family needs perfectly. Mothers nursing babies need privacy. Elderly parents need frequent rest stops. Children get restless on long drives, requiring breaks for stretching and playing."}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Shared taxis force you to suppress these natural needs. Other passengers get annoyed by crying babies. Drivers refuse extra stops.
+                    {p.familiesText2 ?? "Shared taxis force you to suppress these natural needs. Other passengers get annoyed by crying babies. Drivers refuse extra stops."}
                   </p>
-                  <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    You suffer silently, trying to accommodate strangers instead of focusing on your family's comfort and your worship.
+                  <p className="text-[var(--text-2)] text-lg leading-relaxed font-body font-semibold">
+                    {p.familiesText3 ?? "You suffer silently, trying to accommodate strangers instead of focusing on your family's comfort and your worship."}
                   </p>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <InfoCard
-                  title="Privacy for Mothers"
-                  description="Comfortable, private rides for families with babies and special needs."
+                  title={p.familiesCard1Title ?? "Privacy for Mothers"}
+                  description={p.familiesCard1Desc ?? "Comfortable, private rides for families with babies and special needs."}
                   icon={Baby}
                 />
                 <InfoCard
-                  title="Flexible Rest Stops"
-                  description="Stop for prayers, meals, or breaks whenever your family needs it."
+                  title={p.familiesCard2Title ?? "Flexible Rest Stops"}
+                  description={p.familiesCard2Desc ?? "Stop for prayers, meals, or breaks whenever your family needs it."}
                   icon={Clock}
                 />
                 <InfoCard
-                  title="Respectful Drivers"
-                  description="Professional drivers who keep your space calm and dignified."
-                  icon={ShieldCheck}
+                  title={p.familiesCard3Title ?? "Respectful Drivers"}
+                  description={p.familiesCard3Desc ?? "Professional drivers who keep your space calm and dignified."}
+                  icon={Users}
                 />
                 <InfoCard
-                  title="Family Unity"
-                  description="Stay together in one vehicle instead of splitting between strangers."
-                  icon={Users}
+                  title={p.familiesCard4Title ?? "Family Unity"}
+                  description={p.familiesCard4Desc ?? "Stay together in one vehicle instead of splitting between strangers."}
+                  icon={HeartHandshake}
                 />
               </div>
             </div>
@@ -216,13 +218,13 @@ export function PrivateTaxiPageClient() {
                 <div className="w-12 h-12 bg-[var(--gold-soft)] rounded-xl flex items-center justify-center text-[var(--gold)] mb-6">
                   <MapPin size={24} />
                 </div>
-                <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">Private Umrah Taxi in Makkah</h2>
+                <h2 className="text-2xl md:text-3xl font-heading font-bold text-[var(--text-1)] mb-6">{p.makkahTitle ?? "Private Umrah Taxi in Makkah"}</h2>
                 <div className="space-y-4">
                   <p className="text-[var(--text-2)] text-[17px] leading-relaxed font-body">
-                    Private umrah taxi in Makkah navigates the holy city's complex streets exclusively for you. Makkah's traffic intensifies around prayer times. Hotels near Masjid al-Haram cluster tightly together.
+                    {p.makkahText1 ?? "Private umrah taxi in Makkah navigates the holy city's complex streets exclusively for you. Makkah's traffic intensifies around prayer times. Hotels near Masjid al-Haram cluster tightly together."}
                   </p>
                   <p className="text-[var(--text-2)] text-[17px] leading-relaxed font-body">
-                    Our private taxi in Makkah drivers know every alley intimately. They drop you at your exact hotel entrance, not nearby streets requiring you to walk with luggage. This precision saves the energy you need for worship and Tawaf.
+                    {p.makkahText2 ?? "Our private taxi in Makkah drivers know every alley intimately. They drop you at your exact hotel entrance, not nearby streets requiring you to walk with luggage. This precision saves the energy you need for worship and Tawaf."}
                   </p>
                 </div>
               </div>
@@ -231,13 +233,13 @@ export function PrivateTaxiPageClient() {
                 <div className="w-12 h-12 bg-[var(--green-soft)] rounded-xl flex items-center justify-center text-[var(--green)] mb-6">
                   <HeartHandshake size={24} />
                 </div>
-                <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">Private Taxi Near Masjid Al Haram</h2>
+                <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">{p.nearHaramTitle ?? "Private Taxi Near Masjid Al Haram"}</h2>
                 <div className="space-y-4">
                   <p className="text-[var(--text-2)] text-[17px] leading-relaxed font-body">
-                    Private umrah taxi near masjid al haram provides crucial convenience during your stay. You pray five times daily at Haram. Many pilgrims wake for Tahajjud prayers too.
+                    {p.nearHaramText1 ?? "Private umrah taxi near masjid al haram provides crucial convenience during your stay. You pray five times daily at Haram. Many pilgrims wake for Tahajjud prayers too."}
                   </p>
                   <p className="text-[var(--text-2)] text-[17px] leading-relaxed font-body">
-                    Our private umrah taxi near haram responds within minutes of your call. No waiting for shared taxis to fill with passengers. There will not be any argument about prices. Your dedicated driver knows your hotel and routine preferences from previous trips together.
+                    {p.nearHaramText2 ?? "Our private umrah taxi near haram responds within minutes of your call. No waiting for shared taxis to fill with passengers. There will not be any argument about prices. Your dedicated driver knows your hotel and routine preferences from previous trips together."}
                   </p>
                 </div>
               </div>
@@ -249,40 +251,40 @@ export function PrivateTaxiPageClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Madinah Service</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Private Umrah Taxi Services in Madinah</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{p.madinahEyebrow ?? "Madinah Service"}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{p.madinahTitle ?? "Private Umrah Taxi Services in Madinah"}</h2>
                 <p className="mt-4 text-lg text-[var(--text-2)] max-w-3xl mx-auto font-body">
-                  Private umrah taxi services in Madinah cater to the Prophet's city's peaceful atmosphere. Yet you still need reliable private transport for comfortable worship and Ziyarat visits.
+                  {p.madinahSubtitle ?? "Private umrah taxi services in Madinah cater to the Prophet's city's peaceful atmosphere. Yet you still need reliable private transport for comfortable worship and Ziyarat visits."}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10">
-                  <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-5 flex items-center gap-3">
-                    <ShieldCheck className="text-[var(--green)]" />
-                    Private Taxi in Madinah
-                  </h3>
+                <div className="bg-[var(--bg-card)] border-2 border-[var(--green)]/20 rounded-[32px] p-8 md:p-10">
+                  <div className="w-12 h-12 bg-[var(--green-soft)] rounded-xl flex items-center justify-center text-[var(--green)] mb-6">
+                    <MapPin size={24} />
+                  </div>
+                  <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-5">{p.madinahCard1Title ?? "Private Taxi in Madinah"}</h3>
                   <div className="space-y-4">
                     <p className="text-[var(--text-2)] text-[16px] leading-relaxed font-body">
-                      Our private taxi in Madinah connects you to Masjid Nabawi effortlessly multiple times daily. The emotional significance of visiting the Prophet's mosque requires transportation that respects your spiritual state.
+                      {p.madinahCard1Text1 ?? "Our private taxi in Madinah connects you to Masjid Nabawi effortlessly multiple times daily. The emotional significance of visiting the Prophet's mosque requires transportation that respects your spiritual state."}
                     </p>
-                    <p className="text-[var(--text-2)] text-[16px] leading-relaxed font-body">
-                      Our drivers understand this deeply and serve you accordingly.
+                    <p className="text-[var(--text-2)] text-[16px] leading-relaxed font-body font-semibold">
+                      {p.madinahCard1Text2 ?? "Our drivers understand this deeply and serve you accordingly."}
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10">
-                  <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-5 flex items-center gap-3">
-                    <Route className="text-[var(--gold)]" />
-                    Madinah Ziyarat Tours In Private Taxi
-                  </h3>
+                <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/20 rounded-[32px] p-8 md:p-10">
+                  <div className="w-12 h-12 bg-[var(--gold-soft)] rounded-xl flex items-center justify-center text-[var(--gold)] mb-6">
+                    <Route size={24} />
+                  </div>
+                  <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-5">{p.madinahCard2Title ?? "Madinah Ziyarat Tours In Private Taxi"}</h3>
                   <div className="space-y-4">
                     <p className="text-[var(--text-2)] text-[16px] leading-relaxed font-body">
-                      Private umrah taxi services in Madinah include a comprehensive Ziyarat to Mount Uhud, Masjid Quba, and other blessed sites. Private tours let you spend as much time as you want at each location.
+                      {p.madinahCard2Text1 ?? "Private umrah taxi services in Madinah include a comprehensive Ziyarat to Mount Uhud, Masjid Quba, and other blessed sites. Private tours let you spend as much time as you want at each location."}
                     </p>
-                    <p className="text-[var(--text-2)] text-[16px] leading-relaxed font-body">
-                      You control the tour pace completely. Need to pray at Masjid Quba peacefully? We wait patiently. This flexibility makes Ziyarat truly meaningful rather than just tourist checkboxes.
+                    <p className="text-[var(--text-2)] text-[16px] leading-relaxed font-body font-semibold">
+                      {p.madinahCard2Text2 ?? "You control the tour pace completely. Need to pray at Masjid Quba peacefully? We wait patiently. This flexibility makes Ziyarat truly meaningful rather than just tourist checkboxes."}
                     </p>
                   </div>
                 </div>
@@ -293,18 +295,18 @@ export function PrivateTaxiPageClient() {
 
         <AnimatedSection className="py-24">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/20 rounded-[40px] p-8 md:p-12 shadow-sm">
                 <div className="w-12 h-12 bg-[var(--gold-soft)] rounded-xl flex items-center justify-center text-[var(--gold)] mb-6">
                   <Car size={24} />
                 </div>
-                <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">Intercity Private Travel</h2>
-                <div className="space-y-4">
-                  <p className="text-[var(--text-2)] text-[17px] leading-relaxed font-body">
-                    Madinah to Makkah private car service handles the 435-kilometer journey exclusively for your group. You stop for prayers, meals, or rest whenever needed without accommodating other passengers' schedules.
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{p.intercityTitle ?? "Intercity Private Travel"}</h2>
+                <div className="space-y-6">
+                  <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
+                    {p.intercityText1 ?? "Madinah to Makkah private car service handles the 435-kilometer journey exclusively for your group. You stop for prayers, meals, or rest whenever needed without accommodating other passengers' schedules."}
                   </p>
-                  <p className="text-[var(--text-2)] text-[17px] leading-relaxed font-body">
-                    The Makkah to Madinah private car return journey offers the same flexibility and comfort, especially when traveling with children or elderly parents.
+                  <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
+                    {p.intercityText2 ?? "The Makkah to Madinah private car return journey offers the same flexibility and comfort, especially when traveling with children or elderly parents."}
                   </p>
                 </div>
               </div>
@@ -313,18 +315,18 @@ export function PrivateTaxiPageClient() {
                 <div className="w-12 h-12 bg-[var(--green-soft)] rounded-xl flex items-center justify-center text-[var(--green)] mb-6">
                   <BookOpen size={24} />
                 </div>
-                <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">Vehicle Options for Private Taxi</h2>
+                <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">{p.vehicleTitle ?? "Vehicle Options for Private Taxi"}</h2>
                 <div className="space-y-4">
                   <div className="bg-[var(--bg)] border border-[var(--border)] rounded-2xl p-6">
-                    <h3 className="font-heading font-bold text-lg text-[var(--text-1)] mb-2">2 Seater Private Umrah Taxi</h3>
+                    <h3 className="font-heading font-bold text-lg text-[var(--text-1)] mb-2">{p.vehicleOption1Title ?? "2 Seater Private Umrah Taxi"}</h3>
                     <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">
-                      Our sedans are perfect for couples traveling without children. You enjoy spacious, comfortable transport at economical rates meant for small groups.
+                      {p.vehicleOption1Desc ?? "Our sedans are perfect for couples traveling without children. You enjoy spacious, comfortable transport at economical rates meant for small groups."}
                     </p>
                   </div>
                   <div className="bg-[var(--bg)] border border-[var(--border)] rounded-2xl p-6">
-                    <h3 className="font-heading font-bold text-lg text-[var(--text-1)] mb-2">4 Seater Private Umrah Taxi</h3>
+                    <h3 className="font-heading font-bold text-lg text-[var(--text-1)] mb-2">{p.vehicleOption2Title ?? "4 Seater Private Umrah Taxi"}</h3>
                     <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">
-                      Sedans accommodate four passengers with reasonable luggage. Families of three or four travel together privately without paying for larger unnecessary vehicles.
+                      {p.vehicleOption2Desc ?? "Sedans accommodate four passengers with reasonable luggage. Families of three or four travel together privately without paying for larger unnecessary vehicles."}
                     </p>
                   </div>
                 </div>
@@ -337,28 +339,28 @@ export function PrivateTaxiPageClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Airport Transfers</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Airport Transfer Private Services</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{p.airportEyebrow ?? "Airport Transfers"}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{p.airportTitle ?? "Airport Transfer Private Services"}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10">
                   <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-5 flex items-center gap-3">
                     <Plane className="text-[var(--gold)]" />
-                    Jeddah Airport to Makkah Private Car
+                    {p.airportCard1Title ?? "Jeddah Airport to Makkah Private Car"}
                   </h3>
                   <p className="text-[var(--text-2)] text-[16px] leading-relaxed font-body">
-                    Get direct, comfortable transport after exhausting international flights. One vehicle for your family and luggage, with no waiting for shuttles and no sharing with strangers.
+                    {p.airportCard1Desc ?? "Get direct, comfortable transport after exhausting international flights. One vehicle for your family and luggage, with no waiting for shuttles and no sharing with strangers."}
                   </p>
                 </div>
 
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10">
                   <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-5 flex items-center gap-3">
                     <Plane className="text-[var(--green)]" />
-                    Madinah to Madinah Airport Private Car
+                    {p.airportCard2Title ?? "Madinah to Madinah Airport Private Car"}
                   </h3>
                   <p className="text-[var(--text-2)] text-[16px] leading-relaxed font-body">
-                    Smooth departures with pickup times based on your flight schedule. Your driver helps with luggage and ensures everyone reaches the airport with time for check-in and security.
+                    {p.airportCard2Desc ?? "Smooth departures with pickup times based on your flight schedule. Your driver helps with luggage and ensures everyone reaches the airport with time for check-in and security."}
                   </p>
                 </div>
               </div>
@@ -372,26 +374,26 @@ export function PrivateTaxiPageClient() {
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-48 -mt-48" />
 
               <div className="text-center mb-16 relative z-10">
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Why Choose Private Taxi Services?</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{p.whyTitle ?? "Why Choose Private Taxi Services?"}</h2>
                 <p className="text-[var(--text-2)] font-body max-w-3xl mx-auto text-lg">
-                  Private and personal taxi services in Saudi Arabia offer benefits that shared taxis never match. You control the vehicle environment, stops, and departure times.
+                  {p.whySubtitle ?? "Private and personal taxi services in Saudi Arabia offer benefits that shared taxis never match. You control the vehicle environment, stops, and departure times."}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-10 relative z-10">
                 <InfoCard
-                  title="Full Vehicle Control"
-                  description="Choose your schedule, routes, temperature, and breaks without compromise."
+                  title={p.whyCard1Title ?? "Full Vehicle Control"}
+                  description={p.whyCard1Desc ?? "Choose your schedule, routes, temperature, and breaks without compromise."}
                   icon={Car}
                 />
                 <InfoCard
-                  title="True Privacy"
-                  description="Make dua freely and have family conversations without strangers listening."
+                  title={p.whyCard2Title ?? "True Privacy"}
+                  description={p.whyCard2Desc ?? "Make dua freely and have family conversations without strangers listening."}
                   icon={ShieldCheck}
                 />
                 <InfoCard
-                  title="Family-Focused Comfort"
-                  description="Ideal for young children and elderly family members who need extra care."
+                  title={p.whyCard3Title ?? "Family-Focused Comfort"}
+                  description={p.whyCard3Desc ?? "Ideal for young children and elderly family members who need extra care."}
                   icon={HeartHandshake}
                 />
               </div>
@@ -403,18 +405,18 @@ export function PrivateTaxiPageClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Booking</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">How to Book Your Private Taxi Service?</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{p.bookingEyebrow ?? "Booking"}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{p.bookingTitle ?? "How to Book Your Private Taxi Service?"}</h2>
                 <p className="mt-4 text-lg text-[var(--text-2)] max-w-3xl mx-auto font-body">
-                  Reserving your private umrah taxi takes minutes. Contact us via WhatsApp or our website, share dates and passenger count, and get a customized quote instantly.
+                  {p.bookingSubtitle ?? "Reserving your private umrah taxi takes minutes. Contact us via WhatsApp or our website, share dates and passenger count, and get a customized quote instantly."}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <StepCard num="01" title="Message Us" text="Contact us on WhatsApp with dates, route, and passenger count." />
-                <StepCard num="02" title="Get Options" text="We respond with packages and per-trip pricing—transparent and clear." />
-                <StepCard num="03" title="Confirm Details" text="Receive driver name, phone number, and vehicle details in confirmation." />
-                <StepCard num="04" title="Pay Easily" text="Pay online or in cash to the driver—no extra processing fees." />
+                <StepCard num={p.bookingStep1Num ?? "01"} title={p.bookingStep1Title ?? "Message Us"} text={p.bookingStep1Text ?? "Contact us on WhatsApp with dates, route, and passenger count."} />
+                <StepCard num={p.bookingStep2Num ?? "02"} title={p.bookingStep2Title ?? "Get Options"} text={p.bookingStep2Text ?? "We respond with packages and per-trip pricing—transparent and clear."} />
+                <StepCard num={p.bookingStep3Num ?? "03"} title={p.bookingStep3Title ?? "Confirm Details"} text={p.bookingStep3Text ?? "Receive driver name, phone number, and vehicle details in confirmation."} />
+                <StepCard num={p.bookingStep4Num ?? "04"} title={p.bookingStep4Title ?? "Pay Easily"} text={p.bookingStep4Text ?? "Pay online or in cash to the driver—no extra processing fees."} />
               </div>
             </div>
           </div>
@@ -425,17 +427,17 @@ export function PrivateTaxiPageClient() {
             <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[40px] p-8 md:p-16 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-32 -mt-32" />
               <div className="relative z-10 text-center">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Conclusion</span>
-                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">Your Umrah Deserves Privacy, Dignity, and Comfort</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{p.ctaEyebrow ?? "Conclusion"}</span>
+                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">{p.ctaTitle ?? "Your Umrah Deserves Privacy, Dignity, and Comfort"}</h2>
                 <div className="text-[var(--text-2)] text-[18px] font-body mb-12 max-w-3xl mx-auto space-y-6">
                   <p className="leading-relaxed">
-                    Your Umrah deserves the dignity and comfort only a private Umrah taxi for families provides. Whether you need a private umrah taxi in Makkah, Madinah, or intercity travel, we serve you with excellence.
+                    {p.ctaText1 ?? "Your Umrah deserves the dignity and comfort only a private Umrah taxi for families provides. Whether you need a private umrah taxi in Makkah, Madinah, or intercity travel, we serve you with excellence."}
                   </p>
                   <p className="leading-relaxed">
-                    Book your private service today through WhatsApp or our website. Experience the difference that exclusive, flexible, family-focused transportation makes during your sacred journey.
+                    {p.ctaText2 ?? "Book your private service today through WhatsApp or our website. Experience the difference that exclusive, flexible, family-focused transportation makes during your sacred journey."}
                   </p>
                   <p className="leading-relaxed font-semibold">
-                    At Haramain Umrah Taxi, your privacy is protected, and your comfort is guaranteed. Your satisfaction is our mission.
+                    {p.ctaText3 ?? "At Haramain Umrah Taxi, your privacy is protected, and your comfort is guaranteed. Your satisfaction is our mission."}
                   </p>
                 </div>
                 <div className="flex flex-wrap justify-center gap-6">
@@ -446,14 +448,14 @@ export function PrivateTaxiPageClient() {
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--green)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <WhatsAppIcon size={24} />
-                    Book via WhatsApp Now
+                    {p.ctaWhatsAppBtn ?? "Book via WhatsApp Now"}
                   </a>
                   <a
                     href="tel:+966598401594"
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--gold)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <Phone size={24} />
-                    Call Us Direct
+                    {p.ctaCallBtn ?? "Call Us Direct"}
                   </a>
                 </div>
               </div>

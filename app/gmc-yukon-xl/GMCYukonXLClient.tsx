@@ -9,6 +9,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { IslamicGeometricBg } from "@/components/graphics/IslamicGeometricBg";
 import { AnimatedCarOnRoad } from "@/components/graphics/AnimatedCarOnRoad";
 import { Canonical } from "@/components/SEO/Canonical";
+import { useI18n } from "@/lib/i18n";
 import {
   ArrowRight,
   BadgeCheck,
@@ -75,14 +76,15 @@ function Card({
 }
 
 function PricingTable({ routes, title }: { routes: any[]; title: string }) {
+  const { t } = useI18n();
   return (
     <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 overflow-x-auto">
       <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-6">{title}</h3>
       <table className="w-full min-w-[600px]">
         <thead>
           <tr className="border-b border-[var(--border)]">
-            <th className="text-left py-4 px-4 text-[var(--text-1)] font-heading font-bold">Route</th>
-            <th className="text-center py-4 px-4 text-[var(--text-1)] font-heading font-bold">Fare (SAR)</th>
+            <th className="text-left py-4 px-4 text-[var(--text-1)] font-heading font-bold">{t("pricing.tableHeaderRoute", "Route")}</th>
+            <th className="text-center py-4 px-4 text-[var(--text-1)] font-heading font-bold">{t("pricing.tableHeaderFare", "Fare (SAR)")}</th>
           </tr>
         </thead>
         <tbody>
@@ -138,36 +140,27 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   );
 }
 
+const icons: Record<string, ComponentType<{ size?: number; className?: string }>> = {
+  Users,
+  Star,
+  Zap,
+  ShieldCheck,
+  BadgeCheck,
+  Car,
+};
+
 export function GMCYukonXLClient() {
-  const umrahMiqatRoutes = [
-    { route: "Makkah Hotel to Ayesha Miqat Mosque (Umrah)", fare: "250 SAR" },
-    { route: "Makkah Hotel to Masjid Jaranah Miqat (Umrah)", fare: "400 SAR" },
-  ];
+  const { t, tm } = useI18n();
 
-  const ziyaratRoutes = [
-    { route: "Makkah Ziyarat + Jaranah Miqat", fare: "400 SAR" },
-    { route: "Madinah Ziyarat", fare: "300 SAR" },
-    { route: "Madinah Ziyarat & Wadi-e-Jinn", fare: "400 SAR" },
-    { route: "Madinah to Badr Ziyarat & Back", fare: "750 SAR" },
-    { route: "Makkah to Taif Pilgrimage & Back", fare: "750 SAR" },
-  ];
+  const umrahMiqatRoutes = tm<any[]>("gmcYukonXl.routes.umrahMiqat", []);
+  const ziyaratRoutes = tm<any[]>("gmcYukonXl.routes.ziyarat", []);
+  const airportTrainRoutes = tm<any[]>("gmcYukonXl.routes.airportTrain", []);
+  const intercityRoutes = tm<any[]>("gmcYukonXl.routes.intercity", []);
 
-  const airportTrainRoutes = [
-    { route: "Jeddah to Makkah", fare: "450 SAR" },
-    { route: "Makkah to Jeddah", fare: "400 SAR" },
-    { route: "Madinah Airport to Madinah Hotel", fare: "350 SAR" },
-    { route: "Madinah Hotel to Madinah Airport", fare: "300 SAR" },
-    { route: "Makkah Train Station to Hotel", fare: "230 SAR" },
-    { route: "Madinah Train Station to Hotel", fare: "230 SAR" },
-  ];
-
-  const intercityRoutes = [
-    { route: "Makkah to Madinah", fare: "830 SAR" },
-    { route: "Jeddah to Madinah", fare: "830 SAR" },
-    { route: "Madinah to Jeddah", fare: "830 SAR" },
-    { route: "Makkah to Madinah via Badr", fare: "1000 SAR" },
-    { route: "Madinah to Makkah via Badr", fare: "1000 SAR" },
-  ];
+  const serviceItems = tm<string[]>("gmcYukonXl.serviceItems", []);
+  const specialties = tm<any[]>("gmcYukonXl.specialties", []);
+  const whyFeatures = tm<any[]>("gmcYukonXl.whyFeatures", []);
+  const faqs = tm<any[]>("gmcYukonXl.faqs", []);
 
   return (
     <div className="min-h-screen bg-[var(--bg)] selection:bg-[var(--gold-soft)] selection:text-[var(--gold)]">
@@ -193,7 +186,7 @@ export function GMCYukonXLClient() {
                 className="inline-block mb-6"
               >
                 <span className="px-4 py-1.5 rounded-full bg-[var(--gold)] text-white font-heading font-bold text-xs uppercase tracking-widest shadow-lg shadow-[var(--gold)]/20">
-                  Our Fleet
+                  {t("gmcYukonXl.heroBadge")}
                 </span>
               </motion.div>
 
@@ -202,7 +195,7 @@ export function GMCYukonXLClient() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-6xl lg:text-[64px] font-heading font-extrabold !text-white mb-8 leading-tight"
               >
-                Reserve Private GMC Taxi in KSA | <span className="text-[var(--gold)]">GMC Ziyarat & Umrah Taxi</span>
+                {t("gmcYukonXl.heroTitle")} <span className="text-[var(--gold)]">{t("gmcYukonXl.heroTitleHighlight")}</span>
               </motion.h1>
 
               <motion.div
@@ -212,10 +205,10 @@ export function GMCYukonXLClient() {
                 className="max-w-3xl mx-auto mb-10 space-y-4"
               >
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  For those traveling to Saudi Arabia for Umrah, Ziyarat, or a vacation, choosing the right transportation is essential for a smooth and comfortable journey.
+                  {t("gmcYukonXl.heroText1")}
                 </p>
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Designed for families and groups, the GMC Yukon XL combines advanced safety features with premium comfort, making it ideal for long-distance travel across the Kingdom's religious, historical, and cultural landmarks.
+                  {t("gmcYukonXl.heroText2")}
                 </p>
               </motion.div>
 
@@ -230,14 +223,14 @@ export function GMCYukonXLClient() {
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--green)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all border border-[var(--green)]/20"
                 >
                   <WhatsAppIcon />
-                  Reserve GMC Taxi
+                  {t("gmcYukonXl.heroBookBtn")}
                 </a>
                 <a
                   href="tel:+966598401594"
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--gold)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all shadow-sm"
                 >
                   <Phone size={20} />
-                  Call Us Now
+                  {t("gmcYukonXl.heroCallBtn")}
                 </a>
               </motion.div>
             </motion.div>
@@ -253,16 +246,16 @@ export function GMCYukonXLClient() {
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">
-                  Services
+                  {t("gmcYukonXl.servicesEyebrow")}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">GMC Yukon XL Taxi Service in Saudi Arabia</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{t("gmcYukonXl.servicesTitle")}</h2>
                 <ul className="space-y-4 text-[var(--text-2)] text-lg leading-relaxed font-body">
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />GMC XL Umrah Taxi Service</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />GMC XL Ziyarat Taxi Service</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />GMC XL Private Taxi Service</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />GMC XL Airport Transfers</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />Tourism & Recreation</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />GMC XL City-to-City Transfers</li>
+                  {serviceItems.map((item, index) => (
+                    <li key={index} className="flex gap-3">
+                      <CheckCircle2 className="text-[var(--green)] mt-1" size={20} />
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </div>
 
@@ -275,41 +268,23 @@ export function GMCYukonXLClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Specialties</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Specialties of the GMC Yukon XL Taxi</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("gmcYukonXl.specialtiesEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("gmcYukonXl.specialtiesTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <Card
-                  title="Spacious & Comfort"
-                  description="Ideal for families or large parties with extra legroom & luggage allowance."
-                  icon={Users}
-                />
-                <Card
-                  title="Luxury Features"
-                  description="Premium leather upholstery, air conditioning control, and cutting-edge entertainment."
-                  icon={Star}
-                />
-                <Card
-                  title="Powerful Performance"
-                  description="Equipped with a strong engine for a smooth, powerful ride through Saudi Arabia."
-                  icon={Zap}
-                />
-                <Card
-                  title="Safety & Security"
-                  description="Outfitted with advanced safety features such as airbags, lane support, and stability control."
-                  icon={ShieldCheck}
-                />
-                <Card
-                  title="Professional Drivers"
-                  description="Experienced, courteous, and well-trained drivers ensure a stress-free journey."
-                  icon={BadgeCheck}
-                />
-                <Card
-                  title="Smooth & Quiet Ride"
-                  description="Noise insulation ensures a serene traveling experience even on long distances."
-                  icon={Car}
-                />
+                {specialties.map((item, index) => {
+                  const iconKeys = ["Users", "Star", "Zap", "ShieldCheck", "BadgeCheck", "Car"];
+                  const Icon = icons[iconKeys[index]] || Car;
+                  return (
+                    <Card
+                      key={index}
+                      title={item.title}
+                      description={item.description}
+                      icon={Icon}
+                    />
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -319,15 +294,15 @@ export function GMCYukonXLClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Pricing</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Popular Routes & GMC Yukon XL Taxi Fare in KSA</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("gmcYukonXl.pricingEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("gmcYukonXl.pricingTitle")}</h2>
               </div>
 
               <div className="space-y-8">
-                <PricingTable routes={umrahMiqatRoutes} title="Umrah and Miqat Transfers" />
-                <PricingTable routes={ziyaratRoutes} title="Ziyarat Routes" />
-                <PricingTable routes={airportTrainRoutes} title="Airport and Train Station Transfers" />
-                <PricingTable routes={intercityRoutes} title="Intercity Transfers" />
+                <PricingTable routes={umrahMiqatRoutes} title={t("gmcYukonXl.pricingTables.umrahMiqat")} />
+                <PricingTable routes={ziyaratRoutes} title={t("gmcYukonXl.pricingTables.ziyarat")} />
+                <PricingTable routes={airportTrainRoutes} title={t("gmcYukonXl.pricingTables.airportTrain")} />
+                <PricingTable routes={intercityRoutes} title={t("gmcYukonXl.pricingTables.intercity")} />
               </div>
             </div>
           </div>
@@ -337,39 +312,24 @@ export function GMCYukonXLClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Why Us</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Why Select our GMC Yukon XL Taxi in Saudi Arabia?</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("gmcYukonXl.whyEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("gmcYukonXl.whyTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
-                  <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
-                    <Users size={22} />
-                  </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Ultimate Comfort & Abundant Seating Space</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Ideal for long-haul flights with extra luggage space.</p>
-                </div>
-                <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
-                  <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
-                    <BadgeCheck size={22} />
-                  </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Highly Skilled Drivers</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Our drivers have been well-trained to drive safely and effectively.</p>
-                </div>
-                <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
-                  <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
-                    <ShieldCheck size={22} />
-                  </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Transparent & Cost-Effective Prices</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">No hidden fees, with budget prices for traveling in luxury.</p>
-                </div>
-                <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
-                  <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
-                    <Zap size={22} />
-                  </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">24/7 Availability</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Our 24/7 GMC Yukon XL taxi service is available 24/7.</p>
-                </div>
+                {whyFeatures.map((item, index) => {
+                  const whyIcons = [Users, BadgeCheck, ShieldCheck, Zap];
+                  const Icon = whyIcons[index] || Users;
+                  return (
+                    <div key={index} className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
+                      <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
+                        <Icon size={22} />
+                      </div>
+                      <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{item.title}</h3>
+                      <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{item.description}</p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -379,31 +339,18 @@ export function GMCYukonXLClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">FAQs</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Frequently Asked Questions</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("gmcYukonXl.faqEyebrow")}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("gmcYukonXl.faqTitle")}</h2>
               </div>
 
               <div className="grid grid-cols-1 gap-6 max-w-3xl mx-auto">
-                <FAQItem
-                  question="What is the difference between a regular taxi and a GMC Yukon XL?"
-                  answer="The GMC Yukon XL offers luxury features that many taxis lack. It features premium leather seats, advanced air conditioning, and an entertainment system. You also get more legroom and luggage space for your family or group."
-                />
-                <FAQItem
-                  question="Is the GMC Yukon XL good for long-distance trips?"
-                  answer="Yes, the GMC Yukon XL is perfect for long-distance travel. It has a powerful engine for smooth highway driving. The noise insulation keeps the ride quiet and peaceful. Passengers enjoy maximum comfort even on trips from Makkah to Madinah."
-                />
-                <FAQItem
-                  question="What luxury features does the GMC Yukon XL include?"
-                  answer="The GMC Yukon XL comes with premium leather seats and climate control. It offers advanced entertainment systems for passenger comfort. Safety features include multiple airbags, lane assistance, and stability control. With spacious interior seating, families can comfortably travel with extra luggage."
-                />
-                <FAQItem
-                  question="How much does it cost to travel from Makkah to Madinah in a GMC Yukon XL?"
-                  answer="The direct trip from Makkah to Madinah costs 830 SAR. If you want to visit Badr during the journey, the fare is 1000 SAR. These are fixed rates with no extra charges."
-                />
-                <FAQItem
-                  question="Is the GMC Yukon XL suitable for the elderly or children?"
-                  answer="Yes, the GMC Yukon XL is ideal for elderly passengers and families. The vehicle has easy entry and exit with spacious doors. Comfortable seats and smooth suspension reduce travel fatigue. Our experienced drivers ensure safe, careful driving throughout your journey."
-                />
+                {faqs.map((faq, index) => (
+                  <FAQItem
+                    key={index}
+                    question={faq.question}
+                    answer={faq.answer}
+                  />
+                ))}
               </div>
             </div>
           </div>
@@ -414,9 +361,9 @@ export function GMCYukonXLClient() {
             <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[40px] p-8 md:p-16 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-32 -mt-32" />
               <div className="relative z-10 text-center">
-                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">Book Your GMC Yukon XL Taxi Today</h2>
+                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">{t("gmcYukonXl.ctaTitle")}</h2>
                 <p className="text-[var(--text-2)] text-[18px] font-body mb-12 max-w-3xl mx-auto leading-relaxed">
-                  Experience the peak of convenience and relaxation with our GMC Yukon XL taxi in Makkah, Madinah, and Jeddah. Book now and enjoy a hassle-free ride!
+                  {t("gmcYukonXl.ctaText")}
                 </p>
                 <div className="flex flex-wrap justify-center gap-6">
                   <a
@@ -426,14 +373,14 @@ export function GMCYukonXLClient() {
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--green)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <WhatsAppIcon size={24} />
-                    Book via WhatsApp Now
+                    {t("gmcYukonXl.ctaWhatsAppBtn")}
                   </a>
                   <a
                     href="tel:+966598401594"
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--gold)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <Phone size={24} />
-                    Call Us Direct
+                    {t("gmcYukonXl.ctaCallBtn")}
                   </a>
                 </div>
               </div>

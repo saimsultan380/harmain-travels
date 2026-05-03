@@ -1,5 +1,6 @@
 "use client";
 
+import { useI18n } from "@/lib/i18n";
 import type { ComponentType } from "react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -75,14 +76,15 @@ function Card({
 }
 
 function PricingTable({ routes, title }: { routes: any[]; title: string }) {
+  const { t } = useI18n();
   return (
     <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 overflow-x-auto">
       <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-6">{title}</h3>
       <table className="w-full min-w-[600px]">
         <thead>
           <tr className="border-b border-[var(--border)]">
-            <th className="text-left py-4 px-4 text-[var(--text-1)] font-heading font-bold">Route</th>
-            <th className="text-center py-4 px-4 text-[var(--text-1)] font-heading font-bold">Fare (SAR)</th>
+            <th className="text-left py-4 px-4 text-[var(--text-1)] font-heading font-bold">{t("pricing.tableHeaderRoute", "Route")}</th>
+            <th className="text-center py-4 px-4 text-[var(--text-1)] font-heading font-bold">{t("pricing.tableHeaderFare", "Fare (SAR)")}</th>
           </tr>
         </thead>
         <tbody>
@@ -139,35 +141,13 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 }
 
 export function SedanSonataTaxiClient() {
-  const umrahMiqatRoutes = [
-    { route: "Makkah Hotel to Ayesha Miqat Mosque (Umrah)", fare: "150 SAR" },
-    { route: "Makkah Hotel to Masjid Jaranah Miqat (Umrah)", fare: "170 SAR" },
-  ];
+  const { tm } = useI18n();
+  const s = tm<Record<string, any>>("sedanSonataTaxi", {});
 
-  const ziyaratRoutes = [
-    { route: "Makkah Hotel to Ziyarat", fare: "170 SAR" },
-    { route: "Makkah Ziyarat + Jaranah Miqat", fare: "220 SAR" },
-    { route: "Madinah Ziyarat", fare: "170 SAR" },
-    { route: "Madinah Ziyarat + Wadi-e-Jinn", fare: "220 SAR" },
-    { route: "Madinah to Badr Ziyarat & Return", fare: "380 SAR" },
-    { route: "Makkah to Taif Pilgrimage & Return", fare: "380 SAR" },
-  ];
-
-  const airportTrainRoutes = [
-    { route: "Jeddah to Makkah", fare: "230 SAR" },
-    { route: "Makkah to Jeddah", fare: "200 SAR" },
-    { route: "Madinah Airport to Madinah Hotel", fare: "170 SAR" },
-    { route: "Madinah Hotel to Madinah Airport", fare: "130 SAR" },
-    { route: "Makkah Train Station to Hotel", fare: "120 SAR" },
-  ];
-
-  const intercityRoutes = [
-    { route: "Makkah to Madinah", fare: "400 SAR" },
-    { route: "Jeddah to Madinah", fare: "400 SAR" },
-    { route: "Madinah to Jeddah", fare: "400 SAR" },
-    { route: "Makkah to Madinah via Badr", fare: "500 SAR" },
-    { route: "Madinah to Makkah via Badr", fare: "500 SAR" },
-  ];
+  const umrahMiqatRoutes = tm<any[]>("sedanSonataTaxi.routes.umrahMiqat", []);
+  const ziyaratRoutes = tm<any[]>("sedanSonataTaxi.routes.ziyarat", []);
+  const airportTrainRoutes = tm<any[]>("sedanSonataTaxi.routes.airportTrain", []);
+  const intercityRoutes = tm<any[]>("sedanSonataTaxi.routes.intercity", []);
 
   return (
     <div className="min-h-screen bg-[var(--bg)] selection:bg-[var(--gold-soft)] selection:text-[var(--gold)]">
@@ -193,7 +173,7 @@ export function SedanSonataTaxiClient() {
                 className="inline-block mb-6"
               >
                 <span className="px-4 py-1.5 rounded-full bg-[var(--gold)] text-white font-heading font-bold text-xs uppercase tracking-widest shadow-lg shadow-[var(--gold)]/20">
-                  Our Fleet
+                  {s.heroBadge ?? "Our Fleet"}
                 </span>
               </motion.div>
 
@@ -202,7 +182,7 @@ export function SedanSonataTaxiClient() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-6xl lg:text-[64px] font-heading font-extrabold !text-white mb-8 leading-tight"
               >
-                Sedan Sonata Private Umrah Taxi or Car & <span className="text-[var(--gold)]">Ziyarat Taxi in KSA</span>
+{s.heroTitle ?? "Sedan Sonata Private Umrah Taxi or Car & Ziyarat Taxi in KSA"}
               </motion.h1>
 
               <motion.div
@@ -212,10 +192,10 @@ export function SedanSonataTaxiClient() {
                 className="max-w-3xl mx-auto mb-10 space-y-4"
               >
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Saudi Arabia is blessed with two of the world's holiest sites in Islam, Makkah and Madinah. Millions of believers travel every year to perform Umrah and visit religious sites.
+                  {s.heroText1 ?? "Saudi Arabia is blessed with two of the world's holiest sites in Islam, Makkah and Madinah. Millions of believers travel every year to perform Umrah and visit religious sites."}
                 </p>
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Our Hyundai Sonata taxi service ensures a hassle-free traveling experience with a smooth ride, be it from Makkah, Madinah, or even from the international airports.
+                  {s.heroText2 ?? "Our Hyundai Sonata taxi service ensures a hassle-free traveling experience with a smooth ride, be it from Makkah, Madinah, or even from the international airports."}
                 </p>
               </motion.div>
 
@@ -230,14 +210,14 @@ export function SedanSonataTaxiClient() {
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--green)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all border border-[var(--green)]/20"
                 >
                   <WhatsAppIcon />
-                  Book Sonata Taxi
+                  {s.heroBookBtn ?? "Book Sonata Taxi"}
                 </a>
                 <a
                   href="tel:+966598401594"
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--gold)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all shadow-sm"
                 >
                   <Phone size={20} />
-                  Call for Special Offers
+                  {s.heroCallBtn ?? "Call for Special Offers"}
                 </a>
               </motion.div>
             </motion.div>
@@ -253,15 +233,15 @@ export function SedanSonataTaxiClient() {
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">
-                  Services
+                  {s.servicesEyebrow ?? "Services"}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Hyundai Sonata Taxi Service in Saudi Arabia</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{s.servicesTitle ?? "Hyundai Sonata Taxi Service in Saudi Arabia"}</h2>
                 <ul className="space-y-4 text-[var(--text-2)] text-lg leading-relaxed font-body">
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />Hyundai Sonata Umrah taxi in Makkah</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />Hyundai Sonata Ziyarat taxi Service</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />Sedan Private Taxi Service</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />Hyundai Sonata airport taxi in Saudi Arabia</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />City-to-City Transfers</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />{s.service1 ?? "Hyundai Sonata Umrah taxi in Makkah"}</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />{s.service2 ?? "Hyundai Sonata Ziyarat taxi Service"}</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />{s.service3 ?? "Sedan Private Taxi Service"}</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />{s.service4 ?? "Hyundai Sonata airport taxi in Saudi Arabia"}</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />{s.service5 ?? "City-to-City Transfers"}</li>
                 </ul>
               </div>
 
@@ -274,39 +254,39 @@ export function SedanSonataTaxiClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Specialties</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Specialties of the Hyundai Taxi</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{s.specialtiesEyebrow ?? "Specialties"}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{s.specialtiesTitle ?? "Specialties of the Hyundai Taxi"}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <Card
-                  title="Luxury & Convenience"
-                  description="Comfortable seating, tasteful interior, and advanced suspension for a smooth ride."
+                  title={s.specialty1Title ?? "Luxury & Convenience"}
+                  description={s.specialty1Desc ?? "Comfortable seating, tasteful interior, and advanced suspension for a smooth ride."}
                   icon={Star}
                 />
                 <Card
-                  title="Fuel Efficiency"
-                  description="Made for maximum fuel efficiency, which makes traveling economical."
+                  title={s.specialty2Title ?? "Fuel Efficiency"}
+                  description={s.specialty2Desc ?? "Made for maximum fuel efficiency, which makes traveling economical."}
                   icon={Zap}
                 />
                 <Card
-                  title="Advanced Safety Features"
-                  description="Equipped with airbags, anti-lock brakes, and stability control."
+                  title={s.specialty3Title ?? "Advanced Safety Features"}
+                  description={s.specialty3Desc ?? "Equipped with airbags, anti-lock brakes, and stability control."}
                   icon={ShieldCheck}
                 />
                 <Card
-                  title="Climate-Controlled Interiors"
-                  description="Keep comfortable all the way through with advanced air-conditioning."
+                  title={s.specialty4Title ?? "Climate-Controlled Interiors"}
+                  description={s.specialty4Desc ?? "Keep comfortable all the way through with advanced air-conditioning."}
                   icon={Car}
                 />
                 <Card
-                  title="Quiet and Calm Ride"
-                  description="Noise reduction makes the ride tranquil."
+                  title={s.specialty5Title ?? "Quiet and Calm Ride"}
+                  description={s.specialty5Desc ?? "Noise reduction makes the ride tranquil."}
                   icon={Users}
                 />
                 <Card
-                  title="Professional Drivers"
-                  description="Our veteran drivers ensure a comfortable and hassle-free ride."
+                  title={s.specialty6Title ?? "Professional Drivers"}
+                  description={s.specialty6Desc ?? "Our veteran drivers ensure a comfortable and hassle-free ride."}
                   icon={BadgeCheck}
                 />
               </div>
@@ -318,15 +298,15 @@ export function SedanSonataTaxiClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Pricing</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Popular Routes and Hyundai Sonata Taxi Fares in KSA</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{s.pricingEyebrow ?? "Pricing"}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{s.pricingTitle ?? "Popular Routes and Hyundai Sonata Taxi Fares in KSA"}</h2>
               </div>
 
               <div className="space-y-8">
-                <PricingTable routes={umrahMiqatRoutes} title="Umrah and Miqat Transfers" />
-                <PricingTable routes={ziyaratRoutes} title="Ziyarat Routes" />
-                <PricingTable routes={airportTrainRoutes} title="Airport and Train Station Transfers" />
-                <PricingTable routes={intercityRoutes} title="Intercity Transfers" />
+                <PricingTable routes={umrahMiqatRoutes} title={s.umrahMiqatTitle ?? "Umrah and Miqat Transfers"} />
+                <PricingTable routes={ziyaratRoutes} title={s.ziyaratTitle ?? "Ziyarat Routes"} />
+                <PricingTable routes={airportTrainRoutes} title={s.airportTrainTitle ?? "Airport and Train Station Transfers"} />
+                <PricingTable routes={intercityRoutes} title={s.intercityTitle ?? "Intercity Transfers"} />
               </div>
             </div>
           </div>
@@ -336,8 +316,8 @@ export function SedanSonataTaxiClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Why Us</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Why Choose Our Hyundai Sonata Taxi in Saudi Arabia?</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{s.whyEyebrow ?? "Why Us"}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{s.whyTitle ?? "Why Choose Our Hyundai Sonata Taxi in Saudi Arabia?"}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -345,29 +325,29 @@ export function SedanSonataTaxiClient() {
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
                     <Star size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Luxury & Spacey Interiors</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Ideal for long flights with extra legroom & relaxation.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{s.why1Title ?? "Luxury & Spacey Interiors"}</h3>
+                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{s.why1Desc ?? "Ideal for long flights with extra legroom & relaxation."}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
                     <BadgeCheck size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Experienced Drivers</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Our experienced professional drivers ensure comfortable trips.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{s.why2Title ?? "Experienced Drivers"}</h3>
+                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{s.why2Desc ?? "Our experienced professional drivers ensure comfortable trips."}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
                     <ShieldCheck size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Low & Transparent Prices</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Transparent fares without any additional fees.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{s.why3Title ?? "Low & Transparent Prices"}</h3>
+                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{s.why3Desc ?? "Transparent fares without any additional fees."}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
                     <Zap size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">24/7 Availability</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Available door-to-door every hour of every day.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{s.why4Title ?? "24/7 Availability"}</h3>
+                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{s.why4Desc ?? "Available door-to-door every hour of every day."}</p>
                 </div>
               </div>
             </div>
@@ -378,30 +358,30 @@ export function SedanSonataTaxiClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">FAQs</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Frequently Asked Questions</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{s.faqEyebrow ?? "FAQs"}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{s.faqTitle ?? "Frequently Asked Questions"}</h2>
               </div>
 
               <div className="grid grid-cols-1 gap-6 max-w-3xl mx-auto">
                 <FAQItem
-                  question="What is the capacity of the Hyundai Sonata taxi?"
-                  answer="The Sonata comfortably seats 4 passengers. We provide enough trunk space for your suitcases and bags. Couples and small families choose this option frequently."
+                  question={s.faq1Question ?? "What is the capacity of the Hyundai Sonata taxi?"}
+                  answer={s.faq1Answer ?? "The Sonata comfortably seats 4 passengers. We provide enough trunk space for your suitcases and bags. Couples and small families choose this option frequently."}
                 />
                 <FAQItem
-                  question="How much does a taxi cost from Jeddah Airport to Makkah?"
-                  answer="We charge 250 SAR from Jeddah to Makkah. The return trip costs you only 200 SAR. You pay exactly what we quote upfront. We never add hidden fees or surprise charges."
+                  question={s.faq2Question ?? "How much does a taxi cost from Jeddah Airport to Makkah?"}
+                  answer={s.faq2Answer ?? "We charge 250 SAR from Jeddah to Makkah. The return trip costs you only 200 SAR. You pay exactly what we quote upfront. We never add hidden fees or surprise charges."}
                 />
                 <FAQItem
-                  question="Is the Hyundai Sonata taxi service available 24/7?"
-                  answer="Yes, we operate every hour of every day. You can book us for 3 AM airport pickups without any issue. We handle late-night transfers to hotels regularly."
+                  question={s.faq3Question ?? "Is the Hyundai Sonata taxi service available 24/7?"}
+                  answer={s.faq3Answer ?? "Yes, we operate every hour of every day. You can book us for 3 AM airport pickups without any issue. We handle late-night transfers to hotels regularly."}
                 />
                 <FAQItem
-                  question="What routes and services does Haramain Umrah Taxi offer with the Hyundai Sonata taxi?"
-                  answer="We cover all major pilgrimage routes in Saudi Arabia. Our service includes Umrah trips to Taneem and Jaranah Miqat, Ziyarat tours throughout Makkah and Madinah, airport pickups, train station transfers, and intercity journeys."
+                  question={s.faq4Question ?? "What routes and services does Haramain Umrah Taxi offer with the Hyundai Sonata taxi?"}
+                  answer={s.faq4Answer ?? "We cover all major pilgrimage routes in Saudi Arabia. Our service includes Umrah trips to Taneem and Jaranah Miqat, Ziyarat tours throughout Makkah and Madinah, airport pickups, train station transfers, and intercity journeys."}
                 />
                 <FAQItem
-                  question="Are there luxury taxi options from Makkah to Madinah?"
-                  answer="Yes, the Hyundai Sonata is one of the best luxury taxi options from Makkah to Madinah. The Sonata offers significantly more legroom, climate control, and multiple airbags for safety. We deliver premium comfort without charging luxury prices."
+                  question={s.faq5Question ?? "Are there luxury taxi options from Makkah to Madinah?"}
+                  answer={s.faq5Answer ?? "Yes, the Hyundai Sonata is one of the best luxury taxi options from Makkah to Madinah. The Sonata offers significantly more legroom, climate control, and multiple airbags for safety. We deliver premium comfort without charging luxury prices."}
                 />
               </div>
             </div>
@@ -413,9 +393,9 @@ export function SedanSonataTaxiClient() {
             <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[40px] p-8 md:p-16 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-32 -mt-32" />
               <div className="relative z-10 text-center">
-                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">Book Your Hyundai Sonata Taxi Today</h2>
+                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">{s.ctaTitle ?? "Book Your Hyundai Sonata Taxi Today"}</h2>
                 <p className="text-[var(--text-2)] text-[18px] font-body mb-12 max-w-3xl mx-auto leading-relaxed">
-                  Enjoy hassle-free, smooth transportation with our Hyundai Sonata taxi in Makkah, Madinah, and Jeddah. Book us now and enjoy a hassle-free traveling experience.
+                  {s.ctaText ?? "Enjoy hassle-free, smooth transportation with our Hyundai Sonata taxi in Makkah, Madinah, and Jeddah. Book us now and enjoy a hassle-free traveling experience."}
                 </p>
                 <div className="flex flex-wrap justify-center gap-6">
                   <a
@@ -425,14 +405,14 @@ export function SedanSonataTaxiClient() {
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--green)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <WhatsAppIcon size={24} />
-                    Book via WhatsApp Now
+                    {s.ctaWhatsAppBtn ?? "Book via WhatsApp Now"}
                   </a>
                   <a
                     href="tel:+966598401594"
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--gold)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <Phone size={24} />
-                    Call Us Direct
+                    {s.ctaCallBtn ?? "Call Us Direct"}
                   </a>
                 </div>
               </div>

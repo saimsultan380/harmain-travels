@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { IslamicGeometricBg } from "@/components/graphics/IslamicGeometricBg";
 import { AnimatedCarOnRoad } from "@/components/graphics/AnimatedCarOnRoad";
+import { useI18n } from "@/lib/i18n";
 import {
   CheckCircle2,
   ArrowRight,
@@ -15,11 +16,9 @@ import {
   Users,
   Briefcase,
   Phone,
-  MessageCircle,
   ShieldCheck,
   Zap,
   AlertCircle,
-  HelpCircle
 } from "lucide-react";
 import Link from "next/link";
 
@@ -92,6 +91,22 @@ const PriceCard = ({ title, pax, bag, price, image, extraClass = "" }: { title: 
 );
 
 export function AirportTaxiPageClient() {
+  const { t, tm } = useI18n();
+  const p = tm<Record<string, any>>("airportTaxiPage", {});
+  const whyFeatures = (p.whyFeatures ?? []) as { title: string; text: string }[];
+  const journeySteps = (p.journeySteps ?? []) as { title: string; desc: string }[];
+  type JourneyStepWithIcon = { icon: React.ReactNode; title: string; desc: string };
+  const journeyStepsWithIcons: JourneyStepWithIcon[] = journeySteps.length > 0 ? journeySteps.map((step, i) => ({
+    icon: [<Plane className="rotate-90" />, <Zap />, <ShieldCheck />, <MapPin />][i] as React.ReactNode,
+    title: step.title,
+    desc: step.desc
+  })) : [
+    { icon: <Plane className="rotate-90" />, title: p.journeySteps?.[0]?.title ?? "Terminal Pickup", desc: p.journeySteps?.[0]?.desc ?? "Expert arrival meeting" },
+    { icon: <Zap />, title: p.journeySteps?.[1]?.title ?? "The Highway", desc: p.journeySteps?.[1]?.desc ?? "Modern desert routes" },
+    { icon: <ShieldCheck />, title: p.journeySteps?.[2]?.title ?? "Miqat Pause", desc: p.journeySteps?.[2]?.desc ?? "Optional spiritual prep" },
+    { icon: <MapPin />, title: p.journeySteps?.[3]?.title ?? "Hotel Arrival", desc: p.journeySteps?.[3]?.desc ?? "Direct door-to-door" }
+  ];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
@@ -123,7 +138,7 @@ export function AirportTaxiPageClient() {
             >
               <motion.div variants={itemVariants} className="inline-block mb-6">
                 <span className="px-4 py-1.5 rounded-full bg-[var(--gold)] text-white font-heading font-bold text-xs uppercase tracking-widest shadow-lg shadow-[var(--gold)]/20">
-                  Premium Airport Service
+                  {p.heroBadge ?? "Premium Airport Service"}
                 </span>
               </motion.div>
 
@@ -131,12 +146,12 @@ export function AirportTaxiPageClient() {
                 variants={itemVariants}
                 className="text-4xl md:text-6xl lg:text-[72px] font-heading font-extrabold !text-white leading-tight mb-8"
               >
-                Airport Transfers | <span className="text-[var(--gold)]">Madinah</span> & <span className="text-[var(--gold)]">Jeddah</span> Airport Taxi
+                {p.heroTitle ?? "Airport Transfers"} | <span className="text-[var(--gold)]">Madinah</span> & <span className="text-[var(--gold)]">Jeddah</span> Airport Taxi
               </motion.h1>
 
               <motion.div variants={itemVariants} className="max-w-3xl mx-auto mb-10">
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Your plane touches down after hours in the air. You are exhausted, juggling luggage, and trying to figure out how to reach your hotel. The airport feels overwhelming with crowds pushing everywhere. You need <span className="text-[var(--gold)] font-bold">reliable transport right now</span>, not confusion and stress.
+                  {p.heroText ?? "Your plane touches down after hours in the air. You are exhausted, juggling luggage, and trying to figure out how to reach your hotel. The airport feels overwhelming with crowds pushing everywhere. You need reliable transport right now, not confusion and stress."}
                 </p>
               </motion.div>
 
@@ -146,13 +161,13 @@ export function AirportTaxiPageClient() {
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--green)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all border border-[var(--green)]/20"
                 >
                   <WhatsAppIcon />
-                  Book on WhatsApp Now
+                  {p.heroPrimaryBtn ?? "Book on WhatsApp Now"}
                 </a>
                 <Link
                   href="#pricing"
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--bg-alt)] text-[var(--text-1)] font-heading font-bold rounded-xl border border-[var(--border)] hover:bg-[var(--gold)] hover:text-white transition-all"
                 >
-                  View Pricing Table
+                  {p.heroSecondaryBtn ?? "View Pricing Table"}
                   <ArrowRight size={20} />
                 </Link>
               </motion.div>
@@ -175,15 +190,15 @@ export function AirportTaxiPageClient() {
                   <ShieldCheck size={36} />
                 </div>
                 <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-8">
-                  Stress-Free <br className="hidden md:block" /> Arrival Fixed
+                  {p.introTitle ?? "Stress-Free Arrival Fixed"}
                 </h2>
 
                 <div className="space-y-6 max-w-2xl mx-auto">
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    We solved this problem completely. Our airport taxi in Saudi Arab service meets you at arrivals and takes you straight to your destination with no haggling and waiting. Just clean vehicles, professional drivers, and fixed prices you can trust.
+                    {p.introText1 ?? "We solved this problem completely. Our airport taxi in Saudi Arab service meets you at arrivals and takes you straight to your destination with no haggling and waiting. Just clean vehicles, professional drivers, and fixed prices you can trust."}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Airport transfers in Jeddah and Madinah make or break your first impression of Saudi Arabia. Landing in an unfamiliar country, you need someone reliable waiting for you. Random taxi drivers at airports often overcharge tourists. They take longer routes. They argue about prices at the end.
+                    {p.introText2 ?? "Airport transfers in Jeddah and Madinah make or break your first impression of Saudi Arabia. Landing in an unfamiliar country, you need someone reliable waiting for you. Random taxi drivers at airports often overcharge tourists. They take longer routes. They argue about prices at the end."}
                   </p>
                 </div>
               </div>
@@ -195,36 +210,20 @@ export function AirportTaxiPageClient() {
         <AnimatedSection id="why-us" className="py-24 bg-[var(--bg-alt)] border-y border-[var(--border)]">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="text-center mb-16">
-              <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">The Haramain Advantage</span>
-              <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Why Choose Professional Airport Transfers?</h2>
+              <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{p.whyEyebrow ?? "The Haramain Advantage"}</span>
+              <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{p.whyTitle ?? "Why Choose Professional Airport Transfers?"}</h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                {
-                  icon: <Zap size={24} />,
-                  title: "Flight Tracking",
-                  text: "When you book with Haramain Umrah Taxi, your driver tracks your flight automatically. Delays do not matter. We adjust pickup times without you calling us."
-                },
-                {
-                  icon: <Users size={24} />,
-                  title: "Personalized Meetup",
-                  text: "Your driver waits at arrivals holding a sign with your name clearly printed. You spot him immediately and walk straight to your vehicle."
-                },
-                {
-                  icon: <ShieldCheck size={24} />,
-                  title: "Comfort & Care",
-                  text: "Our vehicles stay clean and comfortable always. Air conditioning works perfectly. Seats feel comfortable even after long rides."
-                },
-                {
-                  icon: <Clock size={24} />,
-                  title: "Fixed Pricing",
-                  text: "You relax completely knowing you paid a fair, fixed price upfront. We eliminate the stress of haggling and unexpected terminal charges."
-                }
-              ].map((feature, i) => (
+              {(whyFeatures.length > 0 ? whyFeatures : [
+                { title: "Flight Tracking", text: "When you book with Haramain Umrah Taxi, your driver tracks your flight automatically. Delays do not matter. We adjust pickup times without you calling us." },
+                { title: "Personalized Meetup", text: "Your driver waits at arrivals holding a sign with your name clearly printed. You spot him immediately and walk straight to your vehicle." },
+                { title: "Comfort & Care", text: "Our vehicles stay clean and comfortable always. Air conditioning works perfectly. Seats feel comfortable even after long rides." },
+                { title: "Fixed Pricing", text: "You relax completely knowing you paid a fair, fixed price upfront. We eliminate the stress of haggling and unexpected terminal charges." }
+              ]).map((feature, i) => (
                 <div key={i} className="bg-[var(--bg)] border border-[var(--border)] rounded-2xl p-8 transition-all group">
                   <div className="w-12 h-12 bg-[var(--gold)]/10 text-[var(--gold)] rounded-xl flex items-center justify-center mb-6 group-hover:bg-[var(--gold)] group-hover:text-white transition-all">
-                    {feature.icon}
+                    {[<Zap size={24} />, <Users size={24} />, <ShieldCheck size={24} />, <Clock size={24} />][i]}
                   </div>
                   <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-4">{feature.title}</h3>
                   <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{feature.text}</p>
@@ -245,32 +244,32 @@ export function AirportTaxiPageClient() {
                   <div className="bg-[var(--bg)] rounded-2xl p-6 md:p-12 border border-[var(--border)]">
                     <Plane className="text-[var(--gold)] mb-6" size={40} />
                     <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">
-                      Jeddah Airport Taxi Service from King Abdulaziz International Airport
+                      {p.jeddahTitle ?? "Jeddah Airport Taxi Service from King Abdulaziz International Airport"}
                     </h2>
                     <p className="text-[var(--text-2)] leading-relaxed font-body mb-6">
-                      King Abdulaziz International Airport Jeddah serves as the main gateway for international pilgrims. This massive airport handles millions of passengers yearly. You need expert navigation here. Our Jeddah airport taxi service operates from all terminals 24/7 throughout the year.
+                      {p.jeddahText ?? "King Abdulaziz International Airport Jeddah serves as the main gateway for international pilgrims. This massive airport handles millions of passengers yearly. You need expert navigation here. Our Jeddah airport taxi service operates from all terminals 24/7 throughout the year."}
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="flex items-start gap-3 p-4 bg-[var(--green)]/5 rounded-xl border border-[var(--green)]/10">
                         <CheckCircle2 size={18} className="text-[var(--green)] mt-1 shrink-0" />
-                        <p className="text-sm font-semibold text-[var(--text-1)] font-body">Terminal 1 Specialist Drivers</p>
+                        <p className="text-sm font-semibold text-[var(--text-1)] font-body">{p.jeddahTerminalBadge1 ?? "Terminal 1 Specialist Drivers"}</p>
                       </div>
                       <div className="flex items-start gap-3 p-4 bg-[var(--green)]/5 rounded-xl border border-[var(--green)]/10">
                         <CheckCircle2 size={18} className="text-[var(--green)] mt-1 shrink-0" />
-                        <p className="text-sm font-semibold text-[var(--text-1)] font-body">Hajj Terminal Seasonal Support</p>
+                        <p className="text-sm font-semibold text-[var(--text-1)] font-body">{p.jeddahTerminalBadge2 ?? "Hajj Terminal Seasonal Support"}</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="order-1 lg:order-2">
-                <h3 className="text-2xl font-heading font-bold text-[var(--gold)] mb-4">Terminal Expertise</h3>
+                <h3 className="text-2xl font-heading font-bold text-[var(--gold)] mb-4">{p.terminalExpertiseTitle ?? "Terminal Expertise"}</h3>
                 <p className="text-[var(--text-2)] text-lg leading-relaxed font-body mb-8">
-                  Most international flights land at Terminal 1. Our drivers know this terminal intimately. They wait at the correct exit gates, saving you from wandering around confused. The taxi at King Abdul Aziz International Airport, Jeddah, pickup process takes just minutes from landing to sitting in your vehicle.
+                  {p.terminalExpertiseText ?? "Most international flights land at Terminal 1. Our drivers know this terminal intimately. They wait at the correct exit gates, saving you from wandering around confused. The taxi at King Abdul Aziz International Airport, Jeddah, pickup process takes just minutes from landing to sitting in your vehicle."}
                 </p>
                 <div className="p-8 bg-[var(--gold)]/5 rounded-3xl border border-[var(--gold)]/10">
                   <p className="text-[var(--text-2)] font-body italic border-l-4 border-[var(--gold)] pl-6">
-                    “We serve the North Terminal too, which handles budget airlines. The Hajj Terminal activates during pilgrimage seasons for dedicated Hajj flights. Regardless of which terminal you arrive at, we pick you up efficiently. Our drivers communicate with you via WhatsApp, confirming exact meeting points before your arrival.”
+                    “{p.terminalExpertiseQuote ?? "We serve the North Terminal too, which handles budget airlines. The Hajj Terminal activates during pilgrimage seasons for dedicated Hajj flights. Regardless of which terminal you arrive at, we pick you up efficiently. Our drivers communicate with you via WhatsApp, confirming exact meeting points before your arrival."}”
                   </p>
                 </div>
               </div>
@@ -283,32 +282,26 @@ export function AirportTaxiPageClient() {
               <div className="relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
                   <div>
-                    <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">The Journey: <span className="text-[var(--gold)]">Jeddah to Makkah</span></h2>
+                    <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{p.journeyTitle ?? "The Journey"}: <span className="text-[var(--gold)]">Jeddah to Makkah</span></h2>
                     <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                      The Jeddah airport to Makkah distance spans approximately 92.2 kilometers. This 60-90 minute drive represents your transition from the modern world to the spiritual sanctuary of the Haram.
+                      {p.journeyText ?? "The Jeddah airport to Makkah distance spans approximately 92.2 kilometers. This 60-90 minute drive represents your transition from the modern world to the spiritual sanctuary of the Haram."}
                     </p>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-[var(--bg)] border border-[var(--border)] p-6 rounded-2xl text-center">
                       <div className="text-[var(--gold)] font-heading font-extrabold text-3xl mb-1">92.2 km</div>
-                      <div className="text-[var(--text-3)] text-xs uppercase tracking-widest font-bold">Total Distance</div>
+                      <div className="text-[var(--text-3)] text-xs uppercase tracking-widest font-bold">{p.distanceLabel ?? "Total Distance"}</div>
                     </div>
                     <div className="bg-[var(--bg)] border border-[var(--border)] p-6 rounded-2xl text-center">
                       <div className="text-[var(--gold)] font-heading font-extrabold text-3xl mb-1">60-90m</div>
-                      <div className="text-[var(--text-3)] text-xs uppercase tracking-widest font-bold">Average Time</div>
+                      <div className="text-[var(--text-3)] text-xs uppercase tracking-widest font-bold">{p.timeLabel ?? "Average Time"}</div>
                     </div>
                   </div>
-                </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-16 relative">
                   <div className="absolute top-1/2 left-0 w-full h-0.5 bg-[var(--border)] hidden lg:block -translate-y-1/2 z-0" />
 
-                  {[
-                    { icon: <Plane className="rotate-90" />, title: "Terminal Pickup", desc: "Expert arrival meeting" },
-                    { icon: <Zap />, title: "The Highway", desc: "Modern desert routes" },
-                    { icon: <ShieldCheck />, title: "Miqat Pause", desc: "Optional spiritual prep" },
-                    { icon: <MapPin />, title: "Hotel Arrival", desc: "Direct door-to-door" }
-                  ].map((step, i) => (
+                  {journeyStepsWithIcons.map((step, i) => (
                     <div key={i} className="relative z-10 bg-[var(--bg)] border border-[var(--border)] p-6 rounded-2xl group hover:border-[var(--gold)] transition-colors">
                       <div className="w-12 h-12 bg-[var(--gold)] text-white rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
                         {step.icon}
@@ -321,9 +314,9 @@ export function AirportTaxiPageClient() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {[
-                    { icon: <ArrowRight />, title: "Direct Transfer", text: "Represent's our most popular Jeddah to Makkah route with expert drivers." },
-                    { icon: <ArrowRight />, title: "Miqat Support", text: "If you arrive without Ihram, we take you to the designated Miqat points." },
-                    { icon: <ArrowRight />, title: "Family Care", text: "Patience for families with elderly members or young children." }
+                    { icon: <ArrowRight />, title: p.directTransferTitle ?? "Direct Transfer", text: p.directTransferText ?? "Represent's our most popular Jeddah to Makkah route with expert drivers." },
+                    { icon: <ArrowRight />, title: p.miqatSupportTitle ?? "Miqat Support", text: p.miqatSupportText ?? "If you arrive without Ihram, we take you to the designated Miqat points." },
+                    { icon: <ArrowRight />, title: p.familyCareTitle ?? "Family Care", text: p.familyCareText ?? "Patience for families with elderly members or young children." }
                   ].map((item, i) => (
                     <div key={i} className="p-6 border border-[var(--border)] rounded-2xl bg-[var(--bg-alt)]/50">
                       <h4 className="font-heading font-bold text-[var(--text-1)] flex items-center gap-2 mb-3">
@@ -336,15 +329,16 @@ export function AirportTaxiPageClient() {
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* PRICING SECTION */}
-        <AnimatedSection id="pricing" className="py-24 bg-[var(--bg-alt)]">
+      {/* PRICING SECTION */}
+      <AnimatedSection id="pricing" className="py-24 bg-[var(--bg-alt)]">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-heading font-bold text-[var(--text-1)] scroll-mt-24">Pricing for Jeddah to Makkah Transfer</h2>
+              <h2 className="text-4xl font-heading font-bold text-[var(--text-1)] scroll-mt-24">{p.pricingTitle ?? "Pricing for Jeddah to Makkah Transfer"}</h2>
               <p className="mt-4 text-[var(--text-2)] max-w-2xl mx-auto font-body">
-                Our transparent pricing builds trust from your very first interaction with us. These prices include fuel, tolls, and all charges. You pay nothing extra at journey's end.
+                {p.pricingSubtitle ?? "Our transparent pricing builds trust from your very first interaction with us. These prices include fuel, tolls, and all charges. You pay nothing extra at journey's end."}
               </p>
             </div>
 
@@ -380,10 +374,10 @@ export function AirportTaxiPageClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
               <div>
-                <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-8">Makkah to Jeddah Airport Taxi - Return Service</h2>
+                <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-8">{p.returnTitle ?? "Makkah to Jeddah Airport Taxi - Return Service"}</h2>
                 <div className="space-y-6">
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Makkah to Jeddah airport taxi handles your departure just as professionally. You tell us your flight time. We calculate the perfect pickup time, ensuring you reach the airport with adequate check-in time. International flights need an early arrival. We factor this automatically into our timing.
+                    {p.returnText ?? "Makkah to Jeddah airport taxi handles your departure just as professionally. You tell us your flight time. We calculate the perfect pickup time, ensuring you reach the airport with adequate check-in time. International flights need an early arrival. We factor this automatically into our timing."}
                   </p>
                   <div className="aspect-[16/9] bg-[var(--bg-alt)] border-2 border-dashed border-[var(--border)] rounded-3xl flex flex-col items-center justify-center text-[var(--text-3)] overflow-hidden">
                     <Plane size={64} className="mb-4 opacity-20" />
@@ -394,34 +388,34 @@ export function AirportTaxiPageClient() {
               <div className="space-y-8">
                 <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-3xl p-5 md:p-10 overflow-hidden relative">
                   <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--gold)]/20 rounded-full blur-3xl -mr-32 -mt-32" />
-                  <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-8">Taxi vs. Bus Comparison</h3>
+                  <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-8">{p.busComparisonTitle ?? "Taxi vs. Bus Comparison"}</h3>
 
                   <div className="space-y-6 mb-8">
                     <div className="p-4 md:p-6 bg-[var(--bg)] rounded-2xl border border-[var(--border)]">
                       <div className="flex items-center gap-3 mb-4 text-[var(--gold)]">
                         <Zap size={24} />
-                        <h4 className="font-heading font-bold uppercase tracking-wider">The Private Taxi Advantage</h4>
+                        <h4 className="font-heading font-bold uppercase tracking-wider">{p.taxiAdvantageTitle ?? "The Private Taxi Advantage"}</h4>
                       </div>
                       <p className="text-[var(--text-2)] font-body text-sm leading-relaxed">
-                        Our private taxi costs more but saves you significant stress and time. You leave when you want. You do not adjust your schedule to bus timings and travel directly from your hotel door to the airport terminal. The extra cost is worth the convenience, especially after completing your spiritual journey.
+                        {p.taxiAdvantageText ?? "Our private taxi costs more but saves you significant stress and time. You leave when you want. You do not adjust your schedule to bus timings and travel directly from your hotel door to the airport terminal. The extra cost is worth the convenience, especially after completing your spiritual journey."}
                       </p>
                     </div>
 
                     <div className="p-4 md:p-6 bg-red-500/5 rounded-2xl border border-red-500/20">
                       <div className="flex items-center gap-3 mb-4 text-red-500">
                         <AlertCircle size={24} />
-                        <h4 className="font-heading font-bold uppercase tracking-wider">Bus Service Realities</h4>
+                        <h4 className="font-heading font-bold uppercase tracking-wider">{p.busRealityTitle ?? "Bus Service Realities"}</h4>
                       </div>
                       <p className="text-[var(--text-2)] font-body text-sm leading-relaxed">
-                        Bus Service from Makkah To Jeddah Airport option exists for budget travelers. Buses cost less but offer no flexibility. They follow fixed schedules. You must reach the bus station yourself and share space with many passengers. Luggage space is limited.
+                        {p.busRealityText ?? "Bus Service from Makkah To Jeddah Airport option exists for budget travelers. Buses cost less but offer no flexibility. They follow fixed schedules. You must reach the bus station yourself and share space with many passengers. Luggage space is limited."}
                       </p>
                     </div>
                   </div>
 
                   <div className="p-4 md:p-6 bg-[var(--gold)]/5 rounded-2xl border-2 border-dashed border-[var(--gold)]/20">
-                    <h4 className="font-heading font-bold text-[var(--text-1)] text-sm mb-3">Our Dedicated Return Service</h4>
+                    <h4 className="font-heading font-bold text-[var(--text-1)] text-sm mb-3">{p.returnServiceTitle ?? "Our Dedicated Return Service"}</h4>
                     <p className="font-body text-[var(--text-2)] text-xs leading-relaxed italic">
-                      "Our driver arrives at your Makkah hotel 10 minutes early. He helps with luggage loading. The Mecca to Jeddah airport journey follows the same efficient route we use for arrivals. You reach the airport relaxed and on time, never rushing or panicking about missing flights."
+                      "{p.returnServiceText ?? "Our driver arrives at your Makkah hotel 10 minutes early. He helps with luggage loading. The Mecca to Jeddah airport journey follows the same efficient route we use for arrivals. You reach the airport relaxed and on time, never rushing or panicking about missing flights."}"
                     </p>
                   </div>
                 </div>
@@ -430,8 +424,8 @@ export function AirportTaxiPageClient() {
 
             {/* MADINAH DEEP DIVE - Z-PATTERN LAYOUT */}
             <div className="text-center mb-16">
-              <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--green-soft)] text-[var(--green)] font-heading font-bold text-xs uppercase mb-6 tracking-widest">The Prophet's City Gateway</div>
-              <h2 className="text-4xl md:text-5xl font-heading font-bold text-[var(--text-1)] max-w-4xl mx-auto">Madinah Airport Taxi Service from Prince Mohammad Bin Abdulaziz Airport</h2>
+              <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--green-soft)] text-[var(--green)] font-heading font-bold text-xs uppercase mb-6 tracking-widest">{p.madinahEyebrow ?? "The Prophet's City Gateway"}</div>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold text-[var(--text-1)] max-w-4xl mx-auto">{p.madinahTitle ?? "Madinah Airport Taxi Service"} {p.madinahSub ?? "from Prince Mohammad Bin Abdulaziz Airport"}</h2>
             </div>
 
             {/* ROW 1: Intro Text Card (L) + Image (R) */}
@@ -441,10 +435,10 @@ export function AirportTaxiPageClient() {
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--gold)]/5 rounded-full -mr-16 -mt-16 blur-2xl" />
                   <div className="space-y-6 relative z-10">
                     <p className="text-[var(--text-2)] text-[18px] leading-relaxed font-body">
-                      The Prince Mohammad bin Abdulaziz International Airport transfer connects you to the Prophet's city beautifully. This smaller airport feels less overwhelming than Jeddah. Our Madinah airport taxi service operates here with the same excellence you expect.
+                      {p.madinahText1 ?? "The Prince Mohammad bin Abdulaziz International Airport transfer connects you to the Prophet's city beautifully. This smaller airport feels less overwhelming than Jeddah. Our Madinah airport taxi service operates here with the same excellence you expect."}
                     </p>
                     <p className="text-[var(--text-2)] text-[18px] leading-relaxed font-body">
-                      The Mohammed bin Abdulaziz airport is situated outside the main city. You cannot walk to hotels from here. Reliable transport becomes essential. Our airport taxi in Madinah meets you at the single terminal building. The pickup process takes just minutes.
+                      {p.madinahText2 ?? "The Mohammed bin Abdulaziz airport is situated outside the main city. You cannot walk to hotels from here. Reliable transport becomes essential. Our airport taxi in Madinah meets you at the single terminal building. The pickup process takes just minutes."}
                     </p>
                   </div>
                 </div>
@@ -480,16 +474,16 @@ export function AirportTaxiPageClient() {
               <div className="order-2">
                 <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-3xl p-8 md:p-12 relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--gold)]/5 rounded-full -mr-16 -mt-16 blur-2xl" />
-                  <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-6 border-b border-[var(--gold)]/20 pb-4">Madinah Airport to Masjid Nabawi Taxi</h3>
+                  <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-6 border-b border-[var(--gold)]/20 pb-4">{p.nabawiTitle ?? "Madinah Airport to Masjid Nabawi Taxi"}</h3>
                   <div className="space-y-6">
                     <p className="text-[var(--text-2)] text-[18px] leading-relaxed font-body">
-                      The taxi from Madinah Airport to masjid nabawi represents a sacred journey for pilgrims. The distance spans approximately 20-22 kilometers. This drive takes 20-30 minutes, depending on traffic around the mosque.
+                      {p.nabawiText1 ?? "The taxi from Madinah Airport to masjid nabawi represents a sacred journey for pilgrims. The distance spans approximately 20-22 kilometers. This drive takes 20-30 minutes, depending on traffic around the mosque."}
                     </p>
                     <p className="text-[var(--text-2)] text-[18px] leading-relaxed font-body">
-                      Our Madinah Airport to masjid nabawi taxi service takes you directly to hotels near the Prophet's Mosque. The area around Masjid Nabawi features numerous hotels at different price ranges. Our drivers know them all by name and location. You do not explain complicated directions.
+                      {p.nabawiText2 ?? "Our Madinah Airport to masjid nabawi taxi service takes you directly to hotels near the Prophet's Mosque. The area around Masjid Nabawi features numerous hotels at different price ranges. Our drivers know them all by name and location. You do not explain complicated directions."}
                     </p>
                     <p className="text-[var(--text-2)] text-[18px] leading-relaxed font-body">
-                      Your luggage stays safe in our locked vehicle. This flexibility shows our understanding of pilgrims' priorities.
+                      {p.nabawiText3 ?? "Your luggage stays safe in our locked vehicle. This flexibility shows our understanding of pilgrims' priorities."}
                     </p>
                   </div>
                 </div>
@@ -501,13 +495,13 @@ export function AirportTaxiPageClient() {
               {/* Row 3: Bus Comparison (L) + Image (R) | Unified Style */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
                 <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[32px] p-8 md:p-12 relative overflow-hidden flex flex-col justify-center">
-                  <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-6 border-b border-[var(--gold)]/20 pb-4">Madinah Airport Bus Fare Comparison</h3>
+                  <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-6 border-b border-[var(--gold)]/20 pb-4">{p.madinahBusTitle ?? "Madinah Airport Bus Fare Comparison"}</h3>
                   <div className="space-y-4">
                     <p className="text-[var(--text-2)] text-[18px] font-body leading-relaxed">
-                      The Madinah airport to masjid nabawi bus fare costs significantly less than private taxis. However, buses do not run frequently. You might wait 30-60 minutes for the next bus. After long flights, this waiting feels exhausting.
+                      {p.madinahBusText1 ?? "The Madinah airport to masjid nabawi bus fare costs significantly less than private taxis. However, buses do not run frequently. You might wait 30-60 minutes for the next bus. After long flights, this waiting feels exhausting."}
                     </p>
                     <p className="text-[var(--text-2)] text-[18px] font-body leading-relaxed">
-                      Buses drop you at main stations, not at your specific hotel. You still need additional transport with your luggage. The total time and hassle often equal or exceed private taxi costs when calculated properly. Our service provides better value considering comfort and convenience.
+                      {p.madinahBusText2 ?? "Buses drop you at main stations, not at your specific hotel. You still need additional transport with your luggage. The total time and hassle often equal or exceed private taxi costs when calculated properly. Our service provides better value considering comfort and convenience."}
                     </p>
                   </div>
                 </div>
@@ -571,7 +565,7 @@ export function AirportTaxiPageClient() {
                       Whether you need an airport taxi in Jeddah or airport transfers in Madinah, we serve you with professionalism and respect. At Haramain Umrah Taxi, we have perfected airport transfer services through years of dedicated work. Our fixed prices, licensed drivers, and 24/7 availability make us the trusted choice for thousands of pilgrims.
                     </p>
                     <p className="text-[var(--text-2)] text-lg font-bold font-body text-center">
-                      Book your airport transfer today through WhatsApp or our website.
+                      {p.conclusionText ?? "Book your airport transfer today through WhatsApp or our website."}
                     </p>
                   </div>
                 </div>
@@ -584,14 +578,14 @@ export function AirportTaxiPageClient() {
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--green)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <WhatsAppIcon size={24} />
-                    Book via WhatsApp Now
+                    {p.conclusionBookBtn ?? "Book via WhatsApp Now"}
                   </a>
                   <a
                     href="tel:+966598401594"
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--gold)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <Phone size={24} />
-                    Call Us Direct
+                    {p.conclusionCallBtn ?? "Call Us Direct"}
                   </a>
                 </div>
               </div>

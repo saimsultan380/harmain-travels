@@ -1,5 +1,6 @@
 "use client";
 
+import { useI18n } from "@/lib/i18n";
 import type { ComponentType } from "react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -75,14 +76,15 @@ function Card({
 }
 
 function PricingTable({ routes, title }: { routes: any[]; title: string }) {
+  const { t } = useI18n();
   return (
     <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 overflow-x-auto">
       <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-6">{title}</h3>
       <table className="w-full min-w-[600px]">
         <thead>
           <tr className="border-b border-[var(--border)]">
-            <th className="text-left py-4 px-4 text-[var(--text-1)] font-heading font-bold">Route</th>
-            <th className="text-center py-4 px-4 text-[var(--text-1)] font-heading font-bold">Fare (SAR)</th>
+            <th className="text-left py-4 px-4 text-[var(--text-1)] font-heading font-bold">{t("pricing.tableHeaderRoute", "Route")}</th>
+            <th className="text-center py-4 px-4 text-[var(--text-1)] font-heading font-bold">{t("pricing.tableHeaderFare", "Fare (SAR)")}</th>
           </tr>
         </thead>
         <tbody>
@@ -139,12 +141,17 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 }
 
 export function HyundaiMinivanStariaClient() {
-  const umrahMiqatRoutes = [
+  const { tm } = useI18n();
+  const s = tm<Record<string, any>>("hyundaiMinivanStaria", {});
+
+  const routes = s.routes || {};
+
+  const umrahMiqatRoutes = routes.umrahMiqat || [
     { route: "Makkah Hotel to Ayesha Miqat Mosque (Umrah)", fare: "170 SAR" },
     { route: "Makkah Hotel to Masjid Jaranah Miqat (Umrah)", fare: "300 SAR" },
   ];
 
-  const ziyaratRoutes = [
+  const ziyaratRoutes = routes.ziyarat || [
     { route: "Makkah Ziyarat + Jaranah Miqat", fare: "300 SAR" },
     { route: "Madinah Ziyarat", fare: "220 SAR" },
     { route: "Madinah Ziyarat + Wadi-e-Jinn", fare: "300 SAR" },
@@ -152,7 +159,7 @@ export function HyundaiMinivanStariaClient() {
     { route: "Makkah to Taif Pilgrimage & Return", fare: "450 SAR" },
   ];
 
-  const airportTrainRoutes = [
+  const airportTrainRoutes = routes.airportTrain || [
     { route: "Jeddah to Makkah", fare: "300 SAR" },
     { route: "Makkah to Jeddah", fare: "270 SAR" },
     { route: "Madinah Airport to Madinah Hotel", fare: "200 SAR" },
@@ -161,7 +168,7 @@ export function HyundaiMinivanStariaClient() {
     { route: "Madinah Train Station to Hotel", fare: "150 SAR" },
   ];
 
-  const intercityRoutes = [
+  const intercityRoutes = routes.intercity || [
     { route: "Makkah to Madina", fare: "450 SAR" },
     { route: "Jeddah to Madinah", fare: "450 SAR" },
     { route: "Madinah to Jeddah", fare: "450 SAR" },
@@ -193,7 +200,7 @@ export function HyundaiMinivanStariaClient() {
                 className="inline-block mb-6"
               >
                 <span className="px-4 py-1.5 rounded-full bg-[var(--gold)] text-white font-heading font-bold text-xs uppercase tracking-widest shadow-lg shadow-[var(--gold)]/20">
-                  Our Fleet
+                  {s.heroBadge ?? "Our Fleet"}
                 </span>
               </motion.div>
 
@@ -202,7 +209,7 @@ export function HyundaiMinivanStariaClient() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-6xl lg:text-[64px] font-heading font-extrabold !text-white mb-8 leading-tight"
               >
-                Hyundai Minivan Staria Umrah Taxi in Makkah, Madina, KSA: <span className="text-[var(--gold)]">Get Discounts!</span>
+                {s.heroTitle ?? "Hyundai Minivan Staria Umrah Taxi in Makkah, Madina, KSA:"} <span className="text-[var(--gold)]">{s.heroTitleHighlight ?? "Get Discounts!"}</span>
               </motion.h1>
 
               <motion.div
@@ -212,10 +219,10 @@ export function HyundaiMinivanStariaClient() {
                 className="max-w-3xl mx-auto mb-10 space-y-4"
               >
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  The Ziyarat tour and Umrah pilgrimage in Saudi Arabia require transportation that is comfortable, spacious, and reliable. Our Hyundai Staria taxi provides an ideal travel solution for families and groups.
+                  {s.heroText1 ?? "The Ziyarat tour and Umrah pilgrimage in Saudi Arabia require transportation that is comfortable, spacious, and reliable. Our Hyundai Staria taxi provides an ideal travel solution for families and groups."}
                 </p>
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  With ample space for passengers and luggage, our Hyundai Staria taxi in Makkah, Madinah, and Jeddah offers convenient hotel transfers, airport pickups, and intercity travel.
+                  {s.heroText2 ?? "With ample space for passengers and luggage, our Hyundai Staria taxi in Makkah, Madinah, and Jeddah offers convenient hotel transfers, airport pickups, and intercity travel."}
                 </p>
               </motion.div>
 
@@ -230,14 +237,14 @@ export function HyundaiMinivanStariaClient() {
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--green)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all border border-[var(--green)]/20"
                 >
                   <WhatsAppIcon />
-                  Book Staria Taxi
+                  {s.heroBookBtn ?? "Book Staria Taxi"}
                 </a>
                 <a
                   href="tel:+966598401594"
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--gold)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all shadow-sm"
                 >
                   <Phone size={20} />
-                  Get Discounts
+                  {s.heroCallBtn ?? "Get Discounts"}
                 </a>
               </motion.div>
             </motion.div>
@@ -253,16 +260,16 @@ export function HyundaiMinivanStariaClient() {
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">
-                  Services
+                  {s.servicesEyebrow ?? "Services"}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Hyundai Staria Taxi Service in Saudi Arabia</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{s.servicesTitle ?? "Hyundai Staria Taxi Service in Saudi Arabia"}</h2>
                 <ul className="space-y-4 text-[var(--text-2)] text-lg leading-relaxed font-body">
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />Hyundai Staria Umrah taxi in Makkah</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />Hyundai Staria Ziyarat Taxi Service</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />Hyundai Staria Private Taxi Service</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />Hyundai Staria Airport Taxi in Saudi Arabia</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />Tourism & Recreation</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />Hyundai Staria City-to-City Transfers</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />{s.service1 ?? "Hyundai Staria Umrah taxi in Makkah"}</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />{s.service2 ?? "Hyundai Staria Ziyarat Taxi Service"}</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />{s.service3 ?? "Hyundai Staria Private Taxi Service"}</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />{s.service4 ?? "Hyundai Staria Airport Taxi in Saudi Arabia"}</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />{s.service5 ?? "Tourism & Recreation"}</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-1" size={20} />{s.service6 ?? "Hyundai Staria City-to-City Transfers"}</li>
                 </ul>
               </div>
 
@@ -275,39 +282,39 @@ export function HyundaiMinivanStariaClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Specialties</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Specialties of the Hyundai Staria Minivan Taxi</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{s.specialtiesEyebrow ?? "Specialties"}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{s.specialtiesTitle ?? "Specialties of the Hyundai Staria Minivan Taxi"}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <Card
-                  title="Roomy Interior"
-                  description="Ample seating and luggage room for families and groups."
+                  title={s.specialty1Title ?? "Roomy Interior"}
+                  description={s.specialty1Desc ?? "Ample seating and luggage room for families and groups."}
                   icon={Users}
                 />
                 <Card
-                  title="Premium Comfort"
-                  description="Style with comfortable seating, air conditioning, and a comfortable ride."
+                  title={s.specialty2Title ?? "Premium Comfort"}
+                  description={s.specialty2Desc ?? "Style with comfortable seating, air conditioning, and a comfortable ride."}
                   icon={Star}
                 />
                 <Card
-                  title="Advanced Safety Technology"
-                  description="Equipped with airbags, stability control, and a body structure with added strength."
+                  title={s.specialty3Title ?? "Advanced Safety Technology"}
+                  description={s.specialty3Desc ?? "Equipped with airbags, stability control, and a body structure with added strength."}
                   icon={ShieldCheck}
                 />
                 <Card
-                  title="Noise-Free Ride"
-                  description="The sound-insulating interiors ensure a peaceful and quiet ride."
+                  title={s.specialty4Title ?? "Noise-Free Ride"}
+                  description={s.specialty4Desc ?? "The sound-insulating interiors ensure a peaceful and quiet ride."}
                   icon={Car}
                 />
                 <Card
-                  title="Professional Drivers"
-                  description="Experienced, courteous drivers ensure a safe and comfortable ride."
+                  title={s.specialty5Title ?? "Professional Drivers"}
+                  description={s.specialty5Desc ?? "Experienced, courteous drivers ensure a safe and comfortable ride."}
                   icon={BadgeCheck}
                 />
                 <Card
-                  title="Cost-Effective"
-                  description="Competitive prices for luxury transportation with no hidden prices."
+                  title={s.specialty6Title ?? "Cost-Effective"}
+                  description={s.specialty6Desc ?? "Competitive prices for luxury transportation with no hidden prices."}
                   icon={Zap}
                 />
               </div>
@@ -319,15 +326,15 @@ export function HyundaiMinivanStariaClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Pricing</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Popular Routes & Hyundai Staria Taxi Prices in KSA</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{s.pricingEyebrow ?? "Pricing"}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{s.pricingTitle ?? "Popular Routes & Hyundai Staria Taxi Prices in KSA"}</h2>
               </div>
 
               <div className="space-y-8">
-                <PricingTable routes={umrahMiqatRoutes} title="Umrah and Miqat Transfers" />
-                <PricingTable routes={ziyaratRoutes} title="Ziyarat Routes" />
-                <PricingTable routes={airportTrainRoutes} title="Airport and Train Station Transfers" />
-                <PricingTable routes={intercityRoutes} title="Intercity Transfers" />
+                <PricingTable routes={umrahMiqatRoutes} title={s.umrahMiqatTitle ?? "Umrah and Miqat Transfers"} />
+                <PricingTable routes={ziyaratRoutes} title={s.ziyaratTitle ?? "Ziyarat Routes"} />
+                <PricingTable routes={airportTrainRoutes} title={s.airportTrainTitle ?? "Airport and Train Station Transfers"} />
+                <PricingTable routes={intercityRoutes} title={s.intercityTitle ?? "Intercity Transfers"} />
               </div>
             </div>
           </div>
@@ -337,8 +344,8 @@ export function HyundaiMinivanStariaClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Why Us</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Why Choose Hyundai Staria Taxi in Saudi Arabia?</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{s.whyEyebrow ?? "Why Us"}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{s.whyTitle ?? "Why Choose Hyundai Staria Taxi in Saudi Arabia?"}</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -346,29 +353,29 @@ export function HyundaiMinivanStariaClient() {
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
                     <Users size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Spacious & Comfort Minivan</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Suitable for families & groups with enough leg space & luggage.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{s.why1Title ?? "Spacious & Comfort Minivan"}</h3>
+                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{s.why1Desc ?? "Suitable for families & groups with enough leg space & luggage."}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
                     <BadgeCheck size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Experienced & Qualified Drivers</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Our qualified drivers with experience guarantee comfortable traveling.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{s.why2Title ?? "Experienced & Qualified Drivers"}</h3>
+                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{s.why2Desc ?? "Our qualified drivers with experience guarantee comfortable traveling."}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
                     <ShieldCheck size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">Affordable & Transparent Prices</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Low prices with no hidden fees.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{s.why3Title ?? "Affordable & Transparent Prices"}</h3>
+                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{s.why3Desc ?? "Low prices with no hidden fees."}</p>
                 </div>
                 <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--gold-soft)] flex items-center justify-center text-[var(--gold)] mx-auto mb-5">
                     <Zap size={22} />
                   </div>
-                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">24/7 Availability</h3>
-                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">Our 24/7 Hyundai Staria taxi services cater to all your traveling needs.</p>
+                  <h3 className="text-[var(--text-1)] font-heading font-bold text-base mb-2">{s.why4Title ?? "24/7 Availability"}</h3>
+                  <p className="text-[var(--text-2)] text-sm leading-relaxed font-body">{s.why4Desc ?? "Our 24/7 Hyundai Staria taxi services cater to all your traveling needs."}</p>
                 </div>
               </div>
             </div>
@@ -379,30 +386,30 @@ export function HyundaiMinivanStariaClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">FAQs</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Frequently Asked Questions</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{s.faqEyebrow ?? "FAQs"}</span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{s.faqTitle ?? "Frequently Asked Questions"}</h2>
               </div>
 
               <div className="grid grid-cols-1 gap-6 max-w-3xl mx-auto">
                 <FAQItem
-                  question="What is the carrying capacity of the Hyundai Staria?"
-                  answer="The Hyundai Staria can accommodate almost 7 people comfortably. If you are travelling with families and groups, then it has enough luggage space. Its interior is spacious, which ensures that everyone travels with ease during the Umrah or Ziyarat journey."
+                  question={s.faq1Question ?? "What is the carrying capacity of the Hyundai Staria?"}
+                  answer={s.faq1Answer ?? "The Hyundai Staria can accommodate almost 7 people comfortably. If you are travelling with families and groups, then it has enough luggage space. Its interior is spacious, which ensures that everyone travels with ease during the Umrah or Ziyarat journey."}
                 />
                 <FAQItem
-                  question="How much is a taxi from Makkah to Jeddah?"
-                  answer="From Jeddah Airport to the Makkah Hotel, Haramain Umrah Taxi services charge 450 SAR in a Hyundai Staria. Your return trip from Makkah to Jeddah Airport will cost you 400 SAR. These prices are fixed and we do not have any extra charges."
+                  question={s.faq2Question ?? "How much is a taxi from Makkah to Jeddah?"}
+                  answer={s.faq2Answer ?? "From Jeddah Airport to the Makkah Hotel, Haramain Umrah Taxi services charge 450 SAR in a Hyundai Staria. Your return trip from Makkah to Jeddah Airport will cost you 400 SAR. These prices are fixed and we do not have any extra charges."}
                 />
                 <FAQItem
-                  question="Is the Hyundai Staria taxi available 24/7?"
-                  answer="Yes, our Hyundai Staria taxi service operates 24/7. You can book our service anytime for airport transfers, Umrah trips, Ziyarat tours, or intercity travel. We ensure reliable transportation whenever you need it."
+                  question={s.faq3Question ?? "Is the Hyundai Staria taxi available 24/7?"}
+                  answer={s.faq3Answer ?? "Yes, our Hyundai Staria taxi service operates 24/7. You can book our service anytime for airport transfers, Umrah trips, Ziyarat tours, or intercity travel. We ensure reliable transportation whenever you need it."}
                 />
                 <FAQItem
-                  question="How do I book a Hyundai Staria taxi?"
-                  answer="You can book your Hyundai Staria taxi directly through our website. Simply provide your pickup location, destination, travel date, and number of passengers. You will receive a confirmation with your driver and vehicle details."
+                  question={s.faq4Question ?? "How do I book a Hyundai Staria taxi?"}
+                  answer={s.faq4Answer ?? "You can book your Hyundai Staria taxi directly through our website. Simply provide your pickup location, destination, travel date, and number of passengers. You will receive a confirmation with your driver and vehicle details."}
                 />
                 <FAQItem
-                  question="What makes the Hyundai Staria suitable for Umrah pilgrims?"
-                  answer="The Hyundai Staria offers premium comfort with air conditioning, quiet interiors, and spacious seating. It comes with advanced safety features and professional drivers who know all the religious sites. The vehicle provides enough space for luggage and passengers, making it ideal for pilgrim families."
+                  question={s.faq5Question ?? "What makes the Hyundai Staria suitable for Umrah pilgrims?"}
+                  answer={s.faq5Answer ?? "The Hyundai Staria offers premium comfort with air conditioning, quiet interiors, and spacious seating. It comes with advanced safety features and professional drivers who know all the religious sites. The vehicle provides enough space for luggage and passengers, making it ideal for pilgrim families."}
                 />
               </div>
             </div>
@@ -414,9 +421,9 @@ export function HyundaiMinivanStariaClient() {
             <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[40px] p-8 md:p-16 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-32 -mt-32" />
               <div className="relative z-10 text-center">
-                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">Book Your Hyundai Staria Taxi Today</h2>
+                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">{s.ctaTitle ?? "Book Your Hyundai Staria Taxi Today"}</h2>
                 <p className="text-[var(--text-2)] text-[18px] font-body mb-12 max-w-3xl mx-auto leading-relaxed">
-                  Make your ride in Makkah, Madinah, and Jeddah comfortable and trouble-free with our Hyundai Staria taxi. Reserve with us now and enjoy a comfortable, hassle-free ride across Saudi Arabia!
+                  {s.ctaText ?? "Make your ride in Makkah, Madinah, and Jeddah comfortable and trouble-free with our Hyundai Staria taxi. Reserve with us now and enjoy a comfortable, hassle-free ride across Saudi Arabia!"}
                 </p>
                 <div className="flex flex-wrap justify-center gap-6">
                   <a
@@ -426,14 +433,14 @@ export function HyundaiMinivanStariaClient() {
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--green)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <WhatsAppIcon size={24} />
-                    Book via WhatsApp Now
+                    {s.ctaWhatsAppBtn ?? "Book via WhatsApp Now"}
                   </a>
                   <a
                     href="tel:+966598401594"
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--gold)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <Phone size={24} />
-                    Call Us Direct
+                    {s.ctaCallBtn ?? "Call Us Direct"}
                   </a>
                 </div>
               </div>

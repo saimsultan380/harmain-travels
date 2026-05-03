@@ -2,10 +2,17 @@
 
 import { MoonCrescentIcon } from "@/components/graphics/MoonCrescentIcon";
 import { FacebookIcon, InstagramIcon, LinkedinIcon } from "@/components/graphics/SocialIcons";
-import { MessageCircle, Mail, Clock, MapPin } from "lucide-react";
+import { Mail, Clock, MapPin } from "lucide-react";
 import Link from "next/link";
+import { useI18n } from "@/lib/i18n";
 
 export function Footer() {
+  const { t, tm } = useI18n();
+  
+  const services = tm("footer.services") as string[];
+  const fleets = tm("footer.fleets") as Array<{ title: string; href: string }>;
+  const routes = tm("footer.routes") as Array<{ title: string; href: string }>;
+
   return (
     <footer className="bg-[var(--bg-card)] border-t-2 border-[var(--gold)] pt-16 pb-8">
       <div className="container mx-auto px-4 lg:px-8">
@@ -21,7 +28,7 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-[var(--text-2)] font-body text-sm leading-relaxed mb-6">
-              Your trusted partner for premium, reliable, and comfortable transportation across the holy cities of Saudi Arabia.
+              {t("footer.description")}
             </p>
             <div className="flex gap-4">
               <a 
@@ -56,9 +63,9 @@ export function Footer() {
 
           {/* Col 2: Services */}
           <div>
-            <h4 className="font-heading font-bold text-[var(--text-1)] text-lg mb-6">Our Services</h4>
+            <h4 className="font-heading font-bold text-[var(--text-1)] text-lg mb-6">{t("footer.servicesTitle")}</h4>
             <ul className="space-y-4">
-              {['Jeddah Airport Transfers', 'Makkah to Madinah', 'Ziyarat Tours', 'VIP & Luxury Taxis', 'Group Bus Bookings', 'Hajj & Umrah Badal'].map((item, i) => (
+              {services.map((item, i) => (
                 <li key={i}>
                   <Link href="#services" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
                     {item}
@@ -70,105 +77,61 @@ export function Footer() {
 
           {/* Col 3: Our Fleets */}
           <div>
-            <h4 className="font-heading font-bold text-[var(--text-1)] text-lg mb-6">Our Fleets</h4>
+            <h4 className="font-heading font-bold text-[var(--text-1)] text-lg mb-6">{t("footer.fleetsTitle")}</h4>
             <ul className="space-y-4">
-              <li>
-                <Link href="/sedan-sonata-taxi" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
-                  Sedan Sonata
-                </Link>
-              </li>
-              <li>
-                <Link href="/gmc-yukon-xl" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
-                  GMC Yukon XL
-                </Link>
-              </li>
-              <li>
-                <Link href="/toyota-hiace-or-hiroof-2" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
-                  Toyota Hiace
-                </Link>
-              </li>
-              <li>
-                <Link href="/hyundai-minivan-staria" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
-                  Hyundai Staria
-                </Link>
-              </li>
-              <li>
-                <Link href="/coaster" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
-                  Coaster Bus
-                </Link>
-              </li>
-              <li>
-                <Link href="/bus" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
-                  Luxury Bus
-                </Link>
-              </li>
+              {fleets.map((fleet, i) => (
+                <li key={i}>
+                  <Link href={fleet.href} className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
+                    {fleet.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Col 4: Routes */}
           <div>
-            <h4 className="font-heading font-bold text-[var(--text-1)] text-lg mb-6">Routes</h4>
+            <h4 className="font-heading font-bold text-[var(--text-1)] text-lg mb-6">{t("footer.routesTitle")}</h4>
             <ul className="space-y-4">
-              <li>
-                <Link href="/makkah-to-madinah" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
-                  Makkah to Madinah
-                </Link>
-              </li>
-              <li>
-                <Link href="/madinah-to-makkah" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
-                  Madinah to Makkah
-                </Link>
-              </li>
-              <li>
-                <Link href="/jeddah-airport-to-makkah" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
-                  Jeddah Airport to Makkah
-                </Link>
-              </li>
-              <li>
-                <Link href="/madinah-aiport-to-hotels" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
-                  Madinah Airport to Hotels
-                </Link>
-              </li>
-              <li>
-                <Link href="/makkah-to-jeddah" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
-                  Makkah to Jeddah
-                </Link>
-              </li>
-              <li>
-                <Link href="/hotel-transfers-taxi" className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
-                  Hotel Transfers
-                </Link>
-              </li>
+              {routes.map((route, i) => (
+                <li key={i}>
+                  <Link href={route.href} className="text-[var(--text-2)] font-body text-sm hover:text-[var(--gold)] transition-colors">
+                    {route.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Col 5: Contact */}
           <div>
-            <h4 className="font-heading font-bold text-[var(--text-1)] text-lg mb-6">Contact Us</h4>
+            <h4 className="font-heading font-bold text-[var(--text-1)] text-lg mb-6">{t("footer.contactTitle")}</h4>
             <ul className="space-y-4">
               <li>
                 <a href="https://wa.me/966598401594" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 group">
-                  <MessageCircle size={20} className="text-[var(--green)] mt-1" />
+                  <svg viewBox="0 0 24 24" fill="#25D366" className="w-5 h-5 mt-0.5">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                  </svg>
                   <div>
-                    <span className="block font-heading font-bold text-[var(--text-1)] group-hover:text-[var(--gold)] transition-colors">+966 59 840 1594</span>
-                    <span className="text-[var(--text-3)] font-body text-xs">Available 24/7 on WhatsApp</span>
+                    <span className="block font-heading font-bold text-[var(--text-1)] group-hover:text-[var(--gold)] transition-colors">{t("footer.whatsappNumber")}</span>
+                    <span className="text-[var(--text-3)] font-body text-xs">{t("footer.whatsappNote")}</span>
                   </div>
                 </a>
               </li>
               <li>
-                <a href="mailto:info@haramaintaxi.com" className="flex items-start gap-3 group">
+                <a href={`mailto:${t("footer.email")}`} className="flex items-start gap-3 group">
                   <Mail size={20} className="text-[var(--gold)] mt-1" />
                   <div>
-                    <span className="block font-heading font-bold text-[var(--text-1)] group-hover:text-[var(--gold)] transition-colors">info@haramaintaxi.com</span>
-                    <span className="text-[var(--text-3)] font-body text-xs">For general inquiries</span>
+                    <span className="block font-heading font-bold text-[var(--text-1)] group-hover:text-[var(--gold)] transition-colors">{t("footer.email")}</span>
+                    <span className="text-[var(--text-3)] font-body text-xs">{t("footer.mailNote")}</span>
                   </div>
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <Clock size={20} className="text-[var(--text-2)] mt-1" />
                 <div>
-                  <span className="block font-heading font-bold text-[var(--text-1)]">24/7 Operations</span>
-                  <span className="text-[var(--text-3)] font-body text-xs">Always ready for your journey</span>
+                  <span className="block font-heading font-bold text-[var(--text-1)]">{t("footer.operationTitle")}</span>
+                  <span className="text-[var(--text-3)] font-body text-xs">{t("footer.operationNote")}</span>
                 </div>
               </li>
             </ul>
@@ -179,11 +142,11 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-[var(--border)] flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           <p className="text-[var(--text-3)] font-body text-sm">
-            &copy; {new Date().getFullYear()} Haramain Umrah Taxi. All rights reserved.
+            &copy; {new Date().getFullYear()} Haramain Umrah Taxi. {t("footer.rights")}
           </p>
           <div className="flex items-center gap-6 text-[var(--text-3)] font-body text-sm">
-            <Link href="/privacy-policy" className="hover:text-[var(--gold)] transition-colors">Privacy Policy</Link>
-            <Link href="/terms-and-conditions" className="hover:text-[var(--gold)] transition-colors">Terms & Conditions</Link>
+            <Link href="/privacy-policy" className="hover:text-[var(--gold)] transition-colors">{t("footer.privacyPolicy")}</Link>
+            <Link href="/terms-and-conditions" className="hover:text-[var(--gold)] transition-colors">{t("footer.termsConditions")}</Link>
           </div>
         </div>
       </div>

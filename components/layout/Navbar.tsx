@@ -40,9 +40,17 @@ export function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [hoveredChild, setHoveredChild] = useState<string | null>(null);
   const [activeChildAccordion, setActiveChildAccordion] = useState<string | null>(null);
-  const { t, tm } = useI18n();
+  const { t, tm, locale } = useI18n();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+
+  // Reset mobile menu state when language changes
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setActiveDropdown(null);
+    setHoveredChild(null);
+    setActiveChildAccordion(null);
+  }, [locale]);
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
@@ -80,210 +88,212 @@ export function Navbar() {
   const navItems = tm<NavItem[]>("nav.items", []);
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled 
-          ? "bg-[var(--bg)]/90 backdrop-blur-md border-b border-[var(--gold)]/20 py-2 shadow-lg" 
-          : "bg-[var(--bg)] py-3 md:py-4 border-b border-[var(--border)]"
-      }`}
-    >
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-center justify-between">
-          
-          {/* Logo */}
-          <Link href="/" className="group flex items-center gap-2 sm:gap-3">
-            <MoonCrescentIcon size={32} className="sm:w-10 sm:h-10 transition-transform group-hover:scale-110 text-[var(--gold)]" />
-            <div className="flex flex-col">
-              <span className="font-heading font-extrabold text-xl leading-none tracking-tight text-[var(--text-1)]">Haramain</span>
-              <span className="font-body font-semibold text-[10px] uppercase tracking-[0.2em] mt-1 text-[var(--green)]">
-                {t("nav.brandBottom")}
-              </span>
-            </div>
-          </Link>
+    <>
+      <header 
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled 
+            ? "bg-[var(--bg)]/90 backdrop-blur-md border-b border-[var(--gold)]/20 py-2 shadow-lg" 
+            : "bg-[var(--bg)] py-3 md:py-4 border-b border-[var(--border)]"
+        }`}
+      >
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="flex items-center justify-between">
+            
+            {/* Logo */}
+            <Link href="/" className="group flex items-center gap-2 sm:gap-3">
+              <MoonCrescentIcon size={32} className="sm:w-10 sm:h-10 transition-transform group-hover:scale-110 text-[var(--gold)]" />
+              <div className="flex flex-col">
+                <span className="font-heading font-extrabold text-xl leading-none tracking-tight text-[var(--text-1)]">Haramain</span>
+                <span className="font-body font-semibold text-[10px] uppercase tracking-[0.2em] mt-1 text-[var(--green)]">
+                  {t("nav.brandBottom")}
+                </span>
+              </div>
+            </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {navItems.map((item) => (
-              <div 
-                key={item.label} 
-                className="relative group p-1"
-                onMouseEnter={() => {
-                  setActiveDropdown(item.label);
-                  if (item.children && item.children.length > 0) {
-                    setHoveredChild(item.children[0].label);
-                  }
-                }}
-                onMouseLeave={() => {
-                  setActiveDropdown(null);
-                  setHoveredChild(null);
-                }}
-              >
-                {item.href ? (
-                  <Link 
-                    href={item.href}
-                    className={`px-3 py-2 flex items-center gap-1.5 font-body font-semibold text-sm transition-all rounded-lg ${
-                      isActive(item.href)
-                        ? "bg-[var(--gold-soft)] text-[var(--gold)]"
-                        : "text-[var(--text-1)] hover:bg-[var(--gold-soft)] hover:text-[var(--gold)]"
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                ) : (
-                  <button 
-                    className="px-3 py-2 flex items-center gap-1.5 font-body font-semibold text-sm transition-all rounded-lg text-[var(--text-1)] hover:bg-[var(--gold-soft)] hover:text-[var(--gold)]"
-                  >
-                    {item.label}
-                    <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === item.label ? "rotate-180" : ""}`} />
-                  </button>
-                )}
-
-                {/* Submenu - Smart Side Hover */}
-                <AnimatePresence>
-                  {item.children && activeDropdown === item.label && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                      className="absolute left-0 top-full mt-1 bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl shadow-2xl overflow-hidden"
+            {/* Desktop Nav */}
+            <nav ref={dropdownRef} className="hidden lg:flex items-center gap-1">
+              {navItems.map((item) => (
+                <div 
+                  key={item.label} 
+                  className="relative group p-1"
+                  onMouseEnter={() => {
+                    setActiveDropdown(item.label);
+                    if (item.children && item.children.length > 0) {
+                      setHoveredChild(item.children[0].label);
+                    }
+                  }}
+                  onMouseLeave={() => {
+                    setActiveDropdown(null);
+                    setHoveredChild(null);
+                  }}
+                >
+                  {item.href ? (
+                    <Link 
+                      href={item.href}
+                      className={`px-3 py-2 flex items-center gap-1.5 font-body font-semibold text-sm transition-all rounded-lg ${
+                        isActive(item.href)
+                          ? "bg-[var(--gold-soft)] text-[var(--gold)]"
+                          : "text-[var(--text-1)] hover:bg-[var(--gold-soft)] hover:text-[var(--gold)]"
+                      }`}
                     >
-                      {/* Check if all children are direct links (no sub-items) */}
-                      {item.children.every(child => !child.items) ? (
-                        /* Simple single-column list for direct links */
-                        <div className="p-2 min-w-[200px]">
-                          {item.children.map((child) => (
-                            child.href ? (
-                              <Link
-                                key={child.label}
-                                href={child.href}
-                                className={`block px-4 py-3 text-[14px] font-normal rounded-xl transition-all ${
-                                  isActive(child.href)
-                                    ? "bg-[var(--gold-soft)] text-[var(--gold)]"
-                                    : "text-[var(--text-1)] hover:text-[var(--gold)] hover:bg-[var(--gold-soft)]"
-                                }`}
-                              >
-                                {child.label}
-                              </Link>
-                            ) : null
-                          ))}
-                        </div>
-                      ) : (
-                        /* Complex two-panel layout for categories with sub-items */
-                        <div className="flex min-w-[600px]">
-                          {/* Sidebar (Categories) */}
-                          <div className="w-[260px] bg-[var(--bg-alt)]/50 border-r border-[var(--border)] p-2">
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <button 
+                      className="px-3 py-2 flex items-center gap-1.5 font-body font-semibold text-sm transition-all rounded-lg text-[var(--text-1)] hover:bg-[var(--gold-soft)] hover:text-[var(--gold)]"
+                    >
+                      {item.label}
+                      <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === item.label ? "rotate-180" : ""}`} />
+                    </button>
+                  )}
+
+                  {/* Submenu - Smart Side Hover */}
+                  <AnimatePresence>
+                    {item.children && activeDropdown === item.label && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                        className="absolute left-0 top-full mt-1 bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl shadow-2xl overflow-hidden"
+                      >
+                        {/* Check if all children are direct links (no sub-items) */}
+                        {item.children.every(child => !child.items) ? (
+                          /* Simple single-column list for direct links */
+                          <div className="p-2 min-w-[200px]">
                             {item.children.map((child) => (
-                              <div 
-                                key={child.label}
-                                onMouseEnter={() => setHoveredChild(child.label)}
-                                className="relative"
-                              >
-                                {child.href && !child.items ? (
-                                  <Link
-                                    href={child.href}
-                                    className={`flex items-center justify-between w-full px-4 py-3 text-[14px] font-normal rounded-xl transition-all ${
-                                      isActive(child.href) || hoveredChild === child.label
-                                        ? "bg-[var(--gold)] text-white shadow-md"
-                                        : "text-[var(--text-1)] hover:bg-[var(--bg)]"
-                                    }`}
-                                  >
-                                    {child.label}
-                                  </Link>
-                                ) : (
-                                  <div
-                                    className={`flex items-center justify-between w-full px-4 py-3 text-[14px] font-normal rounded-xl transition-all cursor-default ${
-                                      hoveredChild === child.label 
-                                        ? "bg-[var(--gold)] text-white shadow-md" 
-                                        : "text-[var(--text-1)] hover:bg-[var(--bg)]"
-                                    }`}
-                                  >
-                                    {child.label}
-                                    {child.items && <ChevronRight size={14} className={hoveredChild === child.label ? "opacity-100" : "opacity-30"} />}
-                                  </div>
-                                )}
-                              </div>
+                              child.href ? (
+                                <Link
+                                  key={child.label}
+                                  href={child.href}
+                                  className={`block px-4 py-3 text-[14px] font-normal rounded-xl transition-all ${
+                                    isActive(child.href)
+                                      ? "bg-[var(--gold-soft)] text-[var(--gold)]"
+                                      : "text-[var(--text-1)] hover:text-[var(--gold)] hover:bg-[var(--gold-soft)]"
+                                  }`}
+                                >
+                                  {child.label}
+                                </Link>
+                              ) : null
                             ))}
                           </div>
-
-                          {/* Content Panel (Sub-items) */}
-                          <div className="flex-1 p-6 bg-[var(--bg-card)]">
-                            <AnimatePresence mode="wait">
-                              {item.children.map((child) => 
-                                hoveredChild === child.label && child.items ? (
-                                  <motion.div
-                                    key={child.label}
-                                    initial={{ opacity: 0, x: 10 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    exit={{ opacity: 0, x: -10 }}
-                                    transition={{ duration: 0.2 }}
-                                    className="h-full"
-                                  >
-                                    <h4 className="text-[var(--gold)] font-heading font-bold text-[10px] uppercase tracking-[0.2em] mb-4 pb-2 border-b border-[var(--gold)]/10">
+                        ) : (
+                          /* Complex two-panel layout for categories with sub-items */
+                          <div className="flex min-w-[600px]">
+                            {/* Sidebar (Categories) */}
+                            <div className="w-[260px] bg-[var(--bg-alt)]/50 border-r border-[var(--border)] p-2">
+                              {item.children.map((child) => (
+                                <div 
+                                  key={child.label}
+                                  onMouseEnter={() => setHoveredChild(child.label)}
+                                  className="relative"
+                                >
+                                  {child.href && !child.items ? (
+                                    <Link
+                                      href={child.href}
+                                      className={`flex items-center justify-between w-full px-4 py-3 text-[14px] font-normal rounded-xl transition-all ${
+                                        isActive(child.href) || hoveredChild === child.label
+                                          ? "bg-[var(--gold)] text-white shadow-md"
+                                          : "text-[var(--text-1)] hover:bg-[var(--bg)]"
+                                      }`}
+                                    >
                                       {child.label}
-                                    </h4>
-                                    <div className="grid grid-cols-1 gap-1">
-                                      {child.items.map((subItem) => (
-                                        <Link
-                                          key={subItem.label}
-                                          href={subItem.href}
-                                          className={`group/item flex items-center justify-between px-4 py-2.5 rounded-xl text-[14px] font-normal transition-all ${
-                                            isActive(subItem.href)
-                                              ? "text-[var(--gold)] bg-[var(--gold-soft)]"
-                                              : "text-[var(--text-2)] hover:text-[var(--gold)] hover:bg-[var(--gold-soft)]"
-                                          }`}
-                                        >
-                                          <span>{subItem.label}</span>
-                                          <div className="w-6 h-6 rounded-lg bg-[var(--gold)]/0 group-hover/item:bg-[var(--gold)]/10 flex items-center justify-center transition-all">
-                                            <ChevronRight size={12} className="opacity-0 group-hover/item:opacity-100 transition-all" />
-                                          </div>
-                                        </Link>
-                                      ))}
+                                    </Link>
+                                  ) : (
+                                    <div
+                                      className={`flex items-center justify-between w-full px-4 py-3 text-[14px] font-normal rounded-xl transition-all cursor-default ${
+                                        hoveredChild === child.label 
+                                          ? "bg-[var(--gold)] text-white shadow-md" 
+                                          : "text-[var(--text-1)] hover:bg-[var(--bg)]"
+                                      }`}
+                                    >
+                                      {child.label}
+                                      {child.items && <ChevronRight size={14} className={hoveredChild === child.label ? "opacity-100" : "opacity-30"} />}
                                     </div>
-                                  </motion.div>
-                                ) : null
-                              )}
-                            </AnimatePresence>
-                            
-                            {/* Placeholder if no items */}
-                            {item.children.find(c => c.label === hoveredChild && !c.items) && (
-                              <div className="h-full flex flex-col items-center justify-center text-center opacity-40">
-                                <MoonCrescentIcon size={48} className="text-[var(--gold)] mb-4" />
-                                <p className="text-xs font-body italic">Direct Link Category</p>
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                      )}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            ))}
-          </nav>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
 
-          {/* Actions */}
-          <div className="hidden lg:flex items-center gap-4">
-            <div className="flex items-center gap-2">
+                            {/* Content Panel (Sub-items) */}
+                            <div className="flex-1 p-6 bg-[var(--bg-card)]">
+                              <AnimatePresence mode="wait">
+                                {item.children.map((child) => 
+                                  hoveredChild === child.label && child.items ? (
+                                    <motion.div
+                                      key={child.label}
+                                      initial={{ opacity: 0, x: 10 }}
+                                      animate={{ opacity: 1, x: 0 }}
+                                      exit={{ opacity: 0, x: -10 }}
+                                      transition={{ duration: 0.2 }}
+                                      className="h-full"
+                                    >
+                                      <h4 className="text-[var(--gold)] font-heading font-bold text-[10px] uppercase tracking-[0.2em] mb-4 pb-2 border-b border-[var(--gold)]/10">
+                                        {child.label}
+                                      </h4>
+                                      <div className="grid grid-cols-1 gap-1">
+                                        {child.items.map((subItem) => (
+                                          <Link
+                                            key={subItem.label}
+                                            href={subItem.href}
+                                            className={`group/item flex items-center justify-between px-4 py-2.5 rounded-xl text-[14px] font-normal transition-all ${
+                                              isActive(subItem.href)
+                                                ? "text-[var(--gold)] bg-[var(--gold-soft)]"
+                                                : "text-[var(--text-2)] hover:text-[var(--gold)] hover:bg-[var(--gold-soft)]"
+                                            }`}
+                                          >
+                                            <span>{subItem.label}</span>
+                                            <div className="w-6 h-6 rounded-lg bg-[var(--gold)]/0 group-hover/item:bg-[var(--gold)]/10 flex items-center justify-center transition-all">
+                                              <ChevronRight size={12} className="opacity-0 group-hover/item:opacity-100 transition-all" />
+                                            </div>
+                                          </Link>
+                                        ))}
+                                      </div>
+                                    </motion.div>
+                                  ) : null
+                                )}
+                              </AnimatePresence>
+                              
+                              {/* Placeholder if no items */}
+                              {item.children.find(c => c.label === hoveredChild && !c.items) && (
+                                <div className="h-full flex flex-col items-center justify-center text-center opacity-40">
+                                  <MoonCrescentIcon size={48} className="text-[var(--gold)] mb-4" />
+                                  <p className="text-xs font-body italic">Direct Link Category</p>
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        )}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
+            </nav>
+
+            {/* Actions */}
+            <div className="hidden lg:flex items-center gap-4">
+              <div className="flex items-center gap-2">
+                <LanguageSwitcher />
+                <ThemeToggle />
+              </div>
+            </div>
+
+            {/* Mobile Menu Toggle */}
+            <div className="flex lg:hidden items-center gap-3">
               <LanguageSwitcher />
               <ThemeToggle />
+              <button 
+                onClick={() => setMobileMenuOpen(true)}
+                className="rounded-xl p-2.5 border border-[var(--border)] text-[var(--text-1)] hover:bg-[var(--bg-alt)] transition-all"
+              >
+                <Menu size={24} />
+              </button>
             </div>
           </div>
-
-          {/* Mobile Menu Toggle */}
-          <div className="flex lg:hidden items-center gap-3">
-            <LanguageSwitcher />
-            <ThemeToggle />
-            <button 
-              onClick={() => setMobileMenuOpen(true)}
-              className="rounded-xl p-2.5 border border-[var(--border)] text-[var(--text-1)] hover:bg-[var(--bg-alt)] transition-all"
-            >
-              <Menu size={24} />
-            </button>
-          </div>
         </div>
-      </div>
+      </header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay - Outside header to avoid positioning issues */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <div className="fixed inset-0 z-[60] lg:hidden">
@@ -442,6 +452,6 @@ export function Navbar() {
           </div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }

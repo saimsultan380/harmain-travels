@@ -1,15 +1,19 @@
 "use client";
 
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { faqs } from "@/lib/data/faqs";
 import { useI18n } from "@/lib/i18n";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
 
 export function FAQ() {
-  const { t } = useI18n();
-  const [openId, setOpenId] = useState<string | null>(faqs[0].id);
+  const { t, tm } = useI18n();
+  const faqs = tm("faq.items") as Array<{
+    id: string;
+    question: string;
+    answer: string;
+  }>;
+  const [openId, setOpenId] = useState<string | null>(faqs[0]?.id || null);
 
   return (
     <AnimatedSection id="faq" className="pt-24 pb-12 md:pb-24 bg-[var(--bg)] border-t border-[var(--border)]">

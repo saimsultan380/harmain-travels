@@ -1,5 +1,6 @@
 "use client";
 
+import { useI18n } from "@/lib/i18n";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -37,7 +38,7 @@ const WhatsAppIcon = ({ size = 20, className = "" }: { size?: number; className?
   </svg>
 );
 
-const FleetCard = ({ title, pax, bag, description, image }: { title: string, pax: string, bag: string, description: string, image: string }) => (
+const FleetCard = ({ title, pax, bag, description, image, bookBtn }: { title: string, pax: string, bag: string, description: string, image: string, bookBtn?: string }) => (
   <motion.div
     whileHover={{ y: -5 }}
     className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/20 rounded-3xl p-6 transition-all duration-300 flex flex-col h-full shadow-sm hover:shadow-xl hover:border-[var(--gold)]/40"
@@ -75,13 +76,16 @@ const FleetCard = ({ title, pax, bag, description, image }: { title: string, pax
         className="w-full flex items-center justify-center gap-2 py-3 bg-[var(--green)] text-white font-body font-semibold rounded-xl hover:opacity-95 transition-all shadow-md text-sm"
       >
         <WhatsAppIcon size={18} />
-        Book Now via WhatsApp
+        {bookBtn ?? "Book Now via WhatsApp"}
       </a>
     </div>
   </motion.div>
 );
 
 export function HotelTransfersClient() {
+  const { tm } = useI18n();
+  const p = tm<Record<string, any>>("hotelTransfers", {});
+
   return (
     <div className="min-h-screen bg-[var(--bg)] selection:bg-[var(--gold-soft)] selection:text-[var(--gold)]">
       <Canonical />
@@ -107,7 +111,7 @@ export function HotelTransfersClient() {
                 className="inline-block mb-6"
               >
                 <span className="px-4 py-1.5 rounded-full bg-[var(--gold)] text-white font-heading font-bold text-xs uppercase tracking-widest shadow-lg shadow-[var(--gold)]/20">
-                  Premium Hotel Transfers
+                  {p.heroBadge ?? "Premium Hotel Transfers"}
                 </span>
               </motion.div>
               
@@ -116,7 +120,7 @@ export function HotelTransfersClient() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold !text-white mb-8 leading-tight"
               >
-                Hotel Transfer Services in <span className="text-[var(--gold)]">Makkah</span>, <span className="text-[var(--gold)]">Madinah</span> & Jeddah Book Now
+                {p.heroTitle ?? "Hotel Transfer Services in"} <span className="text-[var(--gold)]">{p.heroCities ?? "Makkah"}</span>, <span className="text-[var(--gold)]">{p.heroCities2 ?? "Madinah"}</span> & Jeddah {p.heroCities3 ?? "Book Now"}
               </motion.h1>
 
               <motion.div
@@ -126,10 +130,10 @@ export function HotelTransfersClient() {
                 className="max-w-3xl mx-auto mb-10 space-y-4"
               >
                 <p className="text-lg text-white/90 leading-relaxed font-body">
-                  Your flight lands after hours of travel. You are tired, carrying heavy luggage, and need to reach your hotel fast. The last thing you want is haggling with taxi drivers or waiting for crowded shuttles. We get it.
+                  {p.heroText1 ?? "Your flight lands after hours of travel. You are tired, carrying heavy luggage, and need to reach your hotel fast. The last thing you want is haggling with taxi drivers or waiting for crowded shuttles. We get it."}
                 </p>
                 <p className="text-lg text-white/90 leading-relaxed font-body">
-                  At Haramain Umrah Taxi, we take that stress away completely. Our hotel transfer in Saudi Arabia picks you up right at the airport and drops you at your hotel door. No waiting. No confusion. No overcharging. Just smooth, comfortable rides that let you start your sacred journey refreshed.
+                  {p.heroText2 ?? "At Haramain Umrah Taxi, we take that stress away completely. Our hotel transfer in Saudi Arabia picks you up right at the airport and drops you at your hotel door. No waiting. No confusion. No overcharging. Just smooth, comfortable rides that let you start your sacred journey refreshed."}
                 </p>
               </motion.div>
 
@@ -144,13 +148,13 @@ export function HotelTransfersClient() {
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--green)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all border border-[var(--green)]/20"
                 >
                   <WhatsAppIcon />
-                  Book on WhatsApp Now
+                  {p.heroBookBtn ?? "Book on WhatsApp Now"}
                 </a>
                 <Link
                   href="#fleet"
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--bg-alt)] text-[var(--text-1)] font-heading font-bold rounded-xl border border-[var(--border)] hover:bg-[var(--gold)] hover:text-white transition-all shadow-sm"
                 >
-                  View Our Fleet
+                  {p.heroViewFleetBtn ?? "View Our Fleet"}
                   <ArrowRight size={20} />
                 </Link>
               </motion.div>
@@ -167,19 +171,19 @@ export function HotelTransfersClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
-                <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">Seamless Connectivity</div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Airport to Hotel Transfer Taxi Services</h2>
+                <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">{p.airportEyebrow ?? "Seamless Connectivity"}</div>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{p.airportTitle ?? "Airport to Hotel Transfer Taxi Services"}</h2>
                 <div className="space-y-6">
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    Airport to hotel transfer taxi services form the backbone of comfortable travel in Saudi Arabia. You need reliable transport the moment you arrive. Our service covers all major airports, Jeddah, Madinah, and Riyadh.
+                    {p.airportText1 ?? "Airport to hotel transfer taxi services form the backbone of comfortable travel in Saudi Arabia. You need reliable transport the moment you arrive. Our service covers all major airports, Jeddah, Madinah, and Riyadh."}
                   </p>
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
-                    We offer vehicles for every group size. Solo travelers ride in comfortable sedans. Families with children get spacious vans with extra luggage room. Large groups travel together in minibuses, maintaining family unity throughout the journey.
+                    {p.airportText2 ?? "We offer vehicles for every group size. Solo travelers ride in comfortable sedans. Families with children get spacious vans with extra luggage room. Large groups travel together in minibuses, maintaining family unity throughout the journey."}
                   </p>
                   <div className="p-6 bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl flex gap-4 items-start shadow-sm">
                     <HeartHandshake className="text-[var(--gold)] shrink-0 mt-1" size={24} />
                     <p className="text-[var(--text-2)] font-body text-sm leading-relaxed">
-                      Your driver helps with luggage loading and unloading. He opens doors for elderly passengers and assists families with children.
+                      {p.airportText3 ?? "Your driver helps with luggage loading and unloading. He opens doors for elderly passengers and assists families with children."}
                     </p>
                   </div>
                 </div>
@@ -208,16 +212,16 @@ export function HotelTransfersClient() {
                      <div className="w-12 h-12 bg-[var(--gold-soft)] rounded-xl flex items-center justify-center text-[var(--gold)] mb-6">
                        <Building size={24} />
                      </div>
-                     <h3 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">Hotel Transport Taxi Services Makkah</h3>
+                     <h3 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">{p.makkahTitle ?? "Hotel Transport Taxi Services Makkah"}</h3>
                      <div className="space-y-4">
                        <p className="text-[var(--text-2)] text-[17px] leading-relaxed font-body">
-                         Hotel transport taxi services Makkah operate 24/7 throughout the holy city. You can book rides any time, day or night. Our drivers know Makkah's complex street system perfectly. They navigate through traffic efficiently, even during peak Umrah seasons.
+                         {p.makkahText1 ?? "Hotel transport taxi services Makkah operate 24/7 throughout the holy city. You can book rides any time, day or night. Our drivers know Makkah's complex street system perfectly. They navigate through traffic efficiently, even during peak Umrah seasons."}
                        </p>
                        <p className="text-[var(--text-2)] text-[17px] leading-relaxed font-body">
-                         We pick you up from any hotel in Makkah. Whether you stay near Masjid al-Haram or in Aziziyah, we will reach you promptly. Do you want to visit Jabal al-Nour or shop at malls? We take you there comfortably. Need to reach the Haram for prayer times? We ensure you arrive with time to spare.
+                         {p.makkahText2 ?? "We pick you up from any hotel in Makkah. Whether you stay near Masjid al-Haram or in Aziziyah, we will reach you promptly. Do you want to visit Jabal al-Nour or shop at malls? We take you there comfortably. Need to reach the Haram for prayer times? We ensure you arrive with time to spare."}
                        </p>
                        <p className="text-[var(--text-2)] text-[17px] leading-relaxed font-body font-semibold">
-                         The hotel taxi Makkah service includes hotel-to-hotel transfers too. We move your luggage and family smoothly. You do not carry heavy bags through busy streets yourself.
+                         {p.makkahText3 ?? "The hotel taxi Makkah service includes hotel-to-hotel transfers too. We move your luggage and family smoothly. You do not carry heavy bags through busy streets yourself."}
                        </p>
                      </div>
                    </div>
@@ -246,16 +250,16 @@ export function HotelTransfersClient() {
                      <div className="w-12 h-12 bg-[var(--green-soft)] rounded-xl flex items-center justify-center text-[var(--green)] mb-6">
                        <Building size={24} />
                      </div>
-                     <h3 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">Hotel Transport Taxi Services Madinah</h3>
+                     <h3 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">{p.madinahTitle ?? "Hotel Transport Taxi Services Madinah"}</h3>
                      <div className="space-y-4">
                        <p className="text-[var(--text-2)] text-[17px] leading-relaxed font-body">
-                         Hotel transport taxi services Madinah provide the same excellent service in the Prophet's city. Madinah's hotels are spread across different areas. Our drivers know them all intimately. You do not need to explain directions or show maps.
+                         {p.madinahText1 ?? "Hotel transport taxi services Madinah provide the same excellent service in the Prophet's city. Madinah's hotels are spread across different areas. Our drivers know them all intimately. You do not need to explain directions or show maps."}
                        </p>
                        <p className="text-[var(--text-2)] text-[17px] leading-relaxed font-body">
-                         We handle hotel taxi Madinah bookings for visits to Masjid Nabawi, Quba Mosque, and Mount Uhud. Our drivers suggest the best visiting times to avoid crowds. They wait patiently while you complete your Ziyarat.
+                         {p.madinahText2 ?? "We handle hotel taxi Madinah bookings for visits to Masjid Nabawi, Quba Mosque, and Mount Uhud. Our drivers suggest the best visiting times to avoid crowds. They wait patiently while you complete your Ziyarat."}
                        </p>
                        <p className="text-[var(--text-2)] text-[17px] leading-relaxed font-body font-semibold">
-                         Evening visits to date markets or traditional souqs? We take you shopping and bring you back safely. Our drivers recommend authentic shops where locals buy. You avoid tourist traps that charge inflated prices.
+                         {p.madinahText3 ?? "Evening visits to date markets or traditional souqs? We take you shopping and bring you back safely. Our drivers recommend authentic shops where locals buy. You avoid tourist traps that charge inflated prices."}
                        </p>
                      </div>
                    </div>
@@ -270,16 +274,16 @@ export function HotelTransfersClient() {
                      <div className="w-12 h-12 bg-[var(--gold-soft)] rounded-xl flex items-center justify-center text-[var(--gold)] mb-6">
                        <Building size={24} />
                      </div>
-                     <h3 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">Hotel Transport Taxi Services Jeddah</h3>
+                     <h3 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">{p.jeddahTitle ?? "Hotel Transport Taxi Services Jeddah"}</h3>
                      <div className="space-y-4">
                        <p className="text-[var(--text-2)] text-[17px] leading-relaxed font-body">
-                         Hotel transport taxi services Jeddah cater to both pilgrims and business travelers. Jeddah serves as the gateway city for most Umrah visitors. Many people spend nights here before traveling to Makkah or after completing Umrah before flying home.
+                         {p.jeddahText1 ?? "Hotel transport taxi services Jeddah cater to both pilgrims and business travelers. Jeddah serves as the gateway city for most Umrah visitors. Many people spend nights here before traveling to Makkah or after completing Umrah before flying home."}
                        </p>
                        <p className="text-[var(--text-2)] text-[17px] leading-relaxed font-body">
-                         We transfer you between hotels and tourist attractions. If you want to see the historic Al-Balad district or walk along the Corniche, we will take you comfortably.
+                         {p.jeddahText2 ?? "We transfer you between hotels and tourist attractions. If you want to see the historic Al-Balad district or walk along the Corniche, we will take you comfortably."}
                        </p>
                        <p className="text-[var(--text-2)] text-[17px] leading-relaxed font-body font-semibold">
-                         Jeddah's hotels range from budget to five-star luxury. Our service covers all price categories. We do not judge based on where you stay. Every passenger receives the same respect and excellent service regardless of hotel status.
+                         {p.jeddahText3 ?? "Jeddah's hotels range from budget to five-star luxury. Our service covers all price categories. We do not judge based on where you stay. Every passenger receives the same respect and excellent service regardless of hotel status."}
                        </p>
                      </div>
                    </div>
@@ -302,25 +306,25 @@ export function HotelTransfersClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-5xl font-heading font-bold text-[var(--text-1)]">Specialized Airport Routes</h2>
-                <p className="mt-4 text-lg text-[var(--text-2)] max-w-2xl mx-auto font-body">Direct, fast, and secure connections from major airports to your accommodation.</p>
+                <h2 className="text-3xl md:text-5xl font-heading font-bold text-[var(--text-1)]">{p.routesTitle ?? "Specialized Airport Routes"}</h2>
+                <p className="mt-4 text-lg text-[var(--text-2)] max-w-2xl mx-auto font-body">{p.routesSubtitle ?? "Direct, fast, and secure connections from major airports to your accommodation."}</p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-3xl p-8 lg:p-10 hover:border-[var(--gold)]/50 transition-colors">
                   <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-6 flex items-center gap-3">
                     <Zap className="text-[var(--gold)]" />
-                    Jeddah Airport to Makkah Hotel
+                    {p.jeddahAirportTitle ?? "Jeddah Airport to Makkah Hotel"}
                   </h3>
                   <div className="space-y-4">
                     <p className="text-[var(--text-2)] text-[16px] leading-relaxed font-body">
-                      The Jeddah airport to Makkah hotel taxi route is our specialty. This 92-kilometer journey takes 60-90 minutes depending on traffic. Our drivers have driven this road thousands of times. They know exactly which lanes move faster at which times.
+                      {p.jeddahAirportText1 ?? "The Jeddah airport to Makkah hotel taxi route is our specialty. This 92-kilometer journey takes 60-90 minutes depending on traffic. Our drivers have driven this road thousands of times. They know exactly which lanes move faster at which times."}
                     </p>
                     <p className="text-[var(--text-2)] text-[16px] leading-relaxed font-body">
-                      Your driver meets you at Jeddah Airport arrivals. He tracks your flight, so you do not call to explain delays. He carries a sign with your name printed clearly. You spot him easily among the crowds. Within minutes, you sit in a clean vehicle heading to Makkah.
+                      {p.jeddahAirportText2 ?? "Your driver meets you at Jeddah Airport arrivals. He tracks your flight, so you do not call to explain delays. He carries a sign with your name printed clearly. You spot him easily among the crowds. Within minutes, you sit in a clean vehicle heading to Makkah."}
                     </p>
                     <p className="text-[var(--text-2)] text-[16px] leading-relaxed font-body bg-[var(--gold)]/5 p-4 rounded-xl border border-[var(--gold)]/10">
-                      We stop at Miqat if you need to enter Ihram. Our driver shows you the facilities and waits patiently. He ensures you complete this important ritual properly. For families with young children, we allow bathroom breaks without extra charges.
+                      {p.jeddahAirportText3 ?? "We stop at Miqat if you need to enter Ihram. Our driver shows you the facilities and waits patiently. He ensures you complete this important ritual properly. For families with young children, we allow bathroom breaks without extra charges."}
                     </p>
                   </div>
                 </div>
@@ -328,17 +332,17 @@ export function HotelTransfersClient() {
                 <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-3xl p-8 lg:p-10 hover:border-[var(--green)]/50 transition-colors">
                   <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-6 flex items-center gap-3">
                     <Zap className="text-[var(--green)]" />
-                    Madinah Airport to Madinah Hotel
+                    {p.madinahAirportTitle ?? "Madinah Airport to Madinah Hotel"}
                   </h3>
                   <div className="space-y-4">
                     <p className="text-[var(--text-2)] text-[16px] leading-relaxed font-body">
-                      The Madinah Airport to Madinah Hotel taxi brings you directly from Prince Mohammad bin Abdulaziz Airport to your accommodation. The airport is situated outside the city, requiring reliable transport. You cannot walk to hotels from there.
+                      {p.madinahAirportText1 ?? "The Madinah Airport to Madinah Hotel taxi brings you directly from Prince Mohammad bin Abdulaziz Airport to your accommodation. The airport is situated outside the city, requiring reliable transport. You cannot walk to hotels from there."}
                     </p>
                     <p className="text-[var(--text-2)] text-[16px] leading-relaxed font-body">
-                      Madinah Airport is smaller than Jeddah Airport. Our drivers navigate it easily. They wait at the correct exit, ensuring quick meetups. The drive to the city center hotels takes 15-25 minutes, depending on location.
+                      {p.madinahAirportText2 ?? "Madinah Airport is smaller than Jeddah Airport. Our drivers navigate it easily. They wait at the correct exit, ensuring quick meetups. The drive to the city center hotels takes 15-25 minutes, depending on location."}
                     </p>
                     <p className="text-[var(--text-2)] text-[16px] leading-relaxed font-body bg-[var(--green)]/5 p-4 rounded-xl border border-[var(--green)]/10">
-                      We drive past beautiful date farms and modern developments. Our drivers point out landmarks, helping you orient yourself in the city. This friendly introduction makes first-time visitors feel welcome and comfortable.
+                      {p.madinahAirportText3 ?? "We drive past beautiful date farms and modern developments. Our drivers point out landmarks, helping you orient yourself in the city. This friendly introduction makes first-time visitors feel welcome and comfortable."}
                     </p>
                   </div>
                 </div>
@@ -354,9 +358,9 @@ export function HotelTransfersClient() {
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-48 -mt-48" />
             
               <div className="text-center mb-16 relative z-10">
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Why Haramain Offers the Best Hotel Transfers?</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{p.whyTitle ?? "Why Haramain Offers the Best Hotel Transfers?"}</h2>
                 <p className="text-[var(--text-2)] font-body max-w-2xl mx-auto text-lg">
-                  Best hotel transfers combine reliability, comfort, and fair pricing. We have perfected this balance over years of serving pilgrims and tourists.
+                  {p.whySubtitle ?? "Best hotel transfers combine reliability, comfort, and fair pricing. We have perfected this balance over years of serving pilgrims and tourists."}
                 </p>
               </div>
 
@@ -365,27 +369,27 @@ export function HotelTransfersClient() {
                    <div className="w-14 h-14 bg-[var(--gold)]/10 rounded-2xl flex items-center justify-center text-[var(--gold)]">
                      <ShieldCheck size={28} />
                    </div>
-                   <h4 className="font-heading font-bold text-xl text-[var(--text-1)]">Immaculate Vehicles</h4>
+                   <h4 className="font-heading font-bold text-xl text-[var(--text-1)]">{p.whyFeature1Title ?? "Immaculate Vehicles"}</h4>
                    <p className="text-[15px] text-[var(--text-2)] font-body leading-relaxed">
-                     Our vehicles are always clean. We maintain high standards. Seats are comfortable. Air conditioning works perfectly. You do not sit in old taxis smelling bad or with broken seats. Our fleet includes recent models kept in excellent condition.
+                     {p.whyFeature1Desc ?? "Our vehicles are always clean. We maintain high standards. Seats are comfortable. Air conditioning works perfectly. You do not sit in old taxis smelling bad or with broken seats. Our fleet includes recent models kept in excellent condition."}
                    </p>
                  </div>
                  <div className="space-y-4 bg-[var(--bg)] border border-[var(--border)] rounded-2xl p-6">
                    <div className="w-14 h-14 bg-[var(--gold)]/10 rounded-2xl flex items-center justify-center text-[var(--gold)]">
                      <Users size={28} />
                    </div>
-                   <h4 className="font-heading font-bold text-xl text-[var(--text-1)]">Professional Drivers</h4>
+                   <h4 className="font-heading font-bold text-xl text-[var(--text-1)]">{p.whyFeature2Title ?? "Professional Drivers"}</h4>
                    <p className="text-[15px] text-[var(--text-2)] font-body leading-relaxed">
-                     Our drivers behave professionally. They dress neatly. They greet you respectfully. They follow traffic laws carefully and do not smoke in vehicles or play loud music. Your journey feels dignified and peaceful.
+                     {p.whyFeature2Desc ?? "Our drivers behave professionally. They dress neatly. They greet you respectfully. They follow traffic laws carefully and do not smoke in vehicles or play loud music. Your journey feels dignified and peaceful."}
                    </p>
                  </div>
                  <div className="space-y-4 bg-[var(--bg)] border border-[var(--border)] rounded-2xl p-6">
                    <div className="w-14 h-14 bg-[var(--gold)]/10 rounded-2xl flex items-center justify-center text-[var(--gold)]">
                      <CheckCircle2 size={28} />
                    </div>
-                   <h4 className="font-heading font-bold text-xl text-[var(--text-1)]">Transparent Pricing</h4>
+                   <h4 className="font-heading font-bold text-xl text-[var(--text-1)]">{p.whyFeature3Title ?? "Transparent Pricing"}</h4>
                    <p className="text-[15px] text-[var(--text-2)] font-body leading-relaxed">
-                     The quote we give is what you pay. No hidden fees appear at the end. No extra charges for luggage, late hours, or traffic delays. You pay one fair price covering everything.
+                     {p.whyFeature3Desc ?? "The quote we give is what you pay. No hidden fees appear at the end. No extra charges for luggage, late hours, or traffic delays. You pay one fair price covering everything."}
                    </p>
                  </div>
               </div>
@@ -398,33 +402,36 @@ export function HotelTransfersClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)] mb-6">Fleet for Hotel Transfer Service</h2>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{p.fleetTitle ?? "Fleet for Hotel Transfer Service"}</h2>
                 <p className="text-[var(--text-2)] font-body max-w-2xl mx-auto text-lg">
-                  We maintain a diverse fleet serving different group sizes and budgets. All our vehicles feature working air conditioning, comfortable seating, and clean interiors.
+                  {p.fleetSubtitle ?? "We maintain a diverse fleet serving different group sizes and budgets. All our vehicles feature working air conditioning, comfortable seating, and clean interiors."}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <FleetCard 
-                  title="Sedan (Toyota Camry/Sonata)"
-                  pax="Up to 4 Passengers"
-                  bag="Moderate Luggage"
-                  description="Accommodate 4 passengers with moderate luggage. Perfect for couples or small families traveling light."
+                  title={p.fleet1Title ?? "Sedan (Toyota Camry/Sonata)"}
+                  pax={p.fleet1Pax ?? "Up to 4 Passengers"}
+                  bag={p.fleet1Bag ?? "Moderate Luggage"}
+                  description={p.fleet1Desc ?? "Accommodate 4 passengers with moderate luggage. Perfect for couples or small families traveling light."}
                   image="/images/fleet/sedan.webp"
+                  bookBtn={p.fleetBookBtn ?? "Book Now via WhatsApp"}
                 />
                 <FleetCard 
-                  title="Toyota Hiace Van"
-                  pax="6-8 Passengers"
-                  bag="Generous Luggage Space"
-                  description="Ideal for families with children or groups traveling together. The extra space makes long trips more comfortable."
+                  title={p.fleet2Title ?? "Toyota Hiace Van"}
+                  pax={p.fleet2Pax ?? "6-8 Passengers"}
+                  bag={p.fleet2Bag ?? "Generous Luggage Space"}
+                  description={p.fleet2Desc ?? "Ideal for families with children or groups traveling together. The extra space makes long trips more comfortable."}
                   image="/images/fleet/hiace-microbus.png"
+                  bookBtn={p.fleetBookBtn ?? "Book Now via WhatsApp"}
                 />
                 <FleetCard 
-                  title="Coaster Minibus"
-                  pax="12-14 Passengers"
-                  bag="Group Luggage Capacity"
-                  description="These work perfectly for extended family groups or friends traveling together for Umrah. Everyone stays together."
+                  title={p.fleet3Title ?? "Coaster Minibus"}
+                  pax={p.fleet3Pax ?? "12-14 Passengers"}
+                  bag={p.fleet3Bag ?? "Group Luggage Capacity"}
+                  description={p.fleet3Desc ?? "These work perfectly for extended family groups or friends traveling together for Umrah. Everyone stays together."}
                   image="/images/fleet/coaster.jpg"
+                  bookBtn={p.fleetBookBtn ?? "Book Now via WhatsApp"}
                 />
               </div>
             </div>
@@ -437,17 +444,17 @@ export function HotelTransfersClient() {
             <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[40px] p-8 md:p-16 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-32 -mt-32" />
               <div className="relative z-10 text-center">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Conclusion</span>
-                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">Traveling in Saudi Arabia Should Feel Smooth and Dignified</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{p.ctaEyebrow ?? "Conclusion"}</span>
+                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">{p.ctaTitle ?? "Traveling in Saudi Arabia Should Feel Smooth and Dignified"}</h2>
                 <div className="text-[var(--text-2)] text-[18px] font-body mb-12 max-w-3xl mx-auto space-y-6">
                   <p className="leading-relaxed">
-                    Your sacred journey deserves the best hotel transfer services in Saudi Arabia that respect your time, comfort, and budget. Whether you need a Jeddah airport to Makkah hotel taxi or Madinah hotel to Madinah airport taxi, we serve you professionally every time.
+                    {p.ctaText1 ?? "Your sacred journey deserves the best hotel transfer services in Saudi Arabia that respect your time, comfort, and budget. Whether you need a Jeddah airport to Makkah hotel taxi or Madinah hotel to Madinah airport taxi, we serve you professionally every time."}
                   </p>
                   <p className="leading-relaxed font-semibold">
-                    At Haramain Umrah Taxi, we have perfected hotel transport taxi services Makkah, Madinah, and Jeddah over the years of dedicated service.
+                    {p.ctaText2 ?? "At Haramain Umrah Taxi, we have perfected hotel transport taxi services Makkah, Madinah, and Jeddah over the years of dedicated service."}
                   </p>
                   <p className="leading-relaxed">
-                    Book your hotel transfers Saudi Arabia with us today through WhatsApp or our website. Let us handle transportation while you focus on prayers, worship, and creating blessed memories.
+                    {p.ctaText3 ?? "Book your hotel transfers Saudi Arabia with us today through WhatsApp or our website. Let us handle transportation while you focus on prayers, worship, and creating blessed memories."}
                   </p>
                 </div>
                 <div className="flex flex-wrap justify-center gap-6">
@@ -458,14 +465,14 @@ export function HotelTransfersClient() {
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--green)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <WhatsAppIcon size={24} />
-                    Book via WhatsApp Now
+                    {p.ctaWhatsAppBtn ?? "Book via WhatsApp Now"}
                   </a>
                   <a
                     href="tel:+966598401594"
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--gold)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <Phone size={24} />
-                    Call Us Direct
+                    {p.ctaCallBtn ?? "Call Us Direct"}
                   </a>
                 </div>
               </div>

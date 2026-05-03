@@ -8,12 +8,10 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { IslamicGeometricBg } from "@/components/graphics/IslamicGeometricBg";
 import { AnimatedCarOnRoad } from "@/components/graphics/AnimatedCarOnRoad";
 import { Canonical } from "@/components/SEO/Canonical";
+import { useI18n } from "@/lib/i18n";
 import {
   ArrowRight,
-  Baby,
-  BookOpen,
   CheckCircle2,
-  ClipboardCheck,
   HandCoins,
   HeartHandshake,
   HelpCircle,
@@ -60,15 +58,7 @@ function Card({
   );
 }
 
-function StepCard({
-  num,
-  title,
-  text,
-}: {
-  num: string;
-  title: string;
-  text: string;
-}) {
+function StepCard({ num, title, text }: { num: string; title: string; text: string }) {
   return (
     <div className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7">
       <div className="flex items-center justify-between mb-4">
@@ -96,12 +86,17 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 }
 
 export function FidyahAndKaffarahClient() {
+  const { tm } = useI18n();
+  const p = tm<Record<string, string>>("fidyahKaffarah", {});
+
   return (
     <div className="min-h-screen bg-[var(--bg)] selection:bg-[var(--gold-soft)] selection:text-[var(--gold)]">
       <Canonical />
       <Navbar />
 
       <main className="flex-grow overflow-hidden">
+
+        {/* HERO */}
         <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-[var(--bg)] overflow-hidden flex flex-col justify-center min-h-[85vh]">
           <div className="absolute inset-0 bg-[url('/images/fidyah-and-kaffarah.jpeg')] bg-cover bg-center bg-no-repeat z-0" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/65 to-black/80 z-10" />
@@ -120,7 +115,7 @@ export function FidyahAndKaffarahClient() {
                 className="inline-block mb-6"
               >
                 <span className="px-4 py-1.5 rounded-full bg-[var(--gold)] text-white font-heading font-bold text-xs uppercase tracking-widest shadow-lg shadow-[var(--gold)]/20">
-                  Fidyah & Kaffarah
+                  {p.heroBadge ?? "Fidyah & Kaffarah"}
                 </span>
               </motion.div>
 
@@ -129,7 +124,7 @@ export function FidyahAndKaffarahClient() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-6xl lg:text-[64px] font-heading font-extrabold !text-white mb-8 leading-tight"
               >
-                Fidyah and Kaffarah Services| Meaning| Differences| Who Pays?
+                {p.heroTitle ?? "Fidyah and Kaffarah Services | Meaning | Differences | Who Pays?"}
               </motion.h1>
 
               <motion.div
@@ -139,10 +134,10 @@ export function FidyahAndKaffarahClient() {
                 className="max-w-3xl mx-auto mb-10 space-y-4"
               >
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Islam is a highly understanding and accommodative religion in terms of commitment fulfillment. Occasionally, individuals are unable to complete commitments due to unforeseen situations.
+                  {p.heroText1 ?? "Islam is a highly understanding and accommodative religion in terms of commitment fulfillment. Occasionally, individuals are unable to complete commitments due to unforeseen situations."}
                 </p>
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  Islam presents alternatives such as Fidyah and Kaffarah to substitute missed commitments. Learn the meaning, differences, and who pays each.
+                  {p.heroText2 ?? "Islam presents alternatives such as Fidyah and Kaffarah to substitute missed commitments. Learn the meaning, differences, and who pays each."}
                 </p>
               </motion.div>
 
@@ -157,13 +152,13 @@ export function FidyahAndKaffarahClient() {
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--green)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all border border-[var(--green)]/20"
                 >
                   <WhatsAppIcon />
-                  Book on WhatsApp Now
+                  {p.heroBookBtn ?? "Book on WhatsApp Now"}
                 </a>
                 <Link
                   href="#faq"
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--bg-alt)] text-[var(--text-1)] font-heading font-bold rounded-xl border border-[var(--border)] hover:bg-[var(--gold)] hover:text-white transition-all shadow-sm"
                 >
-                  View FAQs
+                  {p.heroFaqBtn ?? "View FAQs"}
                   <ArrowRight size={20} />
                 </Link>
               </motion.div>
@@ -175,76 +170,92 @@ export function FidyahAndKaffarahClient() {
           </div>
         </section>
 
+        {/* FIDYAH SECTION */}
         <AnimatedSection className="py-24 bg-[var(--bg-alt)]/30 border-y border-[var(--border)]">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
-                <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">What is Fidyah?</h2>
+                <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">
+                  {p.fidyahTitle ?? "What is Fidyah?"}
+                </h2>
                 <div className="space-y-4">
                   <p className="text-[var(--text-2)] text-[17px] leading-relaxed font-body">
-                    Fidyah is a compensation given by those who cannot fast due to valid reasons like chronic illness, old age, or other long-term disabilities.
+                    {p.fidyahText1 ?? "Fidyah is a compensation given by those who cannot fast due to valid reasons like chronic illness, old age, or other long-term disabilities."}
                   </p>
                   <p className="text-[var(--text-2)] text-[17px] leading-relaxed font-body">
-                    In Ramadan, fasting is obligatory for all Muslims. Some people cannot fast due to legitimate reasons. For them, fidyah is a substitute method of fulfilling the fasts they missed.
+                    {p.fidyahText2 ?? "In Ramadan, fasting is obligatory for all Muslims. Some people cannot fast due to legitimate reasons. For them, fidyah is a substitute method of fulfilling the fasts they missed."}
                   </p>
                 </div>
               </div>
 
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
-                <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">Who Pays Fidya?</h2>
+                <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">
+                  {p.whoPaysFidyahTitle ?? "Who Pays Fidya?"}
+                </h2>
                 <ul className="space-y-3 text-[var(--text-2)] font-body">
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Chronic illness and unable to fast</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Old age and physically unable to fast</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Pregnant or breastfeeding and unable to fast for health reasons</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{p.whoPaysFidyah1 ?? "Chronic illness and unable to fast"}</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{p.whoPaysFidyah2 ?? "Old age and physically unable to fast"}</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{p.whoPaysFidyah3 ?? "Pregnant or breastfeeding and unable to fast for health reasons"}</li>
                 </ul>
               </div>
             </div>
 
             <div className="max-w-7xl mx-auto mt-10 bg-[var(--bg-card)] border-2 border-[var(--gold)]/15 rounded-[40px] p-8 md:p-12">
-              <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4">How is Fidya Paid?</h3>
+              <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4">
+                {p.howFidyahTitle ?? "How is Fidya Paid?"}
+              </h3>
               <div className="space-y-4">
                 <p className="text-[var(--text-2)] font-body leading-relaxed">
-                  Fidya is fulfilled by feeding the poor. The recompense is usually the equivalent of feeding a poor person two meals for each missed fast.
+                  {p.howFidyahText ?? "Fidya is fulfilled by feeding the poor. The recompense is usually the equivalent of feeding a poor person two meals for each missed fast."}
                 </p>
                 <ul className="space-y-3 text-[var(--text-2)] font-body">
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Often calculated based on staple foods like wheat or rice</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />If you miss all 30 fasts, you pay 30 days of fidya</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{p.howFidyah1 ?? "Often calculated based on staple foods like wheat or rice"}</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{p.howFidyah2 ?? "If you miss all 30 fasts, you pay 30 days of fidya"}</li>
                 </ul>
               </div>
             </div>
           </div>
         </AnimatedSection>
 
+        {/* KAFFARAH + COMPARISON */}
         <AnimatedSection className="py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
-                <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">What is Kaffarah?</h2>
+                <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">
+                  {p.kaffarahTitle ?? "What is Kaffarah?"}
+                </h2>
                 <div className="space-y-4">
                   <p className="text-[var(--text-2)] text-[17px] leading-relaxed font-body">
-                    Kaffarah is an expiation or punishment that becomes obligatory if someone commits a wilful infringement of a fast without a permissible cause.
+                    {p.kaffarahText1 ?? "Kaffarah is an expiation or punishment that becomes obligatory if someone commits a wilful infringement of a fast without a permissible cause."}
                   </p>
                   <p className="text-[var(--text-2)] text-[17px] leading-relaxed font-body">
-                    If a person intentionally breaks a fast in Ramadan without valid reason, they must fast for 60 days consecutively or feed 60 poor persons if unable to fast.
+                    {p.kaffarahText2 ?? "If a person intentionally breaks a fast in Ramadan without valid reason, they must fast for 60 days consecutively or feed 60 poor persons if unable to fast."}
                   </p>
                 </div>
               </div>
 
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
-                <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">Who Has to Pay Kaffarah?</h2>
+                <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-6">
+                  {p.whoPaysKaffarahTitle ?? "Who Has to Pay Kaffarah?"}
+                </h2>
                 <ul className="space-y-3 text-[var(--text-2)] font-body">
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Eating or drinking deliberately in Ramadan</li>
-                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Acts that invalidate the fast (e.g. intercourse during fasting hours)</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{p.whoPaysKaffarah1 ?? "Eating or drinking deliberately in Ramadan"}</li>
+                  <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{p.whoPaysKaffarah2 ?? "Acts that invalidate the fast (e.g. intercourse during fasting hours)"}</li>
                 </ul>
               </div>
             </div>
 
             <div className="max-w-7xl mx-auto mt-12">
               <div className="text-center mb-12">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Comparison</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Fidyah vs Kaffarah</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">
+                  {p.comparisonEyebrow ?? "Comparison"}
+                </span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">
+                  {p.comparisonTitle ?? "Fidyah vs Kaffarah"}
+                </h2>
                 <p className="mt-4 text-lg text-[var(--text-2)] max-w-3xl mx-auto font-body">
-                  Fidyah is for those who cannot fast, while Kaffarah is for intentional breaking of fasts.
+                  {p.comparisonSubtitle ?? "Fidyah is for those who cannot fast, while Kaffarah is for intentional breaking of fasts."}
                 </p>
               </div>
 
@@ -252,22 +263,22 @@ export function FidyahAndKaffarahClient() {
                 <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/15 rounded-[40px] p-8 md:p-12">
                   <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-6 flex items-center gap-3">
                     <Utensils className="text-[var(--green)]" />
-                    Fidyah
+                    {p.fidyahTitle ?? "Fidyah"}
                   </h3>
                   <ul className="space-y-3 text-[var(--text-2)] font-body">
-                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />For chronic illness, old age, disability</li>
-                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />Fulfilled by feeding the poor per missed fast</li>
+                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{p.fidyahCompare1 ?? "For chronic illness, old age, disability"}</li>
+                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{p.fidyahCompare2 ?? "Fulfilled by feeding the poor per missed fast"}</li>
                   </ul>
                 </div>
 
                 <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/15 rounded-[40px] p-8 md:p-12">
                   <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-6 flex items-center gap-3">
                     <Scale className="text-[var(--gold)]" />
-                    Kaffarah
+                    {p.kaffarahTitle ?? "Kaffarah"}
                   </h3>
                   <ul className="space-y-3 text-[var(--text-2)] font-body">
-                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />For intentional breaking of a Ramadan fast</li>
-                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />60 consecutive fasts or feeding 60 poor people</li>
+                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{p.kaffarahCompare1 ?? "For intentional breaking of a Ramadan fast"}</li>
+                    <li className="flex gap-3"><CheckCircle2 className="text-[var(--green)] mt-0.5" size={18} />{p.kaffarahCompare2 ?? "60 consecutive fasts or feeding 60 poor people"}</li>
                   </ul>
                 </div>
               </div>
@@ -275,108 +286,92 @@ export function FidyahAndKaffarahClient() {
           </div>
         </AnimatedSection>
 
+        {/* OUR SERVICE */}
         <AnimatedSection className="py-24 bg-[var(--bg-alt)]/50 border-y border-[var(--border)]">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">Our Service</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Fidyah and Kaffarah Services by Haramain Umrah Taxi</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">
+                  {p.serviceEyebrow ?? "Our Service"}
+                </span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">
+                  {p.serviceTitle ?? "Fidyah and Kaffarah Services by Haramain Umrah Taxi"}
+                </h2>
                 <p className="mt-4 text-lg text-[var(--text-2)] max-w-3xl mx-auto font-body">
-                  We help you carry out your obligations with simplicity, authenticity, and a Shariah-compliant process.
+                  {p.serviceSubtitle ?? "We help you carry out your obligations with simplicity, authenticity, and a Shariah-compliant process."}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <Card
-                  title="Fidyah Payment Support"
-                  description="We provide meals to the poor on your behalf."
-                  icon={HandCoins}
-                />
-                <Card
-                  title="Kaffarah Completion"
-                  description="We facilitate feeding 60 poor persons when required."
-                  icon={Utensils}
-                />
-                <Card
-                  title="Shariah-Compliant"
-                  description="We follow Islamic regulations to do your task correctly."
-                  icon={ShieldCheck}
-                />
-                <Card
-                  title="Clear & Stress-Free"
-                  description="We provide confirmation and updates for peace of mind."
-                  icon={HeartHandshake}
-                />
+                <Card title={p.feature1Title ?? "Fidyah Payment Support"} description={p.feature1Desc ?? "We provide meals to the poor on your behalf."} icon={HandCoins} />
+                <Card title={p.feature2Title ?? "Kaffarah Completion"} description={p.feature2Desc ?? "We facilitate feeding 60 poor persons when required."} icon={Utensils} />
+                <Card title={p.feature3Title ?? "Shariah-Compliant"} description={p.feature3Desc ?? "We follow Islamic regulations to do your task correctly."} icon={ShieldCheck} />
+                <Card title={p.feature4Title ?? "Clear & Stress-Free"} description={p.feature4Desc ?? "We provide confirmation and updates for peace of mind."} icon={HeartHandshake} />
               </div>
 
               <div className="mt-12 text-center">
-                <h3 className="text-2xl md:text-3xl font-heading font-bold text-[var(--text-1)] mb-4">Paying Fidyah and Kaffarah with Us</h3>
+                <h3 className="text-2xl md:text-3xl font-heading font-bold text-[var(--text-1)] mb-4">
+                  {p.payingTitle ?? "Paying Fidyah and Kaffarah with Us"}
+                </h3>
                 <p className="text-[var(--text-2)] font-body max-w-3xl mx-auto text-lg">
-                  Contact us, choose a payment option, and we take care of distribution—then you receive confirmation.
+                  {p.payingSubtitle ?? "Contact us, choose a payment option, and we take care of distribution—then you receive confirmation."}
                 </p>
               </div>
 
               <div className="mt-10 grid grid-cols-1 md:grid-cols-4 gap-6">
-                <StepCard num="01" title="Contact Us" text="Tell us how many fasts were missed or broken." />
-                <StepCard num="02" title="Choose Payment" text="Select a secure and easy payment option." />
-                <StepCard num="03" title="We Distribute" text="We ensure proper distribution to deserving people." />
-                <StepCard num="04" title="Get Confirmation" text="Receive proof that your obligation is fulfilled." />
+                <StepCard num="01" title={p.step1Title ?? "Contact Us"} text={p.step1Text ?? "Tell us how many fasts were missed or broken."} />
+                <StepCard num="02" title={p.step2Title ?? "Choose Payment"} text={p.step2Text ?? "Select a secure and easy payment option."} />
+                <StepCard num="03" title={p.step3Title ?? "We Distribute"} text={p.step3Text ?? "We ensure proper distribution to deserving people."} />
+                <StepCard num="04" title={p.step4Title ?? "Get Confirmation"} text={p.step4Text ?? "Receive proof that your obligation is fulfilled."} />
               </div>
 
               <div className="mt-12 bg-[var(--bg-card)] border-2 border-[var(--gold)]/15 rounded-[40px] p-8 md:p-12">
                 <p className="text-[var(--text-2)] font-body leading-relaxed">
-                  Fidyah and kaffarah help Muslims complete their obligations. Fidyah is for those who cannot fast, while kaffarah is for those who intentionally break fast. If you understand the difference, you can fulfill your responsibilities correctly.
+                  {p.summaryText1 ?? "Fidyah and kaffarah help Muslims complete their obligations. Fidyah is for those who cannot fast, while kaffarah is for those who intentionally break fast. If you understand the difference, you can fulfill your responsibilities correctly."}
                 </p>
                 <p className="mt-4 text-[var(--text-2)] font-body leading-relaxed">
-                  At Haramain Umrah Taxi, we provide dependable fidyah and kaffarah services to help you complete your obligations with ease and precision.
+                  {p.summaryText2 ?? "At Haramain Umrah Taxi, we provide dependable fidyah and kaffarah services to help you complete your obligations with ease and precision."}
                 </p>
               </div>
             </div>
           </div>
         </AnimatedSection>
 
+        {/* FAQ */}
         <AnimatedSection id="faq" className="py-24 bg-[var(--bg-alt)] border-y border-[var(--border)]">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">FAQ</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">Frequently Asked Questions</h2>
+                <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">
+                  {p.faqEyebrow ?? "FAQ"}
+                </span>
+                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">
+                  {p.faqTitle ?? "Frequently Asked Questions"}
+                </h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <FAQItem
-                  q="Can I Pay Fidyah in Money Instead of Food?"
-                  a="Yes, but it is more desirable to give fidyah as meals. If donating money, it should equal the cost of a person's daily sustenance."
-                />
-                <FAQItem
-                  q="Can a Pregnant Woman Pay Fidya in Lieu of Fasting?"
-                  a="Yes, if it is harmful to her health or the baby's health, she is permitted to give fidyah instead of fasting."
-                />
-                <FAQItem
-                  q="If someone missed fasts due to temporary illness?"
-                  a="If the illness is temporary and the person recovers, they should make up the lost fasts later instead of paying fidyah."
-                />
-                <FAQItem
-                  q="Whether Kaffarah May Be Paid in Instalments?"
-                  a="No, kaffarah is either 60 consecutive fasts or feeding 60 poor people in one sitting."
-                />
-                <FAQItem
-                  q="How do I determine if my Fidya or Kaffarah has been paid properly?"
-                  a="We provide transparency and confirmation that your fidyah/kaffarah is fulfilled."
-                />
+                <FAQItem q={p.faq1Question ?? "Can I Pay Fidyah in Money Instead of Food?"} a={p.faq1Answer ?? "Yes, but it is more desirable to give fidyah as meals. If donating money, it should equal the cost of a person's daily sustenance."} />
+                <FAQItem q={p.faq2Question ?? "Can a Pregnant Woman Pay Fidya in Lieu of Fasting?"} a={p.faq2Answer ?? "Yes, if it is harmful to her health or the baby's health, she is permitted to give fidyah instead of fasting."} />
+                <FAQItem q={p.faq3Question ?? "If someone missed fasts due to temporary illness?"} a={p.faq3Answer ?? "If the illness is temporary and the person recovers, they should make up the lost fasts later instead of paying fidyah."} />
+                <FAQItem q={p.faq4Question ?? "Whether Kaffarah May Be Paid in Instalments?"} a={p.faq4Answer ?? "No, kaffarah is either 60 consecutive fasts or feeding 60 poor people in one sitting."} />
+                <FAQItem q={p.faq5Question ?? "How do I determine if my Fidya or Kaffarah has been paid properly?"} a={p.faq5Answer ?? "We provide transparency and confirmation that your fidyah/kaffarah is fulfilled."} />
               </div>
             </div>
           </div>
         </AnimatedSection>
 
+        {/* CTA */}
         <AnimatedSection className="px-6 py-24 pb-32">
           <div className="max-w-7xl mx-auto lg:px-8">
             <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[40px] p-8 md:p-16 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--gold)]/5 rounded-full blur-3xl -mr-32 -mt-32" />
               <div className="relative z-10 text-center">
-                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">Pay Your Fidyah or Kaffarah with Confidence</h2>
+                <h2 className="text-3xl lg:text-5xl font-heading font-bold text-[var(--text-1)] mb-8">
+                  {p.ctaTitle ?? "Pay Your Fidyah or Kaffarah with Confidence"}
+                </h2>
                 <p className="text-[var(--text-2)] text-[18px] font-body mb-12 max-w-3xl mx-auto leading-relaxed">
-                  Contact us today to have your kaffarah or fidyah organized with minimal hassle.
+                  {p.ctaText ?? "Contact us today to have your kaffarah or fidyah organized with minimal hassle."}
                 </p>
                 <div className="flex flex-wrap justify-center gap-6">
                   <a
@@ -386,20 +381,21 @@ export function FidyahAndKaffarahClient() {
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--green)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <WhatsAppIcon size={24} />
-                    Book via WhatsApp Now
+                    {p.ctaWhatsAppBtn ?? "Book via WhatsApp Now"}
                   </a>
                   <a
                     href="tel:+966598401594"
                     className="flex items-center gap-3 px-10 py-5 bg-[var(--gold)] text-white font-heading font-bold rounded-2xl hover:scale-105 transition-all w-full md:w-auto"
                   >
                     <Phone size={24} />
-                    Call Us Direct
+                    {p.ctaCallBtn ?? "Call Us Direct"}
                   </a>
                 </div>
               </div>
             </div>
           </div>
         </AnimatedSection>
+
       </main>
 
       <Footer />

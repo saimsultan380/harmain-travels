@@ -221,7 +221,7 @@ export function OtherServices() {
           {/* Cards Slider */}
           <div
             ref={sliderRef}
-            className="flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 -mx-4 md:mx-0 px-4 md:px-0"
+            className="flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory -mx-4 md:mx-0 px-4 md:px-0"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             onMouseEnter={() => setIsAutoPlaying(false)}
             onMouseLeave={() => setIsAutoPlaying(true)}
@@ -232,12 +232,7 @@ export function OtherServices() {
               
               return (
                 <div key={i} className="snap-center flex-shrink-0 w-[calc(100vw-3rem)] sm:w-[280px] md:w-[300px]">
-                  <motion.div
-                    initial={{ opacity: 0, y: 36 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{ type: "spring", stiffness: 90, damping: 20, delay: i * 0.07 }}
-                  >
+                  <div className="h-[260px]">
                     <OtherServiceFlipCard
                       service={service}
                       index={i}
@@ -245,7 +240,7 @@ export function OtherServices() {
                       color={color}
                       t={t}
                     />
-                  </motion.div>
+                  </div>
                 </div>
               );
             })}
@@ -270,7 +265,7 @@ export function OtherServices() {
         </div>
 
         {/* Dots Navigation */}
-        <div className="flex justify-center items-center gap-2 mt-8">
+        <div className="flex justify-center items-center gap-2 mt-6">
           {services.map((_, i) => (
             <button
               key={i}
@@ -287,7 +282,7 @@ export function OtherServices() {
         </div>
 
         {/* Mobile Navigation Buttons */}
-        <div className="flex md:hidden justify-center gap-4 mt-6">
+        <div className="flex md:hidden justify-center gap-4 mt-4">
           <button
             onClick={goToPrevious}
             className="flex items-center justify-center w-10 h-10 bg-[var(--bg-card)] border border-[var(--border)] rounded-full text-[var(--text-2)] hover:text-[var(--green)] hover:border-[var(--green)] transition-colors"

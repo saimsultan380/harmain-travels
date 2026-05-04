@@ -149,12 +149,25 @@ export function Services() {
     if (sliderRef.current) {
       const container = sliderRef.current;
       const isMobile = window.innerWidth < 640;
-      const cardWidth = isMobile ? container.scrollWidth / services.length : 300 + 24; // 300px card + 24px gap
       
-      container.scrollTo({
-        left: currentIndex * cardWidth,
-        behavior: 'smooth'
-      });
+      if (isMobile) {
+        // Mobile: each card takes full container width minus gaps
+        const containerWidth = container.clientWidth;
+        const cardWidth = containerWidth - 32; // Account for padding
+        const scrollPosition = currentIndex * (cardWidth + 16); // Card width + gap
+        
+        container.scrollTo({
+          left: scrollPosition,
+          behavior: 'smooth'
+        });
+      } else {
+        // Desktop: fixed card width + gap
+        const cardWidth = 300 + 24; // 300px card + 24px gap
+        container.scrollTo({
+          left: currentIndex * cardWidth,
+          behavior: 'smooth'
+        });
+      }
     }
   }, [currentIndex]);
 
@@ -194,13 +207,13 @@ export function Services() {
           {/* Cards Slider */}
           <div
             ref={sliderRef}
-            className="flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4"
+            className="flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 -mx-4 md:mx-0 px-4 md:px-0"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             onMouseEnter={() => setIsAutoPlaying(false)}
             onMouseLeave={() => setIsAutoPlaying(true)}
           >
             {services.map((service, i) => (
-              <div key={service.id} className="snap-center flex-shrink-0 w-[calc(100vw-2rem)] sm:w-[280px] md:w-[300px] px-2 sm:px-0">
+              <div key={service.id} className="snap-center flex-shrink-0 w-[calc(100vw-3rem)] sm:w-[280px] md:w-[300px]">
                 <motion.div
                   initial={{ opacity: 0, y: 36 }}
                   whileInView={{ opacity: 1, y: 0 }}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, type Variants, AnimatePresence } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { TypewriterText } from "@/components/ui/TypewriterText";
 import { IslamicGeometricBg } from "@/components/graphics/IslamicGeometricBg";
 import { useI18n } from "@/lib/i18n";
@@ -26,24 +26,6 @@ const WhatsAppIcon = ({
   </svg>
 );
 
-const bannerSlides = [
-  {
-    id: 1,
-    image: "/images/banner 1.png",
-    alt: "Banner 1"
-  },
-  {
-    id: 2,
-    image: "/images/banner 2.png",
-    alt: "Banner 2"
-  },
-  {
-    id: 3,
-    image: "/images/banner3.png",
-    alt: "Banner 3"
-  }
-];
-
 export function Hero() {
   const [particles, setParticles] = useState<
     {
@@ -58,7 +40,6 @@ export function Hero() {
       delay: number;
     }[]
   >([]);
-  const [currentSlide, setCurrentSlide] = useState(0);
   const { t, tm } = useI18n();
 
   useEffect(() => {
@@ -76,19 +57,6 @@ export function Hero() {
       }))
     );
   }, []);
-
-  // Auto-slide functionality
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % bannerSlides.length);
-    }, 5000); // Change slide every 5 seconds
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-  };
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -116,40 +84,13 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen pt-24 overflow-hidden bg-black flex flex-col items-center justify-center">
-      {/* Banner Slider Background */}
+      {/* Static Banner Background */}
       <div className="absolute inset-0 w-full h-full">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentSlide}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-            className="absolute inset-0 w-full h-full"
-          >
-            <img
-              src={bannerSlides[currentSlide].image}
-              alt={bannerSlides[currentSlide].alt}
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      {/* Slider Dots */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-3">
-        {bannerSlides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide
-                ? "bg-[#F5C842] scale-125"
-                : "bg-white/40 hover:bg-white/60"
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
+        <img
+          src="/images/banner 1.png"
+          alt="Haramain Umrah Taxi"
+          className="w-full h-full object-cover"
+        />
       </div>
 
       {/* Overlays */}

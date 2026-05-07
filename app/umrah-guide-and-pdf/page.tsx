@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "Umrah for beginners",
   ],
   alternates: {
-    canonical: "/umrah-guide-and-pdf",
+    canonical: "/umrah-guide-and-pdf/",
   },
 };
 

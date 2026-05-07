@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy - Haramain Umrah Taxi",
   description: "Read our privacy policy to understand how we collect, use, and protect your personal information when you use our Umrah taxi services.",
   alternates: {
-    canonical: "/privacy-policy",
+    canonical: "/privacy-policy/",
   },
 };
 

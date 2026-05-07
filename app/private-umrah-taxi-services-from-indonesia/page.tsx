@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Book Private Umrah Taxi Services Online from Indonesia - Haramain Umrah Taxi",
   description: "Book private Umrah taxi services online from Indonesia. Reliable transport for Indonesian pilgrims with comfortable vehicles and professional drivers.",
   alternates: {
-    canonical: "/private-umrah-taxi-services-from-indonesia",
+    canonical: "/private-umrah-taxi-services-from-indonesia/",
   },
 };
 

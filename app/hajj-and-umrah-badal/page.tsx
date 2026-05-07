@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "Umrah and Hajj Badal services",
   ],
   alternates: {
-    canonical: "/hajj-and-umrah-badal",
+    canonical: "/hajj-and-umrah-badal/",
   },
 };
 

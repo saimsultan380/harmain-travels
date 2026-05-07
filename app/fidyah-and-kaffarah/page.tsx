@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "Kaffarah for breaking fast",
   ],
   alternates: {
-    canonical: "/fidyah-and-kaffarah",
+    canonical: "/fidyah-and-kaffarah/",
   },
 };
 

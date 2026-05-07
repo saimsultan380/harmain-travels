@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { GMCYukonXLClient } from "./GMCYukonXLClient";
 
 export const metadata: Metadata = {
-  title: "Reserve Private GMC Taxi in KSA | GMC Ziyarat & Umrah Taxi",
+  title: "Reserve GMC Yukon SUV XL Taxi in KSA for Umrah, Ziyarat & Tourism",
   description:
-    "Book GMC Yukon XL private taxi for Umrah, Ziyarat, and airport transfers in KSA. Luxury SUV taxi service in Makkah, Madinah, Jeddah with premium comfort and transparent fares.",
+    "Need Luxury GMC Yukon XL Taxi in Saudia, Madinah, and Makkah for Umrah, Hajj, Ziyarat, Airport, Private use? Choose Our GMC taxi in KSA at cheap prices.",
   keywords: [
     "GMC Yukon XL taxi",
     "Luxury taxi Saudi Arabia",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "GMC Yukon XL rental",
   ],
   alternates: {
-    canonical: "/gmc-yukon-xl",
+    canonical: "/gmc-yukon-xl/",
   },
 };
 

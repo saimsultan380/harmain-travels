@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "Damm services in Makkah",
   ],
   alternates: {
-    canonical: "/damm-services",
+    canonical: "/damm-services/",
   },
 };
 

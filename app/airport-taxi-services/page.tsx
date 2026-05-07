@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Book our reliable airport transfers at Jeddah & Madinah airports. Haramain Umrah Taxi offers 24/7 fixed-rate Madinah airport taxi and Jeddah airport taxi.",
   keywords: ["Jeddah Airport Taxi", "Madinah Airport Taxi", "Makkah Transfer", "Saudi Airport Taxi", "Haramain Taxi"],
   alternates: {
-    canonical: "/airport-taxi-services",
+    canonical: "/airport-taxi-services/",
   },
 };
 

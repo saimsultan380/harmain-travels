@@ -28,6 +28,13 @@ export const metadata: Metadata = {
     "Haramain taxi",
     "Saudi Arabia taxi service",
   ],
+  icons: {
+    icon: [
+      { url: "/images/favicon.png", type: "image/png" },
+    ],
+    shortcut: "/images/favicon.png",
+    apple: "/images/favicon.png",
+  },
   openGraph: {
     title: "Haramain Umrah Taxi — Premium Umrah Taxi Service",
     description: "Your trusted Umrah taxi service across Makkah, Madinah & Jeddah. Fixed fares, licensed drivers, 24/7 availability.",

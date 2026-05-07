@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Hajj Quota by Country, Hajj Cost & Waiting List by Country - Haramain Umrah Taxi",
   description: "Complete guide to Hajj quota by country for 2026, real costs from over 10 countries, government subsidies, and waiting list information for pilgrims worldwide.",
   alternates: {
-    canonical: "/hajj-quota-by-country-hajj-cost-waiting-list-by-country",
+    canonical: "/hajj-quota-by-country-hajj-cost-waiting-list-by-country/",
   },
 };
 

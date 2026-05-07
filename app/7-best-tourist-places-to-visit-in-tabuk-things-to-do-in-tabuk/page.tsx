@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "7 Best Tourist Places to Visit in Tabuk & Things to Do in Tabuk - Haramain Umrah Taxi",
   description: "Discover the best places to visit in Tabuk, KSA. From Tabuk Castle to Wadi Al Disah, explore top attractions and things to do in this fascinating northwestern Saudi city.",
   alternates: {
-    canonical: "/7-best-tourist-places-to-visit-in-tabuk-things-to-do-in-tabuk",
+    canonical: "/7-best-tourist-places-to-visit-in-tabuk-things-to-do-in-tabuk/",
   },
 };
 

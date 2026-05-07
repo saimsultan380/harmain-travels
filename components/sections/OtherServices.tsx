@@ -1,28 +1,32 @@
 "use client";
 
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { BookOpen, Users, Heart, ArrowRight, Building, FileText, Package, Utensils, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
-import { motion } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
+
+const serviceImages: Record<string, string> = {
+  "Damm Service": "/images/Damm.jpg",
+  "Umrah and Hajj Badal": "/images/Umrah and Hajj Badal.jpg",
+  "Quran Waqaf": "/images/Quran Waqaf.jpg",
+  "Umrah Guide": "/images/Umrah guide.jpg",
+  "Hotel Booking Makkah": "/images/Hotel Booking Makkah.jpg",
+  "Hotel Booking Madinah": "/images/Hotel Booking Madinah.jpg",
+  "Qurbani Services": "/images/Qurbani Services.jpg",
+  "Food Package Distribution": "/images/Food Package Distribution.jpg",
+};
 
 function OtherServiceFlipCard({
   service,
-  index,
-  icon: Icon,
-  color,
   t,
 }: {
   service: { title: string; desc: string; href: string };
-  index: number;
-  icon: any;
-  color: string;
   t: (key: string) => string;
 }) {
   const [isFlipped, setIsFlipped] = useState(false);
+  const image = serviceImages[service.title];
 
   const handleCardInteraction = () => {
-    // On mobile, toggle the flip state on tap
     if (window.innerWidth < 768) {
       setIsFlipped(!isFlipped);
     }
@@ -42,44 +46,62 @@ function OtherServiceFlipCard({
         }`}
         style={{ transformStyle: "preserve-3d" }}
       >
-        {/* ── FRONT ── icon + title only */}
+        {/* ── FRONT ── */}
         <div
-          className="absolute inset-0 rounded-2xl border-2 border-[var(--border-dark)] bg-[var(--bg-card)] flex flex-col items-center justify-center gap-5 px-6 text-center overflow-hidden transition-all duration-300"
+          className="absolute inset-0 rounded-2xl border-2 border-[var(--border-dark)] overflow-hidden"
           style={{ backfaceVisibility: "hidden" }}
         >
           {/* Top accent */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-[2px] bg-[var(--green)] rounded-b-full" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-[2px] bg-[var(--green)] rounded-b-full z-10" />
 
-          {/* Icon - no background */}
-          <div className="flex items-center justify-center shrink-0">
-            <Icon size={32} style={{ color }} />
-          </div>
+          {image ? (
+            <>
+              {/* Full background image */}
+              <div className="absolute inset-0 w-full h-full">
+                <img
+                  src={image}
+                  alt={service.title}
+                  className="w-full h-full object-cover rounded-2xl"
+                />
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-black/30 rounded-2xl" />
+                {/* Bottom gradient for text contrast */}
+                <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/70 via-black/30 to-transparent rounded-b-2xl" />
+              </div>
 
-          {/* Title */}
-          <h3 className="text-[16px] font-heading font-bold text-[var(--text-1)] leading-snug">
-            {service.title}
-          </h3>
-
-          {/* Hover hint */}
-          <p className="text-[var(--text-3)] text-[11px] font-body uppercase tracking-widest">
-            <span className="hidden md:inline">Hover to explore</span>
-            <span className="md:hidden">Tap to explore</span>
-          </p>
+              {/* Title at bottom */}
+              <div className="absolute bottom-0 left-0 right-0 z-10 p-6 text-left">
+                <h3 className="text-[20px] md:text-[22px] font-heading font-extrabold leading-tight drop-shadow-2xl" style={{ color: '#ffffff' }}>
+                  {service.title}
+                </h3>
+              </div>
+            </>
+          ) : (
+            <>
+              {/* Dark background fallback */}
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl" />
+              <div className="relative z-10 flex flex-col items-center justify-center gap-5 h-full px-6 text-center">
+                <h3 className="text-[20px] md:text-[22px] font-heading font-extrabold leading-tight" style={{ color: '#ffffff' }}>
+                  {service.title}
+                </h3>
+              </div>
+            </>
+          )}
 
           {/* Mobile tap indicator */}
-          <div className="md:hidden absolute inset-0 border-2 border-transparent rounded-2xl animate-pulse opacity-30 pointer-events-none" 
-               style={{ borderColor: 'var(--green)' }} />
+          <div className="md:hidden absolute inset-0 border-2 border-transparent rounded-2xl animate-pulse opacity-30 pointer-events-none z-20"
+            style={{ borderColor: 'var(--green)' }} />
 
           {/* Corner ornament */}
-          <div className="absolute bottom-3 right-3 opacity-[0.05]">
+          <div className="absolute bottom-3 right-3 opacity-[0.15] z-10">
             <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-              <circle cx="20" cy="20" r="18" stroke="var(--green)" strokeWidth="1.5" />
-              <circle cx="20" cy="20" r="10" stroke="var(--green)" strokeWidth="1" />
+              <circle cx="20" cy="20" r="18" stroke="white" strokeWidth="1.5" />
+              <circle cx="20" cy="20" r="10" stroke="white" strokeWidth="1" />
             </svg>
           </div>
         </div>
 
-        {/* ── BACK ── full detail */}
+        {/* ── BACK ── */}
         <div
           className="absolute inset-0 rounded-2xl border border-[var(--green)] bg-[var(--bg-card)] flex flex-col justify-between px-6 py-6 overflow-hidden"
           style={{
@@ -91,9 +113,6 @@ function OtherServiceFlipCard({
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-[2px] bg-[var(--gold)] rounded-b-full" />
 
           <div className="flex items-start gap-3">
-            <div className="flex items-center justify-center shrink-0 mt-0.5">
-              <Icon size={20} style={{ color }} />
-            </div>
             <h3 className="text-[14px] font-heading font-bold text-[var(--text-1)] leading-snug">
               {service.title}
             </h3>
@@ -126,75 +145,12 @@ function OtherServiceFlipCard({
 
 export function OtherServices() {
   const { t, tm } = useI18n();
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
-  
-  const icons = [Heart, Users, BookOpen, BookOpen, Building, Building, Package, Utensils];
-  const colors = ["var(--green)", "var(--gold)", "var(--green)", "var(--gold)", "var(--green)", "var(--gold)", "var(--green)", "var(--gold)"];
 
   const services = tm("otherServices.items") as Array<{
     title: string;
     desc: string;
     href: string;
   }>;
-
-  // Auto-play functionality
-  useEffect(() => {
-    if (isAutoPlaying && services.length > 0) {
-      autoPlayRef.current = setInterval(() => {
-        setCurrentIndex((prev) => (prev + 1) % services.length);
-      }, 4500);
-    }
-    return () => {
-      if (autoPlayRef.current) {
-        clearInterval(autoPlayRef.current);
-      }
-    };
-  }, [isAutoPlaying, services.length]);
-
-  // Scroll to current card
-  useEffect(() => {
-    if (sliderRef.current && services.length > 0) {
-      const container = sliderRef.current;
-      const isMobile = window.innerWidth < 640;
-      
-      if (isMobile) {
-        // Mobile: each card takes full container width minus gaps
-        const containerWidth = container.clientWidth;
-        const cardWidth = containerWidth - 32; // Account for padding
-        const scrollPosition = currentIndex * (cardWidth + 16); // Card width + gap
-        
-        container.scrollTo({
-          left: scrollPosition,
-          behavior: 'smooth'
-        });
-      } else {
-        // Desktop: fixed card width + gap
-        const cardWidth = 300 + 24; // 300px card + 24px gap
-        container.scrollTo({
-          left: currentIndex * cardWidth,
-          behavior: 'smooth'
-        });
-      }
-    }
-  }, [currentIndex, services.length]);
-
-  const goToPrevious = () => {
-    setIsAutoPlaying(false);
-    setCurrentIndex((prev) => (prev - 1 + services.length) % services.length);
-  };
-
-  const goToNext = () => {
-    setIsAutoPlaying(false);
-    setCurrentIndex((prev) => (prev + 1) % services.length);
-  };
-
-  const goToSlide = (index: number) => {
-    setIsAutoPlaying(false);
-    setCurrentIndex(index);
-  };
 
   if (!services || services.length === 0) {
     return null;
@@ -216,95 +172,17 @@ export function OtherServices() {
           </p>
         </div>
 
-        {/* Slider Container */}
-        <div className="relative">
-          {/* Cards Slider */}
-          <div
-            ref={sliderRef}
-            className="flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory -mx-4 md:mx-0 px-4 md:px-0"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-            onMouseEnter={() => setIsAutoPlaying(false)}
-            onMouseLeave={() => setIsAutoPlaying(true)}
-          >
-            {services.map((service, i) => {
-              const Icon = icons[i] || BookOpen;
-              const color = colors[i] || "var(--green)";
-              
-              return (
-                <div key={i} className="snap-center flex-shrink-0 w-[calc(100vw-3rem)] sm:w-[280px] md:w-[300px]">
-                  <div className="h-[260px]">
-                    <OtherServiceFlipCard
-                      service={service}
-                      index={i}
-                      icon={Icon}
-                      color={color}
-                      t={t}
-                    />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Navigation Arrows - Hidden on mobile */}
-          <button
-            onClick={goToPrevious}
-            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-[var(--bg-card)] border border-[var(--border)] rounded-full items-center justify-center text-[var(--text-2)] hover:text-[var(--green)] hover:border-[var(--green)] transition-colors shadow-lg"
-            aria-label="Previous service"
-          >
-            <ChevronLeft size={20} />
-          </button>
-          
-          <button
-            onClick={goToNext}
-            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 bg-[var(--bg-card)] border border-[var(--border)] rounded-full items-center justify-center text-[var(--text-2)] hover:text-[var(--green)] hover:border-[var(--green)] transition-colors shadow-lg"
-            aria-label="Next service"
-          >
-            <ChevronRight size={20} />
-          </button>
-        </div>
-
-        {/* Dots Navigation */}
-        <div className="flex justify-center items-center gap-2 mt-6">
-          {services.map((_, i) => (
-            <button
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {services.map((service, i) => (
+            <OtherServiceFlipCard
               key={i}
-              onClick={() => goToSlide(i)}
-              className="transition-all duration-300 rounded-full"
-              style={{
-                width: currentIndex === i ? "32px" : "8px",
-                height: "8px",
-                backgroundColor: currentIndex === i ? "var(--green)" : "var(--border-dark)",
-              }}
-              aria-label={`Go to service ${i + 1}`}
+              service={service}
+              t={t}
             />
           ))}
         </div>
-
-        {/* Mobile Navigation Buttons */}
-        <div className="flex md:hidden justify-center gap-4 mt-4">
-          <button
-            onClick={goToPrevious}
-            className="flex items-center justify-center w-10 h-10 bg-[var(--bg-card)] border border-[var(--border)] rounded-full text-[var(--text-2)] hover:text-[var(--green)] hover:border-[var(--green)] transition-colors"
-            aria-label="Previous service"
-          >
-            <ChevronLeft size={18} />
-          </button>
-          <button
-            onClick={goToNext}
-            className="flex items-center justify-center w-10 h-10 bg-[var(--bg-card)] border border-[var(--border)] rounded-full text-[var(--text-2)] hover:text-[var(--green)] hover:border-[var(--green)] transition-colors"
-            aria-label="Next service"
-          >
-            <ChevronRight size={18} />
-          </button>
-        </div>
       </div>
-
-      <style jsx>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
     </AnimatedSection>
   );
 }

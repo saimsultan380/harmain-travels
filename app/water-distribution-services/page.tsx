@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "Ramadan water distribution",
   ],
   alternates: {
-    canonical: "/water-distribution-services",
+    canonical: "/water-distribution-services/",
   },
 };
 

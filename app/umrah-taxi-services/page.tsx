@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Haramain Umrah Taxi offers best Umrah taxi services in Makkah & Madinah. Book private taxi for Umrah pilgrims with fixed rates & licensed drivers.",
   keywords: ["Umrah Taxi Services", "Makkah Taxi", "Madinah Taxi", "Online Umrah Taxi", "Umrah Transportation", "Haramain Umrah Taxi"],
   alternates: {
-    canonical: "/umrah-taxi-services",
+    canonical: "/umrah-taxi-services/",
   },
 };
 

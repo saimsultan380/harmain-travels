@@ -6,8 +6,6 @@ import {
   Users,
   Bus,
   Crown,
-  BookOpen,
-  Heart,
 } from "lucide-react";
 
 export const services = [
@@ -18,6 +16,7 @@ export const services = [
       "We offer 24/7 taxi service from Jeddah airport to Makkah and Makkah to Jeddah and Jeddah airport with fixed pricing, private rides, and group options for pilgrims, tourists, and families. We offer the best taxi fares from Jeddah airport to Makkah.",
     icon: Plane,
     link: "/services/jeddah-makkah",
+    image: "/images/Jeddah Airport to Makkah Transfer.jpg",
   },
   {
     id: "makkah-madinah",
@@ -26,6 +25,7 @@ export const services = [
       "Our Makkah to Madinah taxi service ensures safe, affordable, and professional trips with modern fleets like Toyota Camry taxi and GMC Yukon XL taxi in Saudi Arabia. Haramain Umrah taxi offers the best taxi fare from Makkah to Madinah with punctual and dependable service.",
     icon: ArrowLeftRight,
     link: "/services/makkah-madinah",
+    image: "/images/makkah to madinah-services.jpg",
   },
   {
     id: "madinah-makkah",
@@ -34,6 +34,7 @@ export const services = [
       "Return to Makkah using our dedicated Madinah to Makkah transfer service. We provide 24/7 availability, spacious vehicles for families and groups. Our knowledgeable drivers are familiar with pilgrimage schedules to ensure you never miss your worship times.",
     icon: ArrowLeftRight,
     link: "/services/madinah-makkah",
+    image: "/images/madinah to makkah.jpg",
   },
   {
     id: "airport-pickups",
@@ -42,6 +43,7 @@ export const services = [
       "We provide reliable airport taxis in Jeddah, and we are experts in providing Madinah airport taxi service. Haramain Umrah Taxi provides the best Jeddah airport to Makkah and Madinah Taxi Services at reasonable prices. Book your airport transfer taxi services in advance for peace of mind.",
     icon: MapPin,
     link: "/services/airport-pickups",
+    image: "/images/Airport Pickups (Jeddah, Madinah, Taif).jpg",
   },
   {
     id: "ziyarat-tours",
@@ -50,6 +52,7 @@ export const services = [
       "We arrange ziyarat taxi services, especially in Makkah and Madinah, and also cover other holy sites like Taif, AlUla, and Badr with trusted and professional drivers. Haramain Umrah Taxi, Makkah Ziyarat taxi and Madinah Ziyarat taxi are the best choices for pilgrims.",
     icon: Compass,
     link: "/services/ziyarat-tours",
+    image: "/images/Ziyarat Tours (Makkah, Madinah, Taif, Jeddah, Badar, AlUla).jpg",
   },
   {
     id: "family-group",
@@ -58,6 +61,7 @@ export const services = [
       "Spacious vans, coasters, and buses for Umrah pilgrims, ziyarat groups, corporate events, or special occasions.",
     icon: Users,
     link: "/services/family-group",
+    image: "/images/Family, Group and Event Travel.jpg",
   },
   {
     id: "bus-bookings",
@@ -66,6 +70,7 @@ export const services = [
       "Book an affordable taxi service in Saudi Arabia for schools, universities, and large pilgrim groups. We offer the best Umrah bus services in Makkah and Madinah for large pilgrim groups. Our Riyadh taxi services and Makkah taxi services include comfortable vans and buses.",
     icon: Bus,
     link: "/services/bus-bookings",
+    image: "/images/Group  Bus Bookings.jpg",
   },
   {
     id: "private-vip",
@@ -74,5 +79,6 @@ export const services = [
       "Luxury GMCs, sedans, and uniformed chauffeurs offering privacy, comfort, and VIP protocol for business or family travel.",
     icon: Crown,
     link: "/services/private-vip",
+    image: "/images/Private Taxi and VIP Services.jpg",
   },
 ];

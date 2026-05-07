@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Private Umrah Taxi Services Online from the USA Book at Discount - Haramain Umrah Taxi",
   description: "Book private Umrah taxi services online from the USA at discount. Reliable airport transfers, Makkah to Madinah travel, and comfortable transportation for USA pilgrims.",
   alternates: {
-    canonical: "/private-umrah-taxi-services-online-from-the-usa-book-at-discount",
+    canonical: "/private-umrah-taxi-services-online-from-the-usa-book-at-discount/",
   },
 };
 

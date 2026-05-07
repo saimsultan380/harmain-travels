@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { CoasterClient } from "./CoasterClient";
 
 export const metadata: Metadata = {
-  title: "18-Seater Coaster for Umrah & Ziyarat in Makkah & Madinah, KSA",
+  title: "Book Coaster Taxi for Hajj, Umrah, Ziyarat in Saudia, Makkah, Madina",
   description:
-    "Book 18-seater Coaster bus for Umrah, Ziyarat, and airport transfers in KSA. Spacious group taxi service in Makkah, Madinah, Jeddah with affordable fares and 24/7 availability.",
+    "Are you a big group and want to book 18-seater Ziyarat, Airport & Umrah Coaster Taxi in Makkah, Madinah, and Saudia? Book Our Coaster at affordable prices!",
   keywords: [
     "Coaster taxi Saudi Arabia",
     "18 seater Coaster",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "Group travel Coaster",
   ],
   alternates: {
-    canonical: "/coaster",
+    canonical: "/coaster/",
   },
 };
 

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "Ziyarat taxi prices",
   ],
   alternates: {
-    canonical: "/our-taxi-services-pricing",
+    canonical: "/our-taxi-services-pricing/",
   },
 };
 

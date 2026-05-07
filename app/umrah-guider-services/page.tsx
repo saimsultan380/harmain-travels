@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "Umrah helper",
   ],
   alternates: {
-    canonical: "/umrah-guider-services",
+    canonical: "/umrah-guider-services/",
   },
 };
 

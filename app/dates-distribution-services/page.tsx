@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "Sadaqah Jariyah dates",
   ],
   alternates: {
-    canonical: "/dates-distribution-services",
+    canonical: "/dates-distribution-services/",
   },
 };
 

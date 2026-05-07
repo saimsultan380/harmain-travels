@@ -9,6 +9,7 @@ import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { useI18n } from "@/lib/i18n";
 import { Menu, X, ChevronDown, ChevronRight, Phone } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const WhatsAppIcon = ({ size = 20, className = "" }: { size?: number; className?: string }) => (
@@ -100,13 +101,15 @@ export function Navbar() {
           <div className="flex items-center justify-between">
             
             {/* Logo */}
-            <Link href="/" className="group flex items-center gap-2 sm:gap-3">
-              <MoonCrescentIcon size={32} className="sm:w-10 sm:h-10 transition-transform group-hover:scale-110 text-[var(--gold)]" />
-              <div className="flex flex-col">
-                <span className="font-heading font-extrabold text-xl leading-none tracking-tight text-[var(--text-1)]">Haramain</span>
-                <span className="font-body font-semibold text-[10px] uppercase tracking-[0.2em] mt-1 text-[var(--green)]">
-                  {t("nav.brandBottom")}
-                </span>
+            <Link href="/" className="group flex items-center">
+              <div className="relative w-32 h-12 sm:w-40 sm:h-14">
+                <Image 
+                  src="/images/logo.png" 
+                  alt="Haramain Umrah Taxi Logo" 
+                  fill 
+                  className="object-contain transition-transform group-hover:scale-105"
+                  priority
+                />
               </div>
             </Link>
 
@@ -127,7 +130,7 @@ export function Navbar() {
                     setHoveredChild(null);
                   }}
                 >
-                  {item.href ? (
+                  {item.href && !item.children ? (
                     <Link 
                       href={item.href}
                       className={`px-3 py-2 flex items-center gap-1.5 font-body font-semibold text-sm transition-all rounded-lg ${
@@ -137,6 +140,18 @@ export function Navbar() {
                       }`}
                     >
                       {item.label}
+                    </Link>
+                  ) : item.href && item.children ? (
+                    <Link 
+                      href={item.href}
+                      className={`px-3 py-2 flex items-center gap-1.5 font-body font-semibold text-sm transition-all rounded-lg ${
+                        isActive(item.href)
+                          ? "bg-[var(--gold-soft)] text-[var(--gold)]"
+                          : "text-[var(--text-1)] hover:bg-[var(--gold-soft)] hover:text-[var(--gold)]"
+                      }`}
+                    >
+                      {item.label}
+                      <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === item.label ? "rotate-180" : ""}`} />
                     </Link>
                   ) : (
                     <button 
@@ -313,9 +328,10 @@ export function Navbar() {
               className="absolute right-0 top-0 h-full w-[85%] max-w-[400px] bg-[var(--bg)] shadow-2xl flex flex-col"
             >
               <div className="p-6 flex items-center justify-between border-b border-[var(--border)] bg-[var(--bg-alt)]/50">
-                <Link href="/" className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
-                  <MoonCrescentIcon size={32} className="text-[var(--gold)]" />
-                  <span className="font-heading font-bold text-xl text-[var(--text-1)]">Haramain</span>
+                <Link href="/" className="flex items-center" onClick={() => setMobileMenuOpen(false)}>
+                  <div className="relative w-32 h-12">
+                    <Image src="/images/logo.png" alt="Haramain Umrah Taxi Logo" fill className="object-contain" />
+                  </div>
                 </Link>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
@@ -329,7 +345,7 @@ export function Navbar() {
                 <div className="flex flex-col gap-2">
                   {navItems.map((item, i) => (
                     <div key={item.label} className="flex flex-col">
-                      {item.href ? (
+                      {item.href && !item.children ? (
                         <Link
                           href={item.href}
                           onClick={() => setMobileMenuOpen(false)}
@@ -341,6 +357,92 @@ export function Navbar() {
                         >
                           {item.label}
                         </Link>
+                      ) : item.href && item.children ? (
+                        <div className="flex flex-col">
+                          <div className={`flex items-center justify-between rounded-xl font-heading font-semibold text-lg transition-colors ${activeDropdown === item.label ? "bg-[var(--gold-soft)] text-[var(--gold)]" : "text-[var(--text-1)] hover:bg-[var(--bg-alt)]"}`}>
+                            <Link
+                              href={item.href}
+                              onClick={() => setMobileMenuOpen(false)}
+                              className="flex-1 px-4 py-3.5"
+                            >
+                              {item.label}
+                            </Link>
+                            <button
+                              onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
+                              className="px-4 py-3.5"
+                            >
+                              <ChevronDown size={20} className={`transition-transform duration-300 ${activeDropdown === item.label ? "rotate-180" : ""}`} />
+                            </button>
+                          </div>
+                          
+                          <AnimatePresence>
+                            {activeDropdown === item.label && item.children && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                className="overflow-hidden bg-[var(--bg-alt)]/50 rounded-xl mt-1 ml-2"
+                              >
+                                {item.children.map((child) => (
+                                  <div key={child.label} className="p-2">
+                                    {child.items ? (
+                                      <div className="flex flex-col gap-1">
+                                        <button
+                                          onClick={() => setActiveChildAccordion(activeChildAccordion === child.label ? null : child.label)}
+                                          className={`flex items-center justify-between w-full px-3 py-2 font-heading font-medium text-[14px] uppercase tracking-wider rounded-md transition-all ${
+                                            activeChildAccordion === child.label
+                                              ? "text-[var(--gold)] bg-[var(--gold-soft)]"
+                                              : "text-[var(--green)] bg-[var(--green-soft)] hover:bg-[var(--gold-soft)] hover:text-[var(--gold)]"
+                                          }`}
+                                        >
+                                          {child.label}
+                                          <ChevronDown size={16} className={`transition-transform duration-300 ${activeChildAccordion === child.label ? "rotate-180" : ""}`} />
+                                        </button>
+                                        <AnimatePresence>
+                                          {activeChildAccordion === child.label && (
+                                            <motion.div
+                                              initial={{ height: 0, opacity: 0 }}
+                                              animate={{ height: "auto", opacity: 1 }}
+                                              exit={{ height: 0, opacity: 0 }}
+                                              className="overflow-hidden ml-2"
+                                            >
+                                              {child.items.map((sub) => (
+                                                <Link
+                                                  key={sub.label}
+                                                  href={sub.href}
+                                                  onClick={() => setMobileMenuOpen(false)}
+                                                  className={`block px-4 py-2 text-[14px] font-medium border-l-2 transition-all ${
+                                                    isActive(sub.href)
+                                                      ? "text-[var(--gold)] border-[var(--gold)] bg-[var(--gold-soft)]"
+                                                      : "text-[var(--text-2)] border-transparent hover:text-[var(--gold)] hover:border-[var(--gold)]"
+                                                  }`}
+                                                >
+                                                  {sub.label}
+                                                </Link>
+                                              ))}
+                                            </motion.div>
+                                          )}
+                                        </AnimatePresence>
+                                      </div>
+                                    ) : child.href ? (
+                                      <Link
+                                        href={child.href}
+                                        onClick={() => setMobileMenuOpen(false)}
+                                        className={`block px-4 py-2 text-[14px] font-medium transition-all ${
+                                          isActive(child.href)
+                                            ? "text-[var(--gold)] bg-[var(--gold-soft)]"
+                                            : "text-[var(--text-1)] hover:text-[var(--gold)]"
+                                        }`}
+                                      >
+                                        {child.label}
+                                      </Link>
+                                    ) : null}
+                                  </div>
+                                ))}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
                       ) : (
                         <div className="flex flex-col">
                           <button

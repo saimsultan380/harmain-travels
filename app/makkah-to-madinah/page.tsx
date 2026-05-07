@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "Intercity taxi Saudi Arabia",
   ],
   alternates: {
-    canonical: "/makkah-to-madinah",
+    canonical: "/makkah-to-madinah/",
   },
 };
 

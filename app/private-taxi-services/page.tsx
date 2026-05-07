@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "Jeddah airport to Makkah private car",
   ],
   alternates: {
-    canonical: "/private-taxi-services",
+    canonical: "/private-taxi-services/",
   },
 };
 

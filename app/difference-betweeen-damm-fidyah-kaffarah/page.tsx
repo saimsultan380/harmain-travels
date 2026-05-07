@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Difference Between Damm, Fidyah, and Kaffarah in Easy Words - Haramain Umrah Taxi",
   description: "Understand the difference between Damm, Fidyah, and Kaffarah in Islam. Learn when each applies, the type of compensation required, and examples for Umrah, Hajj, and Ramadan.",
   alternates: {
-    canonical: "/difference-betweeen-damm-fidyah-kaffarah",
+    canonical: "/difference-betweeen-damm-fidyah-kaffarah/",
   },
 };
 

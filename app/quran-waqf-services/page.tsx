@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "Sadaqah Jariyah Quran",
   ],
   alternates: {
-    canonical: "/quran-waqf-services",
+    canonical: "/quran-waqf-services/",
   },
 };
 

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "Haramain Umrah Taxi",
   ],
   alternates: {
-    canonical: "/jeddah-airport-to-makkah",
+    canonical: "/jeddah-airport-to-makkah/",
   },
 };
 

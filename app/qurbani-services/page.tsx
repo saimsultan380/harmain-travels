@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "Sadaqah Qurbani",
   ],
   alternates: {
-    canonical: "/qurbani-services",
+    canonical: "/qurbani-services/",
   },
 };
 

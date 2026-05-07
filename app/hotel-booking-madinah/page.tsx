@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "Umrah hotel booking Madinah",
   ],
   alternates: {
-    canonical: "/hotel-booking-madinah",
+    canonical: "/hotel-booking-madinah/",
   },
 };
 

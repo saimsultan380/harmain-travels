@@ -4,6 +4,7 @@ import { MoonCrescentIcon } from "@/components/graphics/MoonCrescentIcon";
 import { FacebookIcon, InstagramIcon, LinkedinIcon } from "@/components/graphics/SocialIcons";
 import { Mail, Clock, MapPin } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { useI18n } from "@/lib/i18n";
 
 export function Footer() {
@@ -20,12 +21,14 @@ export function Footer() {
           
           {/* Col 1: Brand */}
           <div>
-            <Link href="/" className="flex items-center gap-3 mb-6">
-              <MoonCrescentIcon size={32} />
-              <div className="flex flex-col">
-                <span className="font-heading font-extrabold text-[var(--gold)] text-xl leading-none tracking-tight">Haramain</span>
-                <span className="font-body font-semibold text-[var(--green)] text-[11px] uppercase tracking-widest mt-1">Umrah Taxi</span>
-              </div>
+            <Link href="/" className="flex items-center mb-6">
+              <Image 
+                src="/images/logo.png" 
+                alt="Haramain Umrah Taxi Logo" 
+                width={144}
+                height={56}
+                className="object-contain w-36 h-14"
+              />
             </Link>
             <p className="text-[var(--text-2)] font-body text-sm leading-relaxed mb-6">
               {t("footer.description")}

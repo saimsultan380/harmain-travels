@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Best Places to Visit in Dammam & Things to Do in Dammam, KSA - Haramain Umrah Taxi",
   description: "Discover the best places to visit in Dammam, KSA. From Half Moon Beach to shopping malls, explore top attractions and things to do in this vibrant Eastern Province city.",
   alternates: {
-    canonical: "/best-places-to-visit-in-dammam-things-to-do-in-dammam-ksa",
+    canonical: "/best-places-to-visit-in-dammam-things-to-do-in-dammam-ksa/",
   },
 };
 

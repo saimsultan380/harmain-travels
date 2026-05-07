@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { ToyotaHiaceOrHiroof2Client } from "./ToyotaHiaceOrHiroof2Client";
 
 export const metadata: Metadata = {
-  title: "Book Ziyarat & Umrah Hi-Ace or Hi-Roof in Makkah & Madinah, KSA",
+  title: "Book Umrah & Ziyarat Hiace or Hiroof Taxi in Saudia, Makkah, Madina",
   description:
-    "Book Toyota Hiace or Hi-Roof microbus taxi for Umrah, Ziyarat, and airport transfers in KSA. Spacious 13-seater taxi service in Makkah, Madinah, Jeddah with affordable fares and 24/7 availability.",
+    "Do you need 10-seater Hiace or Hiroof taxi in Saudia, Makkah & Madinah for Umrah, Ziyarat, Airport, and Travel? Choose Haramain Umrah Taxi at cheap rates",
   keywords: [
     "Toyota Hiace taxi",
     "Hi-Roof taxi Saudi Arabia",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "Toyota Hiace rental",
   ],
   alternates: {
-    canonical: "/toyota-hiace-or-hiroof-2",
+    canonical: "/toyota-hiace-or-hiroof-2/",
   },
 };
 

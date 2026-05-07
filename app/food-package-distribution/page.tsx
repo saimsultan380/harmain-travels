@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "Charity food distribution",
   ],
   alternates: {
-    canonical: "/food-package-distribution",
+    canonical: "/food-package-distribution/",
   },
 };
 

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Eid ul Fitr Taxi Services in Makkah & Madinah, Saudi Arabia - Haramain Umrah Taxi",
   description: "Reliable Eid ul Fitr taxi services in Makkah and Madinah. Book online for airport transfers, intercity travel, and Ziarat tours during the busy Eid season.",
   alternates: {
-    canonical: "/eid-ul-fitr-taxi-services-in-makkah-madinah-saudi-arabia",
+    canonical: "/eid-ul-fitr-taxi-services-in-makkah-madinah-saudi-arabia/",
   },
 };
 

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Madinah to Badar & Badr Ziyarat & Return Taxi Fare & Service - Haramain Umrah Taxi",
   description: "The trip from Madinah to Badar is one of the most demanded ziyarat visits by pilgrims. Book your Madinah to Badar and Badr ziyarat with a round-trip taxi that is easy, secure, and customer-oriented.",
   alternates: {
-    canonical: "/madinah-to-badar-badr-ziyarat-return-taxi-fare-service",
+    canonical: "/madinah-to-badar-badr-ziyarat-return-taxi-fare-service/",
   },
 };
 

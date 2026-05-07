@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Cheap Wadi e Jinn Ziyarat Taxi | Madinah to Wadi e Jinn Taxi - Haramain Umrah Taxi",
   description: "Discover affordable Wadi e Jinn ziyarat taxi service from Madinah. Book your comfortable ride to this popular desert destination with Haramain Umrah Taxi.",
   alternates: {
-    canonical: "/cheap-wadi-e-jinn-ziyarat-taxi-madinah-to-wadi-e-jinn-taxi",
+    canonical: "/cheap-wadi-e-jinn-ziyarat-taxi-madinah-to-wadi-e-jinn-taxi/",
   },
 };
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, type Variants } from "framer-motion";
+import { motion, type Variants, AnimatePresence } from "framer-motion";
 import { TypewriterText } from "@/components/ui/TypewriterText";
 import { IslamicGeometricBg } from "@/components/graphics/IslamicGeometricBg";
 import { useI18n } from "@/lib/i18n";
@@ -26,6 +26,24 @@ const WhatsAppIcon = ({
   </svg>
 );
 
+const bannerSlides = [
+  {
+    id: 1,
+    image: "/images/banner 1.png",
+    alt: "Banner 1"
+  },
+  {
+    id: 2,
+    image: "/images/banner 2.png",
+    alt: "Banner 2"
+  },
+  {
+    id: 3,
+    image: "/images/banner3.png",
+    alt: "Banner 3"
+  }
+];
+
 export function Hero() {
   const [particles, setParticles] = useState<
     {
@@ -40,7 +58,7 @@ export function Hero() {
       delay: number;
     }[]
   >([]);
-  const [videoReady, setVideoReady] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const { t, tm } = useI18n();
 
   useEffect(() => {
@@ -58,6 +76,19 @@ export function Hero() {
       }))
     );
   }, []);
+
+  // Auto-slide functionality
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % bannerSlides.length);
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -85,34 +116,54 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen pt-24 overflow-hidden bg-black flex flex-col items-center justify-center">
-      {/* Background video */}
-      <video
-        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 will-change-transform ${
-          videoReady ? "opacity-100" : "opacity-0"
-        }`}
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        onCanPlayThrough={() => setVideoReady(true)}
-        onLoadedData={() => setVideoReady(true)}
-      >
-        <source src="/images/hero-bg-video.mp4" type="video/mp4" />
-      </video>
+      {/* Banner Slider Background */}
+      <div className="absolute inset-0 w-full h-full">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="absolute inset-0 w-full h-full"
+          >
+            <img
+              src={bannerSlides[currentSlide].image}
+              alt={bannerSlides[currentSlide].alt}
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Slider Dots */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-3">
+        {bannerSlides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentSlide
+                ? "bg-[#F5C842] scale-125"
+                : "bg-white/40 hover:bg-white/60"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
 
       {/* Overlays */}
-      <div className="absolute inset-0 bg-black/50" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/5 to-black/45" />
+      <div className="absolute inset-0 bg-black/50 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/5 to-black/45 z-10" />
 
       {/* Islamic pattern */}
-      <IslamicGeometricBg className="opacity-[0.04]" />
+      <IslamicGeometricBg className="opacity-[0.04] z-10" />
 
       {/* Floating particles */}
       {particles.map((p) => (
         <motion.div
           key={p.id}
-          className="absolute rounded-full pointer-events-none"
+          className="absolute rounded-full pointer-events-none z-15"
           style={{
             width: p.width,
             height: p.height,
@@ -133,7 +184,7 @@ export function Hero() {
       ))}
 
       {/* Content — centered */}
-      <div className="container mx-auto px-6 lg:px-8 relative z-10 flex flex-col items-center text-center py-12">
+      <div className="container mx-auto px-6 lg:px-8 relative z-30 flex flex-col items-center text-center py-12">
         <motion.div
           className="flex flex-col items-center max-w-3xl w-full"
           variants={containerVariants}

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "Ziyarat tour booking",
   ],
   alternates: {
-    canonical: "/book-now",
+    canonical: "/book-now/",
   },
 };
 

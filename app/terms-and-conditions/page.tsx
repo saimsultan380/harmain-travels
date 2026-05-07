@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Terms & Conditions - Haramain Umrah Taxi",
   description: "Read our terms and conditions to understand the rules and regulations for using our Umrah taxi services in Saudi Arabia.",
   alternates: {
-    canonical: "/terms-and-conditions",
+    canonical: "/terms-and-conditions/",
   },
 };
 

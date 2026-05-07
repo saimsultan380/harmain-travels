@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Ziarat and Umrah Taxi Services in Shawal - Discounts Available - Haramain Umrah Taxi",
   description: "Discover discounted Umrah taxi services in Shawal. Reliable transport for Makkah to Madinah, airport transfers, and Ziarat tours with professional drivers.",
   alternates: {
-    canonical: "/ziyarat-and-umrah-taxi-services-in-shawal-ksa",
+    canonical: "/ziyarat-and-umrah-taxi-services-in-shawal-ksa/",
   },
 };
 

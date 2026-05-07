@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "Hyundai Sonata Umrah taxi",
   ],
   alternates: {
-    canonical: "/sedan-sonata-taxi",
+    canonical: "/sedan-sonata-taxi/",
   },
 };
 

@@ -33,41 +33,41 @@ export function HowToBook() {
     <section className="py-24 bg-[var(--bg)] border-t border-[var(--border)] overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
 
-        {/* ── Header ── */}
-        <motion.div
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="inline-flex items-center rounded-full bg-[var(--green-soft)] px-3 py-1 text-[var(--green)] font-body font-semibold text-[11px] uppercase tracking-[0.18em] mb-4">
-            {t("howToBook.eyebrow")}
-          </span>
-          <h2 className="text-4xl md:text-[48px] font-heading font-bold text-[var(--text-1)] leading-[1.1] mb-4">
-            {t("howToBook.title")}
-          </h2>
-          <p className="text-[var(--text-2)] font-body text-lg max-w-xl mx-auto">
-            Simple, transparent, and designed for your peace of mind during your sacred journey.
-          </p>
-        </motion.div>
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-16 items-start">
 
-        {/* ── Desktop: Horizontal Timeline ── */}
-        <div className="hidden md:block">
-          <div className="relative flex items-start justify-between gap-6">
+          {/* ── LEFT: Content ── */}
+          <motion.div
+            className="flex flex-col items-start text-left"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.65 }}
+          >
+            {/* Eyebrow */}
+            <span className="inline-flex items-center rounded-full bg-[var(--green-soft)] px-3 py-1 text-[var(--green)] font-body font-semibold text-[11px] uppercase tracking-[0.18em] mb-5">
+              {t("howToBook.eyebrow")}
+            </span>
 
-            {/* Background connecting line */}
-            <div className="absolute top-10 left-[12.5%] right-[12.5%] h-[2px] bg-[var(--border-dark)]" />
+            {/* Heading */}
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-[var(--text-1)] leading-[1.1] mb-5">
+              {t("howToBook.title")}
+            </h2>
 
-            {/* Animated progress line */}
-            <motion.div
-              className="absolute top-10 left-[12.5%] h-[2px] bg-gradient-to-r from-[#007A3E] to-[#9D812E]"
-              initial={{ width: "0%" }}
-              whileInView={{ width: "75%" }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, delay: 0.4, ease: "easeInOut" }}
-            />
+            {/* Description */}
+            <p className="text-[var(--text-2)] font-body text-base leading-relaxed mb-8 max-w-sm">
+              Simple, transparent, and designed for your peace of mind during your sacred journey.
+            </p>
 
+            {/* Decorative divider */}
+            <div className="flex items-center gap-2">
+              <div className="h-[3px] w-10 rounded-full bg-[#007A3E]" />
+              <div className="h-[3px] w-5 rounded-full bg-[#9D812E]" />
+              <div className="h-[3px] w-3 rounded-full bg-[var(--border-dark)]" />
+            </div>
+          </motion.div>
+
+          {/* ── RIGHT: 2×2 Step Cards ── */}
+          <div className="grid grid-cols-2 gap-4">
             {steps.map((step, i) => {
               const Icon = stepIcons[i];
               const color = stepColors[i];
@@ -75,96 +75,57 @@ export function HowToBook() {
               return (
                 <motion.div
                   key={i}
-                  className="relative flex flex-col items-center flex-1 group cursor-pointer"
-                  initial={{ opacity: 0, y: 40 }}
+                  className="group relative bg-[var(--bg-card)] rounded-2xl p-5 border border-[var(--border)] transition-all duration-300 hover:border-[var(--green)]/50 hover:shadow-xl hover:-translate-y-1 cursor-pointer overflow-hidden"
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.15 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
                 >
-                  {/* Circle with icon */}
+                  {/* Subtle background glow on hover */}
                   <div
-                    className="relative w-20 h-20 rounded-full flex items-center justify-center z-10 border-4 border-[var(--bg)] shadow-xl transition-transform duration-300 group-hover:scale-110"
+                    className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl"
+                    style={{ backgroundColor: color }}
+                  />
+
+                  {/* Step number badge */}
+                  <div
+                    className="absolute top-3 right-3 w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-heading font-black text-white shadow-sm"
+                    style={{ backgroundColor: badgeColor }}
+                  >
+                    {i + 1}
+                  </div>
+
+                  {/* Icon */}
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 shadow-md transition-transform duration-300 group-hover:scale-110"
                     style={{ backgroundColor: color }}
                   >
-                    <Icon size={28} color="#ffffff" strokeWidth={2} />
-                    {/* Step number badge */}
-                    <div
-                      className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-heading font-black text-white border-2 border-[var(--bg)]"
-                      style={{ backgroundColor: badgeColor }}
-                    >
-                      {i + 1}
-                    </div>
+                    <Icon size={22} color="#ffffff" strokeWidth={2} />
                   </div>
 
-                  {/* Card */}
-                  <div className="mt-6 w-full bg-[var(--bg-card)] rounded-2xl p-5 border border-[var(--border)] text-center transition-all duration-300 group-hover:border-[var(--green)]/40 group-hover:shadow-lg group-hover:-translate-y-1">
-                    <span
-                      className="text-[10px] font-heading font-bold uppercase tracking-widest mb-2 block"
-                      style={{ color }}
-                    >
-                      {t("howToBook.step")} {i + 1}
-                    </span>
-                    <h3 className="text-[16px] font-heading font-bold text-[var(--text-1)] mb-2 leading-tight">
-                      {step.title}
-                    </h3>
-                    <p className="text-[var(--text-2)] font-body text-[13px] leading-relaxed">
-                      {step.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* ── Mobile: Vertical Timeline ── */}
-        <div className="md:hidden flex flex-col">
-          {steps.map((step, i) => {
-            const Icon = stepIcons[i];
-            const color = stepColors[i];
-            const isLast = i === steps.length - 1;
-            return (
-              <motion.div
-                key={i}
-                className="flex gap-4"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.12 }}
-              >
-                {/* Left: icon + vertical line */}
-                <div className="flex flex-col items-center">
-                  <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 shadow-lg"
-                    style={{ backgroundColor: color }}
-                  >
-                    <Icon size={20} color="#ffffff" strokeWidth={2} />
-                  </div>
-                  {!isLast && (
-                    <div className="w-[2px] flex-1 my-2 bg-gradient-to-b from-[var(--border-dark)] to-transparent min-h-[40px]" />
-                  )}
-                </div>
-
-                {/* Right: content */}
-                <div className={`flex-1 bg-[var(--bg-card)] rounded-2xl p-5 border border-[var(--border)] ${!isLast ? "mb-4" : ""}`}>
+                  {/* Step label */}
                   <span
-                    className="text-[10px] font-heading font-bold uppercase tracking-widest mb-1 block"
+                    className="text-[9px] font-heading font-bold uppercase tracking-[0.15em] mb-1 block"
                     style={{ color }}
                   >
                     {t("howToBook.step")} {i + 1}
                   </span>
-                  <h3 className="text-[16px] font-heading font-bold text-[var(--text-1)] mb-1 leading-tight">
+
+                  {/* Title */}
+                  <h3 className="text-[15px] font-heading font-bold text-[var(--text-1)] mb-1.5 leading-tight">
                     {step.title}
                   </h3>
-                  <p className="text-[var(--text-2)] font-body text-[13px] leading-relaxed">
+
+                  {/* Description */}
+                  <p className="text-[var(--text-2)] font-body text-[12px] leading-relaxed">
                     {step.desc}
                   </p>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+                </motion.div>
+              );
+            })}
+          </div>
 
+        </div>
       </div>
     </section>
   );

@@ -9,6 +9,7 @@ import { Pricing } from "@/components/sections/Pricing";
 import { ZiyaratTours } from "@/components/sections/ZiyaratTours";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { HowToBook } from "@/components/sections/HowToBook";
+import { MajorRoutes } from "@/components/sections/MajorRoutes";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { OtherServices } from "@/components/sections/OtherServices";
 import { FAQ } from "@/components/sections/FAQ";
@@ -44,6 +45,7 @@ export default function Home() {
         <About />
         <WhyChooseUs />
         <HowToBook />
+        <MajorRoutes />
         <Testimonials />
         <FAQ />
         <CTABanner />

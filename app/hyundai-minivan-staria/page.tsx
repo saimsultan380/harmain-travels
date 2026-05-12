@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { HyundaiMinivanStariaClient } from "./HyundaiMinivanStariaClient";
 
 export const metadata: Metadata = {
-  title: "Hyundai Minivan Staria Umrah Taxi in Saudia, Makkah, Madina. Book Now!",
+  title: "Book Hyundai Minivan Staria Umrah Taxi in Makkah, Madina KSA",
   description:
     "Book Our 7-seater minivan Staria taxi at affordable prices in Saudia, Makkah, and Madinah. Airport, Hotels, Ziyarat, Umrah Staria Taxis are available in KSA",
   keywords: [

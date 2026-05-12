@@ -964,7 +964,7 @@ const messages = {
     },
     hyundaiMinivanStaria: {
       heroBadge: "Our Fleet",
-      heroTitle: "Hyundai Minivan Staria Umrah Taxi in Makkah, Madina, KSA: Get Discounts!",
+      heroTitle: "Book Hyundai Minivan Staria Umrah Taxi in Makkah, Madina KSA",
       heroText1: "The Ziyarat tour and Umrah pilgrimage in Saudi Arabia require transportation that is comfortable, spacious, and reliable. Our Hyundai Staria taxi provides an ideal travel solution for families and groups.",
       heroText2: "With ample space for passengers and luggage, our Hyundai Staria taxi in Makkah, Madinah, and Jeddah offers convenient hotel transfers, airport pickups, and intercity travel.",
       heroBookBtn: "Book Staria Taxi",
@@ -1315,7 +1315,7 @@ const messages = {
     },
     coaster: {
       heroBadge: "Our Fleet",
-      heroTitle: "18-Seater Coaster for Umrah & Ziyarat in ",
+      heroTitle: "Group Coaster for Umrah & Ziyarat in ",
       heroTitleHighlight: "Makkah & Madinah, KSA",
       heroText1: "Traveling for Umrah or Ziarah in Saudi Arabia requires a spacious and reliable transportation service that ensures comfort and convenience.",
       heroText2: "Our Coaster services provide an ideal solution for large groups, families, and pilgrims looking for a hassle-free journey between Makkah, Madinah, Jeddah, and beyond.",

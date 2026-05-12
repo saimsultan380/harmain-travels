@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { BusClient } from "./BusClient";
 
 export const metadata: Metadata = {
-  title: "Book Bus for Hajj, Umrah, Ziyarat in Saudia, Makkah, Madina",
+  title: "Book Bus for Umrah & Ziyarat Groups in Makkah & Madinah, KSA",
   description:
     "Book Our Bus at affordable prices in Saudi Arabia, Makkah, and Madinah. Airport, Hotels, Ziyarat, Business Tours, Events & Umrah Buses are available in KSA",
   keywords: [

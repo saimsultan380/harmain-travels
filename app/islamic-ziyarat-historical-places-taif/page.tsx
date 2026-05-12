@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   title: "Taxi Fare from Makkah to Taif & Taif to Makkah & Taif Ziyarat - Haramain Umrah Taxi",
   description: "Affordable taxi service from Makkah to Taif. Rates from SAR 380. Ziyarat tours included. Book Camry, GMC, Hiace, Coaster & Bus. Available 24/7.",
   alternates: {
-    canonical: "/taxi-fare-from-makkah-to-taif-taif-to-makkah-taif-ziyarat/",
+    canonical: "/islamic-ziyarat-historical-places-taif/",
   },
 };
 
 const post = {
-  id: "taxi-fare-from-makkah-to-taif-taif-to-makkah-taif-ziyarat",
+  id: "islamic-ziyarat-historical-places-taif",
   title: "Taxi Fare from Makkah to Taif & Taif to Makkah & Taif Ziyarat",
   excerpt: "Affordable taxi service from Makkah to Taif. Rates from SAR 380. Ziyarat tours included. Book Camry, GMC, Hiace, Coaster & Bus. Available 24/7.",
   category: "taxi-fares",

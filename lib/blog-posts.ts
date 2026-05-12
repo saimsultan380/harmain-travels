@@ -120,7 +120,7 @@ export const blogPosts = [
     author: "M Umar Irfan",
   },
   {
-    id: "uber-vs-taxi-why-is-a-haramain-umrah-taxi-cheaper-than-uber",
+    id: "uber-vs-taxi-why-haramain-umrah-taxi-cheaper",
     title: "Uber vs Taxi: Why is a Haramain Umrah Taxi Cheaper than Uber",
     excerpt: "Compare Uber vs Taxi for Umrah travel and discover why Haramain Umrah Taxi is cheaper than Uber. Enjoy fixed pricing, no surge fares, and reliable transfers.",
     categories: ["other-services", "taxi-fares"],
@@ -140,7 +140,7 @@ export const blogPosts = [
     author: "M Umar Irfan",
   },
   {
-    id: "safe-best-taxi-pickup-points-spots-near-masjid-al-haram",
+    id: "best-taxi-pickup-spots-near-masjid-haram",
     title: "Safe & Best Taxi Pickup Points & Spots near Masjid Al Haram",
     excerpt: "Best pickup points near Haram for pilgrims. Read about safe, convenient locations at all gates. Book your Haramain Umrah Taxi ride now at Discounted Price!",
     categories: ["other-services", "taxi-fares"],
@@ -220,7 +220,7 @@ export const blogPosts = [
     author: "M Umar Irfan",
   },
   {
-    id: "taxi-fare-from-makkah-to-taif-taif-to-makkah-taif-ziyarat",
+    id: "islamic-ziyarat-historical-places-taif",
     title: "Taxi Fare from Makkah to Taif & Taif to Makkah &Taif Ziyarat",
     excerpt: "Affordable taxi service from Makkah to Taif. Rates from SAR 380. Ziyarat tours included. Book Camry, GMC, Hiace, Coaster & Bus. Available 24/7.",
     categories: ["taxi-fares"],
@@ -279,9 +279,142 @@ export const blogPosts = [
     image: "/images/How-to-Book-a-Taxi-in-Saudi-Arabia-for-International-Visitors.png",
     author: "M Umar Irfan",
   },
+  {
+    id: "best-places-in-riyadh",
+    title: "13 Best Places to Visit in Riyadh & Things to Do in Riyadh",
+    excerpt: "Discover the best places to visit in Riyadh. Read our complete guide to top attractions & things to do in the Saudi capital.",
+    categories: ["sight-seeings"],
+    date: "2026-05-12",
+    readTime: "14 min read",
+    image: "/images/13-Best-Places-to-Visit-in-Riyadh-Things-to-Do-in-Riyadh.png",
+    author: "M Umar Irfan",
+  },
+  {
+    id: "why-taxi-services-in-ksa-request-visa-and-passport-details",
+    title: "Why Taxi Services in KSA Request Visa and Passport Details?",
+    excerpt: "Discover why KSA taxi services require visa and passport details for pilgrim safety and compliance. Book secure Haramain Umrah Taxi today.",
+    categories: ["taxi-guides"],
+    date: "2026-05-12",
+    readTime: "12 min read",
+    image: "/images/Why-Taxi-Services-in-KSA-Request-Visa-and-Passport-Details1.png",
+    author: "M Umar Irfan",
+  },
+  {
+    id: "donate-quran-makkah-madinah-haram",
+    title: "How to Donate Quran in Makkah, Madinah & Masjid Al Haram?",
+    excerpt: "Learn how to donate Quran in Makkah & Madinah properly. Complete guide to Waqaf a Quran in Masjid Al Haram & Masjid Nabawi online with official channels.",
+    categories: ["other-services"],
+    date: "2026-05-12",
+    readTime: "11 min read",
+    image: "/images/How-to-Donate-Quran-in-Makkah-Madinah-andMasjid-Al-Haram-.png",
+    author: "M Umar Irfan",
+  },
+  {
+    id: "badar-ziyarat-list-best-places-badr",
+    title: "Badar Ziyarat List | Places to Visit in Badr | Things to Do",
+    excerpt: "Complete Badr Ziyarat list with 15 must-visit places including the battlefield, martyrs' graves, and sacred wells. Explore historical Islamic sites of Badr.",
+    categories: ["sight-seeings"],
+    date: "2026-05-12",
+    readTime: "13 min read",
+    image: "/images/Badar-Ziyarat-List-Places-to-Visit-in-Badr-Things-to-Do-768x559.png",
+    author: "M Umar Irfan",
+  },
+  {
+    id: "best-places-alula-ziyarat-alula",
+    title: "List of Best Places to Visit in AlUla & AlUla Ziyarat Tours",
+    excerpt: "Explore the best places to visit in AlUla with guided Ziyarat tours. Ancient tombs, rock formations & sacred sites await in Saudi Arabia.",
+    categories: ["sight-seeings"],
+    date: "2026-05-12",
+    readTime: "15 min read",
+    image: "/images/List of Best Places to Visit in AlUla & AlUla Ziyarat Tours.png",
+    author: "M Umar Irfan",
+  },
+  {
+    id: "15-best-places-to-visit-in-jeddah-with-family-things-to-do",
+    title: "15 Best Places to Visit in Jeddah with Family | Things to Do",
+    excerpt: "Discover best places to visit in Jeddah with family. From New Corniche & Jeddah Waterfront Park to theme parks & malls, explore top attractions with our guide.",
+    categories: ["sight-seeings"],
+    date: "2026-05-12",
+    readTime: "15 min read",
+    image: "/images/15-Best-Places-to-Visit-in-Jeddah-with-Family-Things-to-Do.png",
+    author: "M Umar Irfan",
+  },
+  {
+    id: "best-ziyarat-places-madinah",
+    title: "15 Best Places to Visit in Madinah| Tourist & Holy Sites Madina",
+    excerpt: "Discover 15 best places to visit in Madinah including Masjid al-Nabawi, Mount Uhud, and sacred Ziyarat sites. Get complete guide with history and tips.",
+    categories: ["sight-seeings"],
+    date: "2026-05-12",
+    readTime: "15 min read",
+    image: "/images/15-Best-Places-to-Visit-in-Madinah.png",
+    author: "M Umar Irfan",
+  },
+  {
+    id: "best-places-in-makkah",
+    title: "20 Best Places to Visit in Makkah During Umrah | Makkah Ziyarat",
+    excerpt: "Discover the 20 best places to visit in Makkah during Umrah. From Jabal al-Nour to Jannat al-Mu'alla, explore sacred Ziyarat sites with our complete guide",
+    categories: ["sight-seeings"],
+    date: "2026-05-12",
+    readTime: "15 min read",
+    image: "/images/Best-Places-to-Visit-in-Makkah.png",
+    author: "M Umar Irfan",
+  },
+  {
+    id: "taxi-fare-jeddah-airport-to-makkah",
+    title: "How Much is the Taxi Fare from Jeddah Airport to Makkah?",
+    excerpt: "Find out the taxi fare from Jeddah Airport to Makkah with Us. Fixed prices from SAR 250, airport pickup, and direct routes to Masjid al-Haram. Book today!",
+    categories: ["taxi-fares"],
+    date: "2026-05-12",
+    readTime: "12 min read",
+    image: "/images/How-Much-is-the-Taxi-Fare-from-Jeddah-Airport-to-Makkah-1.png",
+    author: "M Umar Irfan",
+  },
+  {
+    id: "makkah-to-jeddah-and-jeddah-airport-fare",
+    title: "How Much is the Makkah to Jeddah & Jeddah Airport Taxi Fare?",
+    excerpt: "Discover the Makkah to Jeddah & Jeddah Airport taxi fare with Haramain Umrah Taxi. Fixed rates from SAR 200, professional drivers, and 24/7 service. Book Now!",
+    categories: ["taxi-fares"],
+    date: "2026-05-12",
+    readTime: "12 min read",
+    image: "/images/How-Much-is-the-Makkah-to-Jeddah-Jeddah-Airport-Taxi.png",
+    author: "M Umar Irfan",
+  },
+  {
+    id: "makkah-to-madinah-taxi-fare-distance",
+    title: "What is Makkah to Madinah Taxi Fare and Private Car Price?",
+    excerpt: "Find out the taxi fare from Makkah to Madinah with Us. Fixed prices from SAR 400, door-to-door service, and professional drivers. Book today!",
+    categories: ["taxi-fares"],
+    date: "2026-05-12",
+    readTime: "12 min read",
+    image: "/images/What-is-Makkah-to-Madinah-Taxi-Fare-and-Private-Car-Price.png",
+    author: "M Umar Irfan",
+  },
+  {
+    id: "madinah-to-makkah-taxi-fare-distance",
+    title: "What is Madinah to Makkah Taxi Fare or Price and Distance?",
+    excerpt: "Discover Madinah to Makkah taxi fare starting at SAR 400. We cover 450km in 4-5 hours with fixed prices and professional drivers. Book your comfortable travel.",
+    categories: ["taxi-fares"],
+    date: "2026-05-12",
+    readTime: "12 min read",
+    image: "/images/What-is-Madinah-to-Makkah-Taxi.png",
+    author: "M Umar Irfan",
+  },
 ];
 
 export const POSTS_PER_PAGE = 9;
+
+const months = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+
+export function formatDate(dateStr: string) {
+  const date = new Date(dateStr);
+  const day = date.getDate();
+  const month = months[date.getMonth()];
+  const year = date.getFullYear();
+  return `${month} ${day}, ${year}`;
+}
 
 export const sortedBlogPosts = [...blogPosts].sort(
   (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { blogPosts, sortedBlogPosts, POSTS_PER_PAGE } from "@/lib/blog-posts";
+import { blogPosts, sortedBlogPosts, POSTS_PER_PAGE, formatDate } from "@/lib/blog-posts";
 import Link from "next/link";
 import { Calendar, Clock, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -97,7 +97,7 @@ export function BlogListing({ pagePosts, currentPage, totalPages }: BlogListingP
               <div className="flex items-center gap-4 text-[var(--text-3)] font-body text-xs mb-4">
                 <div className="flex items-center gap-1.5">
                   <Calendar size={14} />
-                  <span>{new Date(post.date).toLocaleDateString()}</span>
+                  <span>{formatDate(post.date)}</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Clock size={14} />

@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   title: "Uber vs Taxi: Why is a Haramain Umrah Taxi Cheaper than Uber - Haramain Umrah Taxi",
   description: "Compare Uber vs Taxi for Umrah travel and discover why Haramain Umrah Taxi is cheaper than Uber. Enjoy fixed pricing, no surge fares, and reliable transfers.",
   alternates: {
-    canonical: "/uber-vs-taxi-why-is-a-haramain-umrah-taxi-cheaper-than-uber/",
+    canonical: "/uber-vs-taxi-why-haramain-umrah-taxi-cheaper/",
   },
 };
 
 const post = {
-  id: "uber-vs-taxi-why-is-a-haramain-umrah-taxi-cheaper-than-uber",
+  id: "uber-vs-taxi-why-haramain-umrah-taxi-cheaper",
   title: "Uber vs Taxi: Why is a Haramain Umrah Taxi Cheaper than Uber",
   excerpt: "Compare Uber vs Taxi for Umrah travel and discover why Haramain Umrah Taxi is cheaper than Uber. Enjoy fixed pricing, no surge fares, and reliable transfers.",
   category: "other-services",

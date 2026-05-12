@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   title: "Safe & Best Taxi Pickup Points & Spots near Masjid Al Haram - Haramain Umrah Taxi",
   description: "Best pickup points near Haram for pilgrims. Read about safe, convenient locations at all gates. Book your Haramain Umrah Taxi ride now at Discounted Price!",
   alternates: {
-    canonical: "/safe-best-taxi-pickup-points-spots-near-masjid-al-haram/",
+    canonical: "/best-taxi-pickup-spots-near-masjid-haram/",
   },
 };
 
 const post = {
-  id: "safe-best-taxi-pickup-points-spots-near-masjid-al-haram",
+  id: "best-taxi-pickup-spots-near-masjid-haram",
   title: "Safe & Best Taxi Pickup Points & Spots near Masjid Al Haram",
   excerpt: "Best pickup points near Haram for pilgrims. Read about safe, convenient locations at all gates. Book your Haramain Umrah Taxi ride now at Discounted Price!",
   category: "other-services",

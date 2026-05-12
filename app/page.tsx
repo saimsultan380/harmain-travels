@@ -10,6 +10,7 @@ import { ZiyaratTours } from "@/components/sections/ZiyaratTours";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { HowToBook } from "@/components/sections/HowToBook";
 import { MajorRoutes } from "@/components/sections/MajorRoutes";
+import { WorkingLocations } from "@/components/sections/WorkingLocations";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { OtherServices } from "@/components/sections/OtherServices";
 import { FAQ } from "@/components/sections/FAQ";
@@ -47,6 +48,7 @@ export default function Home() {
         <HowToBook />
         <MajorRoutes />
         <Testimonials />
+        <WorkingLocations />
         <FAQ />
         <CTABanner />
       </main>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useI18n } from "@/lib/i18n";
-import { MessageCircle, Calculator, ShieldCheck, Smile } from "lucide-react";
+import { MessageCircle, Calculator, ShieldCheck, Smile, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const stepIcons = [MessageCircle, Calculator, ShieldCheck, Smile];
@@ -30,103 +30,119 @@ export function HowToBook() {
   ];
 
   return (
-    <section className="py-24 bg-[var(--bg)] border-t border-[var(--border)] overflow-hidden">
+    <section className="py-28 bg-white border-t border-[var(--border)] overflow-hidden" id="how-to-book">
       <div className="container mx-auto px-4 lg:px-8">
-
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-16 items-start">
-
-          {/* ── LEFT: Content ── */}
+        
+        {/* Header - Centered */}
+        <div className="text-center mb-20">
           <motion.div
-            className="flex flex-col items-start text-left"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.65 }}
+            className="max-w-3xl mx-auto"
           >
-            {/* Eyebrow */}
-            <span className="inline-flex items-center rounded-full bg-[var(--green-soft)] px-3 py-1 text-[var(--green)] font-body font-semibold text-[11px] uppercase tracking-[0.18em] mb-5">
+            <span className="inline-flex items-center rounded-full bg-[var(--green-soft)] px-4 py-1.5 text-[var(--green)] font-body font-semibold text-[11px] uppercase tracking-[0.18em] mb-5">
               {t("howToBook.eyebrow")}
             </span>
-
-            {/* Heading */}
-            <h2 className="text-4xl md:text-5xl font-heading font-bold text-[var(--text-1)] leading-[1.1] mb-5">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-[var(--text-1)] mb-6 leading-tight">
               {t("howToBook.title")}
             </h2>
-
-            {/* Description */}
-            <p className="text-[var(--text-2)] font-body text-base leading-relaxed mb-8 max-w-sm">
-              Simple, transparent, and designed for your peace of mind during your sacred journey.
+            <p className="text-[var(--text-2)] font-body text-lg max-w-2xl mx-auto leading-relaxed">
+              Simple, transparent, and designed for your peace of mind during your sacred journey. Follow these steps to secure your premium ride.
             </p>
-
-            {/* Decorative divider */}
-            <div className="flex items-center gap-2">
-              <div className="h-[3px] w-10 rounded-full bg-[#007A3E]" />
-              <div className="h-[3px] w-5 rounded-full bg-[#9D812E]" />
-              <div className="h-[3px] w-3 rounded-full bg-[var(--border-dark)]" />
-            </div>
           </motion.div>
+        </div>
 
-          {/* ── RIGHT: 2×2 Step Cards ── */}
-          <div className="grid grid-cols-2 gap-4">
+        {/* Process Flow */}
+        <div className="relative">
+          {/* Connecting Line (Desktop) */}
+          <div className="hidden lg:block absolute top-12 left-[10%] right-[10%] h-[2px] bg-[var(--border)] z-0" />
+          
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 relative z-10">
             {steps.map((step, i) => {
               const Icon = stepIcons[i];
               const color = stepColors[i];
-              const badgeColor = i % 2 === 0 ? "#9D812E" : "#007A3E";
+              const isLast = i === steps.length - 1;
+
               return (
                 <motion.div
                   key={i}
-                  className="group relative bg-[var(--bg-card)] rounded-2xl p-5 border border-[var(--border)] transition-all duration-300 hover:border-[var(--green)]/50 hover:shadow-xl hover:-translate-y-1 cursor-pointer overflow-hidden"
+                  className="flex flex-col items-center text-center group"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  transition={{ duration: 0.6, delay: i * 0.15 }}
                 >
-                  {/* Subtle background glow on hover */}
-                  <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl"
-                    style={{ backgroundColor: color }}
-                  />
+                  {/* Icon Circle */}
+                  <div className="relative mb-6 md:mb-8">
+                    <div 
+                      className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center bg-white border-2 border-[var(--border)] shadow-lg group-hover:border-[var(--green)] group-hover:scale-110 transition-all duration-500 z-10 relative"
+                    >
+                      <div 
+                        className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-white shadow-inner"
+                        style={{ backgroundColor: color }}
+                      >
+                        <Icon size={24} className="md:w-[30px] md:h-[30px]" strokeWidth={1.5} />
+                      </div>
+                    </div>
+                    
+                    {/* Step Number */}
+                    <div 
+                      className="absolute -top-2 -right-2 w-10 h-10 rounded-full flex items-center justify-center text-white font-heading font-black text-sm border-4 border-white shadow-md z-20"
+                      style={{ backgroundColor: color }}
+                    >
+                      {i + 1}
+                    </div>
 
-                  {/* Step number badge */}
-                  <div
-                    className="absolute top-3 right-3 w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-heading font-black text-white shadow-sm"
-                    style={{ backgroundColor: badgeColor }}
-                  >
-                    {i + 1}
+                    {/* Desktop Connector Arrow */}
+                    {!isLast && (
+                      <div className="hidden lg:flex absolute top-1/2 -right-4 translate-x-full -translate-y-1/2 text-[var(--border)]">
+                        <ArrowRight size={24} className="group-hover:text-[var(--green)] group-hover:translate-x-1 transition-all duration-300" />
+                      </div>
+                    )}
                   </div>
 
-                  {/* Icon */}
-                  <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 shadow-md transition-transform duration-300 group-hover:scale-110"
-                    style={{ backgroundColor: color }}
-                  >
-                    <Icon size={22} color="#ffffff" strokeWidth={2} />
+                  {/* Content */}
+                  <div className="max-w-xs mx-auto">
+                    <span 
+                      className="text-[11px] font-heading font-bold uppercase tracking-[0.2em] mb-3 block"
+                      style={{ color }}
+                    >
+                      Step 0{i + 1}
+                    </span>
+                    <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-4 group-hover:text-[var(--green)] transition-colors duration-300">
+                      {step.title}
+                    </h3>
+                    <p className="text-[var(--text-2)] font-body text-sm leading-relaxed">
+                      {step.desc}
+                    </p>
                   </div>
-
-                  {/* Step label */}
-                  <span
-                    className="text-[9px] font-heading font-bold uppercase tracking-[0.15em] mb-1 block"
-                    style={{ color }}
-                  >
-                    {t("howToBook.step")} {i + 1}
-                  </span>
-
-                  {/* Title */}
-                  <h3 className="text-[15px] font-heading font-bold text-[var(--text-1)] mb-1.5 leading-tight">
-                    {step.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-[var(--text-2)] font-body text-[12px] leading-relaxed">
-                    {step.desc}
-                  </p>
                 </motion.div>
               );
             })}
           </div>
-
         </div>
+
+        {/* Action Button */}
+        <motion.div 
+          className="mt-20 text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.8 }}
+        >
+          <a 
+            href="https://wa.me/966598401594" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-[var(--green)] text-white font-body font-bold rounded-full hover:bg-[var(--gold)] hover:scale-105 transition-all shadow-xl"
+          >
+            <MessageCircle size={20} />
+            Start Booking on WhatsApp
+          </a>
+        </motion.div>
       </div>
     </section>
   );
 }
+

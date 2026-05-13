@@ -60,19 +60,10 @@ export function FAQ() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                      <div className="px-6 pb-5 pt-0 border-t border-[var(--border)] mt-2">
-                        <div className="relative pl-4">
-                          {/* Active left-border slide animation */}
-                          <motion.div 
-                            className="absolute left-0 top-0 bottom-0 w-[2px] bg-[var(--gold)] rounded-full"
-                            initial={{ height: 0 }}
-                            animate={{ height: "100%" }}
-                            transition={{ duration: 0.4, delay: 0.1 }}
-                          />
-                          <p className="text-[var(--text-2)] font-body leading-relaxed pt-4">
-                            {faq.answer}
-                          </p>
-                        </div>
+                      <div className="px-6 pb-6 pt-0 border-t border-[var(--border)] mt-2">
+                        <p className="text-[var(--text-2)] font-body leading-relaxed pt-6">
+                          {faq.answer}
+                        </p>
                       </div>
                     </motion.div>
                   )}

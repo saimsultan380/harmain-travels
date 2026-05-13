@@ -85,7 +85,7 @@ export function WhyChooseUs() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
               <div className="relative h-[250px] sm:h-[320px] md:h-[420px] lg:h-[480px] rounded-2xl md:rounded-3xl overflow-hidden border border-[var(--border)] bg-[var(--bg-card)] order-2 lg:order-1 shadow-lg">
                 <Image
-                  src="/images/umrah-taxi-makkah.jpg"
+                  src="/images/Umrah Taxi Services in Makkah 1.png"
                   alt="Umrah Taxi Services in Makkah"
                   fill
                   sizes="(max-width: 640px) calc(100vw - 12px), (max-width: 1024px) 100vw, 50vw"
@@ -93,6 +93,7 @@ export function WhyChooseUs() {
                   loading="lazy"
                 />
               </div>
+
               <div className="order-1 lg:order-2">
                 <span className="inline-flex items-center rounded-full bg-[var(--green-soft)] px-3 py-1 text-[var(--green)] font-body font-semibold text-[11px] uppercase tracking-[0.18em] mb-5">
                   {t("why.eyebrow")}

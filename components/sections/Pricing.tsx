@@ -52,13 +52,12 @@ export function Pricing() {
                   <tr
                     key={row.id}
                     onClick={() => setSelectedRowId((prev) => (prev === row.id ? null : row.id))}
-                    className={`cursor-pointer transition-colors ${
-                      selectedRowId === row.id
+                    className={`cursor-pointer transition-colors ${selectedRowId === row.id
                         ? "bg-[var(--gold)]/15"
                         : rowIndex % 2 === 0
                           ? "bg-[var(--bg)]/40 hover:bg-[var(--green)]/10"
                           : "bg-transparent hover:bg-[var(--green)]/10"
-                    }`}
+                      }`}
                   >
                     <td className="border border-[var(--border)] px-4 py-3 font-body text-sm font-semibold text-[var(--text-1)]">
                       {row.route}

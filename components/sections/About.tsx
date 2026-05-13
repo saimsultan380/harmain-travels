@@ -33,7 +33,7 @@ export function About() {
           </div>
           <div className="relative h-[250px] sm:h-[320px] md:h-[400px] lg:h-[480px] rounded-2xl md:rounded-3xl overflow-hidden border border-[var(--border)] bg-[var(--bg-alt)] shadow-lg">
             <Image 
-              src="/images/your-trusted-patner.jpg" 
+              src="/images/Your Trusted Partner for Sacred Journeys.png" 
               alt="Haramain Luxury Fleet" 
               fill 
               sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 100vw, 50vw"

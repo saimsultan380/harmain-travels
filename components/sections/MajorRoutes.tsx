@@ -109,7 +109,7 @@ export function MajorRoutes() {
   }, [currentIndex]);
 
   return (
-    <section className="relative py-24 bg-white overflow-hidden" id="major-routes">
+    <section className="relative py-24 bg-[var(--bg)] overflow-hidden" id="major-routes">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header - Centered */}
         <div className="text-center mb-16">
@@ -133,14 +133,14 @@ export function MajorRoutes() {
             <div className="flex justify-center gap-4">
               <button
                 onClick={handlePrev}
-                className="p-3.5 rounded-full bg-white shadow-md border border-[var(--border)] text-[var(--text-2)] hover:bg-[var(--green)] hover:text-white hover:border-[var(--green)] transition-all duration-300"
+                className="p-3.5 rounded-full bg-[var(--bg-card)] shadow-md border border-[var(--border)] text-[var(--text-2)] hover:bg-[var(--green)] hover:text-white hover:border-[var(--green)] transition-all duration-300"
                 aria-label="Previous slide"
               >
                 <ChevronLeft size={22} />
               </button>
               <button
                 onClick={handleNext}
-                className="p-3.5 rounded-full bg-white shadow-md border border-[var(--border)] text-[var(--text-2)] hover:bg-[var(--green)] hover:text-white hover:border-[var(--green)] transition-all duration-300"
+                className="p-3.5 rounded-full bg-[var(--bg-card)] shadow-md border border-[var(--border)] text-[var(--text-2)] hover:bg-[var(--green)] hover:text-white hover:border-[var(--green)] transition-all duration-300"
                 aria-label="Next slide"
               >
                 <ChevronRight size={22} />
@@ -171,7 +171,7 @@ export function MajorRoutes() {
                     href={route.href}
                     className="group block"
                   >
-                    <div className="relative aspect-square overflow-hidden rounded-3xl mb-6 bg-white border border-[var(--border)] shadow-sm group-hover:shadow-2xl group-hover:border-[var(--green)] transition-all duration-500">
+                    <div className="relative aspect-square overflow-hidden rounded-3xl mb-6 bg-[var(--bg-card)] border border-[var(--border)] shadow-sm group-hover:shadow-2xl group-hover:border-[var(--green)] transition-all duration-500">
                       <Image
                         src={route.image}
                         alt={route.title}
@@ -181,7 +181,7 @@ export function MajorRoutes() {
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
                       
                       {/* Floating Badge */}
-                      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-bold text-[var(--green)] uppercase tracking-wider shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute top-4 right-4 bg-[var(--bg-card)]/90 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-bold text-[var(--green)] uppercase tracking-wider shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         Top Rated
                       </div>
                     </div>

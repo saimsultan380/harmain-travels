@@ -20,7 +20,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-[#D4AF37]/80 bg-white/90 text-[#9D812E] shadow-sm shadow-[#9D812E]/15 transition-all hover:bg-white hover:shadow-[#9D812E]/30 dark:border-[#D4AF37] dark:bg-black/70 dark:text-[#F2D373] dark:shadow-[#D4AF37]/20 dark:hover:bg-black/85"
+      className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-[#D4AF37]/80 bg-white/90 text-[#9D812E] shadow-sm shadow-[#9D812E]/15 transition-all hover:bg-white hover:shadow-[#9D812E]/30 dark:border-[#9D812E] dark:bg-white dark:text-[#9D812E] dark:shadow-[#9D812E]/20 dark:hover:bg-[#f5f0e8]"
       aria-label="Toggle theme"
     >
       <motion.div
@@ -45,7 +45,7 @@ export function ThemeToggle() {
         transition={{ duration: 0.3 }}
         className="absolute"
       >
-        <Moon size={18} className="text-[#F8E7A8]" />
+        <Moon size={18} className="text-[#9D812E] dark:text-[#9D812E]" />
       </motion.div>
     </button>
   );

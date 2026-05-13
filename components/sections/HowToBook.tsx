@@ -30,7 +30,7 @@ export function HowToBook() {
   ];
 
   return (
-    <section className="py-28 bg-white border-t border-[var(--border)] overflow-hidden" id="how-to-book">
+    <section className="py-28 bg-[var(--bg)] border-t border-[var(--border)] overflow-hidden" id="how-to-book">
       <div className="container mx-auto px-4 lg:px-8">
         
         {/* Header - Centered */}
@@ -76,7 +76,7 @@ export function HowToBook() {
                   {/* Icon Circle */}
                   <div className="relative mb-6 md:mb-8">
                     <div 
-                      className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center bg-white border-2 border-[var(--border)] shadow-lg group-hover:border-[var(--green)] group-hover:scale-110 transition-all duration-500 z-10 relative"
+                      className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center bg-[var(--bg-card)] border-2 border-[var(--border)] shadow-lg group-hover:border-[var(--green)] group-hover:scale-110 transition-all duration-500 z-10 relative"
                     >
                       <div 
                         className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-white shadow-inner"
@@ -88,7 +88,7 @@ export function HowToBook() {
                     
                     {/* Step Number */}
                     <div 
-                      className="absolute -top-2 -right-2 w-10 h-10 rounded-full flex items-center justify-center text-white font-heading font-black text-sm border-4 border-white shadow-md z-20"
+                      className="absolute -top-2 -right-2 w-10 h-10 rounded-full flex items-center justify-center text-white font-heading font-black text-sm border-4 border-[var(--bg)] shadow-md z-20"
                       style={{ backgroundColor: color }}
                     >
                       {i + 1}

@@ -96,7 +96,7 @@ export function WhyChooseUs() {
 
               <div className="order-1 lg:order-2">
                 <span className="inline-flex items-center rounded-full bg-[var(--green-soft)] px-3 py-1 text-[var(--green)] font-body font-semibold text-[11px] uppercase tracking-[0.18em] mb-5">
-                  {t("why.eyebrow")}
+                  {t("why.serviceEyebrow")}
                 </span>
                 <h3 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-8">
                   {t("why.serviceTitle")}
@@ -195,16 +195,12 @@ export function WhyChooseUs() {
               className="relative h-[800px] rounded-lg overflow-hidden bg-black"
             >
               <Image
-                src="/images/why-choose-us.jpg"
-                alt="Why Choose Us - Haramain Umrah Taxi"
+                src="/images/Built Around Your Pilgrimage.png"
+                alt="Built Around Your Pilgrimage - Haramain Umrah Taxi"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-contain"
                 priority
-                onError={(e) => {
-                  console.log('Image failed to load:', e);
-                  // Fallback to a placeholder or hide the image
-                }}
               />
               {/* Subtle overlay for better text contrast if needed */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />

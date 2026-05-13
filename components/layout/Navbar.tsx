@@ -11,6 +11,7 @@ import { Menu, X, ChevronDown, ChevronRight, Phone } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
 
 const WhatsAppIcon = ({ size = 20, className = "" }: { size?: number; className?: string }) => (
   <svg
@@ -44,6 +45,29 @@ export function Navbar() {
   const { t, tm, locale } = useI18n();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted && theme === "dark";
+
+  // Helper function to get text color for dark mode white background
+  const getTextColor = (defaultClass: string, darkColor: string) => {
+    if (!isDark) return defaultClass;
+    return defaultClass; // Keep the class but override with inline style
+  };
+
+  const getInlineTextStyle = (darkColor: string) => {
+    return isDark ? { color: darkColor } : {};
+  };
+
+  // Helper to get dark mode appropriate text classes
+  const getDarkModeTextClass = (lightClass: string, darkClass: string) => {
+    return isDark ? darkClass : lightClass;
+  };
 
   // Reset mobile menu state when language changes
   useEffect(() => {
@@ -96,13 +120,14 @@ export function Navbar() {
             ? "bg-[var(--bg)]/90 backdrop-blur-md border-b border-[var(--gold)]/20 py-2 shadow-lg" 
             : "bg-[var(--bg)] py-3 md:py-4 border-b border-[var(--border)]"
         }`}
+        style={isDark ? { backgroundColor: 'white' } : {}}
       >
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between">
             
             {/* Logo */}
-            <Link href="/" className="group flex items-center">
-              <div className="relative w-32 h-12 sm:w-40 sm:h-14">
+            <Link href="/" className="group flex items-center gap-2.5">
+              <div className="relative w-32 h-12 shrink-0">
                 <Image 
                   src="/images/logo.png" 
                   alt="Haramain Umrah Taxi Logo" 
@@ -136,7 +161,7 @@ export function Navbar() {
                       className={`px-3 py-2 flex items-center gap-1.5 font-body font-semibold text-sm transition-all rounded-lg ${
                         isActive(item.href)
                           ? "bg-[var(--gold-soft)] text-[var(--gold)]"
-                          : "text-[var(--text-1)] hover:bg-[var(--gold-soft)] hover:text-[var(--gold)]"
+                          : getDarkModeTextClass("text-[var(--text-1)]", "text-[#0F0F0F]") + " hover:bg-[var(--gold-soft)] hover:text-[var(--gold)]"
                       }`}
                     >
                       {item.label}
@@ -147,7 +172,7 @@ export function Navbar() {
                       className={`px-3 py-2 flex items-center gap-1.5 font-body font-semibold text-sm transition-all rounded-lg ${
                         isActive(item.href)
                           ? "bg-[var(--gold-soft)] text-[var(--gold)]"
-                          : "text-[var(--text-1)] hover:bg-[var(--gold-soft)] hover:text-[var(--gold)]"
+                          : getDarkModeTextClass("text-[var(--text-1)]", "text-[#0F0F0F]") + " hover:bg-[var(--gold-soft)] hover:text-[var(--gold)]"
                       }`}
                     >
                       {item.label}
@@ -155,7 +180,7 @@ export function Navbar() {
                     </Link>
                   ) : (
                     <button 
-                      className="px-3 py-2 flex items-center gap-1.5 font-body font-semibold text-sm transition-all rounded-lg text-[var(--text-1)] hover:bg-[var(--gold-soft)] hover:text-[var(--gold)]"
+                      className={`px-3 py-2 flex items-center gap-1.5 font-body font-semibold text-sm transition-all rounded-lg ${getDarkModeTextClass("text-[var(--text-1)]", "text-[#0F0F0F]")} hover:bg-[var(--gold-soft)] hover:text-[var(--gold)]`}
                     >
                       {item.label}
                       <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === item.label ? "rotate-180" : ""}`} />
@@ -169,7 +194,8 @@ export function Navbar() {
                         initial={{ opacity: 0, y: 10, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                        className="absolute left-0 top-full mt-1 bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl shadow-2xl overflow-hidden"
+                        className="absolute left-0 top-full mt-1 border border-[var(--border)] rounded-2xl shadow-2xl overflow-hidden"
+                        style={isDark ? { backgroundColor: 'white' } : { backgroundColor: 'var(--bg-card)' }}
                       >
                         {/* Check if all children are direct links (no sub-items) */}
                         {item.children.every(child => !child.items) ? (
@@ -183,7 +209,7 @@ export function Navbar() {
                                   className={`block px-4 py-3 text-[14px] font-normal rounded-xl transition-all ${
                                     isActive(child.href)
                                       ? "bg-[var(--gold-soft)] text-[var(--gold)]"
-                                      : "text-[var(--text-1)] hover:text-[var(--gold)] hover:bg-[var(--gold-soft)]"
+                                      : getDarkModeTextClass("text-[var(--text-1)]", "text-[#0F0F0F]") + " hover:text-[var(--gold)] hover:bg-[var(--gold-soft)]"
                                   }`}
                                 >
                                   {child.label}
@@ -195,7 +221,10 @@ export function Navbar() {
                           /* Complex two-panel layout for categories with sub-items */
                           <div className="flex min-w-[600px]">
                             {/* Sidebar (Categories) */}
-                            <div className="w-[260px] bg-[var(--bg-alt)]/50 border-r border-[var(--border)] p-2">
+                            <div 
+                              className="w-[260px] border-r border-[var(--border)] p-2"
+                              style={isDark ? { backgroundColor: '#f8f8f8' } : { backgroundColor: 'var(--bg-alt)/50' }}
+                            >
                               {item.children.map((child) => (
                                 <div 
                                   key={child.label}
@@ -208,7 +237,7 @@ export function Navbar() {
                                       className={`flex items-center justify-between w-full px-4 py-3 text-[14px] font-normal rounded-xl transition-all ${
                                         isActive(child.href) || hoveredChild === child.label
                                           ? "bg-[var(--gold)] text-white shadow-md"
-                                          : "text-[var(--text-1)] hover:bg-[var(--bg)]"
+                                          : getDarkModeTextClass("text-[var(--text-1)]", "text-[#0F0F0F]") + " hover:bg-[var(--bg)]"
                                       }`}
                                     >
                                       {child.label}
@@ -218,7 +247,7 @@ export function Navbar() {
                                       className={`flex items-center justify-between w-full px-4 py-3 text-[14px] font-normal rounded-xl transition-all cursor-default ${
                                         hoveredChild === child.label 
                                           ? "bg-[var(--gold)] text-white shadow-md" 
-                                          : "text-[var(--text-1)] hover:bg-[var(--bg)]"
+                                          : getDarkModeTextClass("text-[var(--text-1)]", "text-[#0F0F0F]") + " hover:bg-[var(--bg)]"
                                       }`}
                                     >
                                       {child.label}
@@ -230,7 +259,10 @@ export function Navbar() {
                             </div>
 
                             {/* Content Panel (Sub-items) */}
-                            <div className="flex-1 p-6 bg-[var(--bg-card)]">
+                            <div 
+                              className="flex-1 p-6"
+                              style={isDark ? { backgroundColor: 'white' } : { backgroundColor: 'var(--bg-card)' }}
+                            >
                               <AnimatePresence mode="wait">
                                 {item.children.map((child) => 
                                   hoveredChild === child.label && child.items ? (
@@ -242,7 +274,10 @@ export function Navbar() {
                                       transition={{ duration: 0.2 }}
                                       className="h-full"
                                     >
-                                      <h4 className="text-[var(--gold)] font-heading font-bold text-[10px] uppercase tracking-[0.2em] mb-4 pb-2 border-b border-[var(--gold)]/10">
+                                      <h4 
+                                        className="font-heading font-bold text-[10px] uppercase tracking-[0.2em] mb-4 pb-2 border-b border-[var(--gold)]/10"
+                                        style={isDark ? { color: '#9D812E' } : { color: 'var(--gold)' }}
+                                      >
                                         {child.label}
                                       </h4>
                                       <div className="grid grid-cols-1 gap-1">
@@ -253,7 +288,7 @@ export function Navbar() {
                                             className={`group/item flex items-center justify-between px-4 py-2.5 rounded-xl text-[14px] font-normal transition-all ${
                                               isActive(subItem.href)
                                                 ? "text-[var(--gold)] bg-[var(--gold-soft)]"
-                                                : "text-[var(--text-2)] hover:text-[var(--gold)] hover:bg-[var(--gold-soft)]"
+                                                : getDarkModeTextClass("text-[var(--text-2)]", "text-[#7A7060]") + " hover:text-[var(--gold)] hover:bg-[var(--gold-soft)]"
                                             }`}
                                           >
                                             <span>{subItem.label}</span>
@@ -299,7 +334,7 @@ export function Navbar() {
               <ThemeToggle />
               <button 
                 onClick={() => setMobileMenuOpen(true)}
-                className="rounded-xl p-2.5 border border-[var(--border)] text-[var(--text-1)] hover:bg-[var(--bg-alt)] transition-all"
+                className={`rounded-xl p-2.5 border border-[var(--border)] ${getDarkModeTextClass("text-[var(--text-1)]", "text-[#0F0F0F]")} hover:bg-[var(--bg-alt)] transition-all`}
               >
                 <Menu size={24} />
               </button>
@@ -326,6 +361,7 @@ export function Navbar() {
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
               className="absolute right-0 top-0 h-full w-[85%] max-w-[400px] bg-[var(--bg)] shadow-2xl flex flex-col"
+              style={isDark ? { backgroundColor: 'white' } : {}}
             >
               <div className="p-6 flex items-center justify-between border-b border-[var(--border)] bg-[var(--bg-alt)]/50">
                 <Link href="/" className="flex items-center" onClick={() => setMobileMenuOpen(false)}>
@@ -335,7 +371,7 @@ export function Navbar() {
                 </Link>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="rounded-xl border border-[var(--border)] p-2 text-[var(--text-1)] hover:bg-[var(--bg-card)] transition-colors"
+                  className={`rounded-xl border border-[var(--border)] p-2 ${getDarkModeTextClass("text-[var(--text-1)]", "text-[#0F0F0F]")} hover:bg-[var(--bg-card)] transition-colors`}
                 >
                   <X size={24} />
                 </button>
@@ -352,14 +388,14 @@ export function Navbar() {
                           className={`flex items-center justify-between rounded-xl px-4 py-3.5 font-heading font-semibold text-lg transition-colors ${
                             isActive(item.href)
                               ? "bg-[var(--gold-soft)] text-[var(--gold)]"
-                              : "text-[var(--text-1)] hover:bg-[var(--bg-alt)]"
+                              : getDarkModeTextClass("text-[var(--text-1)]", "text-[#0F0F0F]") + " hover:bg-[var(--bg-alt)]"
                           }`}
                         >
                           {item.label}
                         </Link>
                       ) : item.href && item.children ? (
                         <div className="flex flex-col">
-                          <div className={`flex items-center justify-between rounded-xl font-heading font-semibold text-lg transition-colors ${activeDropdown === item.label ? "bg-[var(--gold-soft)] text-[var(--gold)]" : "text-[var(--text-1)] hover:bg-[var(--bg-alt)]"}`}>
+                          <div className={`flex items-center justify-between rounded-xl font-heading font-semibold text-lg transition-colors ${activeDropdown === item.label ? "bg-[var(--gold-soft)] text-[var(--gold)]" : getDarkModeTextClass("text-[var(--text-1)]", "text-[#0F0F0F]") + " hover:bg-[var(--bg-alt)]"}`}>
                             <Link
                               href={item.href}
                               onClick={() => setMobileMenuOpen(false)}
@@ -447,7 +483,7 @@ export function Navbar() {
                         <div className="flex flex-col">
                           <button
                             onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
-                            className={`flex items-center justify-between rounded-xl px-4 py-3.5 font-heading font-semibold text-lg text-[var(--text-1)] transition-colors ${activeDropdown === item.label ? "bg-[var(--gold-soft)] text-[var(--gold)]" : "hover:bg-[var(--bg-alt)]"}`}
+                            className={`flex items-center justify-between rounded-xl px-4 py-3.5 font-heading font-semibold text-lg transition-colors ${activeDropdown === item.label ? "bg-[var(--gold-soft)] text-[var(--gold)]" : getDarkModeTextClass("text-[var(--text-1)]", "text-[#0F0F0F]") + " hover:bg-[var(--bg-alt)]"}`}
                           >
                             {item.label}
                             <ChevronDown size={20} className={`transition-transform duration-300 ${activeDropdown === item.label ? "rotate-180" : ""}`} />

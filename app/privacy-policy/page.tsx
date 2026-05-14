@@ -4,7 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Canonical } from "@/components/SEO/Canonical";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy - Haramain Umrah Taxi",
+  title: "Privacy Policy",
   description: "Read our privacy policy to understand how we collect, use, and protect your personal information when you use our Umrah taxi services.",
   alternates: {
     canonical: "/privacy-policy/",
@@ -98,7 +98,7 @@ export default function PrivacyPolicy() {
                   If you have questions about this Privacy Policy, please contact us at:
                 </p>
                 <p className="text-[var(--text-2)] font-body leading-relaxed">
-                  <strong>Email:</strong> info@haramaintaxi.com<br />
+                  <strong>Email:</strong> info@haramainumrahtaxi.com<br />
                   <strong>WhatsApp:</strong> +966 59 840 1594
                 </p>
               </section>

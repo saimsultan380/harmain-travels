@@ -8,7 +8,7 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "Wadi Hanifa Garden & Park, Riyadh: A Complete Tour Guide - Haramain Umrah Taxi",
+  title: "Wadi Hanifa Garden & Park, Riyadh: A Complete Tour Guide",
   description: "Explore Wadi Hanifa Garden & Park in Riyadh with our complete tour guide with attractions, tips, and travel help by Haramain Umrah Taxi.",
   alternates: {
     canonical: "/wadi-hanifa-garden-park-riyadh-a-complete-tour-guide/",

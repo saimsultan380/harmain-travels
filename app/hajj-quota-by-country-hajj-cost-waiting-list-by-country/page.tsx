@@ -8,8 +8,8 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "Hajj Quota by Country, Hajj Cost & Waiting List by Country - Haramain Umrah Taxi",
-  description: "Complete guide to Hajj quota by country for 2026, real costs from over 10 countries, government subsidies, and waiting list information for pilgrims worldwide.",
+  title: "Hajj Quota by Country, Hajj Cost & Waiting List by Country",
+  description: "Hajj is a journey that a Muslim can make during his or her lifetime. It is one of the most significant ones. However, there is one thing that you need to know",
   alternates: {
     canonical: "/hajj-quota-by-country-hajj-cost-waiting-list-by-country/",
   },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const post = {
   id: "hajj-quota-by-country-hajj-cost-waiting-list-by-country",
   title: "Hajj Quota by Country, Hajj Cost & Waiting List by Country",
-  excerpt: "Complete guide to Hajj quota by country for 2026, real costs from over 10 countries, government subsidies, and waiting list information for pilgrims worldwide.",
+  excerpt: "Hajj is a journey that a Muslim can make during his or her lifetime. It is one of the most significant ones. However, there is one thing that you need to know",
   category: "other-services",
   categoryName: "Other Services Guides",
   date: "2026-04-08",

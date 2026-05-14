@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { FleetTaxisRoutesClient } from "./FleetTaxisRoutesClient";
 
 export const metadata: Metadata = {
-  title: "Our Fleet and Routes - Haramain Umrah Taxi",
+  title: "Our Fleet and Routes",
   description: "Haramain Umrah Taxi has Luxurious & Affordable Fleet: Sedans (Camry+Sonata), SUVs (GMC), Sataria Microbus, Hiace, Coaster & Bus covering major routes in Saudia",
   keywords: [
     "Umrah taxi fleet",

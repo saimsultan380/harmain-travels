@@ -8,15 +8,15 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "Taxi Fare from Makkah to Taif & Taif to Makkah & Taif Ziyarat - Haramain Umrah Taxi",
+  title: "Taxi Fare from Makkah to Taif & Taif to Makkah & Taif Ziyarat",
   description: "Affordable taxi service from Makkah to Taif. Rates from SAR 380. Ziyarat tours included. Book Camry, GMC, Hiace, Coaster & Bus. Available 24/7.",
   alternates: {
-    canonical: "/islamic-ziyarat-historical-places-taif/",
+    canonical: "/taxi-fare-from-makkah-to-taif-taif-to-makkah-taif-ziyarat/",
   },
 };
 
 const post = {
-  id: "islamic-ziyarat-historical-places-taif",
+  id: "taxi-fare-from-makkah-to-taif-taif-to-makkah-taif-ziyarat",
   title: "Taxi Fare from Makkah to Taif & Taif to Makkah & Taif Ziyarat",
   excerpt: "Affordable taxi service from Makkah to Taif. Rates from SAR 380. Ziyarat tours included. Book Camry, GMC, Hiace, Coaster & Bus. Available 24/7.",
   category: "taxi-fares",

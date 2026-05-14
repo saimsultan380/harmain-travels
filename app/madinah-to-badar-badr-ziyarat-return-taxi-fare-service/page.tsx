@@ -8,8 +8,8 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "Madinah to Badar & Badr Ziyarat & Return Taxi Fare & Service - Haramain Umrah Taxi",
-  description: "The trip from Madinah to Badar is one of the most demanded ziyarat visits by pilgrims. Book your Madinah to Badar and Badr ziyarat with a round-trip taxi that is easy, secure, and customer-oriented.",
+  title: "Madinah to Badar & Badr Ziyarat & Return Taxi Fare & Service",
+  description: "Get a 7-seater private Starex or Staria Umrah taxi from Umrah Passenger at very discounted prices. Get Staria for Ziyarat, Airport and Inter-city transfers!",
   alternates: {
     canonical: "/madinah-to-badar-badr-ziyarat-return-taxi-fare-service/",
   },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const post = {
   id: "madinah-to-badar-badr-ziyarat-return-taxi-fare-service",
   title: "Madinah to Badar & Badr Ziyarat & Return Taxi Fare & Service",
-  excerpt: "The trip from Madinah to Badar is one of the most demanded ziyarat visits by pilgrims. Book your Madinah to Badar and Badr ziyarat with a round-trip taxi that is easy, secure, and customer-oriented.",
+  excerpt: "Get a 7-seater private Starex or Staria Umrah taxi from Umrah Passenger at very discounted prices. Get Staria for Ziyarat, Airport and Inter-city transfers!",
   category: "sight-seeings",
   categoryName: "Sight Seeings",
   date: "2026-04-08",

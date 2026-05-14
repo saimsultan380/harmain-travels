@@ -8,7 +8,7 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "How to Perform Hajj Badal for a Deceased & Dead Person? - Haramain Umrah Taxi",
+  title: "How to Perform Hajj Badal for a Deceased & Dead Person?",
   description: "Learn how to perform Hajj Badal for deceased loved ones. Complete step-by-step guide by Haramain Umrah Taxi with rituals & requirements. Book Now.",
   alternates: {
     canonical: "/how-to-perform-hajj-badal-for-a-deceased-dead-person/",

@@ -8,7 +8,7 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "Nusuk Masar: How to Apply Umrah Visa through Nusuk in 2026 - Haramain Umrah Taxi",
+  title: "Nusuk Masar: How to Apply Umrah Visa through Nusuk in 2026",
   description: "Learn how to apply for Umrah visa through Nusuk Masar in 2026, including process, fees, requirements & transport booking tips. Apply Umrah Visa & Book Our Taxi",
   alternates: {
     canonical: "/nusuk-masar-how-to-apply-umrah-visa-through-nusuk-in-2026/",

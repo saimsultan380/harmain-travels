@@ -8,7 +8,7 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "How to Donate Quran in Makkah, Madinah & Masjid Al Haram? - Haramain Umrah Taxi",
+  title: "How to Donate Quran in Makkah, Madinah & Masjid Al Haram?",
   description: "Learn how to donate Quran in Makkah & Madinah properly. Complete guide to Waqaf a Quran in Masjid Al Haram & Masjid Nabawi online with official channels.",
   alternates: {
     canonical: "/donate-quran-makkah-madinah-haram/",
@@ -85,11 +85,11 @@ export default function BlogPostPage() {
 
               {/* Content */}
               <div className="prose prose-lg max-w-none">
-                <p className="text-[var(--text-2)] leading-relaxed mb-6 italic">
-                  Imagine millions of pilgrims reading from a Quran you donated. Every recitation earns you rewards even after you return home. Every prayer someone offers using your donated Quran adds blessings to your account.
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  Imagine millions of pilgrims reading from a Quran you donated. Every recitation earns you rewards even after you return home. Every prayer someone offers using your donated Quran adds blessings to your account. This is <strong>Sadaqah Jariyah</strong>, a continuous charity that benefits you in this life and the next. 
                 </p>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
-                  This is **Sadaqah Jariyah**, a continuous charity that benefits you in this life and the next. We will show you exactly how to donate Quran in Makkah and Madinah through proper channels that ensure your gift reaches the holiest mosques.
+                  We will show you exactly how to donate quran in Makkah and Madinah through proper channels that ensure your gift reaches the holiest mosques.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-10">
@@ -112,64 +112,109 @@ export default function BlogPostPage() {
 
                 <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">Understanding Waqf A Quran</h2>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
-                  Waqaf A Quran means dedicating a Quran as a permanent religious endowment. Once you donate it properly, the Quran stays in the mosque permanently. Not just any Quran qualifies for placement in Masjid al-Haram or Masjid Nabawi; copies need official seals and approvals from mosque management to ensure quality and consistency.
+                  Waqaf A Quran means dedicating a Quran as a permanent religious endowment. Once you donate it properly, the Quran stays in the mosque permanently. You cannot take it back. This makes it true Sadaqah Jariyah.
+                </p>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  The concept comes from the Islamic law of Waqf. You dedicate something permanently to Allah. The mosque authorities maintain your donated Quran. They replace damaged copies and ensure proper handling.
+                </p>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  Your waqaf a quran follows specific rules. Not just any Quran qualifies for placement in Masjid al-Haram or Masjid Nabawi. The copies need official seals and approvals from mosque management.
                 </p>
 
-                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">How to Donate in Makkah: 3 Best Options</h2>
-                <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-4 mt-6">1. Official Partners & Online Platforms</h3>
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">Official Requirements for Quran Donation</h2>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
-                  You can donate Quran in Makkah online through verified organizations that work directly with Masjid al-Haram management. They provide certificates and proof of placement.
+                  You cannot simply buy a Quran from any store and leave it in the mosque. The authorities will remove unauthorized copies later. This wastes your money and intention.
+                </p>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  Authorized Qurans need special stamps and seals. These show that mosque management approved them officially. Only certified publishers work with the mosque authorities directly.
+                </p>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  The Quran must meet size and print quality standards. Masjid al-Haram prefers specific dimensions and clear Arabic fonts. Binding quality matters because millions of hands will touch it over the years.
                 </p>
 
-                <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-4 mt-6">2. Authorized Bookstores</h3>
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">How to Donate Quran in Makkah - 3 Best Options</h2>
+                <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-4 mt-6">Option 1 - Donate Through Official Partners</h3>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
-                  When visiting Makkah, authorized bookstores like **Dawah Corner** near Masjid al-Haram offer official donation services. They stamp the Quran with official seals and deliver it to mosque authorities following protocol.
+                  You can donate quran in Makkah online through verified organizations. These groups work directly with Masjid al-Haram management. They handle all official requirements for you.
+                </p>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  Reputable platforms include established Islamic charities with proven track records. They show you photo or video proof of placement. You receive certificates confirming your donation reached the mosque.
                 </p>
 
-                <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-4 mt-6">3. Special Campaigns</h3>
+                <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-4 mt-6">Option 2 - Visit Authorized Bookstores</h3>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
-                  During Ramadan and Hajj, bulk donation campaigns often run. These allow you to dedicate Qurans to family members at discounted rates through official channels.
+                  When you visit Makkah physically, authorized bookstores near Masjid al-Haram offer donation services. Dawah Corner Bookstore is one example working officially with mosque management.
+                </p>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  You pay for the Quran at these stores. They stamp it with official seals. Then they deliver it to mosque authorities following proper protocols. You can watch the process if you want.
                 </p>
 
-                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">Online Donation Process for Madinah</h2>
+                <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-4 mt-6">Option 3 - Ramadan and Special Campaigns</h3>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
-                  Donating to Masjid Nabawi follows a similar process:
+                  During Ramadan and Hajj seasons, special campaigns run for quran donation in Makkah. These campaigns often offer discounted rates because of bulk purchases.
                 </p>
-                <ol className="list-decimal list-inside text-[var(--text-2)] leading-relaxed mb-6 space-y-2">
-                  <li>Choose a verified platform with official partnerships.</li>
-                  <li>Select your preferred mosque (Makkah or Madinah).</li>
-                  <li>Choose Quran size (normal or large print).</li>
-                  <li>Provide dedication details (names of living or deceased).</li>
-                  <li>Complete secure payment and receive confirmation.</li>
-                  <li>Get photo or video proof after placement.</li>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  You can donate one Quran or sponsor multiple copies. Some campaigns let you dedicate each Quran to different family members. This multiplies your blessings. Always verify that Ramadan campaigns work through official channels.
+                </p>
+
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">How to Donate Quran to Masjid Al Haram?</h2>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  Donating the quran to masjid al haram specifically requires understanding the mosque&apos;s unique system. Masjid al-Haram management maintains strict quality controls.
+                </p>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  You cannot hand a Quran directly to mosque staff. You must go through authorized partners or certified bookstores.
+                </p>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  When you donate quran to masjid al haram online, choose platforms that show verification stamps in their photos. These stamps prove official approval from mosque management. Without stamps, your Quran might get removed later.
+                </p>
+
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">How to Donate Quran in Madinah?</h2>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  Donation of the quran to Masjid Nabawi also requires official approvals and proper seals. Authorized bookstores exist in Madinah, too. You can visit them when performing Umrah or visiting the Prophet&apos;s mosque.
+                </p>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  The Madinah donation shops operate near Masjid Nabawi. You can complete your donation process between prayers. This makes it convenient during your stay.
+                </p>
+
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">How to Donate Quran to Masjid Nabawi - Online Donation Process</h2>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  Let us tell you how to donate the quran to Masjid Nabwi online completely in simple and easy steps:
+                </p>
+                <ol className="list-decimal pl-6 mb-8 text-[var(--text-2)] space-y-2">
+                  <li><strong>Research:</strong> Choose a verified platform. Check their credentials, reviews, and official partnerships.</li>
+                  <li><strong>Selection:</strong> Select your preferred mosque, Masjid al-Haram or Masjid Nabawi.</li>
+                  <li><strong>Details:</strong> Choose Quran size and quantity. Normal size suits most people.</li>
+                  <li><strong>Dedication:</strong> Write the beneficiary&apos;s name, either living or deceased.</li>
+                  <li><strong>Payment:</strong> Complete payment through secure methods like credit cards or PayPal.</li>
+                  <li><strong>Confirmation:</strong> Receive confirmation email with donation details.</li>
+                  <li><strong>Proof:</strong> Get photo or video proof after placement.</li>
                 </ol>
 
-                <div className="bg-[var(--bg-alt)] border-l-4 border-[var(--gold)] p-6 my-8 rounded-r-xl">
-                  <div className="flex items-start gap-4">
-                    <HelpCircle className="text-[var(--gold)] shrink-0" size={24} />
-                    <div>
-                      <h4 className="font-heading font-bold mb-2">Common Mistakes to Avoid</h4>
-                      <p className="text-[var(--text-2)] text-sm mb-2">
-                        • Never buy random Qurans and leave them in the mosque yourself; they will be removed if they lack official seals.
-                      </p>
-                      <p className="text-[var(--text-2)] text-sm">
-                        • Avoid unverified platforms with impossibly low prices. Legit approved Qurans have standard costs.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">Common Mistakes to Avoid During Waqf A Quran</h2>
+                <ul className="list-disc pl-6 mb-8 text-[var(--text-2)] space-y-2">
+                  <li><strong>Random Placement:</strong> Never buy random Qurans and leave them in the mosque yourself. They will be removed without proper seals.</li>
+                  <li><strong>Low-Cost Scams:</strong> Do not use unverified platforms promising impossibly low prices. Proper Qurans with official seals have standard costs.</li>
+                  <li><strong>Lack of Verification:</strong> Avoid platforms that cannot provide placement verification through photos or videos.</li>
+                  <li><strong>Vague Intentions:</strong> Do not forget to make clear dedications for whose name you want the Quran donated.</li>
+                </ul>
 
-                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">How Haramain Umrah Taxi Can Help</h2>
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">How Haramain Umrah Taxi Can Help in Quran Donation?</h2>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
-                  When you visit for Umrah, we can take you to authorized Quran donation locations. Our drivers know which bookstores (like Dawah Corner) work officially with mosque management. We handle your transportation while you fulfill your spiritual intention, ensuring your donation experience is smooth and blessed.
+                  When you visit Makkah or Madinah for Umrah, we can take you to authorized Quran donation locations. Our drivers know which bookstores work officially with mosque management.
+                </p>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  We transport you safely to Dawah Corner and other certified shops. You can purchase and donate Qurans while we wait. Our drivers speak multiple languages and explain the donation process clearly.
+                </p>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6 font-bold">
+                  Book your Umrah transportation with us and include a Quran donation as part of your spiritual journey. We help you create lasting Sadaqah Jariyah while visiting the holy cities.
                 </p>
 
                 <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">Conclusion</h2>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
-                  Donating a Quran to Makkah and Madinah creates endless rewards. Whether you donate online or in person, ensure you follow official procedures to secure your **Sadaqah Jariyah**.
+                  Donating a Quran to Makkah and Madinah creates endless rewards for you and your loved ones. Whether you donate quran in Makkah online or visit authorized bookstores in person, ensure you follow official procedures. 
                 </p>
-                <p className="text-[var(--text-2)] leading-relaxed mb-6 font-bold">
-                  Start your journey of continuous blessings today!
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  Waqaf a quran in Masjid al-Haram or Masjid Nabawi multiplies your rewards beyond imagination. Start your Sadaqah Jariyah today and secure ongoing rewards for this life and the hereafter.
                 </p>
               </div>
 

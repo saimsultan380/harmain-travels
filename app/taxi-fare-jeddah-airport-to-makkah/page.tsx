@@ -8,7 +8,7 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "How Much is the Taxi Fare from Jeddah Airport to Makkah? - Haramain Umrah Taxi",
+  title: "How Much is the Taxi Fare from Jeddah Airport to Makkah?",
   description: "Find out the taxi fare from Jeddah Airport to Makkah with Us. Fixed prices from SAR 250, airport pickup, and direct routes to Masjid al-Haram. Book today!",
   alternates: {
     canonical: "/taxi-fare-jeddah-airport-to-makkah/",

@@ -8,8 +8,8 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "Best Places to Visit in Dammam & Things to Do in Dammam, KSA - Haramain Umrah Taxi",
-  description: "Discover the best places to visit in Dammam, KSA. From Half Moon Beach to shopping malls, explore top attractions and things to do in this vibrant Eastern Province city.",
+  title: "Best Places to Visit in Dammam & Things to Do in Dammam, KSA",
+  description: "Explore top tourist spots and the best places to visit in Dammam, KSA. Plan your trip and book a comfortable ride with Haramain Umrah Taxi.",
   alternates: {
     canonical: "/best-places-to-visit-in-dammam-things-to-do-in-dammam-ksa/",
   },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const post = {
   id: "best-places-to-visit-in-dammam-things-to-do-in-dammam-ksa",
   title: "Best Places to Visit in Dammam & Things to Do in Dammam, KSA",
-  excerpt: "Discover the best places to visit in Dammam, KSA. From Half Moon Beach to shopping malls, explore top attractions and things to do in this vibrant Eastern Province city.",
+  excerpt: "Explore top tourist spots and the best places to visit in Dammam, KSA. Plan your trip and book a comfortable ride with Haramain Umrah Taxi.",
   category: "other-services",
   categoryName: "Other Services Guides",
   date: "2026-04-25",
@@ -100,6 +100,16 @@ export default function BlogPostPage() {
                 
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">Picnic preparations are also brought by many visitors and they spend the entire day here. This beach will give you the right ambience in case you want to get away from the noise of the city.</p>
                 
+                <div className="mb-8 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/Half-Moon-Beach.png"
+                    alt="Half Moon Beach Dammam"
+                    width={1400}
+                    height={800}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                
                 <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3 mt-6">King Fahd Park</h3>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">King Fahd Park is the most visited area in Dammam with family. It is among the biggest green areas in the region.</p>
                 
@@ -107,10 +117,30 @@ export default function BlogPostPage() {
                 
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">It is a serene area where one can relax and have fun with nature in the city due to the fountains and lawns.</p>
                 
+                <div className="mb-8 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/King-Fahd-Park.png"
+                    alt="King Fahd Park Dammam"
+                    width={1400}
+                    height={800}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                
                 <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3 mt-6">Marjan Island</h3>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">Marjan Island is one of the best places in Dammam where one can enjoy scenic beauty. The island is linked with the mainland via a bridge, and it provides a lovely view of the Arabian Gulf.</p>
                 
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">Several tourists visit here to stroll by the water, capture photographs, or even see the sunset. It is a good place to relax after having a working day in the city due to the serene atmosphere.</p>
+                
+                <div className="mb-8 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/Marjan-Island.png"
+                    alt="Marjan Island Dammam"
+                    width={1400}
+                    height={800}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
                 
                 <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3 mt-6">Heritage Village</h3>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">When it comes to the investigation of the local culture, one of the popular sights in Dammam is Heritage Village. The structure is an example of the classic Saudi architecture and exhibits the historical artifacts of the territory.</p>
@@ -119,12 +149,32 @@ export default function BlogPostPage() {
                 
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">The place also includes a restaurant where one can have a taste of local food with a view of the sea.</p>
                 
+                <div className="mb-8 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/Heritage-Village.png"
+                    alt="Heritage Village Dammam"
+                    width={1400}
+                    height={800}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                
                 <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-3 mt-6">Dammam Corniche</h3>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">Dammam Corniche is also among the most tranquilizing city parks. The waterfront walk is long and runs along the sea coastline and provides open areas where one can walk, go cycling, and have family outings.</p>
                 
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">It is regarded as one of the best places to go in Dammam without any charges by many locals.</p>
                 
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">You may sit by water, and see the boats, or have sea-air in the evening. Corniche is a good place to have an informal visit at night after the sun has gone down.</p>
+                
+                <div className="mb-8 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/Dammam-Corniche.png"
+                    alt="Dammam Corniche"
+                    width={1400}
+                    height={800}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
                 
                 <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">Popular Shopping Malls in Dammam</h2>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">One of the best things to do in Dammam is shopping. The city has various modern malls where people can have entertainment, food, and international brands.</p>

@@ -8,7 +8,7 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "Why Taxi Services in KSA Request Visa and Passport Details? - Haramain Umrah Taxi",
+  title: "Why Taxi Services in KSA Request Visa and Passport Details?",
   description: "Discover why KSA taxi services require visa and passport details for pilgrim safety and compliance. Book secure Haramain Umrah Taxi today.",
   alternates: {
     canonical: "/why-taxi-services-in-ksa-request-visa-and-passport-details/",

@@ -21,7 +21,7 @@ export async function generateMetadata({
   const page = Number(pageNum);
   const totalPages = Math.ceil(sortedBlogPosts.length / POSTS_PER_PAGE);
   return {
-    title: `Blog - Page ${page} of ${totalPages} | Haramain Umrah Taxi`,
+    title: `Blog - Page ${page} of ${totalPages}`,
     description: `Explore page ${page} of the Haramain Umrah Taxi blog — Umrah travel guides, taxi fares, ziyarat tips, and more.`,
     alternates: { canonical: `/blog/page/${page}/` },
   };

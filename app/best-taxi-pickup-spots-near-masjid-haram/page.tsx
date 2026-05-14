@@ -8,7 +8,7 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "Safe & Best Taxi Pickup Points & Spots near Masjid Al Haram - Haramain Umrah Taxi",
+  title: "Safe & Best Taxi Pickup Points & Spots near Masjid Al Haram",
   description: "Best pickup points near Haram for pilgrims. Read about safe, convenient locations at all gates. Book your Haramain Umrah Taxi ride now at Discounted Price!",
   alternates: {
     canonical: "/best-taxi-pickup-spots-near-masjid-haram/",

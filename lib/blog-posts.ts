@@ -2,7 +2,7 @@ export const blogPosts = [
   {
     id: "madinah-to-badar-badr-ziyarat-return-taxi-fare-service",
     title: "Madinah to Badar & Badr Ziyarat & Return Taxi Fare & Service",
-    excerpt: "The trip from Madinah to Badar is one of the most demanded ziyarat visits by pilgrims. Book your Madinah to Badar and Badr ziyarat with a round-trip taxi that is easy, secure, and customer-oriented.",
+    excerpt: "Get a 7-seater private Starex or Staria Umrah taxi from Umrah Passenger at very discounted prices. Get Staria for Ziyarat, Airport and Inter-city transfers!",
     categories: ["taxi-fares"],
     date: "2026-04-08",
     readTime: "6 min read",
@@ -12,7 +12,7 @@ export const blogPosts = [
   {
     id: "hajj-quota-by-country-hajj-cost-waiting-list-by-country",
     title: "Hajj Quota by Country, Hajj Cost & Waiting List by Country",
-    excerpt: "Complete guide to Hajj quota by country for 2026, real costs from over 10 countries, government subsidies, and waiting list information for pilgrims worldwide.",
+    excerpt: "Hajj is a journey that a Muslim can make during his or her lifetime. It is one of the most significant ones. However, there is one thing that you need to know",
     categories: ["other-services"],
     date: "2026-04-08",
     readTime: "12 min read",
@@ -21,8 +21,8 @@ export const blogPosts = [
   },
   {
     id: "cheap-wadi-e-jinn-ziyarat-taxi-madinah-to-wadi-e-jinn-taxi",
-    title: "Cheap Wadi e Jinn Ziyarat Taxi | Madinah to Wadi e Jinn Taxi",
-    excerpt: "Discover affordable Wadi e Jinn ziyarat taxi service from Madinah. Book your comfortable ride to this popular desert destination with Haramain Umrah Taxi.",
+    title: "Get Discounts for Wadi e Jinn Ziyarat Taxi from HUT. Travel 30-40km distance between Masjid Nabawi or Madinah to Wadi e Jinn in our Madinah to Wadi Jinn Taxi",
+    excerpt: "Hajj is a journey that a Muslim can make during his or her lifetime. It is one of the most significant ones. However, there is one thing that you need to know",
     categories: ["other-services", "taxi-fares"],
     date: "2026-03-27",
     readTime: "5 min read",
@@ -32,7 +32,7 @@ export const blogPosts = [
   {
     id: "best-places-to-visit-in-dammam-things-to-do-in-dammam-ksa",
     title: "Best Places to Visit in Dammam & Things to Do in Dammam, KSA",
-    excerpt: "Discover the best places to visit in Dammam, KSA. From Half Moon Beach to shopping malls, explore top attractions and things to do in this vibrant Eastern Province city.",
+    excerpt: "Explore top tourist spots and the best places to visit in Dammam, KSA. Plan your trip and book a comfortable ride with Haramain Umrah Taxi.",
     categories: ["other-services"],
     date: "2026-04-25",
     readTime: "8 min read",
@@ -42,7 +42,7 @@ export const blogPosts = [
   {
     id: "ziyarat-and-umrah-taxi-services-in-shawal-ksa",
     title: "Ziarat and Umrah Taxi Services in Shawal - Discounts Available",
-    excerpt: "Discover discounted Umrah taxi services in Shawal. Reliable transport for Makkah to Madinah, airport transfers, and Ziarat tours with professional drivers.",
+    excerpt: "Haramain Umrah Taxi offers the best Umrah taxi services in Shawal with Discounts available! You can book Ziyarat taxi, Airport Transfers & Inter-city travel",
     categories: ["other-services", "taxi-fares"],
     date: "2026-04-25",
     readTime: "7 min read",
@@ -52,7 +52,7 @@ export const blogPosts = [
   {
     id: "eid-ul-fitr-taxi-services-in-makkah-madinah-saudi-arabia",
     title: "Eid ul Fitr Taxi Services in Makkah & Madinah, Saudi Arabia",
-    excerpt: "Reliable Eid ul Fitr taxi services in Makkah and Madinah. Book online for airport transfers, intercity travel, and Ziarat tours during the busy Eid season.",
+    excerpt: "Want Eid Discount? Book Haramain's Eid ul Fitr Umrah Taxi with exclusive Eid offers! 24/7 Availability, Professional Drivers, Clean Cars for all Transfers!",
     categories: ["other-services", "taxi-fares"],
     date: "2026-04-25",
     readTime: "6 min read",
@@ -62,7 +62,7 @@ export const blogPosts = [
   {
     id: "private-umrah-taxi-services-from-indonesia",
     title: "Book Private Umrah Taxi Services Online from Indonesia",
-    excerpt: "Book private Umrah taxi services online from Indonesia. Reliable transport for Indonesian pilgrims with comfortable vehicles and professional drivers.",
+    excerpt: "You can book the best Ziyarat and Umrah taxi services from Indonesia in advance from Fater. Book Jeddah and Madinah Airport Pickups & Inter-city transfers.",
     categories: ["other-services", "taxi-fares"],
     date: "2026-04-25",
     readTime: "6 min read",
@@ -71,8 +71,8 @@ export const blogPosts = [
   },
   {
     id: "7-best-tourist-places-to-visit-in-tabuk-things-to-do-in-tabuk",
-    title: "7 Best Tourist Places to Visit in Tabuk & Things to Do in Tabuk",
-    excerpt: "Discover the best places to visit in Tabuk, KSA. From Tabuk Castle to Wadi Al Disah, explore top attractions and things to do in this fascinating northwestern Saudi city.",
+    title: "Best Tourist Places to Visit in Tabuk &Things to Do in Tabuk",
+    excerpt: "Book us to see top secret tourist places to visit in Tabuk i-e Tabuk Castle, Al Tawba Mosque, Wadi Al Disah, Jabal Al Lawz, Umluj Beach, Tabuk Malls & Parks",
     categories: ["other-services"],
     date: "2026-04-27",
     readTime: "10 min read",
@@ -81,8 +81,8 @@ export const blogPosts = [
   },
   {
     id: "private-umrah-taxi-services-online-from-the-usa-book-at-discount",
-    title: "Private Umrah Taxi Services Online from the USA Book at Discount",
-    excerpt: "Book private Umrah taxi services online from the USA at discount. Reliable airport transfers, Makkah to Madinah travel, and comfortable transportation for USA pilgrims.",
+    title: "Private Umrah Taxi Services Online from USA Book at Discount",
+    excerpt: "Book private Umrah taxi or car online from USA from Us at Discounted price. Get private car from Jeddah airport to Makkah & Madinah hotel to airport from USA",
     categories: ["other-services", "taxi-fares"],
     date: "2026-04-27",
     readTime: "8 min read",
@@ -92,7 +92,7 @@ export const blogPosts = [
   {
     id: "difference-betweeen-damm-fidyah-kaffarah",
     title: "Difference Between Damm, Fidyah, and Kaffarah in Easy Words",
-    excerpt: "Understand the difference between Damm, Fidyah, and Kaffarah in Islam. Learn when each applies, the type of compensation required, and examples for Umrah, Hajj, and Ramadan.",
+    excerpt: "Understand the difference between Damm, Fidyah, and Kaffarah in simple words. Learn when each applies during Hajj, Umrah, and Ramadan by Haramain Umrah Taxi",
     categories: ["other-services"],
     date: "2026-04-27",
     readTime: "7 min read",
@@ -130,7 +130,7 @@ export const blogPosts = [
     author: "M Umar Irfan",
   },
   {
-    id: "best-umrah-taxi-service-in-ramadan-haramain-umrah-taxi-book",
+    id: "best-umrah-taxi-service-in-ramadan",
     title: "Best Umrah Taxi Service in Ramadan: Haramain Umrah Taxi Book",
     excerpt: "Haramain Umrah Taxi offers the best Ramadan taxi service in Makkah & Madinah. Affordable, reliable, Clean Vehicles & 24/7 available. Book your Ride Now.",
     categories: ["other-services", "taxi-fares"],
@@ -220,7 +220,7 @@ export const blogPosts = [
     author: "M Umar Irfan",
   },
   {
-    id: "islamic-ziyarat-historical-places-taif",
+    id: "taxi-fare-from-makkah-to-taif-taif-to-makkah-taif-ziyarat",
     title: "Taxi Fare from Makkah to Taif & Taif to Makkah &Taif Ziyarat",
     excerpt: "Affordable taxi service from Makkah to Taif. Rates from SAR 380. Ziyarat tours included. Book Camry, GMC, Hiace, Coaster & Bus. Available 24/7.",
     categories: ["taxi-fares"],
@@ -271,7 +271,7 @@ export const blogPosts = [
   },
   {
     id: "how-to-book-a-taxi-in-saudi-arabia-for-international-visitors",
-    title: "How to Book a Taxi in Saudi Arabia for International Visitors?",
+    title: "How to Book a Taxi in Saudi Arabia for International Visitors? ",
     excerpt: "Learn how to book taxi in Saudi Arabia for international visitors. You can travel comfortably between holy cities and do ziyarats. Book HUT today!",
     categories: ["taxi-guides"],
     date: "2026-05-12",

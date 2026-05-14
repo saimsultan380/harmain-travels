@@ -8,7 +8,7 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "Best Women or Female-Friendly Taxi Services in Saudi Arab - Haramain Umrah Taxi",
+  title: "Best Women or Female-Friendly Taxi Services in Saudi Arab",
   description: "Traveling as a woman in Saudi Arabia just got safer and more comfortable. Discover the best women or female-friendly taxi services in Saudi Arab. Book HUT!",
   alternates: {
     canonical: "/best-women-or-female-friendly-taxi-services-in-saudi-arab/",

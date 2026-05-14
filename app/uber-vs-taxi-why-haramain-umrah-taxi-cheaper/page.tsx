@@ -8,7 +8,7 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "Uber vs Taxi: Why is a Haramain Umrah Taxi Cheaper than Uber - Haramain Umrah Taxi",
+  title: "Uber vs Taxi: Why is a Haramain Umrah Taxi Cheaper than Uber",
   description: "Compare Uber vs Taxi for Umrah travel and discover why Haramain Umrah Taxi is cheaper than Uber. Enjoy fixed pricing, no surge fares, and reliable transfers.",
   alternates: {
     canonical: "/uber-vs-taxi-why-haramain-umrah-taxi-cheaper/",

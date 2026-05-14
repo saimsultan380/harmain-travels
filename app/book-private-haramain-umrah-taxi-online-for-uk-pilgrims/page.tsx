@@ -8,7 +8,7 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "Book Private Haramain Umrah Taxi Online for UK Pilgrims - Haramain Umrah Taxi",
+  title: "Book Private Haramain Umrah Taxi Online for UK Pilgrims",
   description: "Book your private umrah taxi online before you travel from the UK. Enjoy a smooth airport transfer to Makkah or Madinah without stress. Book with Discounts!",
   alternates: {
     canonical: "/book-private-haramain-umrah-taxi-online-for-uk-pilgrims/",

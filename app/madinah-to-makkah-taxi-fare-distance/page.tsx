@@ -8,7 +8,7 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "What is Madinah to Makkah Taxi Fare or Price and Distance? - Haramain Umrah Taxi",
+  title: "What is Madinah to Makkah Taxi Fare or Price and Distance?",
   description: "Discover Madinah to Makkah taxi fare starting at SAR 400. We cover 440km in 4-5 hours with fixed prices and professional drivers. Book your comfortable travel.",
   alternates: {
     canonical: "/madinah-to-makkah-taxi-fare-distance/",

@@ -8,7 +8,7 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "13 Best Places to Visit in Riyadh & Things to Do in Riyadh - Haramain Umrah Taxi",
+  title: "13 Best Places to Visit in Riyadh & Things to Do in Riyadh",
   description: "Discover the best places to visit in Riyadh. Read our complete guide to top attractions & things to do in the Saudi capital. Book your Riyadh tour with Us!",
   alternates: {
     canonical: "/best-places-in-riyadh/",
@@ -108,36 +108,99 @@ export default function BlogPostPage() {
                 </div>
 
                 <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">1. Kingdom Centre Tower</h2>
+                <div className="mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/Kingdom-Centre-Tower-1.png"
+                    alt="Kingdom Centre Tower"
+                    width={1200}
+                    height={600}
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
                   You cannot miss the iconic 302-meter tower dominating Riyadh&apos;s skyline. Take two elevators to reach the 99th-floor Sky Bridge for panoramic views spreading Riyadh beneath you in every direction. Visit during sunset for the best experience.
                 </p>
 
                 <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">2. Edge of the World (Jebel Fihrayn)</h2>
+                <div className="mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/Edge-of-the-World-or-Jebel-Fihrayn.png"
+                    alt="Edge of the World"
+                    width={1200}
+                    height={600}
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
                   You stand on 1131-meter-high cliffs overlooking endless desert plains. This geological wonder sits 90 kilometers northwest of Riyadh. It offers a dramatic escape into nature where ancient ocean beds once flowed.
                 </p>
 
                 <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">3. Masmak Fortress</h2>
+                <div className="mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/Masmak Fortress Where History Lives.png"
+                    alt="Masmak Fortress"
+                    width={1200}
+                    height={600}
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
                   Enter the 19th-century clay fortress that witnessed the founding of Saudi Arabia. The museum inside displays weapons, photographs, and artifacts from the Kingdom&apos;s establishment. It is a cornerstone of Saudi history.
                 </p>
 
                 <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">4. At-Turaif UNESCO World Heritage Site</h2>
+                <div className="mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/At-Turaif-UNESCO-World-Heritage-Site.png"
+                    alt="At-Turaif"
+                    width={1200}
+                    height={600}
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
                   Walk through Saudi Arabia&apos;s first capital in Diriyah. At-Turaif served as the royal family&apos;s home until 1818. The mud-brick architecture showcases traditional Najdi building techniques beautifully.
                 </p>
 
                 <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">5. National Museum of Saudi Arabia</h2>
+                <div className="mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/National-Museum-of-Saudi-Arabia.png"
+                    alt="National Museum"
+                    width={1200}
+                    height={600}
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
                   Discover 3,700 rare artifacts spanning Arabian Peninsula history in this crescent-shaped building. Eight galleries guide you from prehistoric times through the modern age, emphasizing Islamic history.
                 </p>
 
                 <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">6. Diriyah - Cultural Renaissance</h2>
+                <div className="mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/Diriyah-Cultural-Renaissance.png"
+                    alt="Diriyah"
+                    width={1200}
+                    height={600}
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
                   Experience a world-class heritage destination where restored districts connect with modern entertainment. It is the heart of Saudi culture, offering traditional performances and high-end dining.
                 </p>
 
                 <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">7. Souq Al-Zal (Deerah Souq)</h2>
+                <div className="mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/Souq-Al-Zal-Deerah-Souq.png"
+                    alt="Souq Al-Zal"
+                    width={1200}
+                    height={600}
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
                   Haggle for treasures in Riyadh&apos;s most authentic traditional market. From gold jewelry to antique coffee pots and handmade carpets, this is the place for authentic cultural immersion.
                 </p>
@@ -148,26 +211,71 @@ export default function BlogPostPage() {
                 </p>
 
                 <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">9. Riyadh Zoo</h2>
+                <div className="mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/Riyadh-Zoo-Wildlife-Conservation.png"
+                    alt="Riyadh Zoo"
+                    width={1200}
+                    height={600}
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
                   Visit the Kingdom&apos;s oldest zoo, spanning 55 acres and housing over 1,500 animals. It is a family favorite that emphasizes conservation and provides shaded paths for comfortable viewing.
                 </p>
 
                 <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">10. King Abdullah Park</h2>
+                <div className="mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/King-Abdullah-Park-Urban-Oasis.png"
+                    alt="King Abdullah Park"
+                    width={1200}
+                    height={600}
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
                   Relax in an urban oasis with landscaped gardens and a dancing musical fountain show. It is the perfect place to unwind after a day of sightseeing.
                 </p>
 
                 <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">11. Al-Masmak Museum</h2>
+                <div className="mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/Al-Masmak-Museum-Royal-History.png"
+                    alt="Al-Masmak Museum"
+                    width={1200}
+                    height={600}
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
                   Explore the restored palace displaying royal history and personal belongings of King Abdulaziz. The traditional Najdi architecture is a highlight in itself.
                 </p>
 
                 <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">12. Red Sand Dunes</h2>
+                <div className="mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/Red-Sand-Dunes-Desert-Adventures.png"
+                    alt="Red Sand Dunes"
+                    width={1200}
+                    height={600}
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
                   Try quad biking or camel riding on naturally red sand dunes just outside the city. It is a premier spot for desert adventure and photography.
                 </p>
 
                 <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">13. Imam Turki bin Abdullah Grand Mosque</h2>
+                <div className="mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/Imam-Turki-bin-Abdullah-Grand-Mosque.png"
+                    alt="Imam Turki bin Abdullah Grand Mosque"
+                    width={1200}
+                    height={600}
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
                   Admire Riyadh&apos;s largest mosque, featuring stunning Islamic architecture. Its brownstone exterior glows beautifully at night, serving as a spiritual landmark in the city.
                 </p>

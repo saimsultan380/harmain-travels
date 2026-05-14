@@ -8,8 +8,8 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "How to Book a Taxi in Saudi Arabia for International Visitors? - Haramain Umrah Taxi",
-  description: "Learn how to book taxi in Saudi Arabia for international visitors. Travel comfortably between holy cities and do ziyarats with Haramain Umrah Taxi.",
+  title: "How to Book a Taxi in Saudi Arabia for International Visitors? ",
+  description: "Learn how to book taxi in Saudi Arabia for international visitors. You can travel comfortably between holy cities and do ziyarats. Book HUT today!",
   alternates: {
     canonical: "/how-to-book-a-taxi-in-saudi-arabia-for-international-visitors/",
   },

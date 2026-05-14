@@ -8,8 +8,8 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "Difference Between Damm, Fidyah, and Kaffarah in Easy Words - Haramain Umrah Taxi",
-  description: "Understand the difference between Damm, Fidyah, and Kaffarah in Islam. Learn when each applies, the type of compensation required, and examples for Umrah, Hajj, and Ramadan.",
+  title: "Difference Between Damm, Fidyah, and Kaffarah in Easy Words",
+  description: "Understand the difference between Damm, Fidyah, and Kaffarah in simple words. Learn when each applies during Hajj, Umrah, and Ramadan by Haramain Umrah Taxi",
   alternates: {
     canonical: "/difference-betweeen-damm-fidyah-kaffarah/",
   },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const post = {
   id: "difference-betweeen-damm-fidyah-kaffarah",
   title: "Difference Between Damm, Fidyah, and Kaffarah in Easy Words",
-  excerpt: "Understand the difference between Damm, Fidyah, and Kaffarah in Islam. Learn when each applies, the type of compensation required, and examples for Umrah, Hajj, and Ramadan.",
+  excerpt: "Understand the difference between Damm, Fidyah, and Kaffarah in simple words. Learn when each applies during Hajj, Umrah, and Ramadan by Haramain Umrah Taxi",
   category: "other-services",
   categoryName: "Other Services Guides",
   date: "2026-04-27",

@@ -8,8 +8,8 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "Cheap Wadi e Jinn Ziyarat Taxi | Madinah to Wadi e Jinn Taxi - Haramain Umrah Taxi",
-  description: "Discover affordable Wadi e Jinn ziyarat taxi service from Madinah. Book your comfortable ride to this popular desert destination with Haramain Umrah Taxi.",
+  title: "Get Discounts for Wadi e Jinn Ziyarat Taxi from HUT. Travel 30-40km distance between Masjid Nabawi or Madinah to Wadi e Jinn in our Madinah to Wadi Jinn Taxi",
+  description: "Hajj is a journey that a Muslim can make during his or her lifetime. It is one of the most significant ones. However, there is one thing that you need to know",
   alternates: {
     canonical: "/cheap-wadi-e-jinn-ziyarat-taxi-madinah-to-wadi-e-jinn-taxi/",
   },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const post = {
   id: "cheap-wadi-e-jinn-ziyarat-taxi-madinah-to-wadi-e-jinn-taxi",
   title: "Cheap Wadi e Jinn Ziyarat Taxi | Madinah to Wadi e Jinn Taxi",
-  excerpt: "Discover affordable Wadi e Jinn ziyarat taxi service from Madinah. Book your comfortable ride to this popular desert destination with Haramain Umrah Taxi.",
+  excerpt: "Hajj is a journey that a Muslim can make during his or her lifetime. It is one of the most significant ones. However, there is one thing that you need to know",
   category: "sight-seeings",
   categoryName: "Sight Seeings",
   date: "2026-03-27",

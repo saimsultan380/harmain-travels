@@ -8,7 +8,7 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "Jeddah Airport Parking Fees: Hajj, North & Terminal 1 - Haramain Umrah Taxi",
+  title: "Jeddah Airport Parking Fees: Hajj, North & Terminal 1",
   description: "Complete guide by Haramain Umrah Taxi to Jeddah Airport parking charges at Terminal 1, Hajj & North terminals. Long-term & VIP options. Plan your budget now.",
   alternates: {
     canonical: "/jeddah-airport-parking-fees-hajj-north-terminal-1/",

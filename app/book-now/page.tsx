@@ -4,7 +4,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "Book Now - Haramain Umrah Taxi",
+  title: "Book Now",
   description: "Book your Umrah taxi services online. Fill out our easy booking form to reserve your ride in Makkah, Madinah, and across Saudi Arabia.",
   keywords: [
     "Book Umrah taxi",

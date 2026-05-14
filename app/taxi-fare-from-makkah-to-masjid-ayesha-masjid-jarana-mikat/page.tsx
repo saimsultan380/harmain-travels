@@ -8,7 +8,7 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "Taxi Fare from Makkah to Masjid Ayesha & Masjid Jarana Mikat - Haramain Umrah Taxi",
+  title: "Taxi Fare from Makkah to Masjid Ayesha & Masjid Jarana Mikat",
   description: "Get reasonable taxi fares from Makkah to Masjid Ayesha & Masjid Jarana Miqat. Fixed rates, 24/7 service. Book your Umrah transport with Haramain Umrah Taxi.",
   alternates: {
     canonical: "/taxi-fare-from-makkah-to-masjid-ayesha-masjid-jarana-mikat/",

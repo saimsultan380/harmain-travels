@@ -34,7 +34,7 @@ export function WorkingLocations() {
           className="relative w-full max-w-5xl mx-auto rounded-3xl overflow-hidden"
         >
           <Image
-            src="/images/Our Working Locations.jpeg"
+            src="/images/our working loccations.jpeg"
             alt="Our Working Locations"
             width={1200}
             height={800}

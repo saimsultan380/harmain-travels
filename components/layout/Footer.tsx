@@ -38,9 +38,9 @@ export function Footer() {
               <Image 
                 src="/images/logo.png" 
                 alt="Haramain Umrah Taxi Logo" 
-                width={144}
-                height={56}
-                className="object-contain w-36 h-14"
+                width={176}
+                height={64}
+                className="object-contain w-44 h-16"
               />
             </Link>
             <p 

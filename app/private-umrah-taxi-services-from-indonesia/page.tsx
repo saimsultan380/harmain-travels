@@ -8,8 +8,8 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "Book Private Umrah Taxi Services Online from Indonesia - Haramain Umrah Taxi",
-  description: "Book private Umrah taxi services online from Indonesia. Reliable transport for Indonesian pilgrims with comfortable vehicles and professional drivers.",
+  title: "Book Private Umrah Taxi Services Online from Indonesia",
+  description: "You can book the best Ziyarat and Umrah taxi services from Indonesia in advance from Fater. Book Jeddah and Madinah Airport Pickups & Inter-city transfers.",
   alternates: {
     canonical: "/private-umrah-taxi-services-from-indonesia/",
   },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const post = {
   id: "private-umrah-taxi-services-from-indonesia",
   title: "Book Private Umrah Taxi Services Online from Indonesia",
-  excerpt: "Book private Umrah taxi services online from Indonesia. Reliable transport for Indonesian pilgrims with comfortable vehicles and professional drivers.",
+  excerpt: "You can book the best Ziyarat and Umrah taxi services from Indonesia in advance from Fater. Book Jeddah and Madinah Airport Pickups & Inter-city transfers.",
   category: "other-services",
   categoryName: "Other Services Guides",
   date: "2026-04-25",

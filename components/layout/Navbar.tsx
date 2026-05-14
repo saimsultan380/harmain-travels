@@ -127,7 +127,7 @@ export function Navbar() {
             
             {/* Logo */}
             <Link href="/" className="group flex items-center gap-2.5">
-              <div className="relative w-32 h-12 shrink-0">
+              <div className="relative w-40 h-14 shrink-0">
                 <Image 
                   src="/images/logo.png" 
                   alt="Haramain Umrah Taxi Logo" 

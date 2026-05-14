@@ -6,7 +6,7 @@ import { BlogListing } from "@/components/blog/BlogListing";
 import { sortedBlogPosts, POSTS_PER_PAGE } from "@/lib/blog-posts";
 
 export const metadata: Metadata = {
-  title: "Blog - Umrah & Hajj Travel Guides | Haramain Umrah Taxi",
+  title: "Blog - Umrah & Hajj Travel Guides",
   description: "Stay updated with the latest guides, tips, and information about Umrah travel, taxi services, and religious sites in Saudi Arabia.",
   alternates: { canonical: "/blog/" },
 };

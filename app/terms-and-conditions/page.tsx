@@ -4,7 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Canonical } from "@/components/SEO/Canonical";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions - Haramain Umrah Taxi",
+  title: "Terms & Conditions",
   description: "Read our terms and conditions to understand the rules and regulations for using our Umrah taxi services in Saudi Arabia.",
   alternates: {
     canonical: "/terms-and-conditions/",
@@ -119,7 +119,7 @@ export default function TermsAndConditions() {
                   For questions about these Terms & Conditions, please contact us:
                 </p>
                 <p className="text-[var(--text-2)] font-body leading-relaxed">
-                  <strong>Email:</strong> info@haramaintaxi.com<br />
+                  <strong>Email:</strong> info@haramainumrahtaxi.com<br />
                   <strong>WhatsApp:</strong> +966 59 840 1594
                 </p>
               </section>

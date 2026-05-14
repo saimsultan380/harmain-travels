@@ -8,7 +8,7 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "Makkah Train Station to Hotel & Masjid Al Haram Taxi Fare - Haramain Umrah Taxi",
+  title: "Makkah Train Station to Hotel & Masjid Al Haram Taxi Fare",
   description: "Find the affordable Makkah Train Station to Hotel & Masjid Al Haram Taxi Fare at HUT. We offer comfortable transfers for pilgrims. Reserve your ride with Us!",
   alternates: {
     canonical: "/makkah-train-station-to-hotel-masjid-al-haram-taxi-fare/",

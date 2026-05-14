@@ -8,7 +8,7 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "How to Book The Best Umrah Taxi Online in Makkah from the UK? - Haramain Umrah Taxi",
+  title: "How to Book The Best Umrah Taxi Online in Makkah from the UK?",
   description: "Book your Umrah taxi from the UK to Madinah with ease. Enjoy reliable service, comfortable vehicles, transparent pricing, and smooth transfers with Us!",
   alternates: {
     canonical: "/how-to-book-the-best-umrah-taxi-online-in-makkah-from-the-uk/",

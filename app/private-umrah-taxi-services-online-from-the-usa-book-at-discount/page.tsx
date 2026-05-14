@@ -8,8 +8,8 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "Private Umrah Taxi Services Online from the USA Book at Discount - Haramain Umrah Taxi",
-  description: "Book private Umrah taxi services online from the USA at discount. Reliable airport transfers, Makkah to Madinah travel, and comfortable transportation for USA pilgrims.",
+  title: "Private Umrah Taxi Services Online from USA Book at Discount",
+  description: "Book private Umrah taxi or car online from USA from Us at Discounted price. Get private car from Jeddah airport to Makkah & Madinah hotel to airport from USA",
   alternates: {
     canonical: "/private-umrah-taxi-services-online-from-the-usa-book-at-discount/",
   },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const post = {
   id: "private-umrah-taxi-services-online-from-the-usa-book-at-discount",
   title: "Private Umrah Taxi Services Online from the USA Book at Discount",
-  excerpt: "Book private Umrah taxi services online from the USA at discount. Reliable airport transfers, Makkah to Madinah travel, and comfortable transportation for USA pilgrims.",
+  excerpt: "Book private Umrah taxi or car online from USA from Us at Discounted price. Get private car from Jeddah airport to Makkah & Madinah hotel to airport from USA",
   category: "other-services",
   categoryName: "Other Services Guides",
   date: "2026-04-27",

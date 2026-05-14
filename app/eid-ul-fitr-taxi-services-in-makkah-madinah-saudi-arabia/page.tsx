@@ -8,8 +8,8 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "Eid ul Fitr Taxi Services in Makkah & Madinah, Saudi Arabia - Haramain Umrah Taxi",
-  description: "Reliable Eid ul Fitr taxi services in Makkah and Madinah. Book online for airport transfers, intercity travel, and Ziarat tours during the busy Eid season.",
+  title: "Eid ul Fitr Taxi Services in Makkah & Madinah, Saudi Arabia",
+  description: "Want Eid Discount? Book Haramain's Eid ul Fitr Umrah Taxi with exclusive Eid offers! 24/7 Availability, Professional Drivers, Clean Cars for all Transfers!",
   alternates: {
     canonical: "/eid-ul-fitr-taxi-services-in-makkah-madinah-saudi-arabia/",
   },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const post = {
   id: "eid-ul-fitr-taxi-services-in-makkah-madinah-saudi-arabia",
   title: "Eid ul Fitr Taxi Services in Makkah & Madinah, Saudi Arabia",
-  excerpt: "Reliable Eid ul Fitr taxi services in Makkah and Madinah. Book online for airport transfers, intercity travel, and Ziarat tours during the busy Eid season.",
+  excerpt: "Want Eid Discount? Book Haramain's Eid ul Fitr Umrah Taxi with exclusive Eid offers! 24/7 Availability, Professional Drivers, Clean Cars for all Transfers!",
   category: "other-services",
   categoryName: "Other Services Guides",
   date: "2026-04-25",

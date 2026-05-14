@@ -54,8 +54,10 @@ export function BookingForm() {
   }, [attachmentPreviewUrl]);
 
   const steps = [
-    { id: 1, title: "Journey Details", icon: MapPin },
-    { id: 2, title: "Review", icon: CheckCircle2 },
+    { id: 1, title: "Personal Details", icon: Users },
+    { id: 2, title: "Trip Details", icon: MapPin },
+    { id: 3, title: "Schedule", icon: Calendar },
+    { id: 4, title: "Review", icon: CheckCircle2 },
   ];
 
   const handleNext = () => {
@@ -89,6 +91,10 @@ export function BookingForm() {
 
     try {
       const payload = new FormData();
+      payload.append("access_key", "f1631f06-9605-4143-9b1f-2270a566e105");
+      payload.append("subject", `New Booking Request from ${formData.guestName}`);
+      payload.append("from_name", "Haramain Umrah Taxi Booking");
+      
       payload.append("guestName", formData.guestName);
       payload.append("contact", formData.contact);
       payload.append("whatsapp", formData.whatsapp || formData.contact);
@@ -99,19 +105,20 @@ export function BookingForm() {
       payload.append("pickupDate", formData.pickupDate);
       payload.append("pickupTime", formData.pickupTime);
       payload.append("totalPassengers", formData.totalPassengers);
+      
       if (formData.attachment) {
         payload.append("attachment", formData.attachment);
       }
 
-      const res = await fetch("/api/book-now.php", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: payload,
       });
 
-      const json = (await res.json().catch(() => null)) as null | { ok?: boolean; error?: string };
+      const json = (await res.json().catch(() => null)) as null | { success?: boolean; message?: string };
 
-      if (!res.ok || !json?.ok) {
-        throw new Error(json?.error || "Failed to submit booking");
+      if (!res.ok || !json?.success) {
+        throw new Error(json?.message || "Failed to submit booking");
       }
 
       setIsSubmitted(true);
@@ -273,7 +280,10 @@ export function BookingForm() {
           )}
           <AnimatePresence mode="wait">
             {currentStep === 1 && (
-              <Step1JourneyDetails
+              <Step1PersonalInfo formData={formData} onChange={handleInputChange} />
+            )}
+            {currentStep === 2 && (
+              <Step2TripDetails
                 formData={formData}
                 onChange={handleInputChange}
                 addVehicle={addVehicle}
@@ -282,8 +292,11 @@ export function BookingForm() {
                 setAttachment={setAttachment}
               />
             )}
-            {currentStep === 2 && (
-              <Step2Review formData={formData} />
+            {currentStep === 3 && (
+              <Step3Schedule formData={formData} onChange={handleInputChange} />
+            )}
+            {currentStep === 4 && (
+              <Step4Review formData={formData} />
             )}
           </AnimatePresence>
 
@@ -331,7 +344,103 @@ export function BookingForm() {
   );
 }
 
-function Step1JourneyDetails({
+function Step1PersonalInfo({
+  formData,
+  onChange,
+}: {
+  formData: FormData;
+  onChange: <K extends keyof FormData>(field: K, value: FormData[K]) => void;
+}) {
+  return (
+    <div className="space-y-6">
+      <div>
+        <h2 className="text-2xl font-heading font-bold text-[var(--text-1)]">Personal Details</h2>
+        <p className="text-[var(--text-2)] mt-1">Please provide your contact information.</p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">Guest Name *</label>
+          <input
+            type="text"
+            value={formData.guestName}
+            onChange={(e) => onChange("guestName", e.target.value)}
+            className="w-full px-4 py-3 bg-[var(--bg-alt)] border border-[var(--border)] rounded-xl text-[var(--text-1)] focus:border-[var(--gold)] focus:outline-none transition-colors"
+            placeholder="Enter guest name"
+            required
+          />
+        </div>
+        
+        <div>
+          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">Email</label>
+          <input
+            type="email"
+            value={formData.email}
+            onChange={(e) => onChange("email", e.target.value)}
+            className="w-full px-4 py-3 bg-[var(--bg-alt)] border border-[var(--border)] rounded-xl text-[var(--text-1)] focus:border-[var(--gold)] focus:outline-none transition-colors"
+            placeholder="your@email.com"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">Contact *</label>
+          <div className="relative">
+            <Phone size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-3)]" />
+            <input
+              type="tel"
+              value={formData.contact}
+              onChange={(e) => {
+                const next = e.target.value;
+                onChange("contact", next);
+                if (formData.whatsappSameAsContact) {
+                  onChange("whatsapp", next);
+                }
+              }}
+              className="w-full pl-12 pr-4 py-3 bg-[var(--bg-alt)] border border-[var(--border)] rounded-xl text-[var(--text-1)] focus:border-[var(--gold)] focus:outline-none transition-colors"
+              placeholder="+966XXXXXXXXX"
+              required
+            />
+          </div>
+          <p className="text-[11px] text-[var(--text-3)] mt-2">Please enter complete number with country code</p>
+        </div>
+
+        <div>
+          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">WhatsApp</label>
+          <div className="relative">
+            <Phone size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-3)]" />
+            <input
+              type="tel"
+              value={formData.whatsapp}
+              onChange={(e) => {
+                onChange("whatsapp", e.target.value);
+                onChange("whatsappSameAsContact", false);
+              }}
+              className="w-full pl-12 pr-4 py-3 bg-[var(--bg-alt)] border border-[var(--border)] rounded-xl text-[var(--text-1)] focus:border-[var(--gold)] focus:outline-none transition-colors"
+              placeholder="+966XXXXXXXXX"
+            />
+          </div>
+          <label className="mt-2 flex items-center gap-2 text-[11px] text-[var(--text-2)]">
+            <input
+              type="checkbox"
+              checked={formData.whatsappSameAsContact}
+              onChange={(e) => {
+                const checked = e.target.checked;
+                onChange("whatsappSameAsContact", checked);
+                if (checked) {
+                  onChange("whatsapp", formData.contact);
+                }
+              }}
+              className="accent-[var(--green)]"
+            />
+            Same as contact
+          </label>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Step2TripDetails({
   formData,
   onChange,
   addVehicle,
@@ -352,8 +461,8 @@ function Step1JourneyDetails({
     <div className="space-y-6">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-heading font-bold text-[var(--text-1)]">Your Journey Details</h2>
-          <p className="text-[var(--text-2)] mt-1">Fill details below and we will confirm your booking.</p>
+          <h2 className="text-2xl font-heading font-bold text-[var(--text-1)]">Trip Details</h2>
+          <p className="text-[var(--text-2)] mt-1">Select your route and preferred vehicles.</p>
         </div>
 
         <label className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[var(--green)] text-white font-heading font-bold text-xs cursor-pointer whitespace-nowrap">
@@ -420,86 +529,6 @@ function Step1JourneyDetails({
       )}
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">Guest Name *</label>
-          <input
-            type="text"
-            value={formData.guestName}
-            onChange={(e) => onChange("guestName", e.target.value)}
-            className="w-full px-4 py-3 bg-[var(--bg-alt)] border border-[var(--border)] rounded-xl text-[var(--text-1)] focus:border-[var(--gold)] focus:outline-none transition-colors"
-            placeholder="Enter guest name"
-            required
-          />
-        </div>
-        
-        <div>
-          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">Contact *</label>
-          <div className="relative">
-            <Phone size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-3)]" />
-            <input
-              type="tel"
-              value={formData.contact}
-              onChange={(e) => {
-                const next = e.target.value;
-                onChange("contact", next);
-                if (formData.whatsappSameAsContact) {
-                  onChange("whatsapp", next);
-                }
-              }}
-              className="w-full pl-12 pr-4 py-3 bg-[var(--bg-alt)] border border-[var(--border)] rounded-xl text-[var(--text-1)] focus:border-[var(--gold)] focus:outline-none transition-colors"
-              placeholder="+966XXXXXXXXX"
-              required
-            />
-          </div>
-          <p className="text-[11px] text-[var(--text-3)] mt-2">Please enter complete number with country code</p>
-        </div>
-
-        <div>
-          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">WhatsApp</label>
-          <div className="relative">
-            <Phone size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-3)]" />
-            <input
-              type="tel"
-              value={formData.whatsapp}
-              onChange={(e) => {
-                onChange("whatsapp", e.target.value);
-                onChange("whatsappSameAsContact", false);
-              }}
-              className="w-full pl-12 pr-4 py-3 bg-[var(--bg-alt)] border border-[var(--border)] rounded-xl text-[var(--text-1)] focus:border-[var(--gold)] focus:outline-none transition-colors"
-              placeholder="+966XXXXXXXXX"
-            />
-          </div>
-          <label className="mt-2 flex items-center gap-2 text-[11px] text-[var(--text-2)]">
-            <input
-              type="checkbox"
-              checked={formData.whatsappSameAsContact}
-              onChange={(e) => {
-                const checked = e.target.checked;
-                onChange("whatsappSameAsContact", checked);
-                if (checked) {
-                  onChange("whatsapp", formData.contact);
-                }
-              }}
-              className="accent-[var(--green)]"
-            />
-            Same as contact
-          </label>
-          <p className="text-[11px] text-[var(--text-3)] mt-2">Please enter complete number with country code</p>
-        </div>
-
-        <div>
-          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">Email</label>
-          <input
-            type="email"
-            value={formData.email}
-            onChange={(e) => onChange("email", e.target.value)}
-            className="w-full px-4 py-3 bg-[var(--bg-alt)] border border-[var(--border)] rounded-xl text-[var(--text-1)] focus:border-[var(--gold)] focus:outline-none transition-colors"
-            placeholder="your@email.com"
-          />
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
         <div>
           <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">Pickup Location *</label>
           <div className="relative">
@@ -593,7 +622,26 @@ function Step1JourneyDetails({
             </div>
           )}
         </div>
+      </div>
+    </div>
+  );
+}
 
+function Step3Schedule({
+  formData,
+  onChange,
+}: {
+  formData: FormData;
+  onChange: <K extends keyof FormData>(field: K, value: FormData[K]) => void;
+}) {
+  return (
+    <div className="space-y-6">
+      <div>
+        <h2 className="text-2xl font-heading font-bold text-[var(--text-1)]">Schedule</h2>
+        <p className="text-[var(--text-2)] mt-1">When should we pick you up?</p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">Pickup Date *</label>
           <div className="relative">
@@ -641,7 +689,8 @@ function Step1JourneyDetails({
     </div>
   );
 }
-function Step2Review({ formData }: { formData: FormData }) {
+
+function Step4Review({ formData }: { formData: FormData }) {
   return (
     <div className="space-y-6">
       <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-6">Review and Confirm Journey</h2>

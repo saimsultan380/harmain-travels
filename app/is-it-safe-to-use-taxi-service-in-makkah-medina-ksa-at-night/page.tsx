@@ -8,8 +8,8 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "Is it Safe to Use Taxi Service in Makkah, Medina, KSA at Night? - Haramain Umrah Taxi",
-  description: "Many visitors wonder about transportation safety in Makkah, Medina, KSA at night. Haramain Umrah Taxi offers secure 24/7 travel with verified drivers & GPS tracking.",
+  title: "Is it Safe to Use Taxi Service in Makkah, Medina, KSA at Night?",
+  description: "People ask, is it safe to use taxi service in Makkah, Medina, KSA at night? Haramain Umrah Taxi offers secure 24/7 travel with verified drivers & GPS tracking.",
   alternates: {
     canonical: "/is-it-safe-to-use-taxi-service-in-makkah-medina-ksa-at-night/",
   },

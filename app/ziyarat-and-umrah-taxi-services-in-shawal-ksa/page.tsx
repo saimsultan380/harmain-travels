@@ -8,8 +8,8 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "Ziarat and Umrah Taxi Services in Shawal - Discounts Available - Haramain Umrah Taxi",
-  description: "Discover discounted Umrah taxi services in Shawal. Reliable transport for Makkah to Madinah, airport transfers, and Ziarat tours with professional drivers.",
+  title: "Ziarat and Umrah Taxi Services in Shawal - Discounts Available",
+  description: "Haramain Umrah Taxi offers the best Umrah taxi services in Shawal with Discounts available! You can book Ziyarat taxi, Airport Transfers & Inter-city travel",
   alternates: {
     canonical: "/ziyarat-and-umrah-taxi-services-in-shawal-ksa/",
   },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const post = {
   id: "ziyarat-and-umrah-taxi-services-in-shawal-ksa",
   title: "Ziarat and Umrah Taxi Services in Shawal - Discounts Available",
-  excerpt: "Discover discounted Umrah taxi services in Shawal. Reliable transport for Makkah to Madinah, airport transfers, and Ziarat tours with professional drivers.",
+  excerpt: "Haramain Umrah Taxi offers the best Umrah taxi services in Shawal with Discounts available! You can book Ziyarat taxi, Airport Transfers & Inter-city travel",
   category: "other-services",
   categoryName: "Other Services Guides",
   date: "2026-04-25",

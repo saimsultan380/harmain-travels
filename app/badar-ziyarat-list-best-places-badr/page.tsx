@@ -8,8 +8,8 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "Badar Ziyarat List | 15 Places to Visit in Badr - Haramain Umrah Taxi",
-  description: "Complete Badr Ziyarat list with must-visit places including the battlefield, martyrs' graves, and sacred wells. Explore historical Islamic sites of Badr.",
+  title: "Badar Ziyarat List | Places to Visit in Badr | Things to Do",
+  description: "Complete Badr Ziyarat list with 15 must-visit places including the battlefield, martyrs' graves, and sacred wells. Explore historical Islamic sites of Badr.",
   alternates: {
     canonical: "/badar-ziyarat-list-best-places-badr/",
   },
@@ -85,11 +85,11 @@ export default function BlogPostPage() {
 
               {/* Content */}
               <div className="prose prose-lg max-w-none">
-                <p className="text-[var(--text-2)] leading-relaxed mb-6 italic text-center text-xl">
-                  "Faith is the strongest weapon on the battlefield of Badr."
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  Your heart connects with Islam&apos;s most decisive victory when you visit Badr. This blessed land witnessed 313 believers defeat 1,000 enemies through faith and divine help. 
                 </p>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
-                  Your heart connects with Islam&apos;s most decisive victory when you visit Badr. This blessed land witnessed 313 believers defeat 1,000 enemies through faith and divine help. We will guide you through the best places to visit in Badr that bring history alive.
+                  We will guide you through the best places to visit in Badar that bring history alive and strengthen your spiritual connection to early Islamic sacrifices. Here is a list of Badar Ziyarat places to visit in Badr.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-10">
@@ -100,7 +100,7 @@ export default function BlogPostPage() {
                   </div>
                   <div className="p-6 bg-[var(--bg-alt)] rounded-xl border border-[var(--border)] text-center">
                     <Shield className="mx-auto text-[var(--gold)] mb-4" size={32} />
-                    <h3 className="font-heading font-bold mb-2">Martyrs' Honor</h3>
+                    <h3 className="font-heading font-bold mb-2">Martyrs&apos; Honor</h3>
                     <p className="text-sm text-[var(--text-2)]">Pay respects at the cemetery of the 14 blessed companions who sacrificed their lives.</p>
                   </div>
                   <div className="p-6 bg-[var(--bg-alt)] rounded-xl border border-[var(--border)] text-center">
@@ -111,59 +111,216 @@ export default function BlogPostPage() {
                 </div>
 
                 <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">1. Medan-e-Badar (Badr Battlefield)</h2>
+                <div className="mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/Medan-e-Badar-Badr-Battlefield.png"
+                    alt="Medan-e-Badar (Badr Battlefield)"
+                    width={1200}
+                    height={600}
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
-                  Stand on the vast plain where Jang-e Badar occurred. This is the actual ground where 313 Muslims faced 1,000 Quraysh warriors. Local guides explain where the Prophet (PBUH) stood and how divine intervention unfolded.
+                  You should stand on the vast plain where Jang-e Badar occurred. This is the actual ground where 313 Muslims faced 1,000 Quraysh warriors. Prophet Muhammad (PBUH) lined up his small army here with complete trust in Allah&apos;s help. 
+                </p>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  The battlefield stretches before you, letting you visualize how the battle unfolded. Local guides explain where the Prophet stood, how Quraysh attacked, and where divine intervention occurred. This sacred ground ranks first among places in Badar for its profound historical significance.
                 </p>
 
                 <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">2. Well of Badr (Bir Badr)</h2>
+                <div className="mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/Well-of-Badr-Bir-Badr.png"
+                    alt="Well of Badr (Bir Badr)"
+                    width={1200}
+                    height={600}
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
-                  The well of Badr marks where Muslims set up camp. Prophet Muhammad (PBUH) made tactical decisions here. It remains a humbling site of preparation and complete dependence on Allah.
+                  The well of Badr marks where Muslims set up camp before the battle. Prophet Muhammad (PBUH) made tactical decisions here and prayed through the night. You can see the ancient well where companions drew water before facing their enemies. 
+                </p>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  Standing here humbles you as you imagine the Prophet&apos;s complete dependence on Allah. This well witnessed the planning and preparation that led to Islam&apos;s first major victory. It&apos;s essential among Islamic places in Badar, requiring respectful reflection.
                 </p>
 
-                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">3. Martyrs' Graveyard (Badr Shohada)</h2>
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">3. Martyrs&apos; Graveyard (Badr Shohada)</h2>
+                <div className="mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/Martyrs-Graveyard-Badr-Shohada.png"
+                    alt="Martyrs' Graveyard (Badr Shohada)"
+                    width={1200}
+                    height={600}
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
-                  Pay respects to 14 blessed companions who sacrificed their lives. This sacred cemetery is a powerful reminder of the commitment shown by early Muslims.
+                  You pay respects to 14 blessed companions who sacrificed their lives at Badr. This sacred cemetery holds those who gave everything for Islam&apos;s survival. 
+                </p>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  The graves remind you of the courage and commitment early Muslims showed. You will make dua for the martyrs and reflect on their ultimate sacrifice. The cemetery sits near Masjid Al Areesh, making combined visits convenient.
                 </p>
 
                 <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">4. Masjid Al-Areesh (The Shelter Mosque)</h2>
+                <div className="mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/Masjid-Al-Areesh.png"
+                    alt="Masjid Al-Areesh"
+                    width={1200}
+                    height={600}
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
-                  This mosque marks the exact position of the palm-branch shelter where the Prophet (PBUH) commanded the battle and made dua for victory.
+                  Prophet Muhammad (PBUH) commanded the battle from a simple shelter of palm branches here. This mosque marks that exact strategic position. You will pray where the Prophet made dua for victory as the battle raged. 
+                </p>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  The mosque underwent renovations but maintains its historical essence and spiritual atmosphere. Visiting here connects you directly to the Prophet&apos;s leadership during the Battle of Badar.
                 </p>
 
                 <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">5. Mount Akhdar (Green Mountain)</h2>
+                <div className="mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/Mount-Akhdar.png"
+                    alt="Mount Akhdar"
+                    width={1200}
+                    height={600}
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
-                  Climb this mountain for panoramic views of the entire battlefield. It is the site where angels reportedly descended to assist the believers.
+                  You must climb this mountain where angels reportedly descended during the battle. Allah sent thousands of angels to fight alongside the believers at Badr. The mountain offers panoramic views of the entire battlefield below. 
+                </p>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  You can visualize the battle&apos;s flow from this elevated position. The climb takes moderate effort but rewards you with breathtaking perspectives.
                 </p>
 
-                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">Other Key Ziyarat Sites</h2>
-                <ul className="list-disc list-inside text-[var(--text-2)] leading-relaxed mb-6 space-y-2">
-                  <li><strong>Ghaar-e-Tadbeer:</strong> The Cave of Planning where shura was practiced.</li>
-                  <li><strong>Masjid Al-Kubra:</strong> A modern mosque providing amenities for pilgrims.</li>
-                  <li><strong>Well of Shifaa:</strong> A blessed well symbolizing resilience and faith.</li>
-                  <li><strong>Ancient Battle Markers:</strong> Stones indicating troop movements.</li>
-                  <li><strong>Badr Museum:</strong> Housing artifacts, maps, and replica weapons.</li>
-                  <li><strong>Qulaib Badr:</strong> The pit where fallen enemy leaders were addressed.</li>
-                  <li><strong>Al-Adwa Al-Dunya:</strong> The "Near Side" of the valley mentioned in the Quran.</li>
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">6. Ghaar-e-Tadbeer (Cave of Planning)</h2>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  Prophet Muhammad (PBUH) consulted his companions about battle strategy in this cave. You enter where critical decisions shaped Islam&apos;s future. The cave symbolizes the importance of consultation (shura) in Islamic leadership. 
+                </p>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  Despite divine support, the Prophet still sought human wisdom and planning. These historical places in Badar teach a balance between trust in Allah and practical preparation.
+                </p>
+
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">7. Masjid Al-Kubra (The Great Mosque)</h2>
+                <div className="mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/Masjid-Al-Kubra-The-Great-Mosque.png"
+                    alt="Masjid Al-Kubra"
+                    width={1200}
+                    height={600}
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  This modern mosque serves Badr&apos;s community and visiting pilgrims. You will find comfortable prayer facilities and rest areas here. 
+                </p>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  The mosque accommodates large groups during peak visiting seasons. It provides essential amenities for those spending full days exploring places in Badar.
+                </p>
+
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">8. Well of Shifaa (Healing Well)</h2>
+                <div className="mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/Well-of-Shifaa-Healing-Well.png"
+                    alt="Well of Shifaa"
+                    width={1200}
+                    height={600}
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  You discover this blessed well-known from the Prophet&apos;s time. The well symbolizes the resilience and deep faith of early Muslims. Many visitors drink from its water, seeking blessings and spiritual connection.
+                </p>
+
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">9. Ancient Battle Markers</h2>
+                <div className="mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/Ancient-Battle-Markers.jpg"
+                    alt="Ancient Battle Markers"
+                    width={1200}
+                    height={600}
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  You will find stones and markers indicating key battle positions throughout the area. These help you understand troop movements during Medan e Badar. Local guides explain which markers represent Muslim positions versus enemy lines. 
+                </p>
+
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">10. Date Palm Farms</h2>
+                <div className="mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/Date-Palm-Farms.png"
+                    alt="Date Palm Farms"
+                    width={1200}
+                    height={600}
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  You walk through lush date farms surrounding Badr&apos;s historical sites. These farms existed during the Prophet&apos;s time and still produce dates today. You can purchase fresh dates and experience traditional farming methods.
+                </p>
+
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">11. Badr Museum</h2>
+                <div className="mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/Badr-Museum.png"
+                    alt="Badr Museum"
+                    width={1200}
+                    height={600}
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  You should explore artifacts and displays documenting the Battle of Badar comprehensively. The museum houses weapon replicas, battle maps, and historical information panels. 
+                </p>
+
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">12. Valley of the Quraysh Camp</h2>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  You must visit where the enemy army camped before the battle. This location shows you the Quraysh&apos;s advantageous position and superior numbers. Standing here helps you appreciate the Muslims&apos; disadvantage and their courage.
+                </p>
+
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">13. Qulaib Badr (Pit of Bodies)</h2>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  You discover the pit where the enemy dead were buried after the battle. Prophet Muhammad (PBUH) addressed the fallen Quraysh leaders here after victory. This sobering site reminds you of battle&apos;s harsh realities and consequences.
+                </p>
+
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">14. Al-Adwa Al-Dunya (The Near Side)</h2>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  You should stand on the sandy hill where Muslim forces positioned themselves strategically. This location is mentioned directly in the Quran (Surah Al-Anfal). The Quran describes Muslims camping on &quot;the near side of the valley.&quot;
+                </p>
+
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">Why Choose Haramain Umrah Taxi for Badr Ziyarat Tour?</h2>
+                <ul className="list-disc pl-6 mb-8 text-[var(--text-2)] space-y-2">
+                  <li><strong>Local Expertise:</strong> We provide comfortable vehicles with knowledgeable drivers who know Badr intimately.</li>
+                  <li><strong>Spiritual Guidance:</strong> Our guides share historical insights and Quranic references at each stop.</li>
+                  <li><strong>Flexibility:</strong> We accommodate your prayer times and provide flexibility for reflection moments.</li>
+                  <li><strong>Comfortable Fleet:</strong> Choose from various vehicle types perfect for the 2-hour journey from Madinah.</li>
                 </ul>
 
-                <div className="bg-[var(--bg-alt)] border-l-4 border-[var(--gold)] p-6 my-8 rounded-r-xl">
-                  <div className="flex items-start gap-4">
-                    <Info className="text-[var(--gold)] shrink-0" size={24} />
-                    <div>
-                      <h4 className="font-heading font-bold mb-2">Travel Tip</h4>
-                      <p className="text-[var(--text-2)] text-sm">
-                        Badr is located 150km from Madinah (approx. 2 hours). It is best to visit during cooler months (Nov-Feb) and carry plenty of water for the desert exploration.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">Conclusion</h2>
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">Best Time to Visit Badr Ziyarat</h2>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
-                  Your journey to Badr transforms your understanding of early Islamic history. Each site, from the battlefield to the martyrs&apos; graves, strengthens your faith. At Haramain Umrah Taxi, we provide comfortable vehicles and knowledgeable drivers to make your Badr Ziyarat tour unforgettable.
+                  Visit during cooler months from <strong>November to February</strong> for comfortable outdoor experiences. Summer temperatures can exceed 40°C, making extended outdoor visits challenging. 
+                </p>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  Early morning visits offer beautiful sunrise views over the battlefield, while late afternoon provides golden hour photography opportunities.
+                </p>
+
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">What to Bring During Your Badr Ziyarat Tour?</h2>
+                <ul className="list-disc pl-6 mb-8 text-[var(--text-2)] space-y-2">
+                  <li><strong>Footwear:</strong> Wear comfortable walking shoes for uneven terrain.</li>
+                  <li><strong>Hydration:</strong> Carry plenty of water; the desert climate causes quick dehydration.</li>
+                  <li><strong>Protection:</strong> Bring hats and sunscreen for protection during outdoor explorations.</li>
+                  <li><strong>Spirituality:</strong> Prayer mats allow you to pray at various locations comfortably.</li>
+                </ul>
+
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">Conclusions</h2>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  Your journey to Badr transforms how you understand early Islamic struggles and victories. The best places to visit in Badar connect you deeply to the courage of 313 believers who changed history. 
                 </p>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6 font-bold">
-                  Book your Badr Ziyarat tour with us today!
+                  Book your Ziarat Badar tour today with Haramain Umrah Taxi and walk where Prophet Muhammad (PBUH) secured Islam&apos;s first major victory.
                 </p>
               </div>
 

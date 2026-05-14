@@ -8,7 +8,7 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "How to Perform Umrah Badal for a Deceased & Dead Person? - Haramain Umrah Taxi",
+  title: "How to Perform Umrah Badal for a Deceased & Dead Person?",
   description: "Discover how to perform Umrah Badal for a deceased person with proper intention and rituals. Trust Haramain Umrah Taxi for reliable Umrah Badal services.",
   alternates: {
     canonical: "/how-to-perform-umrah-badal-for-a-deceased-dead-person/",

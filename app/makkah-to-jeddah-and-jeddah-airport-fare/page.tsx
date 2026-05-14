@@ -8,7 +8,7 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "How Much is the Makkah to Jeddah & Jeddah Airport Taxi Fare? - Haramain Umrah Taxi",
+  title: "How Much is the Makkah to Jeddah & Jeddah Airport Taxi Fare?",
   description: "Discover the Makkah to Jeddah & Jeddah Airport taxi fare with Haramain Umrah Taxi. Fixed rates from SAR 200, professional drivers, and 24/7 service. Book Now!",
   alternates: {
     canonical: "/makkah-to-jeddah-and-jeddah-airport-fare/",
@@ -86,7 +86,10 @@ export default function BlogPostPage() {
               {/* Content */}
               <div className="prose prose-lg max-w-none">
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
-                  Are you completing your Umrah and need to know the taxi fare for your return journey to Jeddah or the airport? At Haramain Umrah Taxi, we provide transparent rates and punctual service so you reach your departure terminal on time, every time.
+                  Are you completing your Umrah and need to know the Makkah to Jeddah & Jeddah Airport taxi fare for your return flight? We understand how crucial timing and clear pricing are when catching international flights after your spiritual journey. 
+                </p>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  At Haramain Umrah Taxi, we provide transparent rates and punctual service so you reach your destination on time, every time.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-10">
@@ -107,7 +110,11 @@ export default function BlogPostPage() {
                   </div>
                 </div>
 
-                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">Makkah to Jeddah & Airport Fare List</h2>
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">Makkah to Jeddah Taxi Fare List</h2>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  Our Makkah to Jeddah taxi fare is clearly defined for every vehicle type. We eliminate confusion with straightforward pricing.
+                </p>
+
                 <div className="overflow-x-auto my-8">
                   <table className="w-full border-collapse border border-[var(--border)] rounded-xl overflow-hidden">
                     <thead className="bg-[var(--green)] text-white">
@@ -119,7 +126,7 @@ export default function BlogPostPage() {
                     </thead>
                     <tbody className="text-[var(--text-2)]">
                       <tr className="border-b border-[var(--border)]">
-                        <td className="p-4 font-bold">Standard Sedan</td>
+                        <td className="p-4 font-bold">Standard Sedan (Camry/Sonata)</td>
                         <td className="p-4">4 Passengers</td>
                         <td className="p-4">200 SAR</td>
                       </tr>
@@ -134,7 +141,7 @@ export default function BlogPostPage() {
                         <td className="p-4">350 SAR</td>
                       </tr>
                       <tr className="border-b border-[var(--border)] bg-[var(--bg-alt)]">
-                        <td className="p-4 font-bold">Luxury GMC</td>
+                        <td className="p-4 font-bold">Luxury GMC (Yukon/Tahoe)</td>
                         <td className="p-4">7 Passengers</td>
                         <td className="p-4">450 SAR</td>
                       </tr>
@@ -151,28 +158,67 @@ export default function BlogPostPage() {
                     </tbody>
                   </table>
                 </div>
-
-                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">Travel Distance & Duration</h2>
-                <p className="text-[var(--text-2)] leading-relaxed mb-6">
-                  The distance from Makkah to Jeddah is approximately **84.3 kilometers** along Route 40. Expect the journey to take between **60 to 90 minutes**, depending on traffic conditions. We monitor traffic in real-time to ensure the fastest route.
+                <p className="text-[var(--text-2)] leading-relaxed mb-6 italic">
+                  The Makkah to Jeddah taxi price covers everything from pickup to drop-off. No additional charges surprise you at the end of your journey.
                 </p>
 
-                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">Why Choose Haramain Umrah Taxi?</h2>
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">Why is our Makkah to Jeddah Airport Taxi Fare reasonable?</h2>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  The Makkah to Jeddah airport taxi fare matches our standard city rates. We do not charge extra for airport drop-offs. Our taxi fare from Makkah to Jeddah airport includes flight terminal access. Your driver drops you at your airline&apos;s departure area with your luggage.
+                </p>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  Wondering how much taxi is from Makkah to Jeddah Airport? Check our pricing above. The Makkah to Jeddah airport car fare depends solely on vehicle selection, not destination within Jeddah.
+                </p>
+
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">Distance and Travel Time</h2>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  The distance from Makkah to Jeddah is approximately 84.3 kilometers along Route 40. When you travel from Makkah to Jeddah by car, expect 60 to 90 minutes, depending on traffic. Our drivers monitor traffic conditions and choose optimal routes. We ensure you reach the airport with time to spare for check-in procedures.
+                </p>
+
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">Makkah to Jeddah by Private Car</h2>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  Traveling from Makkah to Jeddah by car offers comfort and convenience. Our modern fleet provides air-conditioned vehicles for your journey. The Makkah to Jeddah by car price starts at SAR 200 for a Sedan, and SAR 450 for luxury GMC vehicles. This affordable rate includes professional drivers and clean, maintained cars.
+                </p>
+
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">Cheapest Taxi Options</h2>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  Searching for the cheapest taxi fare from Makkah to Jeddah? Our Sedan (Camry/Sonata) vehicles at SAR 200 offer excellent value. You get luxury comfort at budget-friendly rates. Solo travelers find sedans economical, while families benefit from our van pricing.
+                </p>
+
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">Private Car for Umrah Services</h2>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  Our private car for Umrah in Makkah extends to Jeddah transfers. Complete your spiritual journey with reliable transportation to your departure point. The private car for umrah from Makkah to Jeddah includes experienced drivers familiar with pilgrim schedules. They understand flight timing and ensure punctual service.
+                </p>
+
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">Group Transportation Economics</h2>
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  The Makkah to Jeddah bus price begins at SAR 500 for our 18-passenger Coaster. For larger groups, our Makkah to Jeddah group umrah bus price is SAR 800 for 50 people. That&apos;s only SAR 18 per person, extremely economical for group travel. The Makkah to Jeddah fare per person decreases significantly with larger vehicles.
+                </p>
+
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">Why Choose Our Service</h2>
                 <ul className="list-disc list-inside text-[var(--text-2)] leading-relaxed mb-6 space-y-2">
-                  <li>**Flight Tracking:** We monitor your departure schedule to adjust pickup times.</li>
-                  <li>**Terminal Access:** Drivers drop you directly at your airline's departure gate.</li>
-                  <li>**Luggage Assistance:** Professional help with all your bags for a stress-free experience.</li>
-                  <li>**No Hidden Fees:** The price you see is the price you pay, including tolls and taxes.</li>
-                  <li>**Clean & Sanitized:** Every vehicle is maintained to the highest hygiene standards.</li>
+                  <li><strong>Flight Tracking:</strong> We monitor your flight schedule and adjust pickup times for any changes.</li>
+                  <li><strong>Luggage Assistance:</strong> Drivers help load and unload all your bags, making travel hassle-free.</li>
+                  <li><strong>Multiple Stops:</strong> Need to stop for last-minute shopping? We accommodate reasonable requests.</li>
+                  <li><strong>Clean Vehicles:</strong> Every car is sanitized and maintained to high standards for your comfort.</li>
+                  <li><strong>Licensed Drivers:</strong> All our drivers hold valid licenses and know Jeddah routes expertly.</li>
                 </ul>
+
+                <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">Booking Your Ride</h2>
+                <ol className="list-decimal list-inside text-[var(--text-2)] leading-relaxed mb-6 space-y-2">
+                  <li><strong>Provide Travel Information:</strong> Share your hotel location in Makkah, flight time, and passenger count.</li>
+                  <li><strong>Choose Your Vehicle:</strong> Select from our fleet based on group size and comfort preferences.</li>
+                  <li><strong>Get Instant Quote:</strong> Receive immediate fare confirmation with no hidden charges.</li>
+                  <li><strong>Confirm and Relax:</strong> Book your ride and receive driver details before your travel date.</li>
+                </ol>
 
                 <div className="bg-[var(--bg-alt)] border-l-4 border-[var(--gold)] p-6 my-8 rounded-r-xl">
                   <div className="flex items-start gap-4">
                     <Plane className="text-[var(--gold)] shrink-0" size={24} />
                     <div>
-                      <h4 className="font-heading font-bold mb-2">Departure Planning</h4>
+                      <h4 className="font-heading font-bold mb-2">Travel Tips for Makkah to Jeddah</h4>
                       <p className="text-[var(--text-2)] text-sm">
-                        We recommend booking your taxi at least 24 hours in advance and leaving Makkah **3-4 hours before** international flights to ensure a comfortable check-in process.
+                        Plan to leave Makkah 3-4 hours before international flights. Reserve your taxi at least 24 hours in advance to guarantee availability during busy seasons.
                       </p>
                     </div>
                   </div>
@@ -180,10 +226,10 @@ export default function BlogPostPage() {
 
                 <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-4 mt-8">Conclusion</h2>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
-                  End your sacred journey as smoothly as it began. With fixed rates starting from SAR 200 and professional 24/7 service, Haramain Umrah Taxi is your reliable partner for Makkah to Jeddah transfers. Book your ride now and travel with complete peace of mind.
+                  Your departure from Makkah to Jeddah deserves reliable and timely transportation. Haramain Umrah Taxi offers fixed pricing from SAR 200, professional drivers who understand flight schedules, and vehicles for every group size. We ensure you reach the airport with adequate time for check-in and boarding.
                 </p>
                 <p className="text-[var(--text-2)] leading-relaxed mb-6 font-bold">
-                  Book your return transfer with us today!
+                  Book your Makkah to Jeddah taxi now and end your sacred journey as smoothly as it began.
                 </p>
               </div>
 

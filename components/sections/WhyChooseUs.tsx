@@ -196,7 +196,7 @@ export function WhyChooseUs() {
             >
               <Image
                 src="/images/Built Around Your Pilgrimage.png"
-                alt="Built Around Your Pilgrimage - Haramain Umrah Taxi"
+                alt="Built Around Your Pilgrimage"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-contain"

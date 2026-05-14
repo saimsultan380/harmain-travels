@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   title: "Best Umrah Taxi Service in Ramadan: Haramain Umrah Taxi Book",
   description: "Haramain Umrah Taxi offers the best Ramadan taxi service in Makkah & Madinah. Affordable, reliable, Clean Vehicles & 24/7 available. Book your Ride Now.",
   alternates: {
-    canonical: "/best-umrah-taxi-service-in-ramadan-haramain-umrah-taxi-book/",
+    canonical: "/best-umrah-taxi-service-in-ramadan/",
   },
 };
 
 const post = {
-  id: "best-umrah-taxi-service-in-ramadan-haramain-umrah-taxi-book",
+  id: "best-umrah-taxi-service-in-ramadan",
   title: "Best Umrah Taxi Service in Ramadan: Haramain Umrah Taxi Book",
   excerpt: "Haramain Umrah Taxi offers the best Ramadan taxi service in Makkah & Madinah. Affordable, reliable, Clean Vehicles & 24/7 available. Book your Ride Now.",
   category: "other-services",

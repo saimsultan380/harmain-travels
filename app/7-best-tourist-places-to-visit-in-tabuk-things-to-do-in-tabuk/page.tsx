@@ -8,8 +8,8 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "7 Best Tourist Places to Visit in Tabuk & Things to Do in Tabuk - Haramain Umrah Taxi",
-  description: "Discover the best places to visit in Tabuk, KSA. From Tabuk Castle to Wadi Al Disah, explore top attractions and things to do in this fascinating northwestern Saudi city.",
+  title: "Best Tourist Places to Visit in Tabuk &Things to Do in Tabuk",
+  description: "Book us to see top secret tourist places to visit in Tabuk i-e Tabuk Castle, Al Tawba Mosque, Wadi Al Disah, Jabal Al Lawz, Umluj Beach, Tabuk Malls & Parks",
   alternates: {
     canonical: "/7-best-tourist-places-to-visit-in-tabuk-things-to-do-in-tabuk/",
   },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const post = {
   id: "7-best-tourist-places-to-visit-in-tabuk-things-to-do-in-tabuk",
   title: "7 Best Tourist Places to Visit in Tabuk & Things to Do in Tabuk",
-  excerpt: "Discover the best places to visit in Tabuk, KSA. From Tabuk Castle to Wadi Al Disah, explore top attractions and things to do in this fascinating northwestern Saudi city.",
+  excerpt: "Book us to see top secret tourist places to visit in Tabuk i-e Tabuk Castle, Al Tawba Mosque, Wadi Al Disah, Jabal Al Lawz, Umluj Beach, Tabuk Malls & Parks",
   category: "other-services",
   categoryName: "Other Services Guides",
   date: "2026-04-27",

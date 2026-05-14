@@ -8,7 +8,7 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "Are Taxi Services Available at Train Stations in Saudi Arabia? - Haramain Umrah Taxi",
+  title: "Are Taxi Services Available at Train Stations in Saudi Arabia?",
   description: "Find out if taxis are available at Saudi train stations. Discover easy booking options for Makkah and Madinah hotel transfers with trusted Umrah taxi service.",
   alternates: {
     canonical: "/are-taxi-services-available-at-train-stations-in-saudi-arabia/",

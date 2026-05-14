@@ -8,7 +8,7 @@ import Image from "next/image";
 import { BlogNavigation } from "@/components/blog/BlogNavigation";
 
 export const metadata: Metadata = {
-  title: "14 Important Taxi Tips for Pilgrims or Travelers in KSA - Haramain Umrah Taxi",
+  title: "14 Important Taxi Tips for Pilgrims or Travelers in KSA",
   description: "Learn 14 taxi tips for pilgrims or travelers in KSA. Trust Haramain Umrah Taxi, we follow every safety guideline to protect our pilgrims and tourists.",
   alternates: {
     canonical: "/14-important-taxi-tips-for-pilgrims-or-travelers-in-ksa/",

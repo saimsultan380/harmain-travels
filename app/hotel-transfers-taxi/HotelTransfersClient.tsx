@@ -23,7 +23,6 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Canonical } from "@/components/SEO/Canonical";
 
 const WhatsAppIcon = ({ size = 20, className = "" }: { size?: number; className?: string }) => (
   <svg
@@ -38,57 +37,67 @@ const WhatsAppIcon = ({ size = 20, className = "" }: { size?: number; className?
   </svg>
 );
 
-const FleetCard = ({ title, pax, bag, description, image, bookBtn }: { title: string, pax: string, bag: string, description: string, image: string, bookBtn?: string }) => (
-  <motion.div
-    whileHover={{ y: -5 }}
-    className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/20 rounded-3xl p-6 transition-all duration-300 flex flex-col h-full shadow-sm hover:shadow-xl hover:border-[var(--gold)]/40"
-  >
-    <div className="h-[160px] w-full mb-6 flex items-center justify-center bg-[var(--bg-alt)] rounded-2xl overflow-hidden relative border border-[var(--border)]">
-      <Image
-        src={image}
-        alt={title}
-        fill
-        sizes="(max-width: 768px) 100vw, 30vw"
-        className="object-contain p-4 drop-shadow-lg hover:scale-105 transition-transform duration-500"
-      />
-    </div>
-    
-    <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-4">{title}</h3>
-
-    <div className="flex gap-4 mb-4">
-      <div className="flex items-center gap-1.5 text-[var(--text-2)] font-body text-xs font-semibold">
-        <Users size={14} className="text-[var(--gold)]" />
-        <span>{pax}</span>
+const FleetCard = ({ title, pax, bag, description, image }: { title: string, pax: string, bag: string, description: string, image: string, bookBtn?: string }) => {
+  const { t } = useI18n();
+  return (
+    <motion.div
+      whileHover={{ y: -5 }}
+      className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/20 rounded-3xl p-6 transition-all duration-300 flex flex-col h-full shadow-sm hover:shadow-xl hover:border-[var(--gold)]/40"
+    >
+      <div className="h-[250px] w-full mb-6 flex items-center justify-center bg-[var(--bg-alt)] rounded-2xl overflow-hidden relative border border-[var(--border)]">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          sizes="(max-width: 768px) 100vw, 30vw"
+          className="object-contain p-2 drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+        />
       </div>
-      <div className="flex items-center gap-1.5 text-[var(--text-2)] font-body text-xs font-semibold">
-        <Briefcase size={14} className="text-[var(--gold)]" />
-        <span>{bag}</span>
+      
+      <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-4">{title}</h3>
+
+      <div className="flex gap-4 mb-4">
+        <div className="flex items-center gap-1.5 text-[var(--text-2)] font-body text-xs font-semibold">
+          <Users size={14} className="text-[var(--gold)]" />
+          <span>{pax}</span>
+        </div>
+        <div className="flex items-center gap-1.5 text-[var(--text-2)] font-body text-xs font-semibold">
+          <Briefcase size={14} className="text-[var(--gold)]" />
+          <span>{bag}</span>
+        </div>
       </div>
-    </div>
 
-    <p className="text-[var(--text-3)] text-sm leading-relaxed font-body mb-6 flex-grow">{description}</p>
+      <p className="text-[var(--text-3)] text-sm leading-relaxed font-body mb-6 flex-grow">{description}</p>
 
-    <div className="mt-auto pt-6 border-t border-[var(--border)]">
-      <a
-        href="https://wa.me/966598401594"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-full flex items-center justify-center gap-2 py-3 bg-[var(--green)] text-white font-body font-semibold rounded-xl hover:opacity-95 transition-all shadow-md text-sm"
-      >
-        <WhatsAppIcon size={18} />
-        {bookBtn ?? "Book Now via WhatsApp"}
-      </a>
-    </div>
-  </motion.div>
-);
+      <div className="mt-auto pt-6 border-t border-[var(--border)]">
+        <div className="flex gap-3">
+          <a
+            href="https://wa.me/966598401594"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-[1.2] flex items-center justify-center gap-2 py-3 bg-[var(--green)] text-white font-body font-semibold rounded-xl hover:opacity-95 transition-all shadow-md text-sm text-center"
+          >
+            <WhatsAppIcon size={18} />
+            {t("common.whatsapp")}
+          </a>
+          <Link
+            href="/book-now"
+            className="flex-1 flex items-center justify-center py-3 border-2 border-[var(--green)] text-[var(--green)] font-body font-semibold rounded-xl hover:bg-[var(--gold)] hover:border-[var(--gold)] hover:text-white transition-all text-sm text-center"
+          >
+            {t("common.bookNow")}
+          </Link>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 export function HotelTransfersClient() {
-  const { tm } = useI18n();
+  const { t, tm } = useI18n();
   const p = tm<Record<string, any>>("hotelTransfers", {});
 
   return (
     <div className="min-h-screen bg-[var(--bg)] selection:bg-[var(--gold-soft)] selection:text-[var(--gold)]">
-      <Canonical />
       <Navbar />
       
       <main className="flex-grow overflow-hidden">
@@ -410,7 +419,7 @@ export function HotelTransfersClient() {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <FleetCard 
-                  title={p.fleet1Title ?? "Sedan (Toyota Camry/Sonata)"}
+                  title={tm<string>("fleet.names.0", "Sedan")}
                   pax={p.fleet1Pax ?? "Up to 4 Passengers"}
                   bag={p.fleet1Bag ?? "Moderate Luggage"}
                   description={p.fleet1Desc ?? "Accommodate 4 passengers with moderate luggage. Perfect for couples or small families traveling light."}
@@ -418,7 +427,7 @@ export function HotelTransfersClient() {
                   bookBtn={p.fleetBookBtn ?? "Book Now via WhatsApp"}
                 />
                 <FleetCard 
-                  title={p.fleet2Title ?? "Toyota Hiace Van"}
+                  title={tm<string>("fleet.names.3", "Hiace Microbus")}
                   pax={p.fleet2Pax ?? "6-8 Passengers"}
                   bag={p.fleet2Bag ?? "Generous Luggage Space"}
                   description={p.fleet2Desc ?? "Ideal for families with children or groups traveling together. The extra space makes long trips more comfortable."}
@@ -426,7 +435,7 @@ export function HotelTransfersClient() {
                   bookBtn={p.fleetBookBtn ?? "Book Now via WhatsApp"}
                 />
                 <FleetCard 
-                  title={p.fleet3Title ?? "Coaster Minibus"}
+                  title={tm<string>("fleet.names.4", "Coaster")}
                   pax={p.fleet3Pax ?? "12-14 Passengers"}
                   bag={p.fleet3Bag ?? "Group Luggage Capacity"}
                   description={p.fleet3Desc ?? "These work perfectly for extended family groups or friends traveling together for Umrah. Everyone stays together."}

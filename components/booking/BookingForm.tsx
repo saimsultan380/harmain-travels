@@ -2,50 +2,59 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, ChevronLeft, CheckCircle2, Phone, Calendar, Users, MapPin, Car, Plus, Upload, Eye, Trash2, FileText } from "lucide-react";
+import {
+  ChevronRight,
+  ChevronLeft,
+  CheckCircle2,
+  Phone,
+  Calendar,
+  Users,
+  MapPin,
+  Car,
+  Plus,
+  Upload,
+  Eye,
+  Trash2,
+  FileText,
+  Loader,
+} from "lucide-react";
+import { useBookingForm } from "@/hooks/useBookingForm";
 
-interface FormData {
-  guestName: string;
-  contact: string;
-  whatsapp: string;
-  whatsappSameAsContact: boolean;
-  email: string;
-  pickupLocation: string;
-  dropoffLocation: string;
-  selectedVehicle: string;
-  vehicles: string[];
-  pickupDate: string;
-  pickupTime: string;
-  totalPassengers: string;
-  attachment?: File | null;
-}
-
-const locationOptions = ["Jeddah Airport", "Makkah Hotel", "Madinah Hotel", "Madinah Airport"];
-
-const vehicleOptions = ["Sedan", "Staria / Minivan", "GMC", "Hiace", "Coaster", "Bus"];
-
-export function BookingForm() {
+export function BookingForm({
+  variant = "page",
+}: {
+  variant?: "page" | "inline";
+}) {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState<string | null>(null);
-  const [attachmentPreviewUrl, setAttachmentPreviewUrl] = useState<string | null>(null);
-  const [formData, setFormData] = useState<FormData>({
-    guestName: "",
-    contact: "",
-    whatsapp: "",
-    whatsappSameAsContact: true,
-    email: "",
-    pickupLocation: "",
-    dropoffLocation: "",
-    selectedVehicle: "",
-    vehicles: [],
-    pickupDate: "",
-    pickupTime: "",
-    totalPassengers: "",
-    attachment: null,
-  });
+  const [attachmentPreviewUrl, setAttachmentPreviewUrl] = useState<
+    string | null
+  >(null);
+  const [bookingId, setBookingId] = useState<string | null>(null);
+
+  const {
+    formData,
+    vehicles,
+    pickupLocations,
+    dropoffLocations,
+    loadingSystemData,
+    loadingPickupLocations,
+    loadingDropoffLocations,
+    loadingPrice,
+    submitting,
+    errors,
+    handleInputChange,
+    handlePickupLocationChange,
+    handleDropoffLocationChange,
+    handleVehicleChange,
+    handlePassengerChange,
+    addVehicleToList,
+    removeVehicleFromList,
+    setAttachment,
+    submitBooking,
+    fetchPickupLocations,
+  } = useBookingForm();
 
   useEffect(() => {
     return () => {
@@ -66,8 +75,27 @@ export function BookingForm() {
     }
   };
 
-  const setAttachment = (file: File | null) => {
-    setFormData((prev) => ({ ...prev, attachment: file }));
+  const handlePrevious = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
+  const handleSubmit = async () => {
+    const result = await submitBooking();
+
+    if (result && result.success) {
+      setBookingId(result.bookingId);
+      setIsSubmitted(true);
+      setShowConfetti(true);
+      setTimeout(() => {
+        setShowConfetti(false);
+      }, 5000);
+    }
+  };
+
+  const handleAttachmentChange = (file: File | null) => {
+    setAttachment(file);
     setAttachmentPreviewUrl((prev) => {
       if (prev) URL.revokeObjectURL(prev);
       if (!file) return null;
@@ -78,87 +106,23 @@ export function BookingForm() {
     });
   };
 
-  const handlePrevious = () => {
-    if (currentStep > 1) {
-      setCurrentStep(currentStep - 1);
-    }
-  };
-
-  const handleSubmit = async () => {
-    if (submitting) return;
-    setSubmitting(true);
-    setSubmitError(null);
-
-    try {
-      const payload = new FormData();
-      payload.append("access_key", "f1631f06-9605-4143-9b1f-2270a566e105");
-      payload.append("subject", `New Booking Request from ${formData.guestName}`);
-      payload.append("from_name", "Haramain Umrah Taxi Booking");
-      
-      payload.append("guestName", formData.guestName);
-      payload.append("contact", formData.contact);
-      payload.append("whatsapp", formData.whatsapp || formData.contact);
-      payload.append("email", formData.email);
-      payload.append("pickupLocation", formData.pickupLocation);
-      payload.append("dropoffLocation", formData.dropoffLocation);
-      payload.append("vehicles", (formData.vehicles.length ? formData.vehicles : [formData.selectedVehicle]).filter(Boolean).join(", "));
-      payload.append("pickupDate", formData.pickupDate);
-      payload.append("pickupTime", formData.pickupTime);
-      payload.append("totalPassengers", formData.totalPassengers);
-      
-      if (formData.attachment) {
-        payload.append("attachment", formData.attachment);
-      }
-
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: payload,
-      });
-
-      const json = (await res.json().catch(() => null)) as null | { success?: boolean; message?: string };
-
-      if (!res.ok || !json?.success) {
-        throw new Error(json?.message || "Failed to submit booking");
-      }
-
-      setIsSubmitted(true);
-      setShowConfetti(true);
-      setTimeout(() => {
-        setShowConfetti(false);
-      }, 5000);
-    } catch (e) {
-      setSubmitError(e instanceof Error ? e.message : "Failed to submit booking");
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
-  const handleInputChange = <K extends keyof FormData>(field: K, value: FormData[K]) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-  };
-
-  const addVehicle = () => {
-    const trimmed = formData.selectedVehicle.trim();
-    if (!trimmed) return;
-    setFormData((prev) => ({
-      ...prev,
-      vehicles: prev.vehicles.includes(trimmed) ? prev.vehicles : [...prev.vehicles, trimmed],
-      selectedVehicle: "",
-    }));
-  };
-
-  const removeVehicle = (vehicle: string) => {
-    setFormData((prev) => ({
-      ...prev,
-      vehicles: prev.vehicles.filter((v) => v !== vehicle),
-    }));
-  };
+  const canProceedFromStep1 = formData.guestName && formData.contact;
+  const canProceedFromStep2 =
+    formData.pickupLocationId &&
+    formData.dropoffLocationId &&
+    formData.vehicleId;
+  const canProceedFromStep3 =
+    formData.pickupDate &&
+    formData.pickupTime &&
+    (formData.noOfAdults > 0 ||
+      formData.noOfChilds > 0 ||
+      formData.noOfInfants > 0);
 
   if (isSubmitted) {
     return (
       <div className="min-h-screen bg-[var(--bg)] flex items-center justify-center p-4 relative overflow-hidden">
         {showConfetti && <ConfettiAnimation />}
-        
+
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -172,7 +136,7 @@ export function BookingForm() {
           >
             <CheckCircle2 size={48} className="text-[var(--green)]" />
           </motion.div>
-          
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -181,16 +145,33 @@ export function BookingForm() {
           >
             Booking Submitted Successfully!
           </motion.h2>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-lg text-[var(--text-2)] mb-8"
+            className="text-lg text-[var(--text-2)] mb-4"
           >
-            Thank you for choosing Haramain Umrah Taxi. Our team will contact you shortly to confirm your booking.
+            Thank you for choosing Haramain Umrah Taxi. Our team will contact
+            you shortly to confirm your booking.
           </motion.p>
-          
+
+          {bookingId && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.45 }}
+              className="bg-[var(--bg-alt)] rounded-2xl p-4 mb-8 border border-[var(--gold)]/20"
+            >
+              <p className="text-sm text-[var(--text-2)] mb-1">
+                Your Booking ID
+              </p>
+              <p className="text-2xl font-heading font-bold text-[var(--gold)]">
+                {bookingId}
+              </p>
+            </motion.div>
+          )}
+
           <motion.button
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -198,23 +179,7 @@ export function BookingForm() {
             onClick={() => {
               setIsSubmitted(false);
               setCurrentStep(1);
-              setSubmitError(null);
-              setAttachment(null);
-              setFormData({
-                guestName: "",
-                contact: "",
-                whatsapp: "",
-                whatsappSameAsContact: true,
-                email: "",
-                pickupLocation: "",
-                dropoffLocation: "",
-                selectedVehicle: "",
-                vehicles: [],
-                pickupDate: "",
-                pickupTime: "",
-                totalPassengers: "",
-                attachment: null,
-              });
+              setBookingId(null);
             }}
             className="px-8 py-4 bg-[var(--gold)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all"
           >
@@ -226,39 +191,72 @@ export function BookingForm() {
   }
 
   return (
-    <div className="min-h-screen bg-[var(--bg)] pt-32 pb-12 px-4">
+    <div
+      className={`bg-[var(--bg)] px-4 ${variant === "page" ? "min-h-screen pt-32 pb-12" : "py-16"}`}
+    >
       <div className="max-w-5xl mx-auto">
+        {/* Heading */}
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)]">
+            Our Taxi Booking Form
+          </h2>
+        </div>
+
         {/* Progress Steps */}
         <div className="flex items-center justify-center gap-2 md:gap-4 mb-12 flex-wrap">
           {steps.map((step, index) => {
             const Icon = step.icon;
             const isActive = currentStep === step.id;
             const isCompleted = currentStep > step.id;
-            
+
             return (
               <div key={step.id} className="flex items-center">
                 <div className="flex flex-col items-center">
                   <motion.div
                     animate={{
-                      backgroundColor: isActive ? "var(--gold)" : isCompleted ? "var(--green)" : "var(--bg-alt)",
-                      borderColor: isActive ? "var(--gold)" : isCompleted ? "var(--green)" : "var(--border)",
+                      backgroundColor: isActive
+                        ? "var(--gold)"
+                        : isCompleted
+                          ? "var(--green)"
+                          : "var(--bg-alt)",
+                      borderColor: isActive
+                        ? "var(--gold)"
+                        : isCompleted
+                          ? "var(--green)"
+                          : "var(--border)",
                     }}
                     className={`w-10 h-10 md:w-12 md:h-12 rounded-full border-2 flex items-center justify-center transition-colors ${
-                      isActive ? "text-white" : isCompleted ? "text-white" : "text-[var(--text-2)]"
+                      isActive
+                        ? "text-white"
+                        : isCompleted
+                          ? "text-white"
+                          : "text-[var(--text-2)]"
                     }`}
                   >
-                    {isCompleted ? <CheckCircle2 size={18} /> : <Icon size={18} />}
+                    {isCompleted ? (
+                      <CheckCircle2 size={18} />
+                    ) : (
+                      <Icon size={18} />
+                    )}
                   </motion.div>
-                  <span className={`text-[10px] md:text-xs font-heading font-semibold mt-2 ${
-                    isActive ? "text-[var(--gold)]" : isCompleted ? "text-[var(--green)]" : "text-[var(--text-2)]"
-                  }`}>
+                  <span
+                    className={`text-[10px] md:text-xs font-heading font-semibold mt-2 ${
+                      isActive
+                        ? "text-[var(--gold)]"
+                        : isCompleted
+                          ? "text-[var(--green)]"
+                          : "text-[var(--text-2)]"
+                    }`}
+                  >
                     {step.title}
                   </span>
                 </div>
                 {index < steps.length - 1 && (
-                  <div className={`w-8 md:w-16 h-0.5 mx-2 md:mx-4 ${
-                    isCompleted ? "bg-[var(--green)]" : "bg-[var(--border)]"
-                  }`} />
+                  <div
+                    className={`w-8 md:w-16 h-0.5 mx-2 md:mx-4 ${
+                      isCompleted ? "bg-[var(--green)]" : "bg-[var(--border)]"
+                    }`}
+                  />
                 )}
               </div>
             );
@@ -273,31 +271,57 @@ export function BookingForm() {
           exit={{ opacity: 0, x: -20 }}
           className="w-full max-w-3xl mx-auto bg-[var(--bg-card)] border-2 border-[var(--gold)]/10 rounded-[32px] p-6 md:p-8 lg:p-12 shadow-lg"
         >
-          {submitError && (
+          {errors.submission && (
             <div className="mb-6 rounded-2xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-600">
-              {submitError}
+              {errors.submission}
             </div>
           )}
+
+          {(errors.pickupLocations ||
+            errors.dropoffLocations ||
+            errors.price ||
+            errors.systemData) && (
+            <div className="mb-6 rounded-2xl border border-amber-500/20 bg-amber-500/10 px-4 py-3 text-sm text-amber-700">
+              {errors.pickupLocations ||
+                errors.dropoffLocations ||
+                errors.price ||
+                errors.systemData}
+            </div>
+          )}
+
           <AnimatePresence mode="wait">
             {currentStep === 1 && (
-              <Step1PersonalInfo formData={formData} onChange={handleInputChange} />
+              <Step1PersonalInfo
+                formData={formData}
+                onChange={handleInputChange}
+              />
             )}
             {currentStep === 2 && (
               <Step2TripDetails
                 formData={formData}
                 onChange={handleInputChange}
-                addVehicle={addVehicle}
-                removeVehicle={removeVehicle}
+                vehicles={vehicles}
+                pickupLocations={pickupLocations}
+                dropoffLocations={dropoffLocations}
+                loadingPickupLocations={loadingPickupLocations}
+                loadingDropoffLocations={loadingDropoffLocations}
+                loadingPrice={loadingPrice}
+                onPickupLocationChange={handlePickupLocationChange}
+                onDropoffLocationChange={handleDropoffLocationChange}
+                onVehicleChange={handleVehicleChange}
                 attachmentPreviewUrl={attachmentPreviewUrl}
-                setAttachment={setAttachment}
+                setAttachment={handleAttachmentChange}
+                fetchPickupLocations={fetchPickupLocations}
               />
             )}
             {currentStep === 3 && (
-              <Step3Schedule formData={formData} onChange={handleInputChange} />
+              <Step3Schedule
+                formData={formData}
+                onChange={handleInputChange}
+                onPassengerChange={handlePassengerChange}
+              />
             )}
-            {currentStep === 4 && (
-              <Step4Review formData={formData} />
-            )}
+            {currentStep === 4 && <Step4Review formData={formData} />}
           </AnimatePresence>
 
           {/* Navigation Buttons */}
@@ -314,11 +338,22 @@ export function BookingForm() {
               <ChevronLeft size={20} />
               Previous
             </button>
-            
+
             {currentStep < steps.length ? (
               <button
                 onClick={handleNext}
-                className="flex items-center gap-2 px-6 py-3 bg-[var(--gold)] text-white font-heading font-semibold rounded-xl hover:scale-105 transition-all"
+                disabled={
+                  (currentStep === 1 && !canProceedFromStep1) ||
+                  (currentStep === 2 && !canProceedFromStep2) ||
+                  (currentStep === 3 && !canProceedFromStep3)
+                }
+                className={`flex items-center gap-2 px-6 py-3 font-heading font-semibold rounded-xl transition-all ${
+                  (currentStep === 1 && !canProceedFromStep1) ||
+                  (currentStep === 2 && !canProceedFromStep2) ||
+                  (currentStep === 3 && !canProceedFromStep3)
+                    ? "bg-[var(--gold)]/50 text-white/50 cursor-not-allowed"
+                    : "bg-[var(--gold)] text-white hover:scale-105"
+                }`}
               >
                 Next
                 <ChevronRight size={20} />
@@ -333,8 +368,17 @@ export function BookingForm() {
                     : "bg-[var(--green)] text-white hover:scale-105"
                 }`}
               >
-                {submitting ? "Submitting..." : "Submit"}
-                <CheckCircle2 size={20} />
+                {submitting ? (
+                  <>
+                    <Loader size={20} className="animate-spin" />
+                    Submitting...
+                  </>
+                ) : (
+                  <>
+                    Submit
+                    <CheckCircle2 size={20} />
+                  </>
+                )}
               </button>
             )}
           </div>
@@ -348,19 +392,25 @@ function Step1PersonalInfo({
   formData,
   onChange,
 }: {
-  formData: FormData;
-  onChange: <K extends keyof FormData>(field: K, value: FormData[K]) => void;
+  formData: any;
+  onChange: (field: string, value: any) => void;
 }) {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl font-heading font-bold text-[var(--text-1)]">Personal Details</h2>
-        <p className="text-[var(--text-2)] mt-1">Please provide your contact information.</p>
+        <h2 className="text-2xl font-heading font-bold text-[var(--text-1)]">
+          Personal Details
+        </h2>
+        <p className="text-[var(--text-2)] mt-1">
+          Please provide your contact information.
+        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">Guest Name *</label>
+          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">
+            Guest Name *
+          </label>
           <input
             type="text"
             value={formData.guestName}
@@ -370,9 +420,11 @@ function Step1PersonalInfo({
             required
           />
         </div>
-        
+
         <div>
-          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">Email</label>
+          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">
+            Email
+          </label>
           <input
             type="email"
             value={formData.email}
@@ -383,9 +435,14 @@ function Step1PersonalInfo({
         </div>
 
         <div>
-          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">Contact *</label>
+          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">
+            Contact *
+          </label>
           <div className="relative">
-            <Phone size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-3)]" />
+            <Phone
+              size={18}
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-3)]"
+            />
             <input
               type="tel"
               value={formData.contact}
@@ -401,13 +458,20 @@ function Step1PersonalInfo({
               required
             />
           </div>
-          <p className="text-[11px] text-[var(--text-3)] mt-2">Please enter complete number with country code</p>
+          <p className="text-[11px] text-[var(--text-3)] mt-2">
+            Please enter complete number with country code
+          </p>
         </div>
 
         <div>
-          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">WhatsApp</label>
+          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">
+            WhatsApp
+          </label>
           <div className="relative">
-            <Phone size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-3)]" />
+            <Phone
+              size={18}
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-3)]"
+            />
             <input
               type="tel"
               value={formData.whatsapp}
@@ -443,17 +507,33 @@ function Step1PersonalInfo({
 function Step2TripDetails({
   formData,
   onChange,
-  addVehicle,
-  removeVehicle,
+  vehicles,
+  pickupLocations,
+  dropoffLocations,
+  loadingPickupLocations,
+  loadingDropoffLocations,
+  loadingPrice,
+  onPickupLocationChange,
+  onDropoffLocationChange,
+  onVehicleChange,
   attachmentPreviewUrl,
   setAttachment,
+  fetchPickupLocations,
 }: {
-  formData: FormData;
-  onChange: <K extends keyof FormData>(field: K, value: FormData[K]) => void;
-  addVehicle: () => void;
-  removeVehicle: (vehicle: string) => void;
+  formData: any;
+  onChange: <K extends string>(field: K, value: any) => void;
+  vehicles: any[];
+  pickupLocations: any[];
+  dropoffLocations: any[];
+  loadingPickupLocations: boolean;
+  loadingDropoffLocations: boolean;
+  loadingPrice: boolean;
+  onPickupLocationChange: (id: string, name: string) => void;
+  onDropoffLocationChange: (id: string, name: string) => void;
+  onVehicleChange: (id: string, name: string) => void;
   attachmentPreviewUrl: string | null;
   setAttachment: (file: File | null) => void;
+  fetchPickupLocations: (hotelName: string) => Promise<void>;
 }) {
   const canPreview = Boolean(attachmentPreviewUrl);
 
@@ -461,8 +541,12 @@ function Step2TripDetails({
     <div className="space-y-6">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-heading font-bold text-[var(--text-1)]">Trip Details</h2>
-          <p className="text-[var(--text-2)] mt-1">Select your route and preferred vehicles.</p>
+          <h2 className="text-2xl font-heading font-bold text-[var(--text-1)]">
+            Trip Details
+          </h2>
+          <p className="text-[var(--text-2)] mt-1">
+            Select your route and preferred vehicle.
+          </p>
         </div>
 
         <label className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[var(--green)] text-white font-heading font-bold text-xs cursor-pointer whitespace-nowrap">
@@ -481,7 +565,8 @@ function Step2TripDetails({
         <div className="rounded-2xl border border-[var(--border)] bg-[var(--bg-alt)] p-4">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div className="flex items-center gap-3 min-w-0">
-              {formData.attachment.type.startsWith("image/") && attachmentPreviewUrl ? (
+              {formData.attachment.type.startsWith("image/") &&
+              attachmentPreviewUrl ? (
                 <img
                   src={attachmentPreviewUrl}
                   alt="Attachment preview"
@@ -494,8 +579,12 @@ function Step2TripDetails({
               )}
 
               <div className="min-w-0">
-                <div className="font-heading font-bold text-[var(--text-1)] truncate">{formData.attachment.name}</div>
-                <div className="text-xs text-[var(--text-2)]">{Math.ceil(formData.attachment.size / 1024)} KB</div>
+                <div className="font-heading font-bold text-[var(--text-1)] truncate">
+                  {formData.attachment.name}
+                </div>
+                <div className="text-xs text-[var(--text-2)]">
+                  {Math.ceil(formData.attachment.size / 1024)} KB
+                </div>
               </div>
             </div>
 
@@ -503,7 +592,12 @@ function Step2TripDetails({
               <button
                 type="button"
                 onClick={() => {
-                  if (attachmentPreviewUrl) window.open(attachmentPreviewUrl, "_blank", "noopener,noreferrer");
+                  if (attachmentPreviewUrl)
+                    window.open(
+                      attachmentPreviewUrl,
+                      "_blank",
+                      "noopener,noreferrer",
+                    );
                 }}
                 disabled={!canPreview}
                 className={`inline-flex items-center gap-2 px-3 py-2 rounded-xl font-heading font-bold text-xs transition-all ${
@@ -527,98 +621,165 @@ function Step2TripDetails({
           </div>
         </div>
       )}
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">Pickup Location *</label>
+          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">
+            Pickup Location *
+          </label>
           <div className="relative">
-            <MapPin size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-3)]" />
-            <select
-              value={formData.pickupLocation}
-              onChange={(e) => {
-                const next = e.target.value;
-                onChange("pickupLocation", next);
-                if (formData.dropoffLocation === next) {
-                  onChange("dropoffLocation", "");
-                }
-              }}
-              className="w-full pl-12 pr-4 py-3 bg-[var(--bg-alt)] border border-[var(--border)] rounded-xl text-[var(--text-1)] focus:border-[var(--gold)] focus:outline-none transition-colors"
-              required
-            >
-              <option value="">Select Pickup Location</option>
-              {locationOptions.map((loc) => (
-                <option key={loc} value={loc}>
-                  {loc}
-                </option>
-              ))}
-            </select>
+            <MapPin
+              size={18}
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-3)]"
+            />
+            {loadingPickupLocations ? (
+              <div className="w-full pl-12 pr-4 py-3 bg-[var(--bg-alt)] border border-[var(--border)] rounded-xl text-[var(--text-1)] flex items-center gap-2">
+                <Loader size={16} className="animate-spin" />
+                Loading...
+              </div>
+            ) : (
+              <select
+                value={formData.pickupLocationId}
+                onChange={(e) => {
+                  const selected = pickupLocations.find(
+                    (p) => p.hotels_id === e.target.value,
+                  );
+                  if (selected) {
+                    onPickupLocationChange(selected.hotels_id, selected.name);
+                  }
+                }}
+                className="w-full pl-12 pr-4 py-3 bg-[var(--bg-alt)] border border-[var(--border)] rounded-xl text-[var(--text-1)] focus:border-[var(--gold)] focus:outline-none transition-colors"
+                required
+              >
+                <option value="">Select Pickup Location</option>
+                {pickupLocations.map((loc: any) => (
+                  <option key={loc.hotels_id} value={loc.hotels_id}>
+                    {loc.name}
+                  </option>
+                ))}
+              </select>
+            )}
           </div>
         </div>
 
         <div>
-          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">Dropoff Location *</label>
+          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">
+            Dropoff Location *
+          </label>
           <div className="relative">
-            <MapPin size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-3)]" />
-            <select
-              value={formData.dropoffLocation}
-              onChange={(e) => onChange("dropoffLocation", e.target.value)}
-              className="w-full pl-12 pr-4 py-3 bg-[var(--bg-alt)] border border-[var(--border)] rounded-xl text-[var(--text-1)] focus:border-[var(--gold)] focus:outline-none transition-colors"
-              required
-              disabled={!formData.pickupLocation}
-            >
-              <option value="">{formData.pickupLocation ? "Select Dropoff Location" : "Select Pickup Location First"}</option>
-              {locationOptions
-                .filter((loc) => loc !== formData.pickupLocation)
-                .map((loc) => (
-                  <option key={loc} value={loc}>
-                    {loc}
+            <MapPin
+              size={18}
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-3)]"
+            />
+            {loadingDropoffLocations ? (
+              <div className="w-full pl-12 pr-4 py-3 bg-[var(--bg-alt)] border border-[var(--border)] rounded-xl text-[var(--text-1)] flex items-center gap-2">
+                <Loader size={16} className="animate-spin" />
+                Loading...
+              </div>
+            ) : (
+              <select
+                value={formData.dropoffLocationId}
+                onChange={(e) => {
+                  const selected = dropoffLocations.find(
+                    (d) => d.routes_dropoff_id === e.target.value,
+                  );
+                  if (selected) {
+                    onDropoffLocationChange(
+                      selected.routes_dropoff_id,
+                      selected.location_name,
+                    );
+                  }
+                }}
+                className="w-full pl-12 pr-4 py-3 bg-[var(--bg-alt)] border border-[var(--border)] rounded-xl text-[var(--text-1)] focus:border-[var(--gold)] focus:outline-none transition-colors"
+                required
+                disabled={!formData.pickupLocationId}
+              >
+                <option value="">
+                  {formData.pickupLocationId
+                    ? "Select Dropoff Location"
+                    : "Select Pickup Location First"}
+                </option>
+                {dropoffLocations.map((loc: any) => (
+                  <option
+                    key={loc.routes_dropoff_id}
+                    value={loc.routes_dropoff_id}
+                  >
+                    {loc.location_name}
                   </option>
                 ))}
-            </select>
+              </select>
+            )}
           </div>
         </div>
 
         <div className="md:col-span-2">
-          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">Select Vehicles *</label>
+          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">
+            Select Vehicle *
+          </label>
           <div className="flex flex-col md:flex-row gap-3">
             <div className="relative flex-1">
-              <Car size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-3)]" />
+              <Car
+                size={18}
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-3)]"
+              />
               <select
-                value={formData.selectedVehicle}
-                onChange={(e) => onChange("selectedVehicle", e.target.value)}
+                value={formData.vehicleId}
+                onChange={(e) => {
+                  const selected = vehicles.find(
+                    (v) => v.vehicles_id === e.target.value,
+                  );
+                  if (selected) {
+                    onVehicleChange(
+                      selected.vehicles_id,
+                      selected.vehicle_name,
+                    );
+                  }
+                }}
                 className="w-full pl-12 pr-4 py-3 bg-[var(--bg-alt)] border border-[var(--border)] rounded-xl text-[var(--text-1)] focus:border-[var(--gold)] focus:outline-none transition-colors"
-                required={formData.vehicles.length === 0}
+                required
               >
                 <option value="">Select Vehicle</option>
-                {vehicleOptions.map((v) => (
-                  <option key={v} value={v}>
-                    {v}
+                {vehicles.map((v: any) => (
+                  <option key={v.vehicles_id} value={v.vehicles_id}>
+                    {v.vehicle_name}
                   </option>
                 ))}
               </select>
             </div>
-            <button
-              type="button"
-              onClick={addVehicle}
-              className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[var(--gold)] text-white font-heading font-bold hover:scale-[1.02] transition-all"
-            >
-              <Plus size={18} />
-              Add Vehicle
-            </button>
           </div>
 
-          {formData.vehicles.length > 0 && (
-            <div className="mt-3 flex flex-wrap gap-2">
-              {formData.vehicles.map((v) => (
-                <button
-                  key={v}
-                  type="button"
-                  onClick={() => removeVehicle(v)}
-                  className="px-3 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--bg)] text-[var(--text-1)] text-sm hover:border-[var(--gold)] transition-colors"
-                >
-                  {v}
-                </button>
-              ))}
+          {loadingPrice && (
+            <div className="mt-3 flex items-center gap-2 text-sm text-[var(--text-2)]">
+              <Loader size={14} className="animate-spin" />
+              Fetching pricing...
+            </div>
+          )}
+
+          {formData.bookedFare > 0 && (
+            <div className="mt-3 rounded-xl bg-[var(--bg-alt)] p-3 border border-[var(--border)]">
+              <div className="text-xs text-[var(--text-2)] mb-2">
+                Pricing Information
+              </div>
+              <div className="grid grid-cols-3 gap-2 text-sm">
+                <div>
+                  <div className="text-[var(--text-3)]">Booked Fare</div>
+                  <div className="font-bold text-[var(--text-1)]">
+                    ${formData.bookedFare}
+                  </div>
+                </div>
+                <div>
+                  <div className="text-[var(--text-3)]">Agent Fare</div>
+                  <div className="font-bold text-[var(--text-1)]">
+                    ${formData.agentFare}
+                  </div>
+                </div>
+                <div>
+                  <div className="text-[var(--text-3)]">Actual Fare</div>
+                  <div className="font-bold text-[var(--gold)]">
+                    ${formData.actualFare}
+                  </div>
+                </div>
+              </div>
             </div>
           )}
         </div>
@@ -630,22 +791,31 @@ function Step2TripDetails({
 function Step3Schedule({
   formData,
   onChange,
+  onPassengerChange,
 }: {
-  formData: FormData;
-  onChange: <K extends keyof FormData>(field: K, value: FormData[K]) => void;
+  formData: any;
+  onChange: <K extends string>(field: K, value: any) => void;
+  onPassengerChange: (type: string, value: string) => void;
 }) {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl font-heading font-bold text-[var(--text-1)]">Schedule</h2>
+        <h2 className="text-2xl font-heading font-bold text-[var(--text-1)]">
+          Schedule
+        </h2>
         <p className="text-[var(--text-2)] mt-1">When should we pick you up?</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">Pickup Date *</label>
+          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">
+            Pickup Date *
+          </label>
           <div className="relative">
-            <Calendar size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-3)]" />
+            <Calendar
+              size={18}
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-3)]"
+            />
             <input
               type="date"
               value={formData.pickupDate}
@@ -657,9 +827,14 @@ function Step3Schedule({
         </div>
 
         <div>
-          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">Pickup Time *</label>
+          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">
+            Pickup Time *
+          </label>
           <div className="relative">
-            <Calendar size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-3)]" />
+            <Calendar
+              size={18}
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-3)]"
+            />
             <input
               type="time"
               value={formData.pickupTime}
@@ -670,64 +845,170 @@ function Step3Schedule({
           </div>
         </div>
 
-        <div className="md:col-span-2">
-          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">Total Passengers *</label>
+        <div>
+          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">
+            Number of Adults *
+          </label>
           <div className="relative">
-            <Users size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-3)]" />
+            <Users
+              size={18}
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-3)]"
+            />
             <input
               type="number"
-              min={1}
-              value={formData.totalPassengers}
-              onChange={(e) => onChange("totalPassengers", e.target.value)}
+              min={0}
+              value={formData.noOfAdults}
+              onChange={(e) => onPassengerChange("noOfAdults", e.target.value)}
               className="w-full pl-12 pr-4 py-3 bg-[var(--bg-alt)] border border-[var(--border)] rounded-xl text-[var(--text-1)] focus:border-[var(--gold)] focus:outline-none transition-colors"
-              placeholder="Total passengers"
-              required
+              placeholder="Number of adults"
             />
           </div>
+        </div>
+
+        <div>
+          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">
+            Number of Children
+          </label>
+          <div className="relative">
+            <Users
+              size={18}
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-3)]"
+            />
+            <input
+              type="number"
+              min={0}
+              value={formData.noOfChilds}
+              onChange={(e) => onPassengerChange("noOfChilds", e.target.value)}
+              className="w-full pl-12 pr-4 py-3 bg-[var(--bg-alt)] border border-[var(--border)] rounded-xl text-[var(--text-1)] focus:border-[var(--gold)] focus:outline-none transition-colors"
+              placeholder="Number of children"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">
+            Number of Infants
+          </label>
+          <div className="relative">
+            <Users
+              size={18}
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-3)]"
+            />
+            <input
+              type="number"
+              min={0}
+              value={formData.noOfInfants}
+              onChange={(e) => onPassengerChange("noOfInfants", e.target.value)}
+              className="w-full pl-12 pr-4 py-3 bg-[var(--bg-alt)] border border-[var(--border)] rounded-xl text-[var(--text-1)] focus:border-[var(--gold)] focus:outline-none transition-colors"
+              placeholder="Number of infants"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label className="block text-sm font-heading font-semibold text-[var(--text-1)] mb-2">
+            Total Passengers
+          </label>
+          <div className="relative">
+            <Users
+              size={18}
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-3)]"
+            />
+            <input
+              type="number"
+              value={
+                formData.noOfAdults + formData.noOfChilds + formData.noOfInfants
+              }
+              readOnly
+              className="w-full pl-12 pr-4 py-3 bg-[var(--bg-alt)] border border-[var(--border)] rounded-xl text-[var(--text-1)] cursor-not-allowed opacity-75"
+              placeholder="Auto-calculated"
+            />
+          </div>
+          <p className="text-[11px] text-[var(--text-3)] mt-2">
+            Auto-calculated based on adults, children, and infants
+          </p>
         </div>
       </div>
     </div>
   );
 }
 
-function Step4Review({ formData }: { formData: FormData }) {
+function Step4Review({ formData }: { formData: any }) {
+  const totalPassengers =
+    formData.noOfAdults + formData.noOfChilds + formData.noOfInfants;
+
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-6">Review and Confirm Journey</h2>
-      
+      <h2 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-6">
+        Review and Confirm Journey
+      </h2>
+
       <div className="space-y-4">
-        <ReviewSection title="Your Personal Details" items={[
-          { label: "Guest Name", value: formData.guestName },
-          { label: "Email", value: formData.email },
-          { label: "Contact", value: formData.contact },
-          { label: "WhatsApp", value: formData.whatsapp || formData.contact },
-        ]} />
-        
-        <ReviewSection title="Your Journey Details" items={[
-          { label: "Pickup Location", value: formData.pickupLocation },
-          { label: "Dropoff Location", value: formData.dropoffLocation },
-          { label: "Vehicles", value: formData.vehicles.length ? formData.vehicles.join(", ") : formData.selectedVehicle },
-        ]} />
-        
-        <ReviewSection title="Passengers Details" items={[
-          { label: "Pickup Date", value: formData.pickupDate },
-          { label: "Pickup Time", value: formData.pickupTime },
-          { label: "Total Passengers", value: formData.totalPassengers },
-        ]} />
+        <ReviewSection
+          title="Your Personal Details"
+          items={[
+            { label: "Guest Name", value: formData.guestName },
+            { label: "Email", value: formData.email },
+            { label: "Contact", value: formData.contact },
+            { label: "WhatsApp", value: formData.whatsapp || formData.contact },
+          ]}
+        />
+
+        <ReviewSection
+          title="Your Journey Details"
+          items={[
+            { label: "Pickup Location", value: formData.pickupLocation },
+            { label: "Dropoff Location", value: formData.dropoffLocation },
+            { label: "Vehicle", value: formData.selectedVehicle },
+          ]}
+        />
+
+        <ReviewSection
+          title="Passengers Details"
+          items={[
+            { label: "Pickup Date", value: formData.pickupDate },
+            { label: "Pickup Time", value: formData.pickupTime },
+            { label: "Number of Adults", value: String(formData.noOfAdults) },
+            { label: "Number of Children", value: String(formData.noOfChilds) },
+            { label: "Number of Infants", value: String(formData.noOfInfants) },
+            { label: "Total Passengers", value: String(totalPassengers) },
+          ]}
+        />
+
+        {formData.bookedFare > 0 && (
+          <ReviewSection
+            title="Fare Details"
+            items={[
+              { label: "Booked Fare", value: `$${formData.bookedFare}` },
+              { label: "Agent Fare", value: `$${formData.agentFare}` },
+              { label: "Actual Fare", value: `$${formData.actualFare}` },
+            ]}
+          />
+        )}
       </div>
     </div>
   );
 }
 
-function ReviewSection({ title, items }: { title: string; items: { label: string; value: string | undefined }[] }) {
+function ReviewSection({
+  title,
+  items,
+}: {
+  title: string;
+  items: { label: string; value: string | undefined }[];
+}) {
   return (
     <div className="bg-[var(--bg-alt)] rounded-2xl p-6">
-      <h3 className="text-lg font-heading font-bold text-[var(--gold)] mb-4">{title}</h3>
+      <h3 className="text-lg font-heading font-bold text-[var(--gold)] mb-4">
+        {title}
+      </h3>
       <div className="space-y-3">
         {items.map((item, index) => (
           <div key={index} className="flex justify-between">
             <span className="text-[var(--text-2)]">{item.label}</span>
-            <span className="text-[var(--text-1)] font-semibold">{item.value || "-"}</span>
+            <span className="text-[var(--text-1)] font-semibold">
+              {item.value || "-"}
+            </span>
           </div>
         ))}
       </div>
@@ -736,8 +1017,14 @@ function ReviewSection({ title, items }: { title: string; items: { label: string
 }
 
 function ConfettiAnimation() {
-  const colors = ["var(--gold)", "var(--green)", "#FFD700", "#32CD32", "#FF6B6B"];
-  
+  const colors = [
+    "var(--gold)",
+    "var(--green)",
+    "#FFD700",
+    "#32CD32",
+    "#FF6B6B",
+  ];
+
   return (
     <div className="fixed inset-0 pointer-events-none z-50">
       {[...Array(50)].map((_, i) => (
@@ -765,7 +1052,7 @@ function ConfettiAnimation() {
           }}
         />
       ))}
-      
+
       {/* Party Popper Effect */}
       <motion.div
         initial={{ scale: 0 }}
@@ -785,7 +1072,8 @@ function ConfettiAnimation() {
             transition={{ duration: 1, delay: 0.3 }}
             className="absolute w-2 h-8 rounded-full"
             style={{
-              backgroundColor: colors[Math.floor(Math.random() * colors.length)],
+              backgroundColor:
+                colors[Math.floor(Math.random() * colors.length)],
               transform: `rotate(${(i / 20) * 360}deg)`,
             }}
           />

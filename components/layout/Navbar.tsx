@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MoonCrescentIcon } from "@/components/graphics/MoonCrescentIcon";
-import { FacebookIcon, InstagramIcon, LinkedinIcon } from "@/components/graphics/SocialIcons";
+import { FacebookIcon, InstagramIcon, LinkedinIcon, TikTokIcon, YouTubeIcon } from "@/components/graphics/SocialIcons";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { useI18n } from "@/lib/i18n";
@@ -127,7 +127,7 @@ export function Navbar() {
             
             {/* Logo */}
             <Link href="/" className="group flex items-center gap-2.5">
-              <div className="relative w-40 h-14 shrink-0">
+              <div className="relative w-48 h-16 shrink-0">
                 <Image 
                   src="/images/logo.png" 
                   alt="Haramain Umrah Taxi Logo" 
@@ -365,7 +365,7 @@ export function Navbar() {
             >
               <div className="p-6 flex items-center justify-between border-b border-[var(--border)] bg-[var(--bg-alt)]/50">
                 <Link href="/" className="flex items-center" onClick={() => setMobileMenuOpen(false)}>
-                  <div className="relative w-32 h-12">
+                  <div className="relative w-40 h-14">
                     <Image src="/images/logo.png" alt="Haramain Umrah Taxi Logo" fill className="object-contain" />
                   </div>
                 </Link>
@@ -574,14 +574,20 @@ export function Navbar() {
                   <span>{t("common.bookOnWhatsApp")}</span>
                 </a>
                 
-                <div className="mt-8 flex items-center justify-center gap-6">
-                  <a href="https://www.facebook.com/haramainumrahtaxii" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full flex items-center justify-center bg-[var(--bg-card)] border border-[var(--border)] text-[var(--text-2)] hover:text-[#1877F2] shadow-sm transition-all">
+                <div className="mt-8 flex items-center justify-center gap-4 flex-wrap">
+                  <a href="https://www.facebook.com/haramainumrahtaxii" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-12 h-12 rounded-full flex items-center justify-center bg-[var(--bg-card)] border border-[var(--border)] text-[var(--text-2)] hover:text-[#1877F2] shadow-sm transition-all">
                     <FacebookIcon size={22} />
                   </a>
-                  <a href="https://www.instagram.com/haramainumrah_taxi/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full flex items-center justify-center bg-[var(--bg-card)] border border-[var(--border)] text-[var(--text-2)] hover:text-[#E4405F] shadow-sm transition-all">
+                  <a href="https://www.instagram.com/haramainumrah_taxi/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-12 h-12 rounded-full flex items-center justify-center bg-[var(--bg-card)] border border-[var(--border)] text-[var(--text-2)] hover:text-[#E4405F] shadow-sm transition-all">
                     <InstagramIcon size={22} />
                   </a>
-                  <a href="https://www.linkedin.com/company/haramain-umrah-taxi" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full flex items-center justify-center bg-[var(--bg-card)] border border-[var(--border)] text-[var(--text-2)] hover:text-[#0A66C2] shadow-sm transition-all">
+                  <a href="https://www.tiktok.com/@haramainumrahtaxi" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="w-12 h-12 rounded-full flex items-center justify-center bg-[var(--bg-card)] border border-[var(--border)] text-[var(--text-2)] hover:text-[#000000] shadow-sm transition-all">
+                    <TikTokIcon size={20} />
+                  </a>
+                  <a href="https://www.youtube.com/@HaramainUmrahTaxi" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="w-12 h-12 rounded-full flex items-center justify-center bg-[var(--bg-card)] border border-[var(--border)] text-[var(--text-2)] hover:text-[#FF0000] shadow-sm transition-all">
+                    <YouTubeIcon size={22} />
+                  </a>
+                  <a href="https://www.linkedin.com/company/haramain-umrah-taxi" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-12 h-12 rounded-full flex items-center justify-center bg-[var(--bg-card)] border border-[var(--border)] text-[var(--text-2)] hover:text-[#0A66C2] shadow-sm transition-all">
                     <LinkedinIcon size={22} />
                   </a>
                 </div>

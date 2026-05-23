@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { blogPosts, sortedBlogPosts, POSTS_PER_PAGE, formatDate } from "@/lib/blog-posts";
 import Link from "next/link";
 import { Calendar, Clock, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
@@ -26,6 +26,11 @@ interface BlogListingProps {
 
 export function BlogListing({ pagePosts, currentPage, totalPages }: BlogListingProps) {
   const [selectedCategory, setSelectedCategory] = useState("all");
+
+  // Reset category filter when page changes
+  useEffect(() => {
+    setSelectedCategory("all");
+  }, [currentPage]);
 
   // For "All Posts": use the pre-paginated slice passed from server
   // For a category filter: show ALL matching posts across all pages

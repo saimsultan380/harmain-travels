@@ -8,7 +8,6 @@ import { Footer } from "@/components/layout/Footer";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { IslamicGeometricBg } from "@/components/graphics/IslamicGeometricBg";
 import { AnimatedCarOnRoad } from "@/components/graphics/AnimatedCarOnRoad";
-import { Canonical } from "@/components/SEO/Canonical";
 import { useI18n } from "@/lib/i18n";
 import {
   ArrowRight,
@@ -183,7 +182,6 @@ export function HotelBookingMakkahClient() {
 
   return (
     <div className="min-h-screen bg-[var(--bg)] selection:bg-[var(--gold-soft)] selection:text-[var(--gold)]">
-      <Canonical />
       <Navbar />
 
       <main className="flex-grow overflow-hidden">

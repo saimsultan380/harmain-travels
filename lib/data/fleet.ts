@@ -10,16 +10,6 @@ export const fleet = [
     image: '/images/fleet/sedan.webp'
   },
   {
-    id: 'mini-van',
-    name: 'Mini Van',
-    description: 'Ideal for Makkah taxi services and Madinah taxi services for families.',
-    type: 'mini-van',
-    price: 300,
-    passengers: 7,
-    luggage: 10,
-    image: '/images/fleet/minivan.webp'
-  },
-  {
     id: 'luxury-gmc',
     name: 'Luxury GMC',
     description: 'Best choice for private Umrah taxi services in Saudi Arabia.',
@@ -28,6 +18,16 @@ export const fleet = [
     passengers: 7,
     luggage: 7,
     image: '/images/fleet/luxury-gmc.png'
+  },
+  {
+    id: 'mini-van',
+    name: 'Mini Van',
+    description: 'Ideal for Makkah taxi services and Madinah taxi services for families.',
+    type: 'mini-van',
+    price: 300,
+    passengers: 7,
+    luggage: 10,
+    image: '/images/fleet/minivan.webp'
   },
   {
     id: 'hiace-microbus',

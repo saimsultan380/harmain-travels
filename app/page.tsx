@@ -15,6 +15,7 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { OtherServices } from "@/components/sections/OtherServices";
 import { FAQ } from "@/components/sections/FAQ";
 import { CTABanner } from "@/components/sections/CTABanner";
+import { BookingForm } from "@/components/booking/BookingForm";
 
 export const metadata: Metadata = {
   title: "Haramain Umrah Taxi: Best Private Umrah Taxi Service Book",
@@ -38,6 +39,9 @@ export default function Home() {
       <Navbar />
       <main className="flex min-h-screen flex-col">
         <Hero />
+        <section id="book-now" className="bg-[var(--bg)]">
+          <BookingForm variant="inline" />
+        </section>
         <Services />
         <OtherServices />
         <Fleet />

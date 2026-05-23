@@ -28,7 +28,6 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Canonical } from "@/components/SEO/Canonical";
 import { useI18n } from "@/lib/i18n";
 
 const WhatsAppIcon = ({ size = 20, className = "" }: { size?: number; className?: string }) => (
@@ -44,7 +43,7 @@ const WhatsAppIcon = ({ size = 20, className = "" }: { size?: number; className?
   </svg>
 );
 
-const PriceCard = ({ title, pax, bag, price, description, image, popularBadge, paxLabel, bagLabel, bookNowBtn }: { 
+const PriceCard = ({ title, pax, bag, price, description, image, popularBadge, paxLabel, bagLabel }: { 
   title: string, 
   pax: string, 
   bag: string, 
@@ -55,54 +54,63 @@ const PriceCard = ({ title, pax, bag, price, description, image, popularBadge, p
   paxLabel?: string,
   bagLabel?: string,
   bookNowBtn?: string
-}) => (
-  <motion.div
-    whileHover={{ y: -5 }}
-    className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/20 rounded-3xl p-6 transition-all duration-300 flex flex-col h-full shadow-sm hover:shadow-xl hover:border-[var(--gold)]/40"
-  >
-    <div className="h-[140px] w-full mb-6 flex items-center justify-center bg-[var(--bg-alt)] rounded-2xl overflow-hidden relative border border-[var(--border)]">
-      <Image
-        src={image}
-        alt={title}
-        fill
-        sizes="(max-width: 768px) 100vw, 30vw"
-        className="object-contain p-4 drop-shadow-lg"
-      />
-    </div>
-    
-    <div className="flex justify-between items-start mb-4">
-      <h3 className="text-xl font-heading font-bold text-[var(--text-1)]">{title}</h3>
-      <span className="bg-[var(--gold-soft)] text-[var(--gold)] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">{popularBadge ?? "Most Popular"}</span>
-    </div>
-
-    <div className="flex gap-4 mb-4">
-      <div className="flex items-center gap-1.5 text-[var(--text-2)] font-body text-xs">
-        <Users size={14} className="text-[var(--gold)]" />
-        <span>{pax} {paxLabel ?? "Pax"}</span>
+}) => {
+  const { t } = useI18n();
+  return (
+    <motion.div
+      whileHover={{ y: -5 }}
+      className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/20 rounded-3xl p-6 transition-all duration-300 flex flex-col h-full shadow-sm hover:shadow-xl hover:border-[var(--gold)]/40"
+    >
+      <div className="h-[250px] w-full mb-6 flex items-center justify-center bg-[var(--bg-alt)] rounded-2xl overflow-hidden relative border border-[var(--border)]">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          sizes="(max-width: 768px) 100vw, 30vw"
+          className="object-contain p-2 drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+        />
       </div>
-      <div className="flex items-center gap-1.5 text-[var(--text-2)] font-body text-xs">
-        <Briefcase size={14} className="text-[var(--gold)]" />
-        <span>{bag} {bagLabel ?? "Bags"}</span>
+      
+      <div className="flex justify-between items-start mb-4">
+        <h3 className="text-xl font-heading font-bold text-[var(--text-1)]">{title}</h3>
+        <span className="bg-[var(--gold-soft)] text-[var(--gold)] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">{popularBadge ?? "Most Popular"}</span>
       </div>
-    </div>
 
-    <p className="text-[var(--text-3)] text-xs font-body mb-6 flex-grow">{description}</p>
-
-    <div className="mt-auto pt-6 border-t border-[var(--border)]">
-      <div className="flex flex-col gap-3">
-        <a
-          href="https://wa.me/966598401594"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full flex items-center justify-center gap-2 py-3 bg-[var(--green)] text-white font-body font-semibold rounded-xl hover:opacity-95 transition-all shadow-md text-sm"
-        >
-          <WhatsAppIcon size={18} />
-          {bookNowBtn ?? "Book Now via WhatsApp"}
-        </a>
+      <div className="flex gap-4 mb-4">
+        <div className="flex items-center gap-1.5 text-[var(--text-2)] font-body text-xs">
+          <Users size={14} className="text-[var(--gold)]" />
+          <span>{pax} {paxLabel ?? "Pax"}</span>
+        </div>
+        <div className="flex items-center gap-1.5 text-[var(--text-2)] font-body text-xs">
+          <Briefcase size={14} className="text-[var(--gold)]" />
+          <span>{bag} {bagLabel ?? "Bags"}</span>
+        </div>
       </div>
-    </div>
-  </motion.div>
-);
+
+      <p className="text-[var(--text-3)] text-xs font-body mb-6 flex-grow">{description}</p>
+
+      <div className="mt-auto pt-6 border-t border-[var(--border)]">
+        <div className="flex gap-3">
+          <a
+            href="https://wa.me/966598401594"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-[1.2] flex items-center justify-center gap-2 py-3 bg-[var(--green)] text-white font-body font-semibold rounded-xl hover:opacity-95 transition-all shadow-md text-sm text-center"
+          >
+            <WhatsAppIcon size={18} />
+            {t("common.whatsapp")}
+          </a>
+          <Link
+            href="/book-now"
+            className="flex-1 flex items-center justify-center py-3 border-2 border-[var(--green)] text-[var(--green)] font-body font-semibold rounded-xl hover:bg-[var(--gold)] hover:border-[var(--gold)] hover:text-white transition-all text-sm text-center"
+          >
+            {t("common.bookNow")}
+          </Link>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 const ServiceCard = ({ title, description, icon: Icon }: { title: string, description: string, icon: any }) => (
   <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6 hover:border-[var(--gold)]/30 transition-all group">
@@ -139,7 +147,6 @@ export function UmrahTaxiPageClient() {
 
   return (
     <div className="min-h-screen bg-[var(--bg)] selection:bg-[var(--gold-soft)] selection:text-[var(--gold)]">
-      <Canonical />
       <Navbar />
       
       <main className="flex-grow overflow-hidden">
@@ -386,10 +393,10 @@ export function UmrahTaxiPageClient() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <PriceCard 
-                title={p.fleet1Title ?? "Sedan (Camry/Sonata)"}
+                title={tm<string>("fleet.names.0", "Sedan")}
                 pax="4"
                 bag="3"
-                description={p.fleet1Desc ?? "Perfect for couples or small families. comfortable, fuel-efficient, and ideal for airport transfers."}
+                description={p.fleet1Desc ?? "Perfect for couples or small families. Comfortable, fuel-efficient, and ideal for airport transfers."}
                 price={p.fleet1Price ?? "Standard Rate"}
                 image="/images/fleet/sedan.webp"
                 popularBadge={p.popularBadge ?? "Most Popular"}
@@ -398,7 +405,7 @@ export function UmrahTaxiPageClient() {
                 bookNowBtn={p.bookNowBtn ?? "Book Now via WhatsApp"}
               />
               <PriceCard 
-                title={p.fleet2Title ?? "GMC Yukon"}
+                title={tm<string>("fleet.names.1", "Luxury GMC")}
                 pax="7"
                 bag="7"
                 description={p.fleet2Desc ?? "Luxury Umrah taxi with premium features & leather seats. Five-star KSA comfort."}
@@ -410,7 +417,7 @@ export function UmrahTaxiPageClient() {
                 bookNowBtn={p.bookNowBtn ?? "Book Now via WhatsApp"}
               />
               <PriceCard 
-                title={p.fleet3Title ?? "Hyundai Staria"}
+                title={tm<string>("fleet.names.2", "Mini Van")}
                 pax="7"
                 bag="10"
                 description={p.fleet3Desc ?? "Spacious for families with children. Great for intercity travel between Makkah and Madinah."}
@@ -422,7 +429,7 @@ export function UmrahTaxiPageClient() {
                 bookNowBtn={p.bookNowBtn ?? "Book Now via WhatsApp"}
               />
               <PriceCard 
-                title={p.fleet4Title ?? "Toyota Hiace"}
+                title={tm<string>("fleet.names.3", "Hiace Microbus")}
                 pax="12"
                 bag="16"
                 description={p.fleet4Desc ?? "Best for small groups traveling together. Comfortable seating and large luggage trunk."}
@@ -434,12 +441,24 @@ export function UmrahTaxiPageClient() {
                 bookNowBtn={p.bookNowBtn ?? "Book Now via WhatsApp"}
               />
               <PriceCard 
-                title={p.fleet5Title ?? "Toyota Coaster"}
-                pax="26"
+                title={tm<string>("fleet.names.4", "Coaster")}
+                pax="18"
                 bag="25"
                 description={p.fleet5Desc ?? "Perfect for larger groups. Ideal for Ziyarat tours and group Umrah taxi KSA services."}
                 price={p.fleet5Price ?? "Group Coach"}
                 image="/images/fleet/coaster.jpg"
+                popularBadge={p.popularBadge ?? "Most Popular"}
+                paxLabel={p.paxLabel ?? "Pax"}
+                bagLabel={p.bagLabel ?? "Bags"}
+                bookNowBtn={p.bookNowBtn ?? "Book Now via WhatsApp"}
+              />
+              <PriceCard 
+                title={tm<string>("fleet.names.5", "Bus")}
+                pax="50"
+                bag="65"
+                description={p.fleet6Desc ?? "Great for Hajj groups. Fully air-conditioned with professional drivers for large pilgrim groups."}
+                price={p.fleet6Price ?? "Group Bus"}
+                image="/images/fleet/bus.png"
                 popularBadge={p.popularBadge ?? "Most Popular"}
                 paxLabel={p.paxLabel ?? "Pax"}
                 bagLabel={p.bagLabel ?? "Bags"}

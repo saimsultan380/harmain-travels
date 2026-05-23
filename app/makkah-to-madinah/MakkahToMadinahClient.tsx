@@ -8,7 +8,6 @@ import { Footer } from "@/components/layout/Footer";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { IslamicGeometricBg } from "@/components/graphics/IslamicGeometricBg";
 import { AnimatedCarOnRoad } from "@/components/graphics/AnimatedCarOnRoad";
-import { Canonical } from "@/components/SEO/Canonical";
 import { useI18n } from "@/lib/i18n";
 import {
   ArrowRight,
@@ -25,6 +24,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const WhatsAppIcon = ({ size = 20, className = "" }: { size?: number; className?: string }) => (
   <svg
@@ -68,24 +68,50 @@ function ImagePlaceholder({ label, imageUrl }: { label: string; imageUrl?: strin
 function Card({
   title,
   description,
-  imageLabel,
   imageUrl,
 }: {
   title: string;
   description: string;
-  imageLabel: string;
-  imageUrl?: string;
+  imageUrl: string;
 }) {
+  const { t } = useI18n();
   return (
     <motion.div
-      whileHover={{ y: -4 }}
-      className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 shadow-sm hover:shadow-xl transition-all"
+      whileHover={{ y: -5 }}
+      className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/20 rounded-3xl p-6 transition-all duration-300 flex flex-col h-full shadow-sm hover:shadow-xl hover:border-[var(--gold)]/40"
     >
-      <div className="mb-5">
-        <ImagePlaceholder label={imageLabel} imageUrl={imageUrl} />
+      <div className="h-[250px] w-full mb-6 flex items-center justify-center bg-[var(--bg-alt)] rounded-2xl overflow-hidden relative border border-[var(--border)]">
+        <Image
+          src={imageUrl}
+          alt={title}
+          fill
+          sizes="(max-width: 768px) 100vw, 30vw"
+          className="object-contain p-2 drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+        />
       </div>
-      <h3 className="text-lg font-heading font-bold text-[var(--text-1)] mb-2">{title}</h3>
-      <p className="text-sm text-[var(--text-2)] leading-relaxed font-body">{description}</p>
+      
+      <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-4">{title}</h3>
+      <p className="text-[var(--text-2)] text-sm leading-relaxed font-body mb-6 flex-grow">{description}</p>
+
+      <div className="mt-auto pt-6 border-t border-[var(--border)]">
+        <div className="flex gap-3">
+          <a
+            href="https://wa.me/966598401594"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-[1.2] flex items-center justify-center gap-2 py-3 bg-[var(--green)] text-white font-body font-semibold rounded-xl hover:opacity-95 transition-all shadow-md text-sm text-center"
+          >
+            <WhatsAppIcon size={18} />
+            {t("common.whatsapp")}
+          </a>
+          <Link
+            href="/book-now"
+            className="flex-1 flex items-center justify-center py-3 border-2 border-[var(--green)] text-[var(--green)] font-body font-semibold rounded-xl hover:bg-[var(--gold)] hover:border-[var(--gold)] hover:text-white transition-all text-sm text-center"
+          >
+            {t("common.bookNow")}
+          </Link>
+        </div>
+      </div>
     </motion.div>
   );
 }
@@ -136,7 +162,6 @@ export function MakkahToMadinahClient() {
 
   return (
     <div className="min-h-screen bg-[var(--bg)] selection:bg-[var(--gold-soft)] selection:text-[var(--gold)]">
-      <Canonical />
       <Navbar />
 
       <main className="flex-grow overflow-hidden">
@@ -158,7 +183,7 @@ export function MakkahToMadinahClient() {
                 className="inline-block mb-6"
               >
                 <span className="px-4 py-1.5 rounded-full bg-[var(--gold)] text-white font-heading font-bold text-xs uppercase tracking-widest shadow-lg shadow-[var(--gold)]/20">
-                  {p.heroBadge ?? "Routes"}
+                  {p.heroBadge ?? "Haramain Transfers"}
                 </span>
               </motion.div>
 
@@ -167,7 +192,7 @@ export function MakkahToMadinahClient() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-6xl lg:text-[64px] font-heading font-extrabold !text-white mb-8 leading-tight"
               >
-                {p.heroTitle ?? "Makkah to Madinah Taxi and Fare:"} <span className="text-[var(--gold)]">{p.heroTitleHighlight ?? "Book Haramain Umrah Taxi"}</span>
+                {p.heroTitle?.split(':')[0] ?? "Makkah to Madinah Taxi"}: <span className="text-[var(--gold)]">{p.heroTitle?.split(':')[1] ?? "Hassle-Free Rides"}</span>
               </motion.h1>
 
               <motion.div
@@ -177,10 +202,10 @@ export function MakkahToMadinahClient() {
                 className="max-w-3xl mx-auto mb-10 space-y-4"
               >
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  {p.heroText1 ?? "Traveling between the holy cities of Makkah and Madinah is one of the most important journeys for pilgrims and visitors. Haramain Umrah Taxi provides professional and reliable Makkah to Madinah taxi services online that make this sacred trip easier, safer, and more comfortable."}
+                  {p.heroText1 ?? "Looking for comfortable travel? Haramain Umrah Taxi offers transparent pricing, expert drivers, and well-maintained private cars from Makkah to Madinah."}
                 </p>
                 <p className="text-lg md:text-xl text-white/90 leading-relaxed font-body">
-                  {p.heroText2 ?? "With just a few clicks, you can book a taxi from Makkah to Madinah in advance and avoid the stress of last-minute arrangements."}
+                  {p.heroText2 ?? "Choose the best option that matches your needs and experience the spiritual journey with complete peace of mind."}
                 </p>
               </motion.div>
 
@@ -195,7 +220,7 @@ export function MakkahToMadinahClient() {
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--green)] text-white font-heading font-bold rounded-xl hover:scale-105 transition-all border border-[var(--green)]/20"
                 >
                   <WhatsAppIcon />
-                  {p.heroBookBtn ?? "Book Taxi Now"}
+                  {p.heroBookBtn ?? "Book Via WhatsApp"}
                 </a>
                 <a
                   href="tel:+966598401594"
@@ -266,40 +291,34 @@ export function MakkahToMadinahClient() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <Card
-                  title={p.fleet1Title ?? "Private Car (Sedans)"}
+                  title={tm<string>("fleet.names.0", "Sedan")}
                   description={p.fleet1Desc ?? "Sedans like Camry and Sonata are perfect for small groups, individuals, or couples. Budget-friendly with enough space for luggage."}
-                  imageLabel={p.fleet1Image ?? "Sedan Car"}
                   imageUrl="/images/fleet/sedan.webp"
                 />
                 <Card
-                  title={p.fleet2Title ?? "Staria"}
-                  description={p.fleet2Desc ?? "For families or small groups, the Staria offers more seating capacity, luggage space, and comfort compared to sedans."}
-                  imageLabel={p.fleet2Image ?? "Staria Van"}
-                  imageUrl="/images/fleet/minivan.webp"
-                />
-                <Card
-                  title={p.fleet3Title ?? "Bus for Large Groups"}
-                  description={p.fleet3Desc ?? "Buses are available at affordable fares and are suitable for Umrah groups, schools, or family gatherings."}
-                  imageLabel={p.fleet3Image ?? "Bus"}
-                  imageUrl="/images/fleet/bus.png"
-                />
-                <Card
-                  title={p.fleet4Title ?? "GMC Yukon"}
-                  description={p.fleet4Desc ?? "Luxury ride with spacious interiors, modern facilities, and powerful drive. Perfect for families and business travelers."}
-                  imageLabel={p.fleet4Image ?? "GMC Yukon"}
+                  title={tm<string>("fleet.names.1", "Luxury GMC")}
+                  description={p.fleet2Desc ?? "Luxury ride with spacious interiors, modern facilities, and powerful drive. Perfect for families and business travelers."}
                   imageUrl="/images/fleet/luxury-gmc.png"
                 />
                 <Card
-                  title={p.fleet5Title ?? "Coaster"}
+                  title={tm<string>("fleet.names.2", "Mini Van")}
+                  description={p.fleet3Desc ?? "For families or small groups, the Mini Van offers more seating capacity, luggage space, and comfort compared to sedans."}
+                  imageUrl="/images/fleet/minivan.webp"
+                />
+                <Card
+                  title={tm<string>("fleet.names.3", "Hiace Microbus")}
+                  description={p.fleet4Desc ?? "Practical choice for groups that need additional space for passengers and luggage. Competitive fares for group travel."}
+                  imageUrl="/images/fleet/hiace-microbus.png"
+                />
+                <Card
+                  title={tm<string>("fleet.names.4", "Coaster")}
                   description={p.fleet5Desc ?? "Excellent option for medium-sized groups with plenty of seating, air conditioning, and reliable transfers."}
-                  imageLabel={p.fleet5Image ?? "Coaster"}
                   imageUrl="/images/fleet/coaster.jpg"
                 />
                 <Card
-                  title={p.fleet6Title ?? "Hiace or Hiroof"}
-                  description={p.fleet6Desc ?? "Practical choice for groups that need additional space for passengers and luggage. Competitive fares for group travel."}
-                  imageLabel={p.fleet6Image ?? "Hiace Van"}
-                  imageUrl="/images/fleet/hiace-microbus.png"
+                  title={tm<string>("fleet.names.5", "Bus")}
+                  description={p.fleet6Desc ?? "Buses are available at affordable fares and are suitable for Umrah groups, schools, or family gatherings."}
+                  imageUrl="/images/fleet/bus.png"
                 />
               </div>
             </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { MoonCrescentIcon } from "@/components/graphics/MoonCrescentIcon";
-import { FacebookIcon, InstagramIcon, LinkedinIcon } from "@/components/graphics/SocialIcons";
+import { FacebookIcon, InstagramIcon, LinkedinIcon, TikTokIcon, YouTubeIcon } from "@/components/graphics/SocialIcons";
 import { Mail, Clock, MapPin } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -38,9 +38,9 @@ export function Footer() {
               <Image 
                 src="/images/logo.png" 
                 alt="Haramain Umrah Taxi Logo" 
-                width={176}
-                height={64}
-                className="object-contain w-44 h-16"
+                width={208}
+                height={72}
+                className="object-contain w-52 h-[72px]"
               />
             </Link>
             <p 
@@ -49,7 +49,7 @@ export function Footer() {
             >
               {t("footer.description")}
             </p>
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-3">
               <a 
                 href="https://www.facebook.com/haramainumrahtaxii" 
                 target="_blank" 
@@ -69,6 +69,26 @@ export function Footer() {
                 aria-label="Instagram"
               >
                 <InstagramIcon size={20} />
+              </a>
+              <a 
+                href="https://www.tiktok.com/@haramainumrahtaxi" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-[var(--bg-alt)] border border-[var(--border)] flex items-center justify-center hover:text-[#000000] hover:border-[#000000] transition-colors"
+                style={isDark ? { color: '#7A7060' } : { color: 'var(--text-2)' }}
+                aria-label="TikTok"
+              >
+                <TikTokIcon size={18} />
+              </a>
+              <a 
+                href="https://www.youtube.com/@HaramainUmrahTaxi" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-[var(--bg-alt)] border border-[var(--border)] flex items-center justify-center hover:text-[#FF0000] hover:border-[#FF0000] transition-colors"
+                style={isDark ? { color: '#7A7060' } : { color: 'var(--text-2)' }}
+                aria-label="YouTube"
+              >
+                <YouTubeIcon size={20} />
               </a>
               <a 
                 href="https://www.linkedin.com/company/haramain-umrah-taxi" 

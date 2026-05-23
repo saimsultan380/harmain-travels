@@ -200,10 +200,10 @@ export function Hero() {
               {t("common.bookOnWhatsApp")}
             </a>
             <a
-              href="#services"
+              href="#book-now"
               className="flex items-center gap-2.5 px-7 py-3.5 border-2 border-white/50 text-white font-body font-semibold rounded-xl hover:bg-white/15 hover:border-white/70 active:scale-95 transition-all backdrop-blur-sm text-sm"
             >
-              {t("common.viewServices")}
+              {t("common.bookNow", "Book Now")}
               <ArrowRight size={17} className="shrink-0" />
             </a>
           </motion.div>

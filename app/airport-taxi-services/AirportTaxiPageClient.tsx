@@ -37,58 +37,61 @@ const WhatsAppIcon = ({ size = 20, className = "" }: { size?: number; className?
 
 import Image from "next/image";
 
-const PriceCard = ({ title, pax, bag, price, image, extraClass = "" }: { title: string, pax: string, bag: string, price: string, image: string, extraClass?: string }) => (
-  <motion.div
-    whileHover={{ y: -5 }}
-    className={`bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6 transition-all duration-300 flex flex-col ${extraClass}`}
-  >
-    <div className="h-[180px] w-full mb-6 flex items-center justify-center bg-[var(--bg-alt)] rounded-xl overflow-hidden relative">
-      <Image
-        src={image}
-        alt={title}
-        fill
-        sizes="(max-width: 768px) 100vw, 20vw"
-        className="object-contain p-2 drop-shadow-xl hover:scale-105 transition-transform duration-500"
-      />
-    </div>
+const PriceCard = ({ title, pax, bag, price, image, extraClass = "" }: { title: string, pax: string, bag: string, price: string, image: string, extraClass?: string }) => {
+  const { t } = useI18n();
+  return (
+    <motion.div
+      whileHover={{ y: -5 }}
+      className={`bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6 transition-all duration-300 flex flex-col ${extraClass}`}
+    >
+      <div className="h-[250px] w-full mb-6 flex items-center justify-center bg-[var(--bg-alt)] rounded-xl overflow-hidden relative">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          sizes="(max-width: 768px) 100vw, 20vw"
+          className="object-contain p-2 drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+        />
+      </div>
 
-    <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-4">{title}</h3>
+      <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-4">{title}</h3>
 
-    <div className="flex flex-col gap-3 mb-6">
-      <div className="flex items-center gap-2 text-[var(--text-2)] font-body text-sm">
-        <Users size={16} className="text-[var(--gold)]" />
-        <span>{pax}</span>
+      <div className="flex flex-col gap-3 mb-6">
+        <div className="flex items-center gap-2 text-[var(--text-2)] font-body text-sm font-semibold">
+          <Users size={16} className="text-[var(--gold)]" />
+          <span>{pax}</span>
+        </div>
+        <div className="flex items-center gap-2 text-[var(--text-2)] font-body text-sm font-semibold">
+          <Briefcase size={16} className="text-[var(--gold)]" />
+          <span>{bag}</span>
+        </div>
       </div>
-      <div className="flex items-center gap-2 text-[var(--text-2)] font-body text-sm">
-        <Briefcase size={16} className="text-[var(--gold)]" />
-        <span>{bag}</span>
-      </div>
-    </div>
 
-    <div className="mt-auto">
-      <div className="text-[var(--gold)] font-heading font-extrabold text-2xl mb-6">
-        {price}
+      <div className="mt-auto">
+        <div className="text-[var(--gold)] font-heading font-extrabold text-2xl mb-6">
+          {price}
+        </div>
+        <div className="flex gap-3">
+          <a
+            href="https://wa.me/966598401594"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-[1.2] flex items-center justify-center gap-2 py-3 bg-[var(--green)] text-white font-body font-semibold rounded-xl hover:opacity-95 transition-all shadow-md text-sm text-center"
+          >
+            <WhatsAppIcon className="text-white" />
+            {t("common.whatsapp")}
+          </a>
+          <Link
+            href="/book-now"
+            className="flex-1 flex items-center justify-center py-3 border-2 border-[var(--green)] text-[var(--green)] font-body font-semibold rounded-xl hover:bg-[var(--gold)] hover:border-[var(--gold)] hover:text-white transition-all text-sm text-center"
+          >
+            {t("common.bookNow")}
+          </Link>
+        </div>
       </div>
-      <div className="flex flex-col xl:flex-row gap-3">
-        <a
-          href="https://wa.me/966598401594"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center gap-2 py-3 bg-[var(--green)] text-white font-body font-semibold rounded-lg hover:opacity-90 transition-all shadow-md text-xs sm:text-sm whitespace-nowrap"
-        >
-          <WhatsAppIcon className="text-white" />
-          WhatsApp
-        </a>
-        <Link
-          href="#pricing"
-          className="flex-1 flex items-center justify-center py-3 border-2 border-[var(--green)] text-[var(--green)] font-body font-semibold rounded-lg hover:bg-[var(--gold)] hover:border-[var(--gold)] hover:text-white transition-all text-xs sm:text-sm whitespace-nowrap"
-        >
-          Book Now
-        </Link>
-      </div>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  );
+};
 
 export function AirportTaxiPageClient() {
   const { t, tm } = useI18n();
@@ -343,27 +346,18 @@ export function AirportTaxiPageClient() {
             </div>
 
             <div className="max-w-6xl mx-auto">
-              {/* Top Row: 3 Cards spanning 2 columns each */}
-              <div className="grid grid-cols-1 md:grid-cols-6 gap-8 mb-8">
-                <div className="md:col-span-2">
-                  <PriceCard title="Sedan Service" pax="Up to 4 Passengers" bag="2 Large Suitcases" price="SAR 250" image="/images/fleet/sedan.webp" />
-                </div>
-                <div className="md:col-span-2">
-                  <PriceCard title="Staria" pax="7 Passengers" bag="4 Large Suitcases" price="SAR 300" image="/images/fleet/minivan.webp" />
-                </div>
-                <div className="md:col-span-2">
-                  <PriceCard title="Luxury GMC" pax="7 Passengers" bag="Large Luggage Capacity" price="SAR 450" image="/images/fleet/luxury-gmc.png" extraClass="border-[var(--gold)]/30 ring-4 ring-[var(--gold)]/5" />
-                </div>
+              {/* Top Row: 3 Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <PriceCard title={tm<string>("fleet.names.0", "Sedan")} pax="Up to 4 Passengers" bag="2 Large Suitcases" price="SAR 250" image="/images/fleet/sedan.webp" />
+                <PriceCard title={tm<string>("fleet.names.1", "Luxury GMC")} pax="7 Passengers" bag="Large Luggage Capacity" price="SAR 450" image="/images/fleet/luxury-gmc.png" extraClass="border-[var(--gold)]/30 ring-4 ring-[var(--gold)]/5" />
+                <PriceCard title={tm<string>("fleet.names.2", "Mini Van")} pax="7 Passengers" bag="4 Large Suitcases" price="SAR 300" image="/images/fleet/minivan.webp" />
               </div>
 
-              {/* Bottom Row: 2 Cards centered, also spanning 2 columns each */}
-              <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
-                <div className="md:col-start-2 md:col-span-2">
-                  <PriceCard title="Hiace Microbus" pax="12 Passengers" bag="Group Luggage" price="SAR 400" image="/images/fleet/hiace-microbus.png" />
-                </div>
-                <div className="md:col-span-2">
-                  <PriceCard title="Coaster Bus" pax="18 Passengers" bag="Full Group Luggage" price="SAR 600" image="/images/fleet/coaster.jpg" />
-                </div>
+              {/* Bottom Row: 3 Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <PriceCard title={tm<string>("fleet.names.3", "Hiace Microbus")} pax="12 Passengers" bag="Group Luggage" price="SAR 400" image="/images/fleet/hiace-microbus.png" />
+                <PriceCard title={tm<string>("fleet.names.4", "Coaster")} pax="18 Passengers" bag="Full Group Luggage" price="SAR 600" image="/images/fleet/coaster.jpg" />
+                <PriceCard title={tm<string>("fleet.names.5", "Bus")} pax="50 Passengers" bag="Large Group Luggage" price="SAR 950" image="/images/fleet/bus.png" />
               </div>
             </div>
           </div>

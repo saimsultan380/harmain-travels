@@ -11,9 +11,9 @@ export type PricingRow = {
 
 export const vehicleColumns = [
   { key: "sedan", label: "Sedan", subLabel: "Camry/Sonata" },
-  { key: "gmc", label: "GMC", subLabel: "2024" },
-  { key: "staria", label: "Staria", subLabel: "7 Seater" },
-  { key: "hiRoof", label: "Hi-Roof", subLabel: "10 Seater" },
+  { key: "gmc", label: "Luxury GMC", subLabel: "7 Seater" },
+  { key: "staria", label: "Mini Van", subLabel: "7 Seater" },
+  { key: "hiRoof", label: "Hiace Microbus", subLabel: "10 Seater" },
   { key: "coaster", label: "Coaster", subLabel: "18 Seater" },
   { key: "bus", label: "Bus", subLabel: "50 Seater" },
 ] as const;

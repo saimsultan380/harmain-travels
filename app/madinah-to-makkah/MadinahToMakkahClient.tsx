@@ -8,7 +8,6 @@ import { Footer } from "@/components/layout/Footer";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { IslamicGeometricBg } from "@/components/graphics/IslamicGeometricBg";
 import { AnimatedCarOnRoad } from "@/components/graphics/AnimatedCarOnRoad";
-import { Canonical } from "@/components/SEO/Canonical";
 import { useI18n } from "@/lib/i18n";
 import {
   ArrowRight,
@@ -25,6 +24,8 @@ import {
   ChevronDown,
 } from "lucide-react";
 import Link from "next/link";
+
+import Image from "next/image";
 
 const WhatsAppIcon = ({ size = 20, className = "" }: { size?: number; className?: string }) => (
   <svg
@@ -68,24 +69,50 @@ function ImagePlaceholder({ label, imageUrl }: { label: string; imageUrl?: strin
 function Card({
   title,
   description,
-  imageLabel,
   imageUrl,
 }: {
   title: string;
   description: string;
-  imageLabel: string;
-  imageUrl?: string;
+  imageUrl: string;
 }) {
+  const { t } = useI18n();
   return (
     <motion.div
-      whileHover={{ y: -4 }}
-      className="bg-[var(--bg)] border border-[var(--border)] rounded-3xl p-7 shadow-sm hover:shadow-xl transition-all"
+      whileHover={{ y: -5 }}
+      className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/20 rounded-3xl p-6 transition-all duration-300 flex flex-col h-full shadow-sm hover:shadow-xl hover:border-[var(--gold)]/40"
     >
-      <div className="mb-5">
-        <ImagePlaceholder label={imageLabel} imageUrl={imageUrl} />
+      <div className="h-[250px] w-full mb-6 flex items-center justify-center bg-[var(--bg-alt)] rounded-2xl overflow-hidden relative border border-[var(--border)]">
+        <Image
+          src={imageUrl}
+          alt={title}
+          fill
+          sizes="(max-width: 768px) 100vw, 30vw"
+          className="object-contain p-2 drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+        />
       </div>
-      <h3 className="text-lg font-heading font-bold text-[var(--text-1)] mb-2">{title}</h3>
-      <p className="text-sm text-[var(--text-2)] leading-relaxed font-body">{description}</p>
+      
+      <h3 className="text-xl font-heading font-bold text-[var(--text-1)] mb-4">{title}</h3>
+      <p className="text-[var(--text-2)] text-sm leading-relaxed font-body mb-6 flex-grow">{description}</p>
+
+      <div className="mt-auto pt-6 border-t border-[var(--border)]">
+        <div className="flex gap-3">
+          <a
+            href="https://wa.me/966598401594"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-[1.2] flex items-center justify-center gap-2 py-3 bg-[var(--green)] text-white font-body font-semibold rounded-xl hover:opacity-95 transition-all shadow-md text-sm text-center"
+          >
+            <WhatsAppIcon size={18} />
+            {t("common.whatsapp")}
+          </a>
+          <Link
+            href="/book-now"
+            className="flex-1 flex items-center justify-center py-3 border-2 border-[var(--green)] text-[var(--green)] font-body font-semibold rounded-xl hover:bg-[var(--gold)] hover:border-[var(--gold)] hover:text-white transition-all text-sm text-center"
+          >
+            {t("common.bookNow")}
+          </Link>
+        </div>
+      </div>
     </motion.div>
   );
 }
@@ -131,11 +158,10 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 }
 
 export function MadinahToMakkahClient() {
-  const { t } = useI18n();
+  const { t, tm } = useI18n();
 
   return (
     <div className="min-h-screen bg-[var(--bg)] selection:bg-[var(--gold-soft)] selection:text-[var(--gold)]">
-      <Canonical />
       <Navbar />
 
       <main className="flex-grow overflow-hidden">
@@ -265,40 +291,34 @@ export function MadinahToMakkahClient() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <Card
-                  title={t("madinahToMakkah.fleetSedanTitle")}
+                  title={tm<string>("fleet.names.0", "Sedan")}
                   description={t("madinahToMakkah.fleetSedanDesc")}
-                  imageLabel="Sedan Car"
                   imageUrl="/images/fleet/sedan.webp"
                 />
                 <Card
-                  title={t("madinahToMakkah.fleetStariaTitle")}
-                  description={t("madinahToMakkah.fleetStariaDesc")}
-                  imageLabel="Staria Van"
-                  imageUrl="/images/fleet/minivan.webp"
-                />
-                <Card
-                  title={t("madinahToMakkah.fleetBusTitle")}
-                  description={t("madinahToMakkah.fleetBusDesc")}
-                  imageLabel="Bus"
-                  imageUrl="/images/fleet/bus.png"
-                />
-                <Card
-                  title={t("madinahToMakkah.fleetGmcTitle")}
+                  title={tm<string>("fleet.names.1", "Luxury GMC")}
                   description={t("madinahToMakkah.fleetGmcDesc")}
-                  imageLabel="GMC Yukon"
                   imageUrl="/images/fleet/luxury-gmc.png"
                 />
                 <Card
-                  title={t("madinahToMakkah.fleetCoasterTitle")}
+                  title={tm<string>("fleet.names.2", "Mini Van")}
+                  description={t("madinahToMakkah.fleetStariaDesc")}
+                  imageUrl="/images/fleet/minivan.webp"
+                />
+                <Card
+                  title={tm<string>("fleet.names.3", "Hiace Microbus")}
+                  description={t("madinahToMakkah.fleetHiaceDesc")}
+                  imageUrl="/images/fleet/hiace-microbus.png"
+                />
+                <Card
+                  title={tm<string>("fleet.names.4", "Coaster")}
                   description={t("madinahToMakkah.fleetCoasterDesc")}
-                  imageLabel="Coaster"
                   imageUrl="/images/fleet/coaster.jpg"
                 />
                 <Card
-                  title={t("madinahToMakkah.fleetHiaceTitle")}
-                  description={t("madinahToMakkah.fleetHiaceDesc")}
-                  imageLabel="Hiace Van"
-                  imageUrl="/images/fleet/hiace-microbus.png"
+                  title={tm<string>("fleet.names.5", "Bus")}
+                  description={t("madinahToMakkah.fleetBusDesc")}
+                  imageUrl="/images/fleet/bus.png"
                 />
               </div>
             </div>

@@ -1,11 +1,53 @@
-# Force non-WWW + HTTPS
+# Force HTTPS (handles both direct SSL and proxy/CDN setups)
 RewriteEngine On
 
-# If behind a proxy that sets HTTPS via X-Forwarded-Proto
-RewriteCond %{HTTP:X-Forwarded-Proto} !https [OR]
+# Redirect HTTP to HTTPS (only when not already HTTPS and not forwarded as HTTPS)
 RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Redirect www to non-www
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+# Add trailing slash if not present (skip real files and already-slashed URIs)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !/$
+RewriteCond %{REQUEST_URI} !\.[^./]+$
+RewriteRule ^(.*)$ /$1/ [R=301,L]
+
+# Serve index.html for any directory (real or virtual) — this is the key rule
+# for Next.js static export where every route is a folder with index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)/$ $1/index.html [L]
+
+# Root directory fallback
+DirectoryIndex index.html
+
+# Custom 404 page
+ErrorDocument 404 /404.html
+
+# ─── Security Headers ────────────────────────────────────────────────────────
+<IfModule mod_headers.c>
+  # HTTP Strict Transport Security — force HTTPS for 1 year, include subdomains
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+  # Clickjacking protection — only allow framing from same origin
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # Prevent MIME-type sniffing
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Referrer Policy — send origin only on same-origin, nothing on cross-origin
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Permissions Policy — disable unused browser features
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+
+  # Content Security Policy — allow own origin + trusted third parties
+  Header always set Content-Security-Policy "upgrade-insecure-requests; default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://api.web3forms.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com"
+
+  # Cross-Origin headers (upcoming / bonus)
+  Header always set Cross-Origin-Opener-Policy "same-origin-allow-popups"
+  Header always set Cross-Origin-Resource-Policy "same-origin"
+</IfModule>

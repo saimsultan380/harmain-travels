@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Canonical } from "@/components/SEO/Canonical";
 import { Calendar, Clock, ArrowLeft, Share2 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -30,7 +29,6 @@ const post = {
 export default function BlogPostPage() {
   return (
     <>
-      <Canonical />
       <Navbar />
       <main className="min-h-screen bg-[var(--bg)] pt-32 pb-16 md:pb-20 lg:pb-24 px-4">
         <div className="container mx-auto px-4 lg:px-8">

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Canonical } from "@/components/SEO/Canonical";
 import { BlogListing } from "@/components/blog/BlogListing";
 import { sortedBlogPosts, POSTS_PER_PAGE } from "@/lib/blog-posts";
 
@@ -17,7 +16,6 @@ export default function BlogPage() {
 
   return (
     <>
-      <Canonical />
       <Navbar />
       <main className="min-h-screen bg-[var(--bg)] pt-32 pb-16 md:pb-20 lg:pb-24 px-4">
         <div className="container mx-auto px-4 lg:px-8">

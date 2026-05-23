@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export function WorkingLocations() {
   return (
-    <section className="py-24 bg-white overflow-hidden" id="working-locations">
+    <section className="py-24 bg-[var(--bg)] overflow-hidden" id="working-locations">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-16">
           <motion.div
@@ -31,14 +31,14 @@ export function WorkingLocations() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative w-full max-w-5xl mx-auto rounded-3xl overflow-hidden"
+          className="relative w-full max-w-5xl lg:max-w-2xl xl:max-w-3xl mx-auto"
         >
           <Image
-            src="/images/our working loccations.jpeg"
+            src="/images/working locations.png"
             alt="Our Working Locations"
             width={1200}
             height={800}
-            className="w-full h-auto object-cover rounded-3xl"
+            className="w-full h-auto object-contain"
             priority
           />
         </motion.div>

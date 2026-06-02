@@ -41,9 +41,11 @@ export function BookingForm({
     loadingSystemData,
     loadingPickupLocations,
     loadingDropoffLocations,
+    loadingVehicleAvailability,
     loadingPrice,
     submitting,
     errors,
+    vehicleAvailability,
     handleInputChange,
     handlePickupLocationChange,
     handleDropoffLocationChange,
@@ -110,7 +112,8 @@ export function BookingForm({
   const canProceedFromStep2 =
     formData.pickupLocationId &&
     formData.dropoffLocationId &&
-    formData.vehicleId;
+    formData.vehicleId &&
+    formData.routesId;
   const canProceedFromStep3 =
     formData.pickupDate &&
     formData.pickupTime &&
@@ -305,6 +308,8 @@ export function BookingForm({
                 dropoffLocations={dropoffLocations}
                 loadingPickupLocations={loadingPickupLocations}
                 loadingDropoffLocations={loadingDropoffLocations}
+                loadingVehicleAvailability={loadingVehicleAvailability}
+                vehicleAvailability={vehicleAvailability}
                 loadingPrice={loadingPrice}
                 onPickupLocationChange={handlePickupLocationChange}
                 onDropoffLocationChange={handleDropoffLocationChange}
@@ -512,6 +517,8 @@ function Step2TripDetails({
   dropoffLocations,
   loadingPickupLocations,
   loadingDropoffLocations,
+  loadingVehicleAvailability,
+  vehicleAvailability,
   loadingPrice,
   onPickupLocationChange,
   onDropoffLocationChange,
@@ -527,8 +534,14 @@ function Step2TripDetails({
   dropoffLocations: any[];
   loadingPickupLocations: boolean;
   loadingDropoffLocations: boolean;
+  loadingVehicleAvailability: boolean;
+  vehicleAvailability: Record<string, any>;
   loadingPrice: boolean;
-  onPickupLocationChange: (id: string, name: string) => void;
+  onPickupLocationChange: (
+    id: string,
+    name: string,
+    routesPickupId?: string,
+  ) => void;
   onDropoffLocationChange: (id: string, name: string) => void;
   onVehicleChange: (id: string, name: string) => void;
   attachmentPreviewUrl: string | null;
@@ -641,11 +654,16 @@ function Step2TripDetails({
               <select
                 value={formData.pickupLocationId}
                 onChange={(e) => {
-                  const selected = pickupLocations.find(
-                    (p) => p.hotels_id === e.target.value,
-                  );
+                  const selected = pickupLocations.find((p) => {
+                    const id = p.routes_pickup_id || p.hotels_id;
+                    return id === e.target.value;
+                  });
                   if (selected) {
-                    onPickupLocationChange(selected.hotels_id, selected.name);
+                    onPickupLocationChange(
+                      selected.routes_pickup_id || selected.hotels_id,
+                      selected.name,
+                      selected.routes_pickup_id || selected.hotels_id,
+                    );
                   }
                 }}
                 className="w-full pl-12 pr-4 py-3 bg-[var(--bg-alt)] border border-[var(--border)] rounded-xl text-[var(--text-1)] focus:border-[var(--gold)] focus:outline-none transition-colors"
@@ -653,8 +671,11 @@ function Step2TripDetails({
               >
                 <option value="">Select Pickup Location</option>
                 {pickupLocations.map((loc: any) => (
-                  <option key={loc.hotels_id} value={loc.hotels_id}>
-                    {loc.name}
+                  <option
+                    key={loc.routes_pickup_id || loc.hotels_id}
+                    value={loc.routes_pickup_id || loc.hotels_id}
+                  >
+                    {loc.name || loc.location_name}
                   </option>
                 ))}
               </select>
@@ -680,13 +701,15 @@ function Step2TripDetails({
               <select
                 value={formData.dropoffLocationId}
                 onChange={(e) => {
-                  const selected = dropoffLocations.find(
-                    (d) => d.routes_dropoff_id === e.target.value,
-                  );
+                  const selected = dropoffLocations.find((d) => {
+                    const id = d.routes_dropoff_id || d.routes_dropoff_locations_id;
+                    return id === e.target.value;
+                  });
                   if (selected) {
                     onDropoffLocationChange(
-                      selected.routes_dropoff_id,
-                      selected.location_name,
+                      selected.routes_dropoff_id ||
+                        selected.routes_dropoff_locations_id,
+                      selected.name || selected.location_name,
                     );
                   }
                 }}
@@ -701,10 +724,12 @@ function Step2TripDetails({
                 </option>
                 {dropoffLocations.map((loc: any) => (
                   <option
-                    key={loc.routes_dropoff_id}
-                    value={loc.routes_dropoff_id}
+                    key={loc.routes_dropoff_id || loc.routes_dropoff_locations_id}
+                    value={
+                      loc.routes_dropoff_id || loc.routes_dropoff_locations_id
+                    }
                   >
-                    {loc.location_name}
+                    {loc.name || loc.location_name}
                   </option>
                 ))}
               </select>
@@ -731,22 +756,44 @@ function Step2TripDetails({
                   if (selected) {
                     onVehicleChange(
                       selected.vehicles_id,
-                      selected.vehicle_name,
+                      selected.name || selected.vehicle_name,
                     );
                   }
                 }}
                 className="w-full pl-12 pr-4 py-3 bg-[var(--bg-alt)] border border-[var(--border)] rounded-xl text-[var(--text-1)] focus:border-[var(--gold)] focus:outline-none transition-colors"
                 required
+                disabled={!formData.pickupLocationId || !formData.dropoffLocationId}
               >
                 <option value="">Select Vehicle</option>
                 {vehicles.map((v: any) => (
-                  <option key={v.vehicles_id} value={v.vehicles_id}>
-                    {v.vehicle_name}
+                  <option
+                    key={v.vehicles_id}
+                    value={v.vehicles_id}
+                    disabled={
+                      vehicleAvailability?.[v.vehicles_id]?.status ===
+                      "unavailable"
+                    }
+                  >
+                    {`${v.name || v.vehicle_name}${
+                      vehicleAvailability?.[v.vehicles_id]?.status ===
+                      "unavailable"
+                        ? ` — ${vehicleAvailability?.[v.vehicles_id]?.label || "Not available"}`
+                        : ""
+                    }`}
                   </option>
                 ))}
               </select>
             </div>
           </div>
+
+          {loadingVehicleAvailability &&
+            formData.pickupLocationId &&
+            formData.dropoffLocationId && (
+              <div className="mt-3 flex items-center gap-2 text-sm text-[var(--text-2)]">
+                <Loader size={14} className="animate-spin" />
+                Checking vehicle availability...
+              </div>
+            )}
 
           {loadingPrice && (
             <div className="mt-3 flex items-center gap-2 text-sm text-[var(--text-2)]">
@@ -755,7 +802,7 @@ function Step2TripDetails({
             </div>
           )}
 
-          {formData.bookedFare > 0 && (
+          {formData.routesId && formData.bookedFare > 0 && (
             <div className="mt-3 rounded-xl bg-[var(--bg-alt)] p-3 border border-[var(--border)]">
               <div className="text-xs text-[var(--text-2)] mb-2">
                 Pricing Information
@@ -975,7 +1022,7 @@ function Step4Review({ formData }: { formData: any }) {
           ]}
         />
 
-        {formData.bookedFare > 0 && (
+        {formData.routesId && formData.bookedFare > 0 && (
           <ReviewSection
             title="Fare Details"
             items={[

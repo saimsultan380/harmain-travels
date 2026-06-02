@@ -8,22 +8,56 @@ export async function POST(request) {
     }
 
     const body = await request.json();
+    console.log("Request body:", body);
 
-    const response = await fetch(`${apiBase}/get_dependent_bookings_data`, {
+    const data_type = body?.data_type;
+    const routes_pickup_id = body?.routes_pickup_id;
+    let hotel_name = body?.hotel_name;
+
+    if (data_type === "get_pickup_hotels") {
+      hotel_name = "Makkah";
+    }
+
+    if (data_type === "get_dropoff_hotels") {
+      hotel_name = "Madinah";
+    }
+
+    const requestBody = {
+      data_type,
+      hotel_name,
+      routes_pickup_id,
+    };
+
+    const response = await fetch(`${apiBase}/get_dependent_bookings_data/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify(requestBody),
     });
 
+    console.log("Laravel response status:", response.status);
+    const laravelText = await response.text();
+    console.log("Laravel response:", laravelText);
+
     if (!response.ok) {
-      const text = await response.text();
-      throw new Error(`API returned ${response.status}: ${text}`);
+      return Response.json(
+        {
+          error: "Failed to fetch dependent data",
+          laravel_status: response.status,
+          laravel_response: laravelText,
+          request_body: requestBody,
+        },
+        { status: response.status },
+      );
     }
 
-    const data = await response.json();
-    return Response.json(data);
+    try {
+      const data = JSON.parse(laravelText);
+      return Response.json(data);
+    } catch {
+      return Response.json({ raw: laravelText });
+    }
   } catch (error) {
     console.error("Error fetching dependent data:", error);
     return Response.json(

@@ -8,6 +8,7 @@ export async function POST(request) {
     }
 
     const body = await request.json();
+    console.log("Request body:", body);
 
     // Convert to form-urlencoded format
     const formData = new URLSearchParams();
@@ -30,13 +31,28 @@ export async function POST(request) {
       body: formData.toString(),
     });
 
+    console.log("Laravel response status:", response.status);
+    const laravelText = await response.text();
+    console.log("Laravel response:", laravelText);
+
     if (!response.ok) {
-      const text = await response.text();
-      throw new Error(`API returned ${response.status}: ${text}`);
+      return Response.json(
+        {
+          error: "Failed to create booking",
+          laravel_status: response.status,
+          laravel_response: laravelText,
+          request_body: body,
+        },
+        { status: response.status },
+      );
     }
 
-    const data = await response.json();
-    return Response.json(data);
+    try {
+      const data = JSON.parse(laravelText);
+      return Response.json(data);
+    } catch {
+      return Response.json({ raw: laravelText });
+    }
   } catch (error) {
     console.error("Error creating booking:", error);
     return Response.json(

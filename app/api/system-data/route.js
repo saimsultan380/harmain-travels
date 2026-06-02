@@ -7,20 +7,34 @@ export async function GET(request) {
       throw new Error("API base URL is not configured");
     }
 
+    const body = null;
+    console.log("Request body:", body);
+
     const response = await fetch(`${apiBase}/get_all_system_data`, {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
     });
 
+    console.log("Laravel response status:", response.status);
+    const laravelText = await response.text();
+    console.log("Laravel response:", laravelText);
+
     if (!response.ok) {
-      const body = await response.text();
-      throw new Error(`API returned ${response.status}: ${body}`);
+      return Response.json(
+        {
+          error: "Failed to fetch system data",
+          laravel_status: response.status,
+          laravel_response: laravelText,
+        },
+        { status: response.status },
+      );
     }
 
-    const data = await response.json();
-    return Response.json(data);
+    try {
+      const data = JSON.parse(laravelText);
+      return Response.json(data);
+    } catch {
+      return Response.json({ raw: laravelText });
+    }
   } catch (error) {
     console.error("Error fetching system data:", error);
     return Response.json(

@@ -69,7 +69,7 @@ export function useBookingForm() {
 
     try {
       console.log("[PICKUP-LOCATIONS] Fetching with hotel_name:", hotelName);
-      const response = await fetch("/api/dependent-data", {
+      const response = await fetch("/api/dependent-data/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -132,7 +132,7 @@ export function useBookingForm() {
         const results = await Promise.all(
           vehicles.map(async (v) => {
             try {
-              const response = await fetch("/api/routes-data", {
+              const response = await fetch("/api/routes-data/", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -212,7 +212,7 @@ export function useBookingForm() {
       setErrors((prev) => ({ ...prev, systemData: null }));
 
       try {
-        const response = await fetch("/api/system-data");
+        const response = await fetch("/api/system-data/");
         if (!response.ok) {
           const body = await response.text();
           throw new Error(
@@ -340,7 +340,7 @@ export function useBookingForm() {
         "[DROPOFF-LOCATIONS] Fetching with routes_pickup_id:",
         pickupId,
       );
-      const response = await fetch("/api/dependent-data", {
+      const response = await fetch("/api/dependent-data/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -400,7 +400,7 @@ export function useBookingForm() {
         dropoffId,
         vehicleId,
       });
-      const response = await fetch("/api/routes-data", {
+      const response = await fetch("/api/routes-data/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -655,7 +655,7 @@ export function useBookingForm() {
       };
 
       // Submit to booking API
-      const response = await fetch("/api/booking", {
+      const response = await fetch("/api/booking/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(bookingData),

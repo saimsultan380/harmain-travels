@@ -2,10 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   trailingSlash: true,
-  skipTrailingSlashRedirect: true,
   allowedDevOrigins: ["192.168.100.10"],
   images: {
-    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -17,7 +15,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  generateBuildId: () => "build",
 };
 
 export default nextConfig;

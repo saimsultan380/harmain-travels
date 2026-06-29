@@ -482,7 +482,7 @@ export function useBookingForm() {
         setErrors((prev) => ({
           ...prev,
           price:
-            "Unable to load pricing right now. Please try again in a moment.",
+            "Unable to load route details right now. Please try again in a moment.",
         }));
       }
 
@@ -620,7 +620,7 @@ export function useBookingForm() {
 
       if (!formData.routesId) {
         throw new Error(
-          "Price/route not loaded yet. Please re-select your vehicle to load pricing.",
+          "Route details not loaded yet. Please re-select your vehicle to load the route.",
         );
       }
 

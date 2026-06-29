@@ -798,34 +798,17 @@ function Step2TripDetails({
           {loadingPrice && (
             <div className="mt-3 flex items-center gap-2 text-sm text-[var(--text-2)]">
               <Loader size={14} className="animate-spin" />
-              Fetching pricing...
+              Loading route details...
             </div>
           )}
 
-          {formData.routesId && formData.bookedFare > 0 && (
+          {formData.routesId && (
             <div className="mt-3 rounded-xl bg-[var(--bg-alt)] p-3 border border-[var(--border)]">
               <div className="text-xs text-[var(--text-2)] mb-2">
-                Pricing Information
+                Route Information
               </div>
-              <div className="grid grid-cols-3 gap-2 text-sm">
-                <div>
-                  <div className="text-[var(--text-3)]">Booked Fare</div>
-                  <div className="font-bold text-[var(--text-1)]">
-                    ${formData.bookedFare}
-                  </div>
-                </div>
-                <div>
-                  <div className="text-[var(--text-3)]">Agent Fare</div>
-                  <div className="font-bold text-[var(--text-1)]">
-                    ${formData.agentFare}
-                  </div>
-                </div>
-                <div>
-                  <div className="text-[var(--text-3)]">Actual Fare</div>
-                  <div className="font-bold text-[var(--gold)]">
-                    ${formData.actualFare}
-                  </div>
-                </div>
+              <div className="text-sm font-bold text-[var(--text-1)]">
+                {formData.pickupLocation} to {formData.dropoffLocation}
               </div>
             </div>
           )}
@@ -1021,17 +1004,6 @@ function Step4Review({ formData }: { formData: any }) {
             { label: "Total Passengers", value: String(totalPassengers) },
           ]}
         />
-
-        {formData.routesId && formData.bookedFare > 0 && (
-          <ReviewSection
-            title="Fare Details"
-            items={[
-              { label: "Booked Fare", value: `$${formData.bookedFare}` },
-              { label: "Agent Fare", value: `$${formData.agentFare}` },
-              { label: "Actual Fare", value: `$${formData.actualFare}` },
-            ]}
-          />
-        )}
       </div>
     </div>
   );

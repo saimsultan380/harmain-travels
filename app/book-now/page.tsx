@@ -17,6 +17,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/book-now/",
   },
+  openGraph: {
+    title: "Book Now",
+    description: "Book your Umrah taxi services online. Fill out our easy booking form to reserve your ride in Makkah, Madinah, and across Saudi Arabia.",
+    url: "/book-now/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Book Now",
+    description: "Book your Umrah taxi services online. Fill out our easy booking form to reserve your ride in Makkah, Madinah, and across Saudi Arabia.",
+  },
 };
 
 export default function BookNowPage() {

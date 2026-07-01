@@ -16,6 +16,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/food-package-distribution/",
   },
+  openGraph: {
+    title: "Food Packages Distribution & Distributors Services in Saudia",
+    description: "If you want to distribute food packages all over Saudi Arabia with transparency, you can avail our Food Package Distribution or Distributor Services. Contact Us",
+    url: "/food-package-distribution/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Food Packages Distribution & Distributors Services in Saudia",
+    description: "If you want to distribute food packages all over Saudi Arabia with transparency, you can avail our Food Package Distribution or Distributor Services. Contact Us",
+  },
 };
 
 export default function Page() {

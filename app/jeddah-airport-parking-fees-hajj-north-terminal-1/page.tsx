@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/jeddah-airport-parking-fees-hajj-north-terminal-1/",
   },
+  openGraph: {
+    title: "Jeddah Airport Parking Fees: Hajj, North & Terminal 1",
+    description: "Complete guide by Haramain Umrah Taxi to Jeddah Airport parking charges at Terminal 1, Hajj & North terminals. Long-term & VIP options. Plan your budget now.",
+    url: "/jeddah-airport-parking-fees-hajj-north-terminal-1/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jeddah Airport Parking Fees: Hajj, North & Terminal 1",
+    description: "Complete guide by Haramain Umrah Taxi to Jeddah Airport parking charges at Terminal 1, Hajj & North terminals. Long-term & VIP options. Plan your budget now.",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

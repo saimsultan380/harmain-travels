@@ -19,6 +19,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/fleet-taxis-routes/",
   },
+  openGraph: {
+    title: "Our Fleet and Routes",
+    description: "Haramain Umrah Taxi has Luxurious & Affordable Fleet: Sedans (Camry+Sonata), SUVs (GMC), Sataria Microbus, Hiace, Coaster & Bus covering major routes in Saudia",
+    url: "/fleet-taxis-routes/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Our Fleet and Routes",
+    description: "Haramain Umrah Taxi has Luxurious & Affordable Fleet: Sedans (Camry+Sonata), SUVs (GMC), Sataria Microbus, Hiace, Coaster & Bus covering major routes in Saudia",
+  },
 };
 
 export default function Page() {

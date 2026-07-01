@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
@@ -17,9 +18,11 @@ import { FAQ } from "@/components/sections/FAQ";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { BookingForm } from "@/components/booking/BookingForm";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Haramain Umrah Taxi: Best Private Umrah Taxi Service Book",
-  description: "Haramain Umrah Taxi provides the best private umrah taxi services for families and pilgrims in Makkah & Madinah, Saudi Arabia. BOOK at Discounted Prices!",
+  description:
+    "Haramain Umrah Taxi provides the best private umrah taxi services for families and pilgrims in Makkah & Madinah, Saudi Arabia. BOOK at Discounted Prices!",
+  path: "/",
   keywords: [
     "Umrah taxi",
     "Makkah taxi",
@@ -28,10 +31,7 @@ export const metadata: Metadata = {
     "Haramain taxi",
     "Saudi Arabia taxi service",
   ],
-  alternates: {
-    canonical: "/",
-  },
-};
+});
 
 export default function Home() {
   return (

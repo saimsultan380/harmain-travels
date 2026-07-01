@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/best-taxi-pickup-spots-near-masjid-haram/",
   },
+  openGraph: {
+    title: "Safe & Best Taxi Pickup Points & Spots near Masjid Al Haram",
+    description: "Best pickup points near Haram for pilgrims. Read about safe, convenient locations at all gates. Book your Haramain Umrah Taxi ride now at Discounted Price!",
+    url: "/best-taxi-pickup-spots-near-masjid-haram/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Safe & Best Taxi Pickup Points & Spots near Masjid Al Haram",
+    description: "Best pickup points near Haram for pilgrims. Read about safe, convenient locations at all gates. Book your Haramain Umrah Taxi ride now at Discounted Price!",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

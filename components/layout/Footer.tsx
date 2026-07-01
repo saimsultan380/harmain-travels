@@ -257,14 +257,14 @@ export function Footer() {
           </p>
           <div className="flex items-center gap-6 font-body text-sm">
             <Link 
-              href="/privacy-policy" 
+              href="/privacy-policy/" 
               className="hover:text-[var(--gold)] transition-colors"
               style={isDark ? { color: '#A3A3A3' } : { color: 'var(--text-3)' }}
             >
               {t("footer.privacyPolicy")}
             </Link>
             <Link 
-              href="/terms-and-conditions" 
+              href="/terms-and-conditions/" 
               className="hover:text-[var(--gold)] transition-colors"
               style={isDark ? { color: '#A3A3A3' } : { color: 'var(--text-3)' }}
             >

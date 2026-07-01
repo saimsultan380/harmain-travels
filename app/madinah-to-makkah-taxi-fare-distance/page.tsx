@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/madinah-to-makkah-taxi-fare-distance/",
   },
+  openGraph: {
+    title: "What is Madinah to Makkah Taxi Fare or Price and Distance?",
+    description: "Discover Madinah to Makkah taxi fare starting at SAR 400. We cover 440km in 4-5 hours with fixed prices and professional drivers. Book your comfortable travel.",
+    url: "/madinah-to-makkah-taxi-fare-distance/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "What is Madinah to Makkah Taxi Fare or Price and Distance?",
+    description: "Discover Madinah to Makkah taxi fare starting at SAR 400. We cover 440km in 4-5 hours with fixed prices and professional drivers. Book your comfortable travel.",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

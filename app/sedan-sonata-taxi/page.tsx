@@ -18,6 +18,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/sedan-sonata-taxi/",
   },
+  openGraph: {
+    title: "Sedan Sonata (Camry) Taxi Services in Saudi Arab & Makkah",
+    description: "Click to see Our routes, fares, and packages for Sedans Sonata (Camry) taxi in Makkah, Madina, Jeddah & Saudia. Book Ziyarat, Airport & Umrah Sonata taxi in KSA",
+    url: "/sedan-sonata-taxi/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sedan Sonata (Camry) Taxi Services in Saudi Arab & Makkah",
+    description: "Click to see Our routes, fares, and packages for Sedans Sonata (Camry) taxi in Makkah, Madina, Jeddah & Saudia. Book Ziyarat, Airport & Umrah Sonata taxi in KSA",
+  },
 };
 
 export default function Page() {

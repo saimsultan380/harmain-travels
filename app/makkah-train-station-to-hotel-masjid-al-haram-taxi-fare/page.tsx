@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/makkah-train-station-to-hotel-masjid-al-haram-taxi-fare/",
   },
+  openGraph: {
+    title: "Makkah Train Station to Hotel & Masjid Al Haram Taxi Fare",
+    description: "Find the affordable Makkah Train Station to Hotel & Masjid Al Haram Taxi Fare at HUT. We offer comfortable transfers for pilgrims. Reserve your ride with Us!",
+    url: "/makkah-train-station-to-hotel-masjid-al-haram-taxi-fare/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Makkah Train Station to Hotel & Masjid Al Haram Taxi Fare",
+    description: "Find the affordable Makkah Train Station to Hotel & Masjid Al Haram Taxi Fare at HUT. We offer comfortable transfers for pilgrims. Reserve your ride with Us!",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/donate-quran-makkah-madinah-haram/",
   },
+  openGraph: {
+    title: "How to Donate Quran in Makkah, Madinah & Masjid Al Haram?",
+    description: "Learn how to donate Quran in Makkah & Madinah properly. Complete guide to Waqaf a Quran in Masjid Al Haram & Masjid Nabawi online with official channels.",
+    url: "/donate-quran-makkah-madinah-haram/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How to Donate Quran in Makkah, Madinah & Masjid Al Haram?",
+    description: "Learn how to donate Quran in Makkah & Madinah properly. Complete guide to Waqaf a Quran in Masjid Al Haram & Masjid Nabawi online with official channels.",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/identify-tent-mina/",
   },
+  openGraph: {
+    title: "How Can You Find or Identify Your Tents in Mina during Hajj?",
+    description: "Complete guide to finding your tent in Mina during Hajj. Learn Maktab system, landmarks & tips to avoid getting lost among thousands of tents. Expert advice inside!",
+    url: "/identify-tent-mina/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How Can You Find or Identify Your Tents in Mina during Hajj?",
+    description: "Complete guide to finding your tent in Mina during Hajj. Learn Maktab system, landmarks & tips to avoid getting lost among thousands of tents. Expert advice inside!",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

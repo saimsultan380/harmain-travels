@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/7-best-tourist-places-to-visit-in-tabuk-things-to-do-in-tabuk/",
   },
+  openGraph: {
+    title: "Best Tourist Places to Visit in Tabuk &Things to Do in Tabuk",
+    description: "Book us to see top secret tourist places to visit in Tabuk i-e Tabuk Castle, Al Tawba Mosque, Wadi Al Disah, Jabal Al Lawz, Umluj Beach, Tabuk Malls & Parks",
+    url: "/7-best-tourist-places-to-visit-in-tabuk-things-to-do-in-tabuk/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Best Tourist Places to Visit in Tabuk &Things to Do in Tabuk",
+    description: "Book us to see top secret tourist places to visit in Tabuk i-e Tabuk Castle, Al Tawba Mosque, Wadi Al Disah, Jabal Al Lawz, Umluj Beach, Tabuk Malls & Parks",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

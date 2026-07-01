@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/umrah-taxi-south-african/",
   },
+  openGraph: {
+    title: "Book Online Umrah Taxi for South African Pilgrims at Cheap Fares",
+    description: "Book affordable online Umrah taxi services for South African pilgrims. Safe, comfortable transfers from Jeddah to Makkah & Madinah. Reserve your ride now!",
+    url: "/umrah-taxi-south-african/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Book Online Umrah Taxi for South African Pilgrims at Cheap Fares",
+    description: "Book affordable online Umrah taxi services for South African pilgrims. Safe, comfortable transfers from Jeddah to Makkah & Madinah. Reserve your ride now!",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

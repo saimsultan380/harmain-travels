@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/how-to-book-a-taxi-in-saudi-arabia-for-international-visitors/",
   },
+  openGraph: {
+    title: "How to Book a Taxi in Saudi Arabia for International Visitors? ",
+    description: "Learn how to book taxi in Saudi Arabia for international visitors. You can travel comfortably between holy cities and do ziyarats. Book HUT today!",
+    url: "/how-to-book-a-taxi-in-saudi-arabia-for-international-visitors/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How to Book a Taxi in Saudi Arabia for International Visitors? ",
+    description: "Learn how to book taxi in Saudi Arabia for international visitors. You can travel comfortably between holy cities and do ziyarats. Book HUT today!",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

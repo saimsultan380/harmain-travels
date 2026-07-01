@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/madinah-to-badar-badr-ziyarat-return-taxi-fare-service/",
   },
+  openGraph: {
+    title: "Madinah to Badar & Badr Ziyarat & Return Taxi Fare & Service",
+    description: "Get a 7-seater private Starex or Staria Umrah taxi from Umrah Passenger at very discounted prices. Get Staria for Ziyarat, Airport and Inter-city transfers!",
+    url: "/madinah-to-badar-badr-ziyarat-return-taxi-fare-service/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Madinah to Badar & Badr Ziyarat & Return Taxi Fare & Service",
+    description: "Get a 7-seater private Starex or Staria Umrah taxi from Umrah Passenger at very discounted prices. Get Staria for Ziyarat, Airport and Inter-city transfers!",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

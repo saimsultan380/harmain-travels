@@ -18,6 +18,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/madinah-aiport-to-hotels/",
   },
+  openGraph: {
+    title: "Madinah Airport to Hotel Taxi Services and Fares: Book Now!",
+    description: "Get your Madinah Airport hotel taxi services starting from 170 SAR. We provide professional drivers and fixed rates. Book your ride online - available 24/7!",
+    url: "/madinah-aiport-to-hotels/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Madinah Airport to Hotel Taxi Services and Fares: Book Now!",
+    description: "Get your Madinah Airport hotel taxi services starting from 170 SAR. We provide professional drivers and fixed rates. Book your ride online - available 24/7!",
+  },
 };
 
 export default function Page() {

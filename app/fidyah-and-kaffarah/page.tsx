@@ -17,6 +17,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/fidyah-and-kaffarah/",
   },
+  openGraph: {
+    title: "Fidyah and Kaffarah Services| Meaning| Differences| Who Pay?",
+    description: "We offer Fidyah and Kaffarah services by feeding the poor for your missed fasts (Fidyah) & by feeding 60 people or fasting for your broken fasts (Kaffarah)",
+    url: "/fidyah-and-kaffarah/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Fidyah and Kaffarah Services| Meaning| Differences| Who Pay?",
+    description: "We offer Fidyah and Kaffarah services by feeding the poor for your missed fasts (Fidyah) & by feeding 60 people or fasting for your broken fasts (Kaffarah)",
+  },
 };
 
 export default function Page() {

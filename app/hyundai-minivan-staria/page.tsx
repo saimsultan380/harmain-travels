@@ -19,6 +19,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/hyundai-minivan-staria/",
   },
+  openGraph: {
+    title: "Book Hyundai Minivan Staria Umrah Taxi in Makkah, Madina KSA",
+    description: "Book Our 7-seater minivan Staria taxi at affordable prices in Saudia, Makkah, and Madinah. Airport, Hotels, Ziyarat, Umrah Staria Taxis are available in KSA",
+    url: "/hyundai-minivan-staria/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Book Hyundai Minivan Staria Umrah Taxi in Makkah, Madina KSA",
+    description: "Book Our 7-seater minivan Staria taxi at affordable prices in Saudia, Makkah, and Madinah. Airport, Hotels, Ziyarat, Umrah Staria Taxis are available in KSA",
+  },
 };
 
 export default function Page() {

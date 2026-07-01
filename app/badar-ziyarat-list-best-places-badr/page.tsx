@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/badar-ziyarat-list-best-places-badr/",
   },
+  openGraph: {
+    title: "Badar Ziyarat List | Places to Visit in Badr | Things to Do",
+    description: "Complete Badr Ziyarat list with 15 must-visit places including the battlefield, martyrs' graves, and sacred wells. Explore historical Islamic sites of Badr.",
+    url: "/badar-ziyarat-list-best-places-badr/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Badar Ziyarat List | Places to Visit in Badr | Things to Do",
+    description: "Complete Badr Ziyarat list with 15 must-visit places including the battlefield, martyrs' graves, and sacred wells. Explore historical Islamic sites of Badr.",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

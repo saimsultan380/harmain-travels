@@ -44,66 +44,66 @@ const messages = {
         { label: "Home", href: "/" },
         { 
           label: "Our Services",
-          href: "/our-services",
+          href: "/our-services/",
           children: [
             {
               label: "Our Taxi Services",
               items: [
-                { label: "Airport Taxi Services", href: "/airport-taxi-services" },
-                { label: "Umrah Taxi Services", href: "/umrah-taxi-services" },
-                { label: "Hotel Transfers Taxi", href: "/hotel-transfers-taxi" },
-                { label: "Private Taxi Services", href: "/private-taxi-services" }
+                { label: "Airport Taxi Services", href: "/airport-taxi-services/" },
+                { label: "Umrah Taxi Services", href: "/umrah-taxi-services/" },
+                { label: "Hotel Transfers Taxi", href: "/hotel-transfers-taxi/" },
+                { label: "Private Taxi Services", href: "/private-taxi-services/" }
               ]
             },
             {
               label: "Our Other Services",
               items: [
-                { label: "Damm Service", href: "/damm-services" },
-                { label: "Fidyah & Kaffarah", href: "/fidyah-and-kaffarah" },
-                { label: "Umrah & Hajj e Badal", href: "/hajj-and-umrah-badal" },
-                { label: "Qurbani Services", href: "/qurbani-services" },
-                { label: "Quran Waqf Services", href: "/quran-waqf-services" },
-                { label: "Umrah Guider Services", href: "/umrah-guider-services" },
-                { label: "Dates Distribution Services", href: "/dates-distribution-services" },
-                { label: "Food Package Distribution", href: "/food-package-distribution" },
-                { label: "Water Distribution Services", href: "/water-distribution-services" },
-                { label: "Umrah Guide and PDF", href: "/umrah-guide-and-pdf" }
+                { label: "Damm Service", href: "/damm-services/" },
+                { label: "Fidyah & Kaffarah", href: "/fidyah-and-kaffarah/" },
+                { label: "Umrah & Hajj e Badal", href: "/hajj-and-umrah-badal/" },
+                { label: "Qurbani Services", href: "/qurbani-services/" },
+                { label: "Quran Waqf Services", href: "/quran-waqf-services/" },
+                { label: "Umrah Guider Services", href: "/umrah-guider-services/" },
+                { label: "Dates Distribution Services", href: "/dates-distribution-services/" },
+                { label: "Food Package Distribution", href: "/food-package-distribution/" },
+                { label: "Water Distribution Services", href: "/water-distribution-services/" },
+                { label: "Umrah Guide and PDF", href: "/umrah-guide-and-pdf/" }
               ]
             },
             {
               label: "Hotel Booking",
               items: [
-                { label: "Hotel Booking Makkah", href: "/hotel-booking-makkah" },
-                { label: "Hotel Booking Madinah", href: "/hotel-booking-madinah" }
+                { label: "Hotel Booking Makkah", href: "/hotel-booking-makkah/" },
+                { label: "Hotel Booking Madinah", href: "/hotel-booking-madinah/" }
               ]
             }
           ]
         },
         {
           label: "Our Fleet",
-          href: "/fleet-taxis-routes",
+          href: "/fleet-taxis-routes/",
           children: [
-            { label: "Sedan", href: "/sedan-sonata-taxi" },
-            { label: "Luxury GMC", href: "/gmc-yukon-xl" },
-            { label: "Minivan", href: "/hyundai-minivan-staria" },
-            { label: "Hiace Microbus", href: "/toyota-hiace-or-hiroof-2" },
-            { label: "Coaster", href: "/coaster" },
-            { label: "Bus", href: "/bus" }
+            { label: "Sedan", href: "/sedan-sonata-taxi/" },
+            { label: "Luxury GMC", href: "/gmc-yukon-xl/" },
+            { label: "Minivan", href: "/hyundai-minivan-staria/" },
+            { label: "Hiace Microbus", href: "/toyota-hiace-or-hiroof-2/" },
+            { label: "Coaster", href: "/coaster/" },
+            { label: "Bus", href: "/bus/" }
           ]
         },
-        { label: "Taxi Services Pricing", href: "/our-taxi-services-pricing" },
+        { label: "Taxi Services Pricing", href: "/our-taxi-services-pricing/" },
         {
           label: "Routes",
           children: [
-            { label: "Makkah to Madinah", href: "/makkah-to-madinah" },
-            { label: "Madinah to Makkah", href: "/madinah-to-makkah" },
-            { label: "Jeddah Airport to Makkah", href: "/jeddah-airport-to-makkah" },
-            { label: "Makkah to Jeddah", href: "/makkah-to-jeddah" },
-            { label: "Madinah Airport to Hotels", href: "/madinah-aiport-to-hotels" }
+            { label: "Makkah to Madinah", href: "/makkah-to-madinah/" },
+            { label: "Madinah to Makkah", href: "/madinah-to-makkah/" },
+            { label: "Jeddah Airport to Makkah", href: "/jeddah-airport-to-makkah/" },
+            { label: "Makkah to Jeddah", href: "/makkah-to-jeddah/" },
+            { label: "Madinah Airport to Hotels", href: "/madinah-aiport-to-hotels/" }
           ]
         },
-        { label: "Book Now", href: "/book-now" },
-        { label: "Blog", href: "/blog" }
+        { label: "Book Now", href: "/book-now/" },
+        { label: "Blog", href: "/blog/" }
       ]
     },
     hero: {
@@ -378,42 +378,42 @@ const messages = {
         {
           title: "Damm Service",
           desc: "Professional sacrifice services are performed according to Islamic guidelines on your behalf in the Holy Cities of Makkah and Madinah.",
-          href: "/damm-services"
+          href: "/damm-services/"
         },
         {
           title: "Umrah and Hajj Badal",
           desc: "Perform Umrah or Hajj through our qualified and experienced representatives when you are unable to travel yourself.",
-          href: "/hajj-and-umrah-badal"
+          href: "/hajj-and-umrah-badal/"
         },
         {
           title: "Quran Waqaf",
           desc: "Donate and distribute beautiful copies of the Holy Quran as an ongoing charity for your loved ones or the deceased.",
-          href: "/quran-waqf-services"
+          href: "/quran-waqf-services/"
         },
         {
           title: "Umrah Guide",
           desc: "Complete step-by-step guidance and support services to ensure your Umrah journey is spiritually fulfilling.",
-          href: "/umrah-guider-services"
+          href: "/umrah-guider-services/"
         },
         {
           title: "Hotel Booking Makkah",
           desc: "Comfortable and affordable hotel accommodations near Haram in Makkah for your stay.",
-          href: "/hotel-booking-makkah"
+          href: "/hotel-booking-makkah/"
         },
         {
           title: "Hotel Booking Madinah",
           desc: "Comfortable and affordable hotel accommodations near Prophet's Mosque in Madinah for your stay.",
-          href: "/hotel-booking-madinah"
+          href: "/hotel-booking-madinah/"
         },
         {
           title: "Qurbani Services",
           desc: "Perform your Qurbani sacrifice during Hajj or Eid according to Islamic guidelines with proper distribution to the needy.",
-          href: "/qurbani-services"
+          href: "/qurbani-services/"
         },
         {
           title: "Food Package Distribution",
           desc: "Distribute food packages to pilgrims, fasting individuals, and needy families in the Holy Cities.",
-          href: "/food-package-distribution"
+          href: "/food-package-distribution/"
         }
       ],
       cta: "Learn More",
@@ -472,20 +472,20 @@ const messages = {
       ],
       fleetsTitle: "Our Fleets",
       fleets: [
-        { title: "Sedan", href: "/sedan-sonata-taxi" },
-        { title: "Luxury GMC", href: "/gmc-yukon-xl" },
-        { title: "Minivan", href: "/hyundai-minivan-staria" },
-        { title: "Hiace Microbus", href: "/toyota-hiace-or-hiroof-2" },
-        { title: "Coaster", href: "/coaster" },
-        { title: "Bus", href: "/bus" }
+        { title: "Sedan", href: "/sedan-sonata-taxi/" },
+        { title: "Luxury GMC", href: "/gmc-yukon-xl/" },
+        { title: "Minivan", href: "/hyundai-minivan-staria/" },
+        { title: "Hiace Microbus", href: "/toyota-hiace-or-hiroof-2/" },
+        { title: "Coaster", href: "/coaster/" },
+        { title: "Bus", href: "/bus/" }
       ],
       routesTitle: "Routes",
       routes: [
-        { title: "Makkah to Madinah", href: "/makkah-to-madinah" },
-        { title: "Madinah to Makkah", href: "/madinah-to-makkah" },
-        { title: "Jeddah Airport to Makkah", href: "/jeddah-airport-to-makkah" },
-        { title: "Madinah Airport to Hotels", href: "/madinah-aiport-to-hotels" },
-        { title: "Makkah to Jeddah", href: "/makkah-to-jeddah" }
+        { title: "Makkah to Madinah", href: "/makkah-to-madinah/" },
+        { title: "Madinah to Makkah", href: "/madinah-to-makkah/" },
+        { title: "Jeddah Airport to Makkah", href: "/jeddah-airport-to-makkah/" },
+        { title: "Madinah Airport to Hotels", href: "/madinah-aiport-to-hotels/" },
+        { title: "Makkah to Jeddah", href: "/makkah-to-jeddah/" }
       ],
       contactTitle: "Contact Us",
       whatsappNumber: "+966 59 840 1594",
@@ -2668,32 +2668,32 @@ const messages = {
             {
               label: "خدمات التاكسي",
               items: [
-                { label: "خدمات تاكسي المطار", href: "/airport-taxi-services" },
-                { label: "خدمات تاكسي العمرة", href: "/umrah-taxi-services" },
-                { label: "تاكسي نقل الفنادق", href: "/hotel-transfers-taxi" },
-                { label: "خدمة التاكسي الخاص", href: "/private-taxi-services" }
+                { label: "خدمات تاكسي المطار", href: "/airport-taxi-services/" },
+                { label: "خدمات تاكسي العمرة", href: "/umrah-taxi-services/" },
+                { label: "تاكسي نقل الفنادق", href: "/hotel-transfers-taxi/" },
+                { label: "خدمة التاكسي الخاص", href: "/private-taxi-services/" }
               ]
             },
             {
               label: "خدماتنا الأخرى",
               items: [
-                { label: "خدمة الدم", href: "/damm-services" },
-                { label: "الفدية والكفارة", href: "/fidyah-and-kaffarah" },
-                { label: "بدل الحج والعمرة", href: "/hajj-and-umrah-badal" },
-                { label: "خدمات الأضحية", href: "/qurbani-services" },
-                { label: "خدمات وقف القرآن", href: "/quran-waqf-services" },
-                { label: "خدمات دليل العمرة", href: "/umrah-guider-services" },
-                { label: "خدمات توزيع التمر", href: "/dates-distribution-services" },
-                { label: "خدمات توزيع الطعام", href: "/food-package-distribution" },
-                { label: "خدمات توزيع الماء", href: "/water-distribution-services" },
-                { label: "دليل العمرة و PDF", href: "/umrah-guide-and-pdf" }
+                { label: "خدمة الدم", href: "/damm-services/" },
+                { label: "الفدية والكفارة", href: "/fidyah-and-kaffarah/" },
+                { label: "بدل الحج والعمرة", href: "/hajj-and-umrah-badal/" },
+                { label: "خدمات الأضحية", href: "/qurbani-services/" },
+                { label: "خدمات وقف القرآن", href: "/quran-waqf-services/" },
+                { label: "خدمات دليل العمرة", href: "/umrah-guider-services/" },
+                { label: "خدمات توزيع التمر", href: "/dates-distribution-services/" },
+                { label: "خدمات توزيع الطعام", href: "/food-package-distribution/" },
+                { label: "خدمات توزيع الماء", href: "/water-distribution-services/" },
+                { label: "دليل العمرة و PDF", href: "/umrah-guide-and-pdf/" }
               ]
             },
             {
               label: "حجز الفنادق",
               items: [
-                { label: "حجز فنادق مكة", href: "/hotel-booking-makkah" },
-                { label: "حجز فنادق المدينة", href: "/hotel-booking-madinah" }
+                { label: "حجز فنادق مكة", href: "/hotel-booking-makkah/" },
+                { label: "حجز فنادق المدينة", href: "/hotel-booking-madinah/" }
               ]
             }
           ]
@@ -2701,27 +2701,27 @@ const messages = {
         {
           label: "أسطولنا ومساراتنا",
           children: [
-            { label: "سيدان", href: "/sedan-sonata-taxi" },
-            { label: "ميني فان", href: "/hyundai-minivan-staria" },
-            { label: "جي إم سي", href: "/gmc-yukon-xl" },
-            { label: "هايس ميكروباص", href: "/toyota-hiace-or-hiroof-2" },
-            { label: "كوستر", href: "/coaster" },
-            { label: "حافلة", href: "/bus" }
+            { label: "سيدان", href: "/sedan-sonata-taxi/" },
+            { label: "ميني فان", href: "/hyundai-minivan-staria/" },
+            { label: "جي إم سي", href: "/gmc-yukon-xl/" },
+            { label: "هايس ميكروباص", href: "/toyota-hiace-or-hiroof-2/" },
+            { label: "كوستر", href: "/coaster/" },
+            { label: "حافلة", href: "/bus/" }
           ]
         },
-        { label: "أسعار خدمات التاكسي", href: "/our-taxi-services-pricing" },
+        { label: "أسعار خدمات التاكسي", href: "/our-taxi-services-pricing/" },
         {
           label: "المسارات",
           children: [
-            { label: "مكة إلى المدينة", href: "/makkah-to-madinah" },
-            { label: "المدينة إلى مكة", href: "/madinah-to-makkah" },
-            { label: "مطار جدة إلى مكة", href: "/jeddah-airport-to-makkah" },
-            { label: "مكة إلى جدة", href: "/makkah-to-jeddah" },
-            { label: "مطار المدينة إلى الفنادق", href: "/madinah-aiport-to-hotels" }
+            { label: "مكة إلى المدينة", href: "/makkah-to-madinah/" },
+            { label: "المدينة إلى مكة", href: "/madinah-to-makkah/" },
+            { label: "مطار جدة إلى مكة", href: "/jeddah-airport-to-makkah/" },
+            { label: "مكة إلى جدة", href: "/makkah-to-jeddah/" },
+            { label: "مطار المدينة إلى الفنادق", href: "/madinah-aiport-to-hotels/" }
           ]
         },
-        { label: "احجز الآن", href: "/book-now" },
-        { label: "المدونة", href: "/blog" }
+        { label: "احجز الآن", href: "/book-now/" },
+        { label: "المدونة", href: "/blog/" }
       ]
     },
     hero: {
@@ -2930,42 +2930,42 @@ const messages = {
         {
           title: "خدمة الدم",
           desc: "خدمات التضحية المهنية تؤجر وفقًا للإرشادات الإسلامية نيابة عنك في المدن المقدسة مكة والمدينة.",
-          href: "/damm-services"
+          href: "/damm-services/"
         },
         {
           title: "عمرة وحج بدل",
           desc: "أداء العمرة أو الحج من خلال ممثلينا المؤهلين وذوي الخبرة عندما لا تتمكن من السفر بنفسك.",
-          href: "/hajj-and-umrah-badal"
+          href: "/hajj-and-umrah-badal/"
         },
         {
           title: "وقف المصحف",
           desc: "تبرع وزع نسخًا جميلة من القرآن الكريم كصدقة جارية لأحبائك أو المتوفين.",
-          href: "/quran-waqf-services"
+          href: "/quran-waqf-services/"
         },
         {
           title: "دليل العمرة",
           desc: "إرشادات ودعم خطوة بخطوة كاملة لضمان أن رحلة عمرك روحيًا مُرضية.",
-          href: "/umrah-guider-services"
+          href: "/umrah-guider-services/"
         },
         {
           title: "حجز فنادق مكة",
           desc: "إقامة فندقية مريحة وبأسعار معقولة بالقرب من الحرم في مكة لإقامتك.",
-          href: "/hotel-booking-makkah"
+          href: "/hotel-booking-makkah/"
         },
         {
           title: "حجز فنادق المدينة",
           desc: "إقامة فندقية مريحة وبأسعار معقولة بالقرب من المسجد النبوي في المدينة لإقامتك.",
-          href: "/hotel-booking-madinah"
+          href: "/hotel-booking-madinah/"
         },
         {
           title: "خدمات الأضحية",
           desc: "أداء تضحيتك أثناء الحج أو عيد الأضحى وفقًا للإرشادات الإسلامية مع التوزيع السليم على المحتاجين.",
-          href: "/qurbani-services"
+          href: "/qurbani-services/"
         },
         {
           title: "توزيع حزم الطعام",
           desc: "توزيع حزم الطعام على الحجاج والصائمين والأسر المحتاجة في المدن المقدسة.",
-          href: "/food-package-distribution"
+          href: "/food-package-distribution/"
         }
       ],
       cta: "اعرف المزيد",
@@ -3016,20 +3016,20 @@ const messages = {
       services: ["نقل مطار جدة", "مكة إلى المدينة", "جولات زيارات", "تاكسي VIP", "حجوزات باصات", "حج وعمرة بدل"],
       fleetsTitle: "أسطولنا",
       fleets: [
-        { title: "سيدان", href: "/sedan-sonata-taxi" },
-        { title: "جي إم سي الفاخرة", href: "/gmc-yukon-xl" },
-        { title: "ميني فان", href: "/hyundai-minivan-staria" },
-        { title: "هايس مايكروباص", href: "/toyota-hiace-or-hiroof-2" },
-        { title: "كوستر", href: "/coaster" },
-        { title: "باص", href: "/bus" }
+        { title: "سيدان", href: "/sedan-sonata-taxi/" },
+        { title: "جي إم سي الفاخرة", href: "/gmc-yukon-xl/" },
+        { title: "ميني فان", href: "/hyundai-minivan-staria/" },
+        { title: "هايس مايكروباص", href: "/toyota-hiace-or-hiroof-2/" },
+        { title: "كوستر", href: "/coaster/" },
+        { title: "باص", href: "/bus/" }
       ],
       routesTitle: "الطرق",
       routes: [
-        { title: "مكة إلى المدينة", href: "/makkah-to-madinah" },
-        { title: "المدينة إلى مكة", href: "/madinah-to-makkah" },
-        { title: "مطار جدة إلى مكة", href: "/jeddah-airport-to-makkah" },
-        { title: "مطار المدينة إلى الفنادق", href: "/madinah-aiport-to-hotels" },
-        { title: "مكة إلى جدة", href: "/makkah-to-jeddah" }
+        { title: "مكة إلى المدينة", href: "/makkah-to-madinah/" },
+        { title: "المدينة إلى مكة", href: "/madinah-to-makkah/" },
+        { title: "مطار جدة إلى مكة", href: "/jeddah-airport-to-makkah/" },
+        { title: "مطار المدينة إلى الفنادق", href: "/madinah-aiport-to-hotels/" },
+        { title: "مكة إلى جدة", href: "/makkah-to-jeddah/" }
       ],
       contactTitle: "تواصل معنا",
       whatsappNumber: "+966 59 840 1594",
@@ -5333,32 +5333,32 @@ const messages = {
             {
               label: "Layanan Taksi Kami",
               items: [
-                { label: "Layanan Taksi Bandara", href: "/airport-taxi-services" },
-                { label: "Layanan Taksi Umrah", href: "/umrah-taxi-services" },
-                { label: "Taksi Transfer Hotel", href: "/hotel-transfers-taxi" },
-                { label: "Layanan Taksi Pribadi", href: "/private-taxi-services" }
+                { label: "Layanan Taksi Bandara", href: "/airport-taxi-services/" },
+                { label: "Layanan Taksi Umrah", href: "/umrah-taxi-services/" },
+                { label: "Taksi Transfer Hotel", href: "/hotel-transfers-taxi/" },
+                { label: "Layanan Taksi Pribadi", href: "/private-taxi-services/" }
               ]
             },
             {
               label: "Layanan Lainnya",
               items: [
-                { label: "Layanan Damm", href: "/damm-services" },
-                { label: "Fidyah & Kaffarah", href: "/fidyah-and-kaffarah" },
-                { label: "Badal Haji & Umrah", href: "/hajj-and-umrah-badal" },
-                { label: "Layanan Qurbani", href: "/qurbani-services" },
-                { label: "Layanan Waqaf Quran", href: "/quran-waqf-services" },
-                { label: "Layanan Pemandu Umrah", href: "/umrah-guider-services" },
-                { label: "Layanan Distribusi Kurma", href: "/dates-distribution-services" },
-                { label: "Layanan Distribusi Makanan", href: "/food-package-distribution" },
-                { label: "Layanan Distribusi Air", href: "/water-distribution-services" },
-                { label: "Panduan Umrah & PDF", href: "/umrah-guide-and-pdf" }
+                { label: "Layanan Damm", href: "/damm-services/" },
+                { label: "Fidyah & Kaffarah", href: "/fidyah-and-kaffarah/" },
+                { label: "Badal Haji & Umrah", href: "/hajj-and-umrah-badal/" },
+                { label: "Layanan Qurbani", href: "/qurbani-services/" },
+                { label: "Layanan Waqaf Quran", href: "/quran-waqf-services/" },
+                { label: "Layanan Pemandu Umrah", href: "/umrah-guider-services/" },
+                { label: "Layanan Distribusi Kurma", href: "/dates-distribution-services/" },
+                { label: "Layanan Distribusi Makanan", href: "/food-package-distribution/" },
+                { label: "Layanan Distribusi Air", href: "/water-distribution-services/" },
+                { label: "Panduan Umrah & PDF", href: "/umrah-guide-and-pdf/" }
               ]
             },
             {
               label: "Pemesanan Hotel",
               items: [
-                { label: "Pemesanan Hotel Makkah", href: "/hotel-booking-makkah" },
-                { label: "Pemesanan Hotel Madinah", href: "/hotel-booking-madinah" }
+                { label: "Pemesanan Hotel Makkah", href: "/hotel-booking-makkah/" },
+                { label: "Pemesanan Hotel Madinah", href: "/hotel-booking-madinah/" }
               ]
             }
           ]
@@ -5366,27 +5366,27 @@ const messages = {
         {
           label: "Armada & Rute Kami",
           children: [
-            { label: "Sedan", href: "/sedan-sonata-taxi" },
-            { label: "Minivan", href: "/hyundai-minivan-staria" },
-            { label: "GMC", href: "/gmc-yukon-xl" },
-            { label: "Hiace Microbus", href: "/toyota-hiace-or-hiroof-2" },
-            { label: "Coaster", href: "/coaster" },
-            { label: "Bus", href: "/bus" }
+            { label: "Sedan", href: "/sedan-sonata-taxi/" },
+            { label: "Minivan", href: "/hyundai-minivan-staria/" },
+            { label: "GMC", href: "/gmc-yukon-xl/" },
+            { label: "Hiace Microbus", href: "/toyota-hiace-or-hiroof-2/" },
+            { label: "Coaster", href: "/coaster/" },
+            { label: "Bus", href: "/bus/" }
           ]
         },
-        { label: "Harga Layanan Taksi", href: "/our-taxi-services-pricing" },
+        { label: "Harga Layanan Taksi", href: "/our-taxi-services-pricing/" },
         {
           label: "Rute",
           children: [
-            { label: "Makkah ke Madinah", href: "/makkah-to-madinah" },
-            { label: "Madinah ke Makkah", href: "/madinah-to-makkah" },
-            { label: "Bandara Jeddah ke Makkah", href: "/jeddah-airport-to-makkah" },
-            { label: "Makkah ke Jeddah", href: "/makkah-to-jeddah" },
-            { label: "Bandara Madinah ke Hotel", href: "/madinah-aiport-to-hotels" }
+            { label: "Makkah ke Madinah", href: "/makkah-to-madinah/" },
+            { label: "Madinah ke Makkah", href: "/madinah-to-makkah/" },
+            { label: "Bandara Jeddah ke Makkah", href: "/jeddah-airport-to-makkah/" },
+            { label: "Makkah ke Jeddah", href: "/makkah-to-jeddah/" },
+            { label: "Bandara Madinah ke Hotel", href: "/madinah-aiport-to-hotels/" }
           ]
         },
-        { label: "Pesan Sekarang", href: "/book-now" },
-        { label: "Blog", href: "/blog" }
+        { label: "Pesan Sekarang", href: "/book-now/" },
+        { label: "Blog", href: "/blog/" }
       ]
     },
     hero: {
@@ -5594,42 +5594,42 @@ const messages = {
         {
           title: "Layanan Damm",
           desc: "Layanan kurban profesional dilakukan sesuai pedoman Islam atas nama Anda di Kota Suci Makkah dan Madinah.",
-          href: "/damm-services"
+          href: "/damm-services/"
         },
         {
           title: "Umrah & Haji Badal",
           desc: "Lakukan Umrah atau Haji melalui perwakilan kami yang berkualitas dan berpengalaman ketika Anda tidak dapat bepergian sendiri.",
-          href: "/hajj-and-umrah-badal"
+          href: "/hajj-and-umrah-badal/"
         },
         {
           title: "Quran Waqaf",
           desc: "Donasikan dan distribusikan salinan indah Al-Quran sebagai sedekah berkelanjutan untuk orang-orang tercinta atau yang telah meninggal.",
-          href: "/quran-waqf-services"
+          href: "/quran-waqf-services/"
         },
         {
           title: "Panduan Umrah",
           desc: "Bimbingan langkah demi langkah lengkap dan layanan dukungan untuk memastikan perjalanan Umrah Anda memuaskan secara spiritual.",
-          href: "/umrah-guider-services"
+          href: "/umrah-guider-services/"
         },
         {
           title: "Pemesanan Hotel Makkah",
           desc: "Akomodasi hotel yang nyaman dan terjangkau dekat Haram di Makkah untuk menginap Anda.",
-          href: "/hotel-booking-makkah"
+          href: "/hotel-booking-makkah/"
         },
         {
           title: "Pemesanan Hotel Madinah",
           desc: "Akomodasi hotel yang nyaman dan terjangkau dekat Masjid Nabawi di Madinah untuk menginap Anda.",
-          href: "/hotel-booking-madinah"
+          href: "/hotel-booking-madinah/"
         },
         {
           title: "Layanan Qurbani",
           desc: "Lakukan kurban Anda selama Haji atau Idul Adha sesuai pedoman Islam dengan distribusi yang tepat kepada yang membutuhkan.",
-          href: "/qurbani-services"
+          href: "/qurbani-services/"
         },
         {
           title: "Distribusi Paket Makanan",
           desc: "Distribusikan paket makanan kepada jamaah, orang yang berpuasa, dan keluarga yang membutuhkan di Kota Suci.",
-          href: "/food-package-distribution"
+          href: "/food-package-distribution/"
         }
       ],
       cta: "Pelajari Lebih Lanjut",
@@ -5684,20 +5684,20 @@ const messages = {
       ],
       fleetsTitle: "Armada Kami",
       fleets: [
-        { title: "Sedan", href: "/sedan-sonata-taxi" },
-        { title: "Luxury GMC", href: "/gmc-yukon-xl" },
-        { title: "Minivan", href: "/hyundai-minivan-staria" },
-        { title: "Hiace Microbus", href: "/toyota-hiace-or-hiroof-2" },
-        { title: "Coaster", href: "/coaster" },
-        { title: "Bus", href: "/bus" }
+        { title: "Sedan", href: "/sedan-sonata-taxi/" },
+        { title: "Luxury GMC", href: "/gmc-yukon-xl/" },
+        { title: "Minivan", href: "/hyundai-minivan-staria/" },
+        { title: "Hiace Microbus", href: "/toyota-hiace-or-hiroof-2/" },
+        { title: "Coaster", href: "/coaster/" },
+        { title: "Bus", href: "/bus/" }
       ],
       routesTitle: "Rute",
       routes: [
-        { title: "Makkah ke Madinah", href: "/makkah-to-madinah" },
-        { title: "Madinah ke Makkah", href: "/madinah-to-makkah" },
-        { title: "Bandara Jeddah ke Makkah", href: "/jeddah-airport-to-makkah" },
-        { title: "Bandara Madinah ke Hotel", href: "/madinah-aiport-to-hotels" },
-        { title: "Makkah ke Jeddah", href: "/makkah-to-jeddah" }
+        { title: "Makkah ke Madinah", href: "/makkah-to-madinah/" },
+        { title: "Madinah ke Makkah", href: "/madinah-to-makkah/" },
+        { title: "Bandara Jeddah ke Makkah", href: "/jeddah-airport-to-makkah/" },
+        { title: "Bandara Madinah ke Hotel", href: "/madinah-aiport-to-hotels/" },
+        { title: "Makkah ke Jeddah", href: "/makkah-to-jeddah/" }
       ],
       contactTitle: "Hubungi Kami",
       whatsappNumber: "+966 59 840 1594",
@@ -8001,32 +8001,32 @@ const messages = {
             {
               label: "Perkhidmatan Teksi",
               items: [
-                { label: "Teksi Lapangan Terbang", href: "/airport-taxi-services" },
-                { label: "Teksi Umrah", href: "/umrah-taxi-services" },
-                { label: "Teksi Transfer Hotel", href: "/hotel-transfers-taxi" },
-                { label: "Perkhidmatan Teksi Persendirian", href: "/private-taxi-services" }
+                { label: "Teksi Lapangan Terbang", href: "/airport-taxi-services/" },
+                { label: "Teksi Umrah", href: "/umrah-taxi-services/" },
+                { label: "Teksi Transfer Hotel", href: "/hotel-transfers-taxi/" },
+                { label: "Perkhidmatan Teksi Persendirian", href: "/private-taxi-services/" }
               ]
             },
             {
               label: "Perkhidmatan Lain",
               items: [
-                { label: "Perkhidmatan Damm", href: "/damm-services" },
-                { label: "Fidyah & Kaffarah", href: "/fidyah-and-kaffarah" },
-                { label: "Badal Haji & Umrah", href: "/hajj-and-umrah-badal" },
-                { label: "Perkhidmatan Qurbani", href: "/qurbani-services" },
-                { label: "Perkhidmatan Waqaf Quran", href: "/quran-waqf-services" },
-                { label: "Perkhidmatan Pemandu Umrah", href: "/umrah-guider-services" },
-                { label: "Perkhidmatan Pengagihan Kurma", href: "/dates-distribution-services" },
-                { label: "Perkhidmatan Pengagihan Makanan", href: "/food-package-distribution" },
-                { label: "Perkhidmatan Pengagihan Air", href: "/water-distribution-services" },
-                { label: "Panduan Umrah & PDF", href: "/umrah-guide-and-pdf" }
+                { label: "Perkhidmatan Damm", href: "/damm-services/" },
+                { label: "Fidyah & Kaffarah", href: "/fidyah-and-kaffarah/" },
+                { label: "Badal Haji & Umrah", href: "/hajj-and-umrah-badal/" },
+                { label: "Perkhidmatan Qurbani", href: "/qurbani-services/" },
+                { label: "Perkhidmatan Waqaf Quran", href: "/quran-waqf-services/" },
+                { label: "Perkhidmatan Pemandu Umrah", href: "/umrah-guider-services/" },
+                { label: "Perkhidmatan Pengagihan Kurma", href: "/dates-distribution-services/" },
+                { label: "Perkhidmatan Pengagihan Makanan", href: "/food-package-distribution/" },
+                { label: "Perkhidmatan Pengagihan Air", href: "/water-distribution-services/" },
+                { label: "Panduan Umrah & PDF", href: "/umrah-guide-and-pdf/" }
               ]
             },
             {
               label: "Tempah Hotel",
               items: [
-                { label: "Tempah Hotel Makkah", href: "/hotel-booking-makkah" },
-                { label: "Tempah Hotel Madinah", href: "/hotel-booking-madinah" }
+                { label: "Tempah Hotel Makkah", href: "/hotel-booking-makkah/" },
+                { label: "Tempah Hotel Madinah", href: "/hotel-booking-madinah/" }
               ]
             }
           ]
@@ -8034,27 +8034,27 @@ const messages = {
         {
           label: "Armada & Laluan Kami",
           children: [
-            { label: "Sedan", href: "/sedan-sonata-taxi" },
-            { label: "Minivan", href: "/hyundai-minivan-staria" },
-            { label: "GMC", href: "/gmc-yukon-xl" },
-            { label: "Hiace Microbus", href: "/toyota-hiace-or-hiroof-2" },
-            { label: "Coaster", href: "/coaster" },
-            { label: "Bus", href: "/bus" }
+            { label: "Sedan", href: "/sedan-sonata-taxi/" },
+            { label: "Minivan", href: "/hyundai-minivan-staria/" },
+            { label: "GMC", href: "/gmc-yukon-xl/" },
+            { label: "Hiace Microbus", href: "/toyota-hiace-or-hiroof-2/" },
+            { label: "Coaster", href: "/coaster/" },
+            { label: "Bus", href: "/bus/" }
           ]
         },
-        { label: "Harga Teksi", href: "/our-taxi-services-pricing" },
+        { label: "Harga Teksi", href: "/our-taxi-services-pricing/" },
         {
           label: "Laluan",
           children: [
-            { label: "Makkah ke Madinah", href: "/makkah-to-madinah" },
-            { label: "Madinah ke Makkah", href: "/madinah-to-makkah" },
-            { label: "Lapangan Terbang Jeddah ke Makkah", href: "/jeddah-airport-to-makkah" },
-            { label: "Makkah ke Jeddah", href: "/makkah-to-jeddah" },
-            { label: "Lapangan Terbang Madinah ke Hotel", href: "/madinah-aiport-to-hotels" }
+            { label: "Makkah ke Madinah", href: "/makkah-to-madinah/" },
+            { label: "Madinah ke Makkah", href: "/madinah-to-makkah/" },
+            { label: "Lapangan Terbang Jeddah ke Makkah", href: "/jeddah-airport-to-makkah/" },
+            { label: "Makkah ke Jeddah", href: "/makkah-to-jeddah/" },
+            { label: "Lapangan Terbang Madinah ke Hotel", href: "/madinah-aiport-to-hotels/" }
           ]
         },
-        { label: "Tempah Sekarang", href: "/book-now" },
-        { label: "Blog", href: "/blog" }
+        { label: "Tempah Sekarang", href: "/book-now/" },
+        { label: "Blog", href: "/blog/" }
       ]
     },
     hero: {
@@ -8262,42 +8262,42 @@ const messages = {
         {
           title: "Perkhidmatan Damm",
           desc: "Perkhidmatan korban profesional dilakukan mengikut garis panduan Islam atas nama anda di Bandar Suci Makkah dan Madinah.",
-          href: "/damm-services"
+          href: "/damm-services/"
         },
         {
           title: "Umrah dan Haji Badal",
           desc: "Lakukan Umrah atau Haji melalui wakil kami yang berkelayakan dan berpengalaman apabila anda tidak dapat melancong sendiri.",
-          href: "/hajj-and-umrah-badal"
+          href: "/hajj-and-umrah-badal/"
         },
         {
           title: "Quran Waqaf",
           desc: "Derma dan agih salinan indah Al-Quran sebagai sedekah berterusan untuk orang tersayang atau yang telah meninggal.",
-          href: "/quran-waqf-services"
+          href: "/quran-waqf-services/"
         },
         {
           title: "Panduan Umrah",
           desc: "Bimbingan langkah demi langkah lengkap dan perkhidmatan sokongan untuk memastikan perjalanan Umrah anda memuaskan secara rohani.",
-          href: "/umrah-guider-services"
+          href: "/umrah-guider-services/"
         },
         {
           title: "Tempahan Hotel Makkah",
           desc: "Penginapan hotel yang selesa dan berpatutan berhampiran Haram di Makkah untuk penginapan anda.",
-          href: "/hotel-booking-makkah"
+          href: "/hotel-booking-makkah/"
         },
         {
           title: "Tempahan Hotel Madinah",
           desc: "Penginapan hotel yang selesa dan berpatutan berhampiran Masjid Nabawi di Madinah untuk penginapan anda.",
-          href: "/hotel-booking-madinah"
+          href: "/hotel-booking-madinah/"
         },
         {
           title: "Perkhidmatan Qurbani",
           desc: "Lakukan korban anda semasa Haji atau Hari Raya mengikut garis panduan Islam dengan agihan yang betul kepada yang memerlukan.",
-          href: "/qurbani-services"
+          href: "/qurbani-services/"
         },
         {
           title: "Agihan Pakej Makanan",
           desc: "Agih pakej makanan kepada jemaah, orang yang berpuasa, dan keluarga yang memerlukan di Bandar Suci.",
-          href: "/food-package-distribution"
+          href: "/food-package-distribution/"
         }
       ],
       cta: "Ketahui Lagi",
@@ -9596,20 +9596,20 @@ const messages = {
       ],
       fleetsTitle: "Armada Kami",
       fleets: [
-        { title: "Sedan", href: "/sedan-sonata-taxi" },
-        { title: "Luxury GMC", href: "/gmc-yukon-xl" },
-        { title: "Minivan", href: "/hyundai-minivan-staria" },
-        { title: "Hiace Microbus", href: "/toyota-hiace-or-hiroof-2" },
-        { title: "Coaster", href: "/coaster" },
-        { title: "Bus", href: "/bus" }
+        { title: "Sedan", href: "/sedan-sonata-taxi/" },
+        { title: "Luxury GMC", href: "/gmc-yukon-xl/" },
+        { title: "Minivan", href: "/hyundai-minivan-staria/" },
+        { title: "Hiace Microbus", href: "/toyota-hiace-or-hiroof-2/" },
+        { title: "Coaster", href: "/coaster/" },
+        { title: "Bus", href: "/bus/" }
       ],
       routesTitle: "Laluan",
       routes: [
-        { title: "Makkah ke Madinah", href: "/makkah-to-madinah" },
-        { title: "Madinah ke Makkah", href: "/madinah-to-makkah" },
-        { title: "Lapangan Terbang Jeddah ke Makkah", href: "/jeddah-airport-to-makkah" },
-        { title: "Lapangan Terbang Madinah ke Hotel", href: "/madinah-aiport-to-hotels" },
-        { title: "Makkah ke Jeddah", href: "/makkah-to-jeddah" }
+        { title: "Makkah ke Madinah", href: "/makkah-to-madinah/" },
+        { title: "Madinah ke Makkah", href: "/madinah-to-makkah/" },
+        { title: "Lapangan Terbang Jeddah ke Makkah", href: "/jeddah-airport-to-makkah/" },
+        { title: "Lapangan Terbang Madinah ke Hotel", href: "/madinah-aiport-to-hotels/" },
+        { title: "Makkah ke Jeddah", href: "/makkah-to-jeddah/" }
       ],
       contactTitle: "Hubungi Kami",
       whatsappNumber: "+966 59 840 1594",

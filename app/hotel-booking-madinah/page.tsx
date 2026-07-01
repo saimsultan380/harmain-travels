@@ -18,6 +18,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/hotel-booking-madinah/",
   },
+  openGraph: {
+    title: "Hotel Booking in Madinah, Saudi Arabia | Contact Us to Book",
+    description: "Book hotels in Madinah near Masjid Al Nabawi with Haramain Umrah Taxi. Driver-recommended 3, 4, and 5-star hotels with exclusive rates. Bundle hotel + taxi services for extra savings.",
+    url: "/hotel-booking-madinah/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hotel Booking in Madinah, Saudi Arabia | Contact Us to Book",
+    description: "Book hotels in Madinah near Masjid Al Nabawi with Haramain Umrah Taxi. Driver-recommended 3, 4, and 5-star hotels with exclusive rates. Bundle hotel + taxi services for extra savings.",
+  },
 };
 
 export default function Page() {

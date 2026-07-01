@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/book-private-haramain-umrah-taxi-online-for-uk-pilgrims/",
   },
+  openGraph: {
+    title: "Book Private Haramain Umrah Taxi Online for UK Pilgrims",
+    description: "Book your private umrah taxi online before you travel from the UK. Enjoy a smooth airport transfer to Makkah or Madinah without stress. Book with Discounts!",
+    url: "/book-private-haramain-umrah-taxi-online-for-uk-pilgrims/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Book Private Haramain Umrah Taxi Online for UK Pilgrims",
+    description: "Book your private umrah taxi online before you travel from the UK. Enjoy a smooth airport transfer to Makkah or Madinah without stress. Book with Discounts!",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

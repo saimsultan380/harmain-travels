@@ -16,6 +16,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/umrah-guider-services/",
   },
+  openGraph: {
+    title: "Umrah Guider| Umrah Guider Services in Makkah & Saudi Arab",
+    description: "Need an Umrah Guider in Makkah? Our expert services ensure a smooth, enriching pilgrimage. Let us guide you through every step of your Umrah journey!",
+    url: "/umrah-guider-services/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Umrah Guider| Umrah Guider Services in Makkah & Saudi Arab",
+    description: "Need an Umrah Guider in Makkah? Our expert services ensure a smooth, enriching pilgrimage. Let us guide you through every step of your Umrah journey!",
+  },
 };
 
 export default function Page() {

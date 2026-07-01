@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/how-to-book-the-best-umrah-taxi-online-in-makkah-from-the-uk/",
   },
+  openGraph: {
+    title: "How to Book The Best Umrah Taxi Online in Makkah from the UK?",
+    description: "Book your Umrah taxi from the UK to Madinah with ease. Enjoy reliable service, comfortable vehicles, transparent pricing, and smooth transfers with Us!",
+    url: "/how-to-book-the-best-umrah-taxi-online-in-makkah-from-the-uk/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How to Book The Best Umrah Taxi Online in Makkah from the UK?",
+    description: "Book your Umrah taxi from the UK to Madinah with ease. Enjoy reliable service, comfortable vehicles, transparent pricing, and smooth transfers with Us!",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

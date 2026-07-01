@@ -17,6 +17,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/umrah-guide-and-pdf/",
   },
+  openGraph: {
+    title: "Easy Umrah Guide & Steps| PDF| Umrah Duas| Ihram Rules|",
+    description: "Click on link to get easy step-by-step Umrah Guide, it's PDF, Umrah Duas, Ihram Rules, Ziyarat Guide, Saee and Tawaf Dua & Guide, Do's and Don'ts of Umrah",
+    url: "/umrah-guide-and-pdf/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Easy Umrah Guide & Steps| PDF| Umrah Duas| Ihram Rules|",
+    description: "Click on link to get easy step-by-step Umrah Guide, it's PDF, Umrah Duas, Ihram Rules, Ziyarat Guide, Saee and Tawaf Dua & Guide, Do's and Don'ts of Umrah",
+  },
 };
 
 export default function Page() {

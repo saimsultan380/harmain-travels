@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/best-ziyarat-places-madinah/",
   },
+  openGraph: {
+    title: "15 Best Places to Visit in Madinah| Tourist & Holy Sites Madina",
+    description: "Discover 15 best places to visit in Madinah including Masjid al-Nabawi, Mount Uhud, and sacred Ziyarat sites. Get complete guide with history and tips.",
+    url: "/best-ziyarat-places-madinah/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "15 Best Places to Visit in Madinah| Tourist & Holy Sites Madina",
+    description: "Discover 15 best places to visit in Madinah including Masjid al-Nabawi, Mount Uhud, and sacred Ziyarat sites. Get complete guide with history and tips.",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

@@ -105,7 +105,7 @@ function Card({
             {t("common.whatsapp")}
           </a>
           <Link
-            href="/book-now"
+            href="/book-now/"
             className="flex-1 flex items-center justify-center py-3 border-2 border-[var(--green)] text-[var(--green)] font-body font-semibold rounded-xl hover:bg-[var(--gold)] hover:border-[var(--gold)] hover:text-white transition-all text-sm text-center"
           >
             {t("common.bookNow")}

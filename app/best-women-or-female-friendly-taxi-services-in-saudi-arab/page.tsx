@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/best-women-or-female-friendly-taxi-services-in-saudi-arab/",
   },
+  openGraph: {
+    title: "Best Women or Female-Friendly Taxi Services in Saudi Arab",
+    description: "Traveling as a woman in Saudi Arabia just got safer and more comfortable. Discover the best women or female-friendly taxi services in Saudi Arab. Book HUT!",
+    url: "/best-women-or-female-friendly-taxi-services-in-saudi-arab/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Best Women or Female-Friendly Taxi Services in Saudi Arab",
+    description: "Traveling as a woman in Saudi Arabia just got safer and more comfortable. Discover the best women or female-friendly taxi services in Saudi Arab. Book HUT!",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

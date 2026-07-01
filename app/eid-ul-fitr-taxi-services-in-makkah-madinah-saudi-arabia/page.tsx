@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/eid-ul-fitr-taxi-services-in-makkah-madinah-saudi-arabia/",
   },
+  openGraph: {
+    title: "Eid ul Fitr Taxi Services in Makkah & Madinah, Saudi Arabia",
+    description: "Want Eid Discount? Book Haramain's Eid ul Fitr Umrah Taxi with exclusive Eid offers! 24/7 Availability, Professional Drivers, Clean Cars for all Transfers!",
+    url: "/eid-ul-fitr-taxi-services-in-makkah-madinah-saudi-arabia/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Eid ul Fitr Taxi Services in Makkah & Madinah, Saudi Arabia",
+    description: "Want Eid Discount? Book Haramain's Eid ul Fitr Umrah Taxi with exclusive Eid offers! 24/7 Availability, Professional Drivers, Clean Cars for all Transfers!",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

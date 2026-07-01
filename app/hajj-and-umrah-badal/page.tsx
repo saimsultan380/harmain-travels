@@ -16,6 +16,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/hajj-and-umrah-badal/",
   },
+  openGraph: {
+    title: "Umrah & Hajj e Badal Services- We Perform Umrah/Hajj For You",
+    description: "Umrah & Hajj e Badal means when another person performs Hajj or Umrah on behalf of someone else. We offer Umrah and Hajj Badal Services transparently",
+    url: "/hajj-and-umrah-badal/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Umrah & Hajj e Badal Services- We Perform Umrah/Hajj For You",
+    description: "Umrah & Hajj e Badal means when another person performs Hajj or Umrah on behalf of someone else. We offer Umrah and Hajj Badal Services transparently",
+  },
 };
 
 export default function Page() {

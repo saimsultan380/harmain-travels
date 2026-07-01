@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/cheap-wadi-e-jinn-ziyarat-taxi-madinah-to-wadi-e-jinn-taxi/",
   },
+  openGraph: {
+    title: "Get Discounts for Wadi e Jinn Ziyarat Taxi from HUT. Travel 30-40km distance between Masjid Nabawi or Madinah to Wadi e Jinn in our Madinah to Wadi Jinn Taxi",
+    description: "Hajj is a journey that a Muslim can make during his or her lifetime. It is one of the most significant ones. However, there is one thing that you need to know",
+    url: "/cheap-wadi-e-jinn-ziyarat-taxi-madinah-to-wadi-e-jinn-taxi/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Get Discounts for Wadi e Jinn Ziyarat Taxi from HUT. Travel 30-40km distance between Masjid Nabawi or Madinah to Wadi e Jinn in our Madinah to Wadi Jinn Taxi",
+    description: "Hajj is a journey that a Muslim can make during his or her lifetime. It is one of the most significant ones. However, there is one thing that you need to know",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

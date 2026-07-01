@@ -14,7 +14,7 @@ const categories = [
 ];
 
 function getPageHref(pageNum: number): string {
-  return pageNum === 1 ? "/blog" : `/blog/page/${pageNum}`;
+  return pageNum === 1 ? "/blog/" : `/blog/page/${pageNum}/`;
 }
 
 interface BlogListingProps {
@@ -91,7 +91,7 @@ export function BlogListing({ pagePosts, currentPage, totalPages }: BlogListingP
                   );
                 })}
               </div>
-              <Link href={`/${post.id}`}>
+              <Link href={`/${post.id}/`}>
                 <h3 className="text-xl font-heading font-bold text-[var(--green)] mb-3 line-clamp-2 hover:text-[var(--gold)] transition-colors cursor-pointer">
                   {post.title}
                 </h3>
@@ -110,7 +110,7 @@ export function BlogListing({ pagePosts, currentPage, totalPages }: BlogListingP
                 </div>
               </div>
               <Link
-                href={`/${post.id}`}
+                href={`/${post.id}/`}
                 className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold text-sm hover:text-[var(--gold)] hover:gap-3 transition-all"
               >
                 Read More <ArrowRight size={16} />

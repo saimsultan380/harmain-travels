@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/best-places-in-makkah/",
   },
+  openGraph: {
+    title: "20 Best Places to Visit in Makkah During Umrah | Makkah Ziyarat",
+    description: "Discover the 20 best places to visit in Makkah during Umrah. From Jabal al-Nour to Jannat al-Mu'alla, explore sacred Ziyarat sites with our complete guide.",
+    url: "/best-places-in-makkah/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "20 Best Places to Visit in Makkah During Umrah | Makkah Ziyarat",
+    description: "Discover the 20 best places to visit in Makkah during Umrah. From Jabal al-Nour to Jannat al-Mu'alla, explore sacred Ziyarat sites with our complete guide.",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

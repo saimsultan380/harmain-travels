@@ -18,6 +18,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/jeddah-airport-to-makkah/",
   },
+  openGraph: {
+    title: "Jeddah Airport to Makkah Taxi Services and Fares: Book Now!",
+    description: "Get transparent Jeddah Airport to Makkah taxi services and fares on Haramain Umrah Taxi. We offer fixed pricing that starts from 250 SAR with online booking.",
+    url: "/jeddah-airport-to-makkah/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jeddah Airport to Makkah Taxi Services and Fares: Book Now!",
+    description: "Get transparent Jeddah Airport to Makkah taxi services and fares on Haramain Umrah Taxi. We offer fixed pricing that starts from 250 SAR with online booking.",
+  },
 };
 
 export default function Page() {

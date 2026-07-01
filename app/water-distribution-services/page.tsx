@@ -16,6 +16,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/water-distribution-services/",
   },
+  openGraph: {
+    title: "Zamzam Water & Water Bottles Distribution Services in Saudia",
+    description: "We provide Zamzam water, water bottles & gallons distribution services in Makkah, Madinah, Haram, and Saudi Arab with proper transparency. Visit & Book!",
+    url: "/water-distribution-services/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Zamzam Water & Water Bottles Distribution Services in Saudia",
+    description: "We provide Zamzam water, water bottles & gallons distribution services in Makkah, Madinah, Haram, and Saudi Arab with proper transparency. Visit & Book!",
+  },
 };
 
 export default function Page() {

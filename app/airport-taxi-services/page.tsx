@@ -8,6 +8,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/airport-taxi-services/",
   },
+  openGraph: {
+    title: "Airport Transfers| Madinah Airport & Jeddah Airport Taxi!",
+    description: "Book our reliable airport transfers at Jeddah & Madinah airports. Haramain Umrah Taxi offers 24/7 fixed-rate Madinah airport taxi and Jeddah airport taxi.",
+    url: "/airport-taxi-services/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Airport Transfers| Madinah Airport & Jeddah Airport Taxi!",
+    description: "Book our reliable airport transfers at Jeddah & Madinah airports. Haramain Umrah Taxi offers 24/7 fixed-rate Madinah airport taxi and Jeddah airport taxi.",
+  },
 };
 
 export default function Page() {

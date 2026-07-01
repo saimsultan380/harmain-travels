@@ -56,31 +56,31 @@ export default function NotFound() {
             <p className="text-sm text-[var(--text-2)] font-body mb-6">Or try these popular pages:</p>
             <div className="flex flex-wrap justify-center gap-3">
               <Link
-                href="/umrah-taxi-services"
+                href="/umrah-taxi-services/"
                 className="px-4 py-2 bg-[var(--bg-alt)] border border-[var(--border)] rounded-lg text-sm font-body text-[var(--text-1)] hover:border-[var(--gold)] hover:text-[var(--gold)] transition-all"
               >
                 Umrah Taxi Services
               </Link>
               <Link
-                href="/hotel-booking-makkah"
+                href="/hotel-booking-makkah/"
                 className="px-4 py-2 bg-[var(--bg-alt)] border border-[var(--border)] rounded-lg text-sm font-body text-[var(--text-1)] hover:border-[var(--gold)] hover:text-[var(--gold)] transition-all"
               >
                 Hotel Booking Makkah
               </Link>
               <Link
-                href="/hotel-booking-madinah"
+                href="/hotel-booking-madinah/"
                 className="px-4 py-2 bg-[var(--bg-alt)] border border-[var(--border)] rounded-lg text-sm font-body text-[var(--text-1)] hover:border-[var(--gold)] hover:text-[var(--gold)] transition-all"
               >
                 Hotel Booking Madinah
               </Link>
               <Link
-                href="/our-taxi-services-pricing"
+                href="/our-taxi-services-pricing/"
                 className="px-4 py-2 bg-[var(--bg-alt)] border border-[var(--border)] rounded-lg text-sm font-body text-[var(--text-1)] hover:border-[var(--gold)] hover:text-[var(--gold)] transition-all"
               >
                 Pricing
               </Link>
               <Link
-                href="/makkah-to-madinah"
+                href="/makkah-to-madinah/"
                 className="px-4 py-2 bg-[var(--bg-alt)] border border-[var(--border)] rounded-lg text-sm font-body text-[var(--text-1)] hover:border-[var(--gold)] hover:text-[var(--gold)] transition-all"
               >
                 Makkah to Madinah

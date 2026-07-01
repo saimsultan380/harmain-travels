@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/taxi-fare-from-makkah-to-masjid-ayesha-masjid-jarana-mikat/",
   },
+  openGraph: {
+    title: "Taxi Fare from Makkah to Masjid Ayesha & Masjid Jarana Mikat",
+    description: "Get reasonable taxi fares from Makkah to Masjid Ayesha & Masjid Jarana Miqat. Fixed rates, 24/7 service. Book your Umrah transport with Haramain Umrah Taxi.",
+    url: "/taxi-fare-from-makkah-to-masjid-ayesha-masjid-jarana-mikat/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Taxi Fare from Makkah to Masjid Ayesha & Masjid Jarana Mikat",
+    description: "Get reasonable taxi fares from Makkah to Masjid Ayesha & Masjid Jarana Miqat. Fixed rates, 24/7 service. Book your Umrah transport with Haramain Umrah Taxi.",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

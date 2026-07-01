@@ -104,7 +104,7 @@ export function FleetTaxisRoutesClient() {
                   <WhatsAppIcon />
                   {heroBookBtn}
                 </a>
-                <Link href="/book-now" className="flex items-center gap-2 px-8 py-4 bg-[var(--bg-alt)] text-[var(--text-1)] font-heading font-bold rounded-xl border border-[var(--border)] hover:bg-[var(--gold)] hover:text-white transition-all">
+                <Link href="/book-now/" className="flex items-center gap-2 px-8 py-4 bg-[var(--bg-alt)] text-[var(--text-1)] font-heading font-bold rounded-xl border border-[var(--border)] hover:bg-[var(--gold)] hover:text-white transition-all">
                   {heroBookNow}
                   <ArrowRight size={20} />
                 </Link>
@@ -176,7 +176,7 @@ export function FleetTaxisRoutesClient() {
                         <WhatsAppIcon className="text-white" />
                         {whatsappBtn}
                       </a>
-                      <a href="/book-now" className="flex-1 flex items-center justify-center py-3 border-2 border-[var(--green)] text-[var(--green)] font-body font-semibold rounded-lg hover:bg-[var(--gold)] hover:border-[var(--gold)] hover:text-white transition-all">
+                      <a href="/book-now/" className="flex-1 flex items-center justify-center py-3 border-2 border-[var(--green)] text-[var(--green)] font-body font-semibold rounded-lg hover:bg-[var(--gold)] hover:border-[var(--gold)] hover:text-white transition-all">
                         {bookNowBtn}
                       </a>
                     </div>

@@ -16,6 +16,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/dates-distribution-services/",
   },
+  openGraph: {
+    title: "Khajoor & Dates Distribution Services in KSA Makkah & Madina",
+    description: "Looking for Khajoor & Dates Distribution Services in Makkah & Madinah? Trust Our Services as we ensure your generosity reaches those in need. Book Now!",
+    url: "/dates-distribution-services/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Khajoor & Dates Distribution Services in KSA Makkah & Madina",
+    description: "Looking for Khajoor & Dates Distribution Services in Makkah & Madinah? Trust Our Services as we ensure your generosity reaches those in need. Book Now!",
+  },
 };
 
 export default function Page() {

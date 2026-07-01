@@ -16,7 +16,7 @@ export function BlogNavigation({ currentPostId }: BlogNavigationProps) {
       <div className="flex items-center justify-between gap-4">
         {prevPost ? (
           <Link
-            href={`/${prevPost.id}`}
+            href={`/${prevPost.id}/`}
             className="flex-1 flex items-center gap-3 p-4 bg-[var(--bg-alt)] border border-[var(--border)] rounded-xl hover:border-[var(--gold)] transition-colors group"
           >
             <ChevronLeft size={20} className="text-[var(--gold)] group-hover:-translate-x-1 transition-transform" />
@@ -31,7 +31,7 @@ export function BlogNavigation({ currentPostId }: BlogNavigationProps) {
         
         {nextPost ? (
           <Link
-            href={`/${nextPost.id}`}
+            href={`/${nextPost.id}/`}
             className="flex-1 flex items-center gap-3 p-4 bg-[var(--bg-alt)] border border-[var(--border)] rounded-xl hover:border-[var(--gold)] transition-colors group text-right"
           >
             <div className="text-left flex-1">

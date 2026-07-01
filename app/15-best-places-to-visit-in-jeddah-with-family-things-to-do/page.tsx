@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/15-best-places-to-visit-in-jeddah-with-family-things-to-do/",
   },
+  openGraph: {
+    title: "15 Best Places to Visit in Jeddah with Family | Things to Do",
+    description: "Discover best places to visit in Jeddah with family. From New Corniche & Jeddah Waterfront Park to theme parks & malls, explore top attractions with our guide.",
+    url: "/15-best-places-to-visit-in-jeddah-with-family-things-to-do/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "15 Best Places to Visit in Jeddah with Family | Things to Do",
+    description: "Discover best places to visit in Jeddah with family. From New Corniche & Jeddah Waterfront Park to theme parks & malls, explore top attractions with our guide.",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

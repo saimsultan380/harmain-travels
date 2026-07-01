@@ -10,47 +10,47 @@ const routes = [
   { 
     title: "Taxi Service From Jeddah Airport to Makkah", 
     image: "/images/jeddah airport to makkah.png", 
-    href: "/jeddah-airport-to-makkah" 
+    href: "/jeddah-airport-to-makkah/" 
   },
   { 
     title: "Taxi Service From Jeddah Airport to Madinah", 
     image: "/images/jeddah airport to madinah.png", 
-    href: "/madinah-aiport-to-hotels" 
+    href: "/madinah-aiport-to-hotels/" 
   },
   { 
     title: "Taxi Service From Madinah to Badar", 
     image: "/images/madinah to badar.png", 
-    href: "/madinah-to-badar-badr-ziyarat-return-taxi-fare-service" 
+    href: "/madinah-to-badar-badr-ziyarat-return-taxi-fare-service/" 
   },
   { 
     title: "Taxi Service From Madinah to Jeddah", 
     image: "/images/madinah to jeddah.png", 
-    href: "/madinah-aiport-to-hotels" 
+    href: "/madinah-aiport-to-hotels/" 
   },
   { 
     title: "Taxi Service From Madinah to Makkah", 
     image: "/images/madinah to makkah.png", 
-    href: "/madinah-to-makkah" 
+    href: "/madinah-to-makkah/" 
   },
   { 
     title: "Taxi Service From Makkah to Badar", 
     image: "/images/makkah to badar.png", 
-    href: "/madinah-to-badar-badr-ziyarat-return-taxi-fare-service" 
+    href: "/madinah-to-badar-badr-ziyarat-return-taxi-fare-service/" 
   },
   { 
     title: "Taxi Service From Makkah to Jeddah", 
     image: "/images/makkah to jeddah.png", 
-    href: "/makkah-to-jeddah" 
+    href: "/makkah-to-jeddah/" 
   },
   { 
     title: "Taxi Service From Makkah to Madinah", 
     image: "/images/makkah to madinah.png", 
-    href: "/makkah-to-madinah" 
+    href: "/makkah-to-madinah/" 
   },
   { 
     title: "Taxi Service From Makkah to Taif", 
     image: "/images/makkah to taif.png", 
-    href: "/our-taxi-services-pricing" 
+    href: "/our-taxi-services-pricing/" 
   },
 ];
 

@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 import { TaxiServicesPricingClient } from "./TaxiServicesPricingClient";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Haramain Umrah Taxi Services Pricing With Routes",
   description:
     "Haramain Umrah Taxi provides the best Taxi and Transport Services in Saudia, Makkah & Madinah. To Check Our Taxi Services Pricing with major routes, Click here!",
+  path: "/our-taxi-services-pricing/",
   keywords: [
     "Taxi pricing Saudi Arabia",
     "Umrah taxi fares",
@@ -15,10 +17,7 @@ export const metadata: Metadata = {
     "Airport taxi rates",
     "Ziyarat taxi prices",
   ],
-  alternates: {
-    canonical: "/our-taxi-services-pricing/",
-  },
-};
+});
 
 export default function Page() {
   return <TaxiServicesPricingClient />;

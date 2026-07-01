@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/best-umrah-taxi-service-in-ramadan/",
   },
+  openGraph: {
+    title: "Best Umrah Taxi Service in Ramadan: Haramain Umrah Taxi Book",
+    description: "Haramain Umrah Taxi offers the best Ramadan taxi service in Makkah & Madinah. Affordable, reliable, Clean Vehicles & 24/7 available. Book your Ride Now.",
+    url: "/best-umrah-taxi-service-in-ramadan/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Best Umrah Taxi Service in Ramadan: Haramain Umrah Taxi Book",
+    description: "Haramain Umrah Taxi offers the best Ramadan taxi service in Makkah & Madinah. Affordable, reliable, Clean Vehicles & 24/7 available. Book your Ride Now.",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

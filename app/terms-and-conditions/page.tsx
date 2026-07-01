@@ -8,6 +8,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/terms-and-conditions/",
   },
+  openGraph: {
+    title: "Terms & Conditions",
+    description: "Read our terms and conditions to understand the rules and regulations for using our Umrah taxi services in Saudi Arabia.",
+    url: "/terms-and-conditions/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms & Conditions",
+    description: "Read our terms and conditions to understand the rules and regulations for using our Umrah taxi services in Saudi Arabia.",
+  },
 };
 
 export default function TermsAndConditions() {

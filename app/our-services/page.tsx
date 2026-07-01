@@ -19,6 +19,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/our-services/",
   },
+  openGraph: {
+    title: "Haramain Umrah Taxi All Services",
+    description: "We specialize in Taxi Services & also provides Damm, Hajj & Umrah Badal, Qurbani, Fidyah, Kaffarah, Quran, Water & Food Distributions Services allover Saudia.",
+    url: "/our-services/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Haramain Umrah Taxi All Services",
+    description: "We specialize in Taxi Services & also provides Damm, Hajj & Umrah Badal, Qurbani, Fidyah, Kaffarah, Quran, Water & Food Distributions Services allover Saudia.",
+  },
 };
 
 export default function Page() {

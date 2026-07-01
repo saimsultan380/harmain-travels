@@ -19,6 +19,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/toyota-hiace-or-hiroof-2/",
   },
+  openGraph: {
+    title: "Book Umrah & Ziyarat Hiace or Hiroof Taxi in Saudia, Makkah, Madina",
+    description: "Do you need 10-seater Hiace or Hiroof taxi in Saudia, Makkah & Madinah for Umrah, Ziyarat, Airport, and Travel? Choose Haramain Umrah Taxi at cheap rates",
+    url: "/toyota-hiace-or-hiroof-2/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Book Umrah & Ziyarat Hiace or Hiroof Taxi in Saudia, Makkah, Madina",
+    description: "Do you need 10-seater Hiace or Hiroof taxi in Saudia, Makkah & Madinah for Umrah, Ziyarat, Airport, and Travel? Choose Haramain Umrah Taxi at cheap rates",
+  },
 };
 
 export default function Page() {

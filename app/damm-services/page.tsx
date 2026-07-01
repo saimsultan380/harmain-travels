@@ -16,6 +16,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/damm-services/",
   },
+  openGraph: {
+    title: "Damm| What is Damm? How to Give/Pay Damm for Umrah & Hajj",
+    description: "We provide economical Damm Services with transparency & proofs. Damm is sacrificial compensation required when rules are violated during Hajj or Umrah.",
+    url: "/damm-services/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Damm| What is Damm? How to Give/Pay Damm for Umrah & Hajj",
+    description: "We provide economical Damm Services with transparency & proofs. Damm is sacrificial compensation required when rules are violated during Hajj or Umrah.",
+  },
 };
 
 export default function Page() {

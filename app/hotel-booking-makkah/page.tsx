@@ -18,6 +18,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/hotel-booking-makkah/",
   },
+  openGraph: {
+    title: "Online Hotel Booking in Makkah | Hotels Near Haram | Call Us",
+    description: "Book hotels in Makkah near Haram with Haramain Umrah Taxi. Driver-recommended 3, 4, and 5-star hotels with exclusive rates. Bundle hotel + taxi services for extra savings.",
+    url: "/hotel-booking-makkah/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Online Hotel Booking in Makkah | Hotels Near Haram | Call Us",
+    description: "Book hotels in Makkah near Haram with Haramain Umrah Taxi. Driver-recommended 3, 4, and 5-star hotels with exclusive rates. Bundle hotel + taxi services for extra savings.",
+  },
 };
 
 export default function Page() {

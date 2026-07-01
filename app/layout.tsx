@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Quicksand, Poppins } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { I18nProvider } from "@/lib/i18n";
-import { Canonical } from "@/components/SEO/Canonical";
 import { StructuredData } from "@/components/SEO/StructuredData";
+import { PageJsonLd } from "@/components/SEO/PageJsonLd";
 import "./globals.css";
 
 const quicksand = Quicksand({
@@ -54,9 +54,6 @@ export const metadata: Metadata = {
     apple: "/favicon.png",
   },
   openGraph: {
-    title: "Haramain Umrah Taxi — Premium Umrah Taxi Service",
-    description: "Your trusted Umrah taxi service across Makkah, Madinah & Jeddah. Fixed fares, licensed drivers, 24/7 availability.",
-    url: "https://haramainumrahtaxi.com",
     siteName: "Haramain Umrah Taxi",
     locale: "en_US",
     type: "website",
@@ -71,15 +68,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Haramain Umrah Taxi — Premium Umrah Taxi Service",
-    description: "Your trusted Umrah taxi service across Makkah, Madinah & Jeddah. Fixed fares, licensed drivers, 24/7 availability.",
     images: ["https://haramainumrahtaxi.com/images/logo.png"],
   },
   verification: {
     google: "u1nnFwDYb7fZptzp1l7aMAF12JjK5qAAg2kPLciGXgA",
-  },
-  alternates: {
-    canonical: "https://haramainumrahtaxi.com",
   },
 };
 
@@ -95,7 +87,8 @@ export default function RootLayout({
       className={`${quicksand.variable} ${poppins.variable} antialiased scroll-smooth`}
     >
       <head>
-        <Canonical />
+        <PageJsonLd />
+        <StructuredData type="website" />
         <StructuredData type="organization" />
         {/* Google Analytics (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-GQCK7SSSMS" />

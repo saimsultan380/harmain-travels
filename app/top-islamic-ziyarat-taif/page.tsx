@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/top-islamic-ziyarat-taif/",
   },
+  openGraph: {
+    title: "List of 9 Top Islamic Ziyarat & Historical Places in Taif",
+    description: "Discover 9 must-visit Islamic Ziyarat sites in Taif. Explore Prophet Muhammad's sacred journey, ancient mosques & blessed valleys. Book your Taif tour now!",
+    url: "/top-islamic-ziyarat-taif/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "List of 9 Top Islamic Ziyarat & Historical Places in Taif",
+    description: "Discover 9 must-visit Islamic Ziyarat sites in Taif. Explore Prophet Muhammad's sacred journey, ancient mosques & blessed valleys. Book your Taif tour now!",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

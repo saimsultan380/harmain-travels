@@ -8,6 +8,17 @@ export const metadata: Metadata = {
   title: "Blog - Umrah & Hajj Travel Guides",
   description: "Stay updated with the latest guides, tips, and information about Umrah travel, taxi services, and religious sites in Saudi Arabia.",
   alternates: { canonical: "/blog/" },
+  openGraph: {
+    title: "Blog - Umrah & Hajj Travel Guides",
+    description: "Stay updated with the latest guides, tips, and information about Umrah travel, taxi services, and religious sites in Saudi Arabia.",
+    url: "/blog/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog - Umrah & Hajj Travel Guides",
+    description: "Stay updated with the latest guides, tips, and information about Umrah travel, taxi services, and religious sites in Saudi Arabia.",
+  },
 };
 
 export default function BlogPage() {

@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/taxi-fare-jeddah-airport-to-makkah/",
   },
+  openGraph: {
+    title: "How Much is the Taxi Fare from Jeddah Airport to Makkah?",
+    description: "Find out the taxi fare from Jeddah Airport to Makkah with Us. Fixed prices from SAR 250, airport pickup, and direct routes to Masjid al-Haram. Book today!",
+    url: "/taxi-fare-jeddah-airport-to-makkah/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How Much is the Taxi Fare from Jeddah Airport to Makkah?",
+    description: "Find out the taxi fare from Jeddah Airport to Makkah with Us. Fixed prices from SAR 250, airport pickup, and direct routes to Masjid al-Haram. Book today!",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

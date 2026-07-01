@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/difference-betweeen-damm-fidyah-kaffarah/",
   },
+  openGraph: {
+    title: "Difference Between Damm, Fidyah, and Kaffarah in Easy Words",
+    description: "Understand the difference between Damm, Fidyah, and Kaffarah in simple words. Learn when each applies during Hajj, Umrah, and Ramadan by Haramain Umrah Taxi",
+    url: "/difference-betweeen-damm-fidyah-kaffarah/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Difference Between Damm, Fidyah, and Kaffarah in Easy Words",
+    description: "Understand the difference between Damm, Fidyah, and Kaffarah in simple words. Learn when each applies during Hajj, Umrah, and Ramadan by Haramain Umrah Taxi",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

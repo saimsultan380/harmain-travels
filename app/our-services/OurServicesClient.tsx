@@ -21,49 +21,49 @@ const taxiServices = [
     title: "Umrah and Hajj Transport",
     description: "Haramain Umrah Taxi provides Umrah and Hajj transport in the holy cities of Makkah and Madinah where millions of pilgrims are attracted every year.",
     image: "/images/umrah-taxi-services.png",
-    href: "/umrah-taxi-services",
+    href: "/umrah-taxi-services/",
   },
   {
     title: "Airport Transfer Services",
     description: "We offer the best and hassle-free hotel transfer services from Jeddah and Madinah airport. Reach safely at your destination with our premium airport transfer service.",
     image: "/images/airport-taxi-services.png",
-    href: "/airport-taxi-services",
+    href: "/airport-taxi-services/",
   },
   {
     title: "Family Taxi Services",
     description: "In Saudi Arabia and nearby cities you can book Haramain Umrah Taxi's Family taxi services in reasonable prices.",
     image: "/images/Family, Group and Event Travel.jpg",
-    href: "/private-taxi-services",
+    href: "/private-taxi-services/",
   },
   {
     title: "Ziyarat Services",
     description: "We offer Ziyarat taxi services across the holy cities of Makkah, Madinah and extend it to Badar and Taif. As the best taxi service in KSA, our top priority is customer's satisfaction.",
     image: "/images/Ziyarat Tours (Makkah, Madinah, Taif, Jeddah, Badar, AlUla).jpg",
-    href: "/umrah-taxi-services",
+    href: "/umrah-taxi-services/",
   },
   {
     title: "Groups Taxi Services",
     description: "Haramain Umrah Taxi provides the best taxi transport services to large groups, schools, colleges, universities, tourists and umrah groups in Saudia.",
     image: "/images/Group  Bus Bookings.jpg",
-    href: "/airport-taxi-services",
+    href: "/airport-taxi-services/",
   },
   {
     title: "Special Events Taxi Services",
     description: "For Special Events like weddings, picnics, tours, umrah and parties you can take the best taxi services in Saudi Arabia from Haramain Umrah Taxi.",
     image: "/images/eid-ul-fitr-taxi-services-in-makkah-madinah-saudi-arabia.png",
-    href: "/private-taxi-services",
+    href: "/private-taxi-services/",
   },
   {
     title: "Private Taxi Services",
     description: "Our private taxi service is specialized for visitors and pilgrims to visit any part of Saudi Arabia comfortably. This service includes our variety of fleet and their customized packages.",
     image: "/images/Private Taxi and VIP Services.jpg",
-    href: "/private-taxi-services",
+    href: "/private-taxi-services/",
   },
   {
     title: "Hotel Transfer Services",
     description: "Utilize our hotel transfer services in Makkah, Madinah and Jeddah with a variety of fleets. Be it a hotel to hotel, airport to hotel or hotel to airport transfer.",
     image: "/images/hotel-transfers-taxi.png",
-    href: "/hotel-transfers-taxi",
+    href: "/hotel-transfers-taxi/",
   },
 ];
 
@@ -72,55 +72,55 @@ const otherServices = [
     title: "Damm Services",
     description: "Haramain Umrah Taxi provides Umrah and Hajj transport in the holy cities of Makkah and Madinah where millions of pilgrims are attracted every year.",
     image: "/images/Damm.jpg",
-    href: "/damm-services",
+    href: "/damm-services/",
   },
   {
     title: "Qurbani Services",
     description: "We offer the best and hassle-free hotel transfer services from Jeddah and Madinah airport. Reach safely at your destination with our premium airport transfer service.",
     image: "/images/Qurbani Services.jpg",
-    href: "/qurbani-services",
+    href: "/qurbani-services/",
   },
   {
     title: "Hajj and Umrah Badal",
     description: "We offer Ziyarat taxi services across the holy cities of Makkah, Madinah and extend it to Badar and Taif. As the best taxi service in KSA, our top priority is customer's satisfaction.",
     image: "/images/Umrah and Hajj Badal.jpg",
-    href: "/hajj-and-umrah-badal",
+    href: "/hajj-and-umrah-badal/",
   },
   {
     title: "Fidyah and Kaffarah",
     description: "Haramain Umrah Taxi provides the best taxi transport services to large groups, schools, colleges, universities, tourists and umrah groups in Saudia.",
     image: "/images/fidyah-and-kaffarah.jpeg",
-    href: "/fidyah-and-kaffarah",
+    href: "/fidyah-and-kaffarah/",
   },
   {
     title: "Quran Waqf Services",
     description: "In Saudi Arabia and nearby cities you can book Haramain Umrah Taxi's Family taxi services in reasonable prices.",
     image: "/images/Quran Waqaf.jpg",
-    href: "/quran-waqf-services",
+    href: "/quran-waqf-services/",
   },
   {
     title: "Umrah Guide Services",
     description: "We offer the best and hassle-free hotel transfer services from Jeddah and Madinah airport. Reach safely at your destination with our premium airport transfer service.",
     image: "/images/Umrah guide.jpg",
-    href: "/umrah-guider-services",
+    href: "/umrah-guider-services/",
   },
   {
     title: "Water Distribution Services",
     description: "Our private taxi service is specialized for visitors and pilgrims to visit any part of Saudi Arabia comfortably. This service includes our variety of fleet and their customized packages.",
     image: "/images/water-distribution-services.jpeg",
-    href: "/water-distribution-services",
+    href: "/water-distribution-services/",
   },
   {
     title: "Food Package Distribution",
     description: "Utilize our hotel transfer services in Makkah, Madinah and Jeddah with a variety of fleets. Be it a hotel to hotel, airport to hotel or hotel to airport transfer.",
     image: "/images/Food Package Distribution.jpg",
-    href: "/food-package-distribution",
+    href: "/food-package-distribution/",
   },
   {
     title: "Dates Distribution Services",
     description: "For Special Events like weddings, picnics, tours, umrah and parties you can take the best taxi services in Saudi Arabia from Haramain Umrah Taxi.",
     image: "/images/dates-distribution-services.jpeg",
-    href: "/dates-distribution-services",
+    href: "/dates-distribution-services/",
   },
 ];
 
@@ -255,7 +255,7 @@ export function OurServicesClient() {
                   {heroBookBtn}
                 </a>
                 <Link
-                  href="/our-taxi-services-pricing"
+                  href="/our-taxi-services-pricing/"
                   className="flex items-center gap-2 px-8 py-4 bg-[var(--bg-alt)] text-[var(--text-1)] font-heading font-bold rounded-xl border border-[var(--border)] hover:bg-[var(--gold)] hover:text-white transition-all"
                 >
                   {heroPricingBtn}

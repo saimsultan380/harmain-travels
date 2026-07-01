@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/best-places-to-visit-in-dammam-things-to-do-in-dammam-ksa/",
   },
+  openGraph: {
+    title: "Best Places to Visit in Dammam & Things to Do in Dammam, KSA",
+    description: "Explore top tourist spots and the best places to visit in Dammam, KSA. Plan your trip and book a comfortable ride with Haramain Umrah Taxi.",
+    url: "/best-places-to-visit-in-dammam-things-to-do-in-dammam-ksa/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Best Places to Visit in Dammam & Things to Do in Dammam, KSA",
+    description: "Explore top tourist spots and the best places to visit in Dammam, KSA. Plan your trip and book a comfortable ride with Haramain Umrah Taxi.",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/14-important-taxi-tips-for-pilgrims-or-travelers-in-ksa/",
   },
+  openGraph: {
+    title: "14 Important Taxi Tips for Pilgrims or Travelers in KSA",
+    description: "Learn 14 taxi tips for pilgrims or travelers in KSA. Trust Haramain Umrah Taxi, we follow every safety guideline to protect our pilgrims and tourists.",
+    url: "/14-important-taxi-tips-for-pilgrims-or-travelers-in-ksa/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "14 Important Taxi Tips for Pilgrims or Travelers in KSA",
+    description: "Learn 14 taxi tips for pilgrims or travelers in KSA. Trust Haramain Umrah Taxi, we follow every safety guideline to protect our pilgrims and tourists.",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

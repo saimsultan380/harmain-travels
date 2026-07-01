@@ -8,6 +8,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/umrah-taxi-services/",
   },
+  openGraph: {
+    title: "Umrah Taxi Services in Makkah & Madinah, Saudi Arabia",
+    description: "Haramain Umrah Taxi offers best Umrah taxi services in Makkah & Madinah. Book private taxi for Umrah pilgrims with fixed rates & licensed drivers.",
+    url: "/umrah-taxi-services/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Umrah Taxi Services in Makkah & Madinah, Saudi Arabia",
+    description: "Haramain Umrah Taxi offers best Umrah taxi services in Makkah & Madinah. Book private taxi for Umrah pilgrims with fixed rates & licensed drivers.",
+  },
 };
 
 export default function Page() {

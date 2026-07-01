@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/private-car-for-makkah-from-jeddah-airport/",
   },
+  openGraph: {
+    title: "How to Get a Private Car for Makkah from Jeddah Airport?",
+    description: "Do you want to get the best discounted private car for Makkah from Jeddah Airport? WhatsApp or Call Us, we provide 24/7 Jeddah airport to Makkah private cars",
+    url: "/private-car-for-makkah-from-jeddah-airport/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How to Get a Private Car for Makkah from Jeddah Airport?",
+    description: "Do you want to get the best discounted private car for Makkah from Jeddah Airport? WhatsApp or Call Us, we provide 24/7 Jeddah airport to Makkah private cars",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

@@ -18,6 +18,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/madinah-to-makkah/",
   },
+  openGraph: {
+    title: "Madinah to Makkah Taxi, Car, Bus| Madinah to Mecca Taxi Fare",
+    description: "Haramain Umrah Taxi provides the best Madinah to Makkah taxi services. Our taxi fare from Madinah to Makkah is affordable with 24/7 availability. Call Now!",
+    url: "/madinah-to-makkah/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Madinah to Makkah Taxi, Car, Bus| Madinah to Mecca Taxi Fare",
+    description: "Haramain Umrah Taxi provides the best Madinah to Makkah taxi services. Our taxi fare from Madinah to Makkah is affordable with 24/7 availability. Call Now!",
+  },
 };
 
 export default function Page() {

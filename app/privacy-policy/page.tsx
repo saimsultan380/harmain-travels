@@ -8,6 +8,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/privacy-policy/",
   },
+  openGraph: {
+    title: "Privacy Policy",
+    description: "Read our privacy policy to understand how we collect, use, and protect your personal information when you use our Umrah taxi services.",
+    url: "/privacy-policy/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy",
+    description: "Read our privacy policy to understand how we collect, use, and protect your personal information when you use our Umrah taxi services.",
+  },
 };
 
 export default function PrivacyPolicy() {

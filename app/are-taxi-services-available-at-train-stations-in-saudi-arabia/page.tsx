@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/are-taxi-services-available-at-train-stations-in-saudi-arabia/",
   },
+  openGraph: {
+    title: "Are Taxi Services Available at Train Stations in Saudi Arabia?",
+    description: "Find out if taxis are available at Saudi train stations. Discover easy booking options for Makkah and Madinah hotel transfers with trusted Umrah taxi service.",
+    url: "/are-taxi-services-available-at-train-stations-in-saudi-arabia/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Are Taxi Services Available at Train Stations in Saudi Arabia?",
+    description: "Find out if taxis are available at Saudi train stations. Discover easy booking options for Makkah and Madinah hotel transfers with trusted Umrah taxi service.",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

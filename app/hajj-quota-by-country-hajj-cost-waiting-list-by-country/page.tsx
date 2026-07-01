@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/hajj-quota-by-country-hajj-cost-waiting-list-by-country/",
   },
+  openGraph: {
+    title: "Hajj Quota by Country, Hajj Cost & Waiting List by Country",
+    description: "Hajj is a journey that a Muslim can make during his or her lifetime. It is one of the most significant ones. However, there is one thing that you need to know",
+    url: "/hajj-quota-by-country-hajj-cost-waiting-list-by-country/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hajj Quota by Country, Hajj Cost & Waiting List by Country",
+    description: "Hajj is a journey that a Muslim can make during his or her lifetime. It is one of the most significant ones. However, there is one thing that you need to know",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/uber-vs-taxi-why-haramain-umrah-taxi-cheaper/",
   },
+  openGraph: {
+    title: "Uber vs Taxi: Why is a Haramain Umrah Taxi Cheaper than Uber",
+    description: "Compare Uber vs Taxi for Umrah travel and discover why Haramain Umrah Taxi is cheaper than Uber. Enjoy fixed pricing, no surge fares, and reliable transfers.",
+    url: "/uber-vs-taxi-why-haramain-umrah-taxi-cheaper/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Uber vs Taxi: Why is a Haramain Umrah Taxi Cheaper than Uber",
+    description: "Compare Uber vs Taxi for Umrah travel and discover why Haramain Umrah Taxi is cheaper than Uber. Enjoy fixed pricing, no surge fares, and reliable transfers.",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

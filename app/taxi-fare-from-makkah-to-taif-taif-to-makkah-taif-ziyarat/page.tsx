@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/taxi-fare-from-makkah-to-taif-taif-to-makkah-taif-ziyarat/",
   },
+  openGraph: {
+    title: "Taxi Fare from Makkah to Taif & Taif to Makkah & Taif Ziyarat",
+    description: "Affordable taxi service from Makkah to Taif. Rates from SAR 380. Ziyarat tours included. Book Camry, GMC, Hiace, Coaster & Bus. Available 24/7.",
+    url: "/taxi-fare-from-makkah-to-taif-taif-to-makkah-taif-ziyarat/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Taxi Fare from Makkah to Taif & Taif to Makkah & Taif Ziyarat",
+    description: "Affordable taxi service from Makkah to Taif. Rates from SAR 380. Ziyarat tours included. Book Camry, GMC, Hiace, Coaster & Bus. Available 24/7.",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

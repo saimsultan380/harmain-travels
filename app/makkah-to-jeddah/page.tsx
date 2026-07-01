@@ -18,6 +18,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/makkah-to-jeddah/",
   },
+  openGraph: {
+    title: "Makkah to Jeddah Taxi, GMC, Bus & Fares: 24/7 Taxi Booking",
+    description: "Book 24/7 Makkah to Jeddah taxi, GMC, or bus with ease. Your ride is just a call away with affordable fares, reliable service, luxury fleet and quick travel.",
+    url: "/makkah-to-jeddah/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Makkah to Jeddah Taxi, GMC, Bus & Fares: 24/7 Taxi Booking",
+    description: "Book 24/7 Makkah to Jeddah taxi, GMC, or bus with ease. Your ride is just a call away with affordable fares, reliable service, luxury fleet and quick travel.",
+  },
 };
 
 export default function Page() {

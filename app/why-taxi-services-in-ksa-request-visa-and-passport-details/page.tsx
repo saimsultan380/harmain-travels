@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/why-taxi-services-in-ksa-request-visa-and-passport-details/",
   },
+  openGraph: {
+    title: "Why Taxi Services in KSA Request Visa and Passport Details?",
+    description: "Discover why KSA taxi services require visa and passport details for pilgrim safety and compliance. Book secure Haramain Umrah Taxi today.",
+    url: "/why-taxi-services-in-ksa-request-visa-and-passport-details/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Why Taxi Services in KSA Request Visa and Passport Details?",
+    description: "Discover why KSA taxi services require visa and passport details for pilgrim safety and compliance. Book secure Haramain Umrah Taxi today.",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

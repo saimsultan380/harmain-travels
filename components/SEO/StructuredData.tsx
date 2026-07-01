@@ -29,8 +29,8 @@ export function StructuredData({
   const organizationData = {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${siteUrl}/#organization`,
     "name": "Haramain Umrah Taxi",
-    "url": siteUrl,
     "logo": defaultImage,
     "description": defaultDescription,
     "contactPoint": {
@@ -55,15 +55,11 @@ export function StructuredData({
     structuredData = {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": title || defaultTitle,
-      "description": description || defaultDescription,
-      "url": url || siteUrl,
-      "publisher": organizationData,
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": `${siteUrl}/search?q={search_term_string}`,
-        "query-input": "required name=search_term_string"
-      }
+      "@id": `${siteUrl}/#website`,
+      "name": defaultTitle,
+      "description": defaultDescription,
+      "url": `${siteUrl}/`,
+      "publisher": { "@id": `${siteUrl}/#organization` },
     };
   } else if (type === 'article') {
     structuredData = {
@@ -79,7 +75,7 @@ export function StructuredData({
         "@type": "Person",
         "name": author
       },
-      "publisher": organizationData
+      "publisher": { "@id": `${siteUrl}/#organization` }
     };
   } else if (type === 'service') {
     structuredData = {
@@ -87,7 +83,7 @@ export function StructuredData({
       "@type": "Service",
       "name": title || "Umrah Taxi Service",
       "description": description || defaultDescription,
-      "provider": organizationData,
+      "provider": { "@id": `${siteUrl}/#organization` },
       "areaServed": {
         "@type": "Country",
         "name": "Saudi Arabia"

@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/wadi-hanifa-garden-park-riyadh-a-complete-tour-guide/",
   },
+  openGraph: {
+    title: "Wadi Hanifa Garden & Park, Riyadh: A Complete Tour Guide",
+    description: "Explore Wadi Hanifa Garden & Park in Riyadh with our complete tour guide with attractions, tips, and travel help by Haramain Umrah Taxi.",
+    url: "/wadi-hanifa-garden-park-riyadh-a-complete-tour-guide/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Wadi Hanifa Garden & Park, Riyadh: A Complete Tour Guide",
+    description: "Explore Wadi Hanifa Garden & Park in Riyadh with our complete tour guide with attractions, tips, and travel help by Haramain Umrah Taxi.",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

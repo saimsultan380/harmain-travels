@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/nusuk-masar-how-to-apply-umrah-visa-through-nusuk-in-2026/",
   },
+  openGraph: {
+    title: "Nusuk Masar: How to Apply Umrah Visa through Nusuk in 2026",
+    description: "Learn how to apply for Umrah visa through Nusuk Masar in 2026, including process, fees, requirements & transport booking tips. Apply Umrah Visa & Book Our Taxi",
+    url: "/nusuk-masar-how-to-apply-umrah-visa-through-nusuk-in-2026/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nusuk Masar: How to Apply Umrah Visa through Nusuk in 2026",
+    description: "Learn how to apply for Umrah visa through Nusuk Masar in 2026, including process, fees, requirements & transport booking tips. Apply Umrah Visa & Book Our Taxi",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

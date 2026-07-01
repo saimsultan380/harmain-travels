@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/taxi-booking-advance-ksa/",
   },
+  openGraph: {
+    title: "Benefits of Booking Airport or Umrah Taxi in Advance in KSA",
+    description: "Discover the benefits of pre-booking your airport or Umrah taxi in Saudi Arabia. Save money, ensure availability & enjoy peace of mind. Book with Haramain Umrah Taxi now!",
+    url: "/taxi-booking-advance-ksa/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Benefits of Booking Airport or Umrah Taxi in Advance in KSA",
+    description: "Discover the benefits of pre-booking your airport or Umrah taxi in Saudi Arabia. Save money, ensure availability & enjoy peace of mind. Book with Haramain Umrah Taxi now!",
+  },
 };
 
 const post = {
@@ -35,7 +46,7 @@ export default function BlogPostPage() {
           <div className="max-w-6xl mx-auto">
             {/* Back Button */}
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-[var(--green)] font-body font-semibold mb-8 hover:gap-3 transition-all"
             >
               <ArrowLeft size={20} />

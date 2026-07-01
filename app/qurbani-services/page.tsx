@@ -16,6 +16,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/qurbani-services/",
   },
+  openGraph: {
+    title: "Qurbani| Sadaqah, Aqeeqah, Hajj Qurbani Services in Makkah",
+    description: "We provide the best Qurbani Services in Makkah with proofs and transparency. We give Aqeeqah, Sadaqah, Eid ul Adha, Hady/Hajj Qurbani Services in Makkah",
+    url: "/qurbani-services/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Qurbani| Sadaqah, Aqeeqah, Hajj Qurbani Services in Makkah",
+    description: "We provide the best Qurbani Services in Makkah with proofs and transparency. We give Aqeeqah, Sadaqah, Eid ul Adha, Hady/Hajj Qurbani Services in Makkah",
+  },
 };
 
 export default function Page() {

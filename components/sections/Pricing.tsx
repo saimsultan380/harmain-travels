@@ -21,7 +21,7 @@ export function Pricing() {
           </p>
         </div>
 
-        <div className="mt-10 mx-auto max-w-5xl">
+        <div className="mt-10 mx-auto max-w-6xl">
           <Image
             src="/images/haramain rate list12-01.png"
             alt="Haramain Umrah Taxi Price List"

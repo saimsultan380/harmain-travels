@@ -87,9 +87,6 @@ export default function RootLayout({
       className={`${quicksand.variable} ${poppins.variable} antialiased scroll-smooth`}
     >
       <head>
-        <PageJsonLd />
-        <StructuredData type="website" />
-        <StructuredData type="organization" />
         {/* Google Analytics (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-GQCK7SSSMS" />
         <script
@@ -99,6 +96,9 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col overflow-x-hidden font-body bg-[var(--bg)] text-[var(--text-1)]" suppressHydrationWarning>
+        <PageJsonLd />
+        <StructuredData type="website" />
+        <StructuredData type="organization" />
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <I18nProvider>{children}</I18nProvider>
         </ThemeProvider>

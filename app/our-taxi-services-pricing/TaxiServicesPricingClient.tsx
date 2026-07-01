@@ -34,7 +34,7 @@ export function TaxiServicesPricingClient() {
 
         <AnimatedSection className="border-t border-[var(--border)] bg-[var(--bg)] py-24">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="mx-auto max-w-5xl">
+            <div className="mx-auto max-w-6xl">
               <Image
                 src="/images/haramain rate list12-01.png"
                 alt="Haramain Umrah Taxi Price List"

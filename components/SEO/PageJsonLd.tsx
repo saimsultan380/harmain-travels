@@ -1,9 +1,10 @@
-import { headers } from "next/headers";
+"use client";
+
+import { usePathname } from "next/navigation";
 import { absoluteUrl, normalizePath } from "@/lib/seo";
 
-export async function PageJsonLd() {
-  const headersList = await headers();
-  const pathname = headersList.get("x-pathname") ?? "/";
+export function PageJsonLd() {
+  const pathname = usePathname();
   const pageUrl = absoluteUrl(normalizePath(pathname));
 
   const data = {

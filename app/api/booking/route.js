@@ -9,6 +9,10 @@ const BOOKING_PLUGIN_CONFIG = {
   plugin_agents_id: process.env.BOOKING_PLUGIN_AGENTS_ID || "54",
 };
 
+const BOOKING_SERVER_DEFAULTS = {
+  users_agents_id: process.env.BOOKING_USERS_AGENTS_ID || "54",
+};
+
 export async function POST(request) {
   try {
     const apiBase = process.env.NEXT_PUBLIC_API_BASE || process.env.API_BASE;
@@ -24,7 +28,7 @@ export async function POST(request) {
 
     Object.entries(body).forEach(([key, value]) => {
       // Prevent client-side spoofing for server-managed plugin fields.
-      if (key in BOOKING_PLUGIN_CONFIG) return;
+      if (key in BOOKING_PLUGIN_CONFIG || key in BOOKING_SERVER_DEFAULTS) return;
 
       if (Array.isArray(value)) {
         value.forEach((v) => {
@@ -37,6 +41,10 @@ export async function POST(request) {
 
     // Always attach required plugin configuration with every booking.
     Object.entries(BOOKING_PLUGIN_CONFIG).forEach(([key, value]) => {
+      formData.set(key, String(value));
+    });
+
+    Object.entries(BOOKING_SERVER_DEFAULTS).forEach(([key, value]) => {
       formData.set(key, String(value));
     });
 

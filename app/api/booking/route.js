@@ -1,5 +1,14 @@
 export const dynamic = "force-dynamic";
 
+// Enforce plugin config server-side so client requests cannot override it.
+const BOOKING_PLUGIN_CONFIG = {
+  base_url:
+    process.env.BOOKING_PLUGIN_BASE_URL || "https://portal.fatertransport.com/",
+  plugin_service_type:
+    process.env.BOOKING_PLUGIN_SERVICE_TYPE || "R Haramain",
+  plugin_agents_id: process.env.BOOKING_PLUGIN_AGENTS_ID || "54",
+};
+
 export async function POST(request) {
   try {
     const apiBase = process.env.NEXT_PUBLIC_API_BASE || process.env.API_BASE;
@@ -8,12 +17,15 @@ export async function POST(request) {
     }
 
     const body = await request.json();
-    console.log("Request body:", body);
+    console.log("Request body received for booking");
 
     // Convert to form-urlencoded format
     const formData = new URLSearchParams();
 
     Object.entries(body).forEach(([key, value]) => {
+      // Prevent client-side spoofing for server-managed plugin fields.
+      if (key in BOOKING_PLUGIN_CONFIG) return;
+
       if (Array.isArray(value)) {
         value.forEach((v) => {
           formData.append(key, v);
@@ -21,6 +33,11 @@ export async function POST(request) {
       } else if (value !== null && value !== undefined) {
         formData.append(key, String(value));
       }
+    });
+
+    // Always attach required plugin configuration with every booking.
+    Object.entries(BOOKING_PLUGIN_CONFIG).forEach(([key, value]) => {
+      formData.set(key, String(value));
     });
 
     const response = await fetch(`${apiBase}/bookings_add_plugin`, {

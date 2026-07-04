@@ -47,7 +47,7 @@ export const fleet = [
     price: 450,
     passengers: 18,
     luggage: 25,
-    image: '/images/fleet/coaster.jpg'
+    image: '/images/fleet/coaster.png'
   },
   {
     id: 'bus',

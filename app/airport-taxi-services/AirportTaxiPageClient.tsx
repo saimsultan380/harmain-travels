@@ -356,7 +356,7 @@ export function AirportTaxiPageClient() {
               {/* Bottom Row: 3 Cards */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <PriceCard title={tm<string>("fleet.names.3", "Hiace Microbus")} pax="12 Passengers" bag="Group Luggage" price="SAR 400" image="/images/fleet/hiace-microbus.png" />
-                <PriceCard title={tm<string>("fleet.names.4", "Coaster")} pax="18 Passengers" bag="Full Group Luggage" price="SAR 600" image="/images/fleet/coaster.jpg" />
+                <PriceCard title={tm<string>("fleet.names.4", "Coaster")} pax="18 Passengers" bag="Full Group Luggage" price="SAR 600" image="/images/fleet/coaster.png" />
                 <PriceCard title={tm<string>("fleet.names.5", "Bus")} pax="50 Passengers" bag="Large Group Luggage" price="SAR 950" image="/images/fleet/bus.png" />
               </div>
             </div>

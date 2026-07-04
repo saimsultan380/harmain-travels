@@ -446,7 +446,7 @@ export function UmrahTaxiPageClient() {
                 bag="25"
                 description={p.fleet5Desc ?? "Perfect for larger groups. Ideal for Ziyarat tours and group Umrah taxi KSA services."}
                 price={p.fleet5Price ?? "Group Coach"}
-                image="/images/fleet/coaster.jpg"
+                image="/images/fleet/coaster.png"
                 popularBadge={p.popularBadge ?? "Most Popular"}
                 paxLabel={p.paxLabel ?? "Pax"}
                 bagLabel={p.bagLabel ?? "Bags"}

@@ -439,7 +439,7 @@ export function HotelTransfersClient() {
                   pax={p.fleet3Pax ?? "12-14 Passengers"}
                   bag={p.fleet3Bag ?? "Group Luggage Capacity"}
                   description={p.fleet3Desc ?? "These work perfectly for extended family groups or friends traveling together for Umrah. Everyone stays together."}
-                  image="/images/fleet/coaster.jpg"
+                  image="/images/fleet/coaster.png"
                   bookBtn={p.fleetBookBtn ?? "Book Now via WhatsApp"}
                 />
               </div>

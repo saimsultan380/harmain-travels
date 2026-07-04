@@ -394,7 +394,7 @@ export function MakkahToJeddahClient() {
                 <Card
                   title={tm<string>("fleet.names.4", "Coaster")}
                   description={t("makkahToJeddah.fleetCoasterDesc")}
-                  imageUrl="/images/fleet/coaster.jpg"
+                  imageUrl="/images/fleet/coaster.png"
                 />
                 <Card
                   title={tm<string>("fleet.names.5", "Bus")}

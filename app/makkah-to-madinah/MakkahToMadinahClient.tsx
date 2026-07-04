@@ -313,7 +313,7 @@ export function MakkahToMadinahClient() {
                 <Card
                   title={tm<string>("fleet.names.4", "Coaster")}
                   description={p.fleet5Desc ?? "Excellent option for medium-sized groups with plenty of seating, air conditioning, and reliable transfers."}
-                  imageUrl="/images/fleet/coaster.jpg"
+                  imageUrl="/images/fleet/coaster.png"
                 />
                 <Card
                   title={tm<string>("fleet.names.5", "Bus")}

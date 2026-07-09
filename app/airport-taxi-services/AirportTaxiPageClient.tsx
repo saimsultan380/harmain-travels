@@ -128,7 +128,7 @@ export function AirportTaxiPageClient() {
 
         {/* HERO SECTION */}
         <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-[var(--bg)] overflow-hidden flex flex-col justify-center min-h-[85vh]">
-          <div className="absolute inset-0 bg-[url('/images/airport-taxi-services.png')] bg-cover bg-center bg-no-repeat z-0" />
+          <div className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0" style={{ backgroundImage: "url('/images/Airport Transfers  Madinah & Jeddah Airport Taxi HERO section.png')" }} />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/65 to-black/80 z-10" />
           <IslamicGeometricBg className="opacity-10 dark:opacity-20" />
 
@@ -373,9 +373,13 @@ export function AirportTaxiPageClient() {
                   <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
                     {p.returnText ?? "Makkah to Jeddah airport taxi handles your departure just as professionally. You tell us your flight time. We calculate the perfect pickup time, ensuring you reach the airport with adequate check-in time. International flights need an early arrival. We factor this automatically into our timing."}
                   </p>
-                  <div className="aspect-[16/9] bg-[var(--bg-alt)] border-2 border-dashed border-[var(--border)] rounded-3xl flex flex-col items-center justify-center text-[var(--text-3)] overflow-hidden">
-                    <Plane size={64} className="mb-4 opacity-20" />
-                    <span className="text-sm font-heading font-bold uppercase tracking-widest opacity-40">Makkah Return Service Image</span>
+                  <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden mt-6">
+                    <Image
+                      src="/images/Makkah to Jeddah Airport Taxi - Return Service.png"
+                      alt="Makkah to Jeddah Airport Taxi - Return Service"
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
                 </div>
               </div>
@@ -423,7 +427,7 @@ export function AirportTaxiPageClient() {
             </div>
 
             {/* ROW 1: Intro Text Card (L) + Image (R) */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch mb-20">
               <div className="order-2 lg:order-1">
                 <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[32px] p-8 md:p-12 relative overflow-hidden h-full flex flex-col justify-center">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--gold)]/5 rounded-full -mr-16 -mt-16 blur-2xl" />
@@ -437,33 +441,25 @@ export function AirportTaxiPageClient() {
                   </div>
                 </div>
               </div>
-              <div className="order-1 lg:order-2">
-                <div className="relative">
-                  <div className="absolute -right-4 -top-4 w-24 h-24 bg-[var(--gold)]/10 rounded-full blur-2xl" />
-                  <div className="rounded-3xl border-2 border-[var(--border)] p-2 bg-[var(--bg-alt)]">
-                    <div className="aspect-video bg-[var(--bg)] rounded-2xl flex flex-col items-center justify-center text-[var(--text-3)] border border-[var(--border)] relative overflow-hidden group">
-                      <div className="absolute inset-0 bg-[var(--gold)]/5 group-hover:bg-[var(--gold)]/10 transition-colors" />
-                      <Plane size={64} className="mb-4 opacity-20 relative z-10" />
-                      <span className="text-xs font-heading font-bold uppercase tracking-widest opacity-40 relative z-10">Madinah Airport View</span>
-                    </div>
-                  </div>
-                </div>
+              <div className="order-1 lg:order-2 rounded-[32px] overflow-hidden relative min-h-[400px] h-full">
+                <Image
+                  src="/images/Madinah Airport Taxi Service from Prince Mohammad Bin Abdulaziz Airport.png"
+                  alt="Prince Mohammad Bin Abdulaziz Airport"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-500"
+                />
               </div>
             </div>
 
             {/* ROW 2: Image (L) + Nabawi Taxi Box (R) */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
-              <div className="order-1">
-                <div className="relative">
-                  <div className="absolute -left-4 -top-4 w-24 h-24 bg-[var(--gold)]/10 rounded-full blur-2xl" />
-                  <div className="rounded-3xl border-2 border-[var(--border)] p-2 bg-[var(--bg-alt)]">
-                    <div className="aspect-video bg-[var(--bg)] rounded-2xl flex flex-col items-center justify-center text-[var(--text-3)] border border-[var(--border)] relative overflow-hidden group">
-                      <div className="absolute inset-0 bg-[var(--gold)]/5 group-hover:bg-[var(--gold)]/10 transition-colors" />
-                      <MapPin size={64} className="mb-4 opacity-20 relative z-10" />
-                      <span className="text-xs font-heading font-bold uppercase tracking-widest opacity-40 relative z-10">Route to Masjid Nabawi</span>
-                    </div>
-                  </div>
-                </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch mb-24">
+              <div className="order-1 rounded-[32px] overflow-hidden relative min-h-[400px] h-full">
+                <Image
+                  src="/images/Madinah Airport to Masjid Nabawi Taxi.png"
+                  alt="Madinah Airport to Masjid Nabawi Taxi"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-500"
+                />
               </div>
               <div className="order-2">
                 <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-3xl p-8 md:p-12 relative overflow-hidden">
@@ -499,23 +495,25 @@ export function AirportTaxiPageClient() {
                     </p>
                   </div>
                 </div>
-                <div className="rounded-[32px] border-2 border-[var(--border)] p-2 bg-[var(--bg-alt)]">
-                  <div className="h-full min-h-[300px] bg-[var(--bg)] rounded-2xl flex flex-col items-center justify-center text-[var(--text-3)] border border-[var(--border)] relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-[var(--green)]/5 group-hover:bg-[var(--green)]/10 transition-colors" />
-                    <StarIcon size={48} className="mb-4 opacity-20 relative z-10 text-[var(--green)]" />
-                    <span className="text-xs font-heading font-bold uppercase tracking-widest opacity-40 relative z-10">Bus vs Taxi Interior</span>
-                  </div>
+                <div className="rounded-[32px] overflow-hidden relative min-h-[300px] h-full">
+                  <Image
+                    src="/images/Madinah Airport Bus Fare Comparison.png"
+                    alt="Madinah Airport Bus Fare Comparison"
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
               </div>
 
               {/* Row 4: Image (L) + Intercity Box (R) | Light Yellow BG */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-                <div className="order-2 lg:order-1 rounded-[32px] border-2 border-[var(--border)] p-2 bg-[var(--bg-alt)]">
-                  <div className="h-full min-h-[300px] bg-[var(--bg)] rounded-2xl flex flex-col items-center justify-center text-[var(--text-3)] border border-[var(--border)] relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-[var(--gold)]/5 group-hover:bg-[var(--gold)]/10 transition-colors" />
-                    <Plane size={48} className="mb-4 opacity-20 relative z-10 text-[var(--gold)]" />
-                    <span className="text-xs font-heading font-bold uppercase tracking-widest opacity-40 relative z-10">Jeddah - Madinah Highway</span>
-                  </div>
+                <div className="order-2 lg:order-1 rounded-[32px] overflow-hidden relative min-h-[300px] h-full">
+                  <Image
+                    src="/images/Jeddah Airport to Madinah Intercity.png"
+                    alt="Jeddah Airport to Madinah Intercity"
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
                 <div className="order-1 lg:order-2 bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[32px] p-8 md:p-12 relative overflow-hidden flex flex-col justify-center">
                   <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-[var(--gold)]/10 rounded-full blur-3xl" />

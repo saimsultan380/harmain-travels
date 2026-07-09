@@ -1,5 +1,15 @@
 export const blogPosts = [
   {
+    id: "best-umrah-taxi-service-in-rabiulawal",
+    title: "Best Umrah Taxi Service in Rabi-ul-Awal in Makkah & Madinah",
+    excerpt: "Haramain Umrah Taxi offers the best Umrah taxi service in Rabi-ul-Awal in Makkah & Madinah. Book airport transfers, intercity routes & Ziyarat rides. Reserve Now!",
+    categories: ["taxi-guides"],
+    date: "2026-07-09",
+    readTime: "9 min read",
+    image: "/images/Best Umrah Taxi Service in Rabi-ul-Awal in Makkah & Madinah.png",
+    author: "M Umar Irfan",
+  },
+  {
     id: "madinah-to-badar-badr-ziyarat-return-taxi-fare-service",
     title: "Madinah to Badar & Badr Ziyarat & Return Taxi Fare & Service",
     excerpt: "Get a 7-seater private Starex or Staria Umrah taxi from Umrah Passenger at very discounted prices. Get Staria for Ziyarat, Airport and Inter-city transfers!",

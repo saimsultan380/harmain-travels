@@ -152,7 +152,7 @@ export function UmrahTaxiPageClient() {
       <main className="flex-grow overflow-hidden">
         {/* HERO SECTION */}
         <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden flex flex-col justify-center min-h-[85vh]">
-          <div className="absolute inset-0 bg-[url('/images/umrah-taxi-services.png')] bg-cover bg-center bg-no-repeat z-0" />
+          <div className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0" style={{ backgroundImage: "url('/images/Your Trusted Partner for Sacred Journeys.png')" }} />
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/75 to-black/85 z-10" />
           <IslamicGeometricBg opacity={0.04} />
           
@@ -505,7 +505,7 @@ export function UmrahTaxiPageClient() {
             </div>
 
             {/* Z-PATTERN 1: MAKKAH */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch mb-24">
               <div className="order-2 lg:order-1">
                 <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[32px] p-8 md:p-12 relative overflow-hidden shadow-sm">
                   <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-6 border-b border-[var(--gold)]/20 pb-4">{p.ziyaratMakkahTitle ?? "Ziyarat in Makkah Mukarramah"}</h3>
@@ -515,21 +515,27 @@ export function UmrahTaxiPageClient() {
                   </div>
                 </div>
               </div>
-              <div className="order-1 lg:order-2 rounded-3xl overflow-hidden aspect-video relative border-2 border-[var(--border)] p-2">
-                <div className="w-full h-full bg-[var(--bg-alt)] rounded-2xl flex flex-col items-center justify-center text-[var(--text-3)]">
-                  <MapPin size={48} className="opacity-20 mb-4" />
-                  <span className="text-xs font-heading font-bold opacity-40 uppercase tracking-widest">Makkah Ziyarat Landmarks</span>
-                </div>
+              <div className="order-1 lg:order-2 rounded-[32px] overflow-hidden relative min-h-[400px] h-full">
+                <Image
+                  src="/images/Umrah Taxi Services in Makkah 1.png"
+                  alt="Makkah Ziyarat Landmarks"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover hover:scale-105 transition-transform duration-500"
+                />
               </div>
             </div>
 
             {/* Z-PATTERN 2: MADINAH */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
-              <div className="order-1 lg:order-1 rounded-3xl overflow-hidden aspect-video relative border-2 border-[var(--border)] p-2">
-                <div className="w-full h-full bg-[var(--bg-alt)] rounded-2xl flex flex-col items-center justify-center text-[var(--text-3)]">
-                  <CheckCircle size={48} className="opacity-20 mb-4" />
-                  <span className="text-xs font-heading font-bold opacity-40 uppercase tracking-widest">Madinah Historic Sites</span>
-                </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch mb-24">
+              <div className="order-1 lg:order-1 rounded-[32px] overflow-hidden relative min-h-[400px] h-full">
+                <Image
+                  src="/images/15-Best-Places-to-Visit-in-Madinah.png"
+                  alt="Madinah Historic Sites"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover hover:scale-105 transition-transform duration-500"
+                />
               </div>
               <div className="order-2">
                 <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[32px] p-8 md:p-12 relative overflow-hidden shadow-sm">
@@ -543,7 +549,7 @@ export function UmrahTaxiPageClient() {
             </div>
 
             {/* Z-PATTERN 3: BEYOND */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
               <div className="order-2 lg:order-1">
                 <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/30 rounded-[32px] p-8 md:p-12 relative overflow-hidden shadow-sm">
                   <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-6 border-b border-[var(--gold)]/20 pb-4">{p.ziyaratTaifTitle ?? "Taif & Jeddah Day Tours"}</h3>
@@ -553,11 +559,14 @@ export function UmrahTaxiPageClient() {
                   </div>
                 </div>
               </div>
-              <div className="order-1 lg:order-2 rounded-3xl overflow-hidden aspect-video relative border-2 border-[var(--border)] p-2">
-                <div className="w-full h-full bg-[var(--bg-alt)] rounded-2xl flex flex-col items-center justify-center text-[var(--text-3)]">
-                  <Search size={48} className="opacity-20 mb-4" />
-                  <span className="text-xs font-heading font-bold opacity-40 uppercase tracking-widest">Taif & Jeddah Exploration</span>
-                </div>
+              <div className="order-1 lg:order-2 rounded-[32px] overflow-hidden relative min-h-[400px] h-full">
+                <Image
+                  src="/images/Ziyarat Tours (Makkah, Madinah, Taif, Jeddah, Badar, AlUla).jpg"
+                  alt="Taif and Jeddah Exploration"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover hover:scale-105 transition-transform duration-500"
+                />
               </div>
             </div>
           </div>

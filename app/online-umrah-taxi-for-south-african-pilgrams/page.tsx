@@ -10,12 +10,12 @@ export const metadata: Metadata = {
   title: "Book Online Umrah Taxi for South African Pilgrims at Cheap Fares",
   description: "Book affordable online Umrah taxi services for South African pilgrims. Safe, comfortable transfers from Jeddah to Makkah & Madinah. Reserve your ride now!",
   alternates: {
-    canonical: "/umrah-taxi-south-african/",
+    canonical: "/online-umrah-taxi-for-south-african-pilgrams/",
   },
   openGraph: {
     title: "Book Online Umrah Taxi for South African Pilgrims at Cheap Fares",
     description: "Book affordable online Umrah taxi services for South African pilgrims. Safe, comfortable transfers from Jeddah to Makkah & Madinah. Reserve your ride now!",
-    url: "/umrah-taxi-south-african/",
+    url: "/online-umrah-taxi-for-south-african-pilgrams/",
     type: "website",
   },
   twitter: {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 };
 
 const post = {
-  id: "umrah-taxi-south-african",
+  id: "online-umrah-taxi-for-south-african-pilgrams",
   title: "Book Online Umrah Taxi for South African Pilgrims at Cheap Fares",
   excerpt: "Book affordable online Umrah taxi services for South African pilgrims. Safe, comfortable transfers from Jeddah to Makkah & Madinah. Reserve your ride now!",
   category: "other-services",

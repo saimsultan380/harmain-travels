@@ -366,51 +366,53 @@ export function AirportTaxiPageClient() {
         {/* RETURN SERVICE & BUS COMPARISON */}
         <section className="py-24 bg-[var(--bg)]">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
-              <div>
-                <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-8">{p.returnTitle ?? "Makkah to Jeddah Airport Taxi - Return Service"}</h2>
-                <div className="space-y-6">
-                  <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch mb-24">
+              <div className="flex flex-col h-full justify-between">
+                <div>
+                  <h2 className="text-3xl font-heading font-bold text-[var(--text-1)] mb-8">{p.returnTitle ?? "Makkah to Jeddah Airport Taxi - Return Service"}</h2>
+                  <p className="text-[var(--text-2)] text-lg leading-relaxed font-body mb-6">
                     {p.returnText ?? "Makkah to Jeddah airport taxi handles your departure just as professionally. You tell us your flight time. We calculate the perfect pickup time, ensuring you reach the airport with adequate check-in time. International flights need an early arrival. We factor this automatically into our timing."}
                   </p>
-                  <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden mt-6">
-                    <Image
-                      src="/images/Makkah to Jeddah Airport Taxi - Return Service.png"
-                      alt="Makkah to Jeddah Airport Taxi - Return Service"
-                      fill
-                      className="object-cover hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
+                </div>
+                <div className="relative w-full flex-grow min-h-[300px] rounded-[32px] overflow-hidden mt-2">
+                  <Image
+                    src="/images/Makkah to Jeddah Airport Taxi - Return Service.png"
+                    alt="Makkah to Jeddah Airport Taxi - Return Service"
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
               </div>
-              <div className="space-y-8">
-                <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-3xl p-5 md:p-10 overflow-hidden relative">
+              <div className="h-full">
+                <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-[32px] p-5 md:p-10 overflow-hidden relative h-full flex flex-col justify-between">
                   <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--gold)]/20 rounded-full blur-3xl -mr-32 -mt-32" />
-                  <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-8">{p.busComparisonTitle ?? "Taxi vs. Bus Comparison"}</h3>
+                  <div>
+                    <h3 className="text-2xl font-heading font-bold text-[var(--text-1)] mb-8">{p.busComparisonTitle ?? "Taxi vs. Bus Comparison"}</h3>
 
-                  <div className="space-y-6 mb-8">
-                    <div className="p-4 md:p-6 bg-[var(--bg)] rounded-2xl border border-[var(--border)]">
-                      <div className="flex items-center gap-3 mb-4 text-[var(--gold)]">
-                        <Zap size={24} />
-                        <h4 className="font-heading font-bold uppercase tracking-wider">{p.taxiAdvantageTitle ?? "The Private Taxi Advantage"}</h4>
+                    <div className="space-y-6 mb-8">
+                      <div className="p-4 md:p-6 bg-[var(--bg)] rounded-2xl border border-[var(--border)]">
+                        <div className="flex items-center gap-3 mb-4 text-[var(--gold)]">
+                          <Zap size={24} />
+                          <h4 className="font-heading font-bold uppercase tracking-wider">{p.taxiAdvantageTitle ?? "The Private Taxi Advantage"}</h4>
+                        </div>
+                        <p className="text-[var(--text-2)] font-body text-sm leading-relaxed">
+                          {p.taxiAdvantageText ?? "Our private taxi costs more but saves you significant stress and time. You leave when you want. You do not adjust your schedule to bus timings and travel directly from your hotel door to the airport terminal. The extra cost is worth the convenience, especially after completing your spiritual journey."}
+                        </p>
                       </div>
-                      <p className="text-[var(--text-2)] font-body text-sm leading-relaxed">
-                        {p.taxiAdvantageText ?? "Our private taxi costs more but saves you significant stress and time. You leave when you want. You do not adjust your schedule to bus timings and travel directly from your hotel door to the airport terminal. The extra cost is worth the convenience, especially after completing your spiritual journey."}
-                      </p>
-                    </div>
 
-                    <div className="p-4 md:p-6 bg-red-500/5 rounded-2xl border border-red-500/20">
-                      <div className="flex items-center gap-3 mb-4 text-red-500">
-                        <AlertCircle size={24} />
-                        <h4 className="font-heading font-bold uppercase tracking-wider">{p.busRealityTitle ?? "Bus Service Realities"}</h4>
+                      <div className="p-4 md:p-6 bg-red-500/5 rounded-2xl border border-red-500/20">
+                        <div className="flex items-center gap-3 mb-4 text-red-500">
+                          <AlertCircle size={24} />
+                          <h4 className="font-heading font-bold uppercase tracking-wider">{p.busRealityTitle ?? "Bus Service Realities"}</h4>
+                        </div>
+                        <p className="text-[var(--text-2)] font-body text-sm leading-relaxed">
+                          {p.busRealityText ?? "Bus Service from Makkah To Jeddah Airport option exists for budget travelers. Buses cost less but offer no flexibility. They follow fixed schedules. You must reach the bus station yourself and share space with many passengers. Luggage space is limited."}
+                        </p>
                       </div>
-                      <p className="text-[var(--text-2)] font-body text-sm leading-relaxed">
-                        {p.busRealityText ?? "Bus Service from Makkah To Jeddah Airport option exists for budget travelers. Buses cost less but offer no flexibility. They follow fixed schedules. You must reach the bus station yourself and share space with many passengers. Luggage space is limited."}
-                      </p>
                     </div>
                   </div>
 
-                  <div className="p-4 md:p-6 bg-[var(--gold)]/5 rounded-2xl border-2 border-dashed border-[var(--gold)]/20">
+                  <div className="p-4 md:p-6 bg-[var(--gold)]/5 rounded-2xl border-2 border-dashed border-[var(--gold)]/20 mt-auto">
                     <h4 className="font-heading font-bold text-[var(--text-1)] text-sm mb-3">{p.returnServiceTitle ?? "Our Dedicated Return Service"}</h4>
                     <p className="font-body text-[var(--text-2)] text-xs leading-relaxed italic">
                       "{p.returnServiceText ?? "Our driver arrives at your Makkah hotel 10 minutes early. He helps with luggage loading. The Mecca to Jeddah airport journey follows the same efficient route we use for arrivals. You reach the airport relaxed and on time, never rushing or panicking about missing flights."}"

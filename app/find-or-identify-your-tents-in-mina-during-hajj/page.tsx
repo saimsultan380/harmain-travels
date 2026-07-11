@@ -10,12 +10,12 @@ export const metadata: Metadata = {
   title: "How Can You Find or Identify Your Tents in Mina during Hajj?",
   description: "Complete guide to finding your tent in Mina during Hajj. Learn Maktab system, landmarks & tips to avoid getting lost among thousands of tents. Expert advice inside!",
   alternates: {
-    canonical: "/identify-tent-mina/",
+    canonical: "/find-or-identify-your-tents-in-mina-during-hajj/",
   },
   openGraph: {
     title: "How Can You Find or Identify Your Tents in Mina during Hajj?",
     description: "Complete guide to finding your tent in Mina during Hajj. Learn Maktab system, landmarks & tips to avoid getting lost among thousands of tents. Expert advice inside!",
-    url: "/identify-tent-mina/",
+    url: "/find-or-identify-your-tents-in-mina-during-hajj/",
     type: "website",
   },
   twitter: {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 };
 
 const post = {
-  id: "identify-tent-mina",
+  id: "find-or-identify-your-tents-in-mina-during-hajj",
   title: "How Can You Find or Identify Your Tents in Mina during Hajj?",
   excerpt: "Complete guide to finding your tent in Mina during Hajj. Learn Maktab system, landmarks & tips to avoid getting lost among thousands of tents. Expert advice inside!",
   category: "other-services",
@@ -199,6 +199,10 @@ export default function BlogPostPage() {
 
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">
                   Numbers are not as effective when the body is tired, and the mind is exhausted after long walks or runs with the Jamarat. Your brain processes familiar images faster than it recalls numbers under fatigue.
+                </p>
+
+                <p className="text-[var(--text-2)] leading-relaxed mb-6">
+                  So, these landmarks genuinely guide you home when numbers alone are not enough.
                 </p>
 
                 <p className="text-[var(--text-2)] leading-relaxed mb-6">

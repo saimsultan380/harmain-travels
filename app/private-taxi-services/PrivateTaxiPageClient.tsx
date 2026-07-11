@@ -92,7 +92,7 @@ export function PrivateTaxiPageClient() {
 
       <main className="flex-grow overflow-hidden">
         <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-[var(--bg)] overflow-hidden flex flex-col justify-center min-h-[85vh]">
-          <div className="absolute inset-0 bg-[url('/images/private-taxi-services.png')] bg-cover bg-center bg-no-repeat z-0" />
+          <div className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0" style={{ backgroundImage: "url('/images/Private Taxi Services Private Umrah Taxi Makkah  Madinah.png')" }} />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/65 to-black/80 z-10" />
           <IslamicGeometricBg opacity={0.04} />
 

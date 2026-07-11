@@ -10,12 +10,12 @@ export const metadata: Metadata = {
   title: "Best Time to Perform Umrah | Least Crowded Time for Umrah",
   description: "Discover the best time to perform Umrah. Learn about least crowded months, weather conditions & budget-friendly seasons. Plan your perfect Umrah journey!",
   alternates: {
-    canonical: "/best-time-umrah/",
+    canonical: "/best-least-crowded-time-to-perform-umrah/",
   },
   openGraph: {
     title: "Best Time to Perform Umrah | Least Crowded Time for Umrah",
     description: "Discover the best time to perform Umrah. Learn about least crowded months, weather conditions & budget-friendly seasons. Plan your perfect Umrah journey!",
-    url: "/best-time-umrah/",
+    url: "/best-least-crowded-time-to-perform-umrah/",
     type: "website",
   },
   twitter: {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 };
 
 const post = {
-  id: "best-time-umrah",
+  id: "best-least-crowded-time-to-perform-umrah",
   title: "Best Time to Perform Umrah | Least Crowded Time for Umrah",
   excerpt: "Discover the best time to perform Umrah. Learn about least crowded months, weather conditions & budget-friendly seasons. Plan your perfect Umrah journey!",
   category: "other-services",

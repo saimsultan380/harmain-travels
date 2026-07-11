@@ -420,7 +420,7 @@ export const blogPosts = [
     author: "M Umar Irfan",
   },
   {
-    id: "top-islamic-ziyarat-taif",
+    id: "islamic-ziyarat-historical-places-taif",
     title: "List of 9 Top Islamic Ziyarat & Historical Places in Taif",
     excerpt: "Discover 9 must-visit Islamic Ziyarat sites in Taif. Explore Prophet Muhammad's sacred journey, ancient mosques & blessed valleys. Book your Taif tour now!",
     categories: ["sight-seeings"],
@@ -430,7 +430,7 @@ export const blogPosts = [
     author: "M Umar Irfan",
   },
   {
-    id: "taxi-booking-advance-ksa",
+    id: "benefits-of-booking-airport-or-umrah-taxi-in-advance-in-ksa",
     title: "Benefits of Booking Airport or Umrah Taxi in Advance in KSA",
     excerpt: "Discover the benefits of pre-booking your airport or Umrah taxi in Saudi Arabia. Save money, ensure availability & enjoy peace of mind. Book with Haramain Umrah Taxi now!",
     categories: ["other-services"],
@@ -440,7 +440,7 @@ export const blogPosts = [
     author: "M Umar Irfan",
   },
   {
-    id: "best-time-umrah",
+    id: "best-least-crowded-time-to-perform-umrah",
     title: "Best Time to Perform Umrah | Least Crowded Time for Umrah",
     excerpt: "Discover the best time to perform Umrah. Learn about least crowded months, weather conditions & budget-friendly seasons. Plan your perfect Umrah journey!",
     categories: ["other-services"],
@@ -450,7 +450,7 @@ export const blogPosts = [
     author: "M Umar Irfan",
   },
   {
-    id: "umrah-taxi-south-african",
+    id: "online-umrah-taxi-for-south-african-pilgrams",
     title: "Book Online Umrah Taxi for South African Pilgrims at Cheap Fares",
     excerpt: "Book affordable online Umrah taxi services for South African pilgrims. Safe, comfortable transfers from Jeddah to Makkah & Madinah. Reserve your ride now!",
     categories: ["other-services"],
@@ -460,7 +460,7 @@ export const blogPosts = [
     author: "M Umar Irfan",
   },
   {
-    id: "umrah-taxi-usa",
+    id: "private-umrah-taxi-services-online-from-the-usa-book-at-discount",
     title: "Private Umrah Taxi Services Online from the USA Book at Discount",
     excerpt: "Book private Umrah taxi services online from USA at discounted prices. Comfortable, reliable airport transfers to Makkah & Madinah. Reserve your ride now!",
     categories: ["other-services"],
@@ -470,7 +470,7 @@ export const blogPosts = [
     author: "M Umar Irfan",
   },
   {
-    id: "identify-tent-mina",
+    id: "find-or-identify-your-tents-in-mina-during-hajj",
     title: "How Can You Find or Identify Your Tents in Mina during Hajj?",
     excerpt: "Complete guide to finding your tent in Mina during Hajj. Learn Maktab system, landmarks & tips to avoid getting lost among thousands of tents. Expert advice inside!",
     categories: ["other-services"],

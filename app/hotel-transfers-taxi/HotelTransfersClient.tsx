@@ -103,7 +103,7 @@ export function HotelTransfersClient() {
       <main className="flex-grow overflow-hidden">
         {/* HERO SECTION */}
         <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-[var(--bg)] overflow-hidden flex flex-col justify-center min-h-[85vh]">
-          <div className="absolute inset-0 bg-[url('/images/hotel-transfers-taxi.png')] bg-cover bg-center bg-no-repeat z-0" />
+          <div className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0" style={{ backgroundImage: "url('/images/Hotel Transfer Services in Makkah, Madinah & Jeddah Book Now hero image.png')" }} />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/65 to-black/80 z-10" />
           <IslamicGeometricBg opacity={0.04} />
           
@@ -178,8 +178,8 @@ export function HotelTransfersClient() {
         {/* AIRPORT TO HOTEL TRANSFER */}
         <AnimatedSection className="py-24 bg-[var(--bg-alt)]/30 border-y border-[var(--border)]">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div>
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
+              <div className="flex flex-col justify-center">
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">{p.airportEyebrow ?? "Seamless Connectivity"}</div>
                 <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)] mb-6">{p.airportTitle ?? "Airport to Hotel Transfer Taxi Services"}</h2>
                 <div className="space-y-6">
@@ -197,12 +197,13 @@ export function HotelTransfersClient() {
                   </div>
                 </div>
               </div>
-              <div className="rounded-3xl border-2 border-[var(--border)] p-2 bg-[var(--bg)]">
-                <div className="aspect-square lg:aspect-auto lg:h-[500px] bg-[var(--bg-alt)] rounded-2xl flex flex-col items-center justify-center text-[var(--text-3)] border border-[var(--border)] relative overflow-hidden group">
-                  <div className="absolute inset-0 bg-[var(--gold)]/5 group-hover:bg-[var(--gold)]/10 transition-colors" />
-                  <Plane size={80} className="mb-4 opacity-20 relative z-10" />
-                  <span className="text-sm font-heading font-bold uppercase tracking-widest opacity-40 relative z-10">Airport Arrivals</span>
-                </div>
+              <div className="rounded-[32px] overflow-hidden relative min-h-[400px] h-full">
+                <Image
+                  src="/images/Airport to Hotel Transfer Taxi Services.png"
+                  alt="Airport to Hotel Transfer Taxi Services"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-500"
+                />
               </div>
             </div>
           </div>
@@ -214,10 +215,10 @@ export function HotelTransfersClient() {
             <div className="max-w-7xl mx-auto space-y-24">
               
               {/* MAKKAH */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div className="order-2 lg:order-1 relative">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
+                <div className="order-2 lg:order-1 relative flex flex-col justify-center">
                    <div className="absolute -left-8 -top-8 w-48 h-48 bg-[var(--gold)]/10 rounded-full blur-3xl" />
-                   <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/20 rounded-[32px] p-8 md:p-12 relative z-10 shadow-sm">
+                   <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/20 rounded-[32px] p-8 md:p-12 relative z-10 shadow-sm h-full flex flex-col justify-center">
                      <div className="w-12 h-12 bg-[var(--gold-soft)] rounded-xl flex items-center justify-center text-[var(--gold)] mb-6">
                        <Building size={24} />
                      </div>
@@ -235,27 +236,29 @@ export function HotelTransfersClient() {
                      </div>
                    </div>
                 </div>
-                <div className="order-1 lg:order-2 rounded-3xl border-2 border-[var(--border)] p-2 bg-[var(--bg-alt)]">
-                  <div className="aspect-video bg-[var(--bg)] rounded-2xl flex flex-col items-center justify-center text-[var(--text-3)] border border-[var(--border)] relative overflow-hidden group">
-                     <div className="absolute inset-0 bg-[var(--gold)]/5 group-hover:bg-[var(--gold)]/10 transition-colors" />
-                     <MapPin size={64} className="mb-4 opacity-20 relative z-10" />
-                     <span className="text-xs font-heading font-bold uppercase tracking-widest opacity-40 relative z-10">Makkah City Navigation</span>
-                  </div>
+                <div className="order-1 lg:order-2 rounded-[32px] overflow-hidden relative min-h-[400px] h-full">
+                  <Image
+                    src="/images/Hotel Transport Taxi Services Makkah.png"
+                    alt="Hotel Transport Taxi Services Makkah"
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
               </div>
 
               {/* MADINAH */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div className="order-1 rounded-3xl border-2 border-[var(--border)] p-2 bg-[var(--bg-alt)]">
-                  <div className="aspect-video bg-[var(--bg)] rounded-2xl flex flex-col items-center justify-center text-[var(--text-3)] border border-[var(--border)] relative overflow-hidden group">
-                     <div className="absolute inset-0 bg-[var(--green)]/5 group-hover:bg-[var(--green)]/10 transition-colors" />
-                     <CheckCircle2 size={64} className="mb-4 opacity-20 relative z-10 text-[var(--green)]" />
-                     <span className="text-xs font-heading font-bold uppercase tracking-widest opacity-40 relative z-10">Madinah Hotels & Ziyarat</span>
-                  </div>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
+                <div className="order-1 rounded-[32px] overflow-hidden relative min-h-[400px] h-full">
+                  <Image
+                    src="/images/Hotel Transport Taxi Services Madinah.png"
+                    alt="Hotel Transport Taxi Services Madinah"
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
-                <div className="order-2 relative">
+                <div className="order-2 relative flex flex-col justify-center">
                    <div className="absolute -right-8 -bottom-8 w-48 h-48 bg-[var(--green)]/5 rounded-full blur-3xl" />
-                   <div className="bg-[var(--bg-card)] border-2 border-[var(--green)]/20 rounded-[32px] p-8 md:p-12 relative z-10 shadow-sm">
+                   <div className="bg-[var(--bg-card)] border-2 border-[var(--green)]/20 rounded-[32px] p-8 md:p-12 relative z-10 shadow-sm h-full flex flex-col justify-center">
                      <div className="w-12 h-12 bg-[var(--green-soft)] rounded-xl flex items-center justify-center text-[var(--green)] mb-6">
                        <Building size={24} />
                      </div>
@@ -276,10 +279,10 @@ export function HotelTransfersClient() {
               </div>
 
               {/* JEDDAH */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div className="order-2 lg:order-1 relative">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
+                <div className="order-2 lg:order-1 relative flex flex-col justify-center">
                    <div className="absolute -left-8 -top-8 w-48 h-48 bg-[var(--gold)]/10 rounded-full blur-3xl" />
-                   <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/20 rounded-[32px] p-8 md:p-12 relative z-10 shadow-sm">
+                   <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/20 rounded-[32px] p-8 md:p-12 relative z-10 shadow-sm h-full flex flex-col justify-center">
                      <div className="w-12 h-12 bg-[var(--gold-soft)] rounded-xl flex items-center justify-center text-[var(--gold)] mb-6">
                        <Building size={24} />
                      </div>
@@ -297,12 +300,13 @@ export function HotelTransfersClient() {
                      </div>
                    </div>
                 </div>
-                <div className="order-1 lg:order-2 rounded-3xl border-2 border-[var(--border)] p-2 bg-[var(--bg-alt)]">
-                  <div className="aspect-video bg-[var(--bg)] rounded-2xl flex flex-col items-center justify-center text-[var(--text-3)] border border-[var(--border)] relative overflow-hidden group">
-                     <div className="absolute inset-0 bg-[var(--gold)]/5 group-hover:bg-[var(--gold)]/10 transition-colors" />
-                     <Plane size={64} className="mb-4 opacity-20 relative z-10" />
-                     <span className="text-xs font-heading font-bold uppercase tracking-widest opacity-40 relative z-10">Jeddah Gateway</span>
-                  </div>
+                <div className="order-1 lg:order-2 rounded-[32px] overflow-hidden relative min-h-[400px] h-full">
+                  <Image
+                    src="/images/Hotel Transport Taxi Services Jeddah.png"
+                    alt="Hotel Transport Taxi Services Jeddah"
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
               </div>
 

@@ -10,12 +10,12 @@ export const metadata: Metadata = {
   title: "Benefits of Booking Airport or Umrah Taxi in Advance in KSA",
   description: "Discover the benefits of pre-booking your airport or Umrah taxi in Saudi Arabia. Save money, ensure availability & enjoy peace of mind. Book with Haramain Umrah Taxi now!",
   alternates: {
-    canonical: "/taxi-booking-advance-ksa/",
+    canonical: "/benefits-of-booking-airport-or-umrah-taxi-in-advance-in-ksa/",
   },
   openGraph: {
     title: "Benefits of Booking Airport or Umrah Taxi in Advance in KSA",
     description: "Discover the benefits of pre-booking your airport or Umrah taxi in Saudi Arabia. Save money, ensure availability & enjoy peace of mind. Book with Haramain Umrah Taxi now!",
-    url: "/taxi-booking-advance-ksa/",
+    url: "/benefits-of-booking-airport-or-umrah-taxi-in-advance-in-ksa/",
     type: "website",
   },
   twitter: {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 };
 
 const post = {
-  id: "taxi-booking-advance-ksa",
+  id: "benefits-of-booking-airport-or-umrah-taxi-in-advance-in-ksa",
   title: "Benefits of Booking Airport or Umrah Taxi in Advance in KSA",
   excerpt: "Discover the benefits of pre-booking your airport or Umrah taxi in Saudi Arabia. Save money, ensure availability & enjoy peace of mind. Book with Haramain Umrah Taxi now!",
   category: "other-services",

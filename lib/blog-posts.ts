@@ -1,5 +1,27 @@
 export const blogPosts = [
   {
+    id: "makkah-to-madinah-staria-madinah-to-makkah-staria",
+    title: "Makkah to Madinah Staria | Madinah to Makkah Staria - 7-seater",
+    excerpt:
+      "Book a 7-seater Hyundai Staria for Makkah to Madinah or Madinah to Makkah. Spacious cabin, fixed fare from SAR 450. Reserve with Haramain Umrah Taxi!",
+    categories: ["taxi-guides"],
+    date: "2026-07-16",
+    readTime: "8 min read",
+    image: "/images/Makkah to Madinah Staria  Madinah to Makkah Staria - 7-seater.webp",
+    author: "M Umar Irfan",
+  },
+  {
+    id: "taxi-fare-from-madinah-to-jeddah-or-jeddah-airport",
+    title: "How Much Taxi Fare from Madinah to Jeddah or Jeddah Airport?",
+    excerpt:
+      "Madinah to Jeddah Airport taxi fare starts at SAR 400 for a sedan. Fixed prices for GMC, Mini Van, Hiace, Coaster & bus. Book Haramain Umrah Taxi now!",
+    categories: ["taxi-fares"],
+    date: "2026-07-16",
+    readTime: "8 min read",
+    image: "/images/How Much Taxi Fare from Madinah to Jeddah or Jeddah Airport.webp",
+    author: "M Umar Irfan",
+  },
+  {
     id: "best-umrah-taxi-service-in-rabiulawal",
     title: "Best Umrah Taxi Service in Rabi-ul-Awal in Makkah & Madinah",
     excerpt: "Haramain Umrah Taxi offers the best Umrah taxi service in Rabi-ul-Awal in Makkah & Madinah. Book airport transfers, intercity routes & Ziyarat rides. Reserve Now!",

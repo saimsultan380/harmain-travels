@@ -1,5 +1,16 @@
 export const blogPosts = [
   {
+    id: "how-much-is-taxi-fare-from-madinah-airport-to-madinah-hotel",
+    title: "How much is Taxi Fare from Madinah Airport to Madinah Hotel?",
+    excerpt:
+      "Madinah Airport to Madinah Hotel taxi fares start from SAR 170. Compare fixed fares for sedans, vans, GMCs, Coasters and buses, then book your ride.",
+    categories: ["taxi-fares"],
+    date: "2026-07-18",
+    readTime: "8 min read",
+    image: "/images/How much is Taxi Fare from Madinah Airport to Madinah Hotel.webp",
+    author: "M Umar Irfan",
+  },
+  {
     id: "makkah-to-madinah-staria-madinah-to-makkah-staria",
     title: "Makkah to Madinah Staria | Madinah to Makkah Staria - 7-seater",
     excerpt:

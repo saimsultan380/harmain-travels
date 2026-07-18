@@ -43,14 +43,14 @@ const WhatsAppIcon = ({ size = 20, className = "" }: { size?: number; className?
 function ImagePlaceholder({ label, imageUrl }: { label: string; imageUrl?: string }) {
   if (imageUrl) {
     return (
-      <div className="rounded-[32px] border-2 border-[var(--border)] bg-[var(--bg)] p-2 shadow-sm overflow-hidden">
-        <div className="aspect-video rounded-[28px] overflow-hidden relative">
-          <img 
-            src={imageUrl} 
-            alt={label}
-            className="w-full h-full object-cover"
-          />
-        </div>
+      <div className="rounded-[32px] overflow-hidden relative aspect-video">
+        <Image
+          src={imageUrl}
+          alt={label}
+          fill
+          sizes="(max-width: 1024px) 100vw, 80vw"
+          className="object-cover"
+        />
       </div>
     );
   }
@@ -166,7 +166,10 @@ export function MakkahToJeddahClient() {
 
       <main className="flex-grow overflow-hidden">
         <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-gradient-to-b from-[var(--gold)]/5 to-[var(--bg)] overflow-hidden flex flex-col justify-center min-h-[85vh]">
-          <div className="absolute inset-0 bg-[url('/images/makkah-to-jeddah.jpeg')] bg-cover bg-center bg-no-repeat z-0" />
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+            style={{ backgroundImage: "url('/images/Makkah to Jeddah Taxi, GMC, Bus & Fares 247 Taxi Booking.webp')" }}
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/65 to-black/80 z-10" />
           <IslamicGeometricBg opacity={0.03} />
 
@@ -256,6 +259,13 @@ export function MakkahToJeddahClient() {
                 <p className="text-[var(--text-2)] text-lg leading-relaxed font-body">
                   {t("makkahToJeddah.onlineBookingP3")}
                 </p>
+              </div>
+
+              <div className="mt-10">
+                <ImagePlaceholder
+                  label={t("makkahToJeddah.onlineBookingTitle")}
+                  imageUrl="/images/Best Online Taxi Services from Makkah to Jeddah.webp"
+                />
               </div>
             </div>
           </div>

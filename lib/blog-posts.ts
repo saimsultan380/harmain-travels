@@ -1,5 +1,27 @@
 export const blogPosts = [
   {
+    id: "jeddah-airport-to-makkah-staria-makkah-to-jeddah-airport-staria",
+    title: "Jeddah Airport to Makkah Staria & Makkah to Jeddah Airport Staria",
+    excerpt:
+      "You just landed at Jeddah Airport and the first thing on your mind after collecting your bags is getting to Makkah. For most families and small groups, the Staria keeps coming up as the vehicle of choice on this route.",
+    categories: ["taxi-guides"],
+    date: "2026-07-20",
+    readTime: "6 min read",
+    image: "/images/Jeddah Airport to Makkah Staria & Makkah to Jeddah Airport Staria.png",
+    author: "M Umar Irfan",
+  },
+  {
+    id: "jeddah-or-jeddah-airport-to-madinah-taxi-fare",
+    title: "How Much Taxi Fare from Jeddah or Jeddah Airport to Madinah?",
+    excerpt:
+      "You land at Jeddah, your bags are heavy, and you are running on maybe two hours of sleep from the flight. The only thing on your mind is getting to Madinah without getting overcharged.",
+    categories: ["taxi-fares"],
+    date: "2026-07-20",
+    readTime: "6 min read",
+    image: "/images/How Much Taxi Fare from Jeddah or Jeddah Airport to Madinah.png",
+    author: "M Umar Irfan",
+  },
+  {
     id: "how-much-is-taxi-fare-from-madinah-airport-to-madinah-hotel",
     title: "How much is Taxi Fare from Madinah Airport to Madinah Hotel?",
     excerpt:

@@ -42,20 +42,18 @@ const WhatsAppIcon = ({ size = 20, className = "" }: { size?: number; className?
 function ImagePlaceholder({ label, imageUrl }: { label: string; imageUrl?: string }) {
   if (imageUrl) {
     return (
-      <div className="rounded-[32px] border-2 border-[var(--border)] bg-[var(--bg)] p-2 shadow-sm overflow-hidden">
-        <div className="aspect-video rounded-[28px] overflow-hidden relative">
-          <img 
-            src={imageUrl} 
-            alt={label}
-            className="w-full h-full object-cover"
-          />
-        </div>
+      <div className="rounded-[32px] overflow-hidden relative w-full h-full min-h-[280px]">
+        <img
+          src={imageUrl}
+          alt={label}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
       </div>
     );
   }
   return (
-    <div className="rounded-[32px] border-2 border-[var(--border)] bg-[var(--bg)] p-2 shadow-sm">
-      <div className="aspect-video rounded-[28px] border border-[var(--border)] bg-[var(--bg-alt)] relative overflow-hidden flex items-center justify-center">
+    <div className="rounded-[32px] border-2 border-[var(--border)] bg-[var(--bg)] p-2 shadow-sm h-full min-h-[280px]">
+      <div className="h-full rounded-[28px] border border-[var(--border)] bg-[var(--bg-alt)] relative overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--gold)]/10 via-transparent to-[var(--green)]/10" />
         <span className="relative z-10 text-xs font-heading font-bold uppercase tracking-widest text-[var(--text-2)] opacity-70">
           {label}
@@ -165,7 +163,13 @@ export function MadinahAirportToHotelsClient() {
 
       <main className="flex-grow overflow-hidden">
         <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-gradient-to-b from-[var(--gold)]/5 to-[var(--bg)] overflow-hidden flex flex-col justify-center min-h-[85vh]">
-          <div className="absolute inset-0 bg-[url('/images/madinah-aiport-to-hotels.jpeg')] bg-cover bg-center bg-no-repeat z-0" />
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+            style={{
+              backgroundImage:
+                "url('/images/madinah-airport-to-hotel-services.webp')",
+            }}
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/65 to-black/80 z-10" />
           <IslamicGeometricBg opacity={0.03} />
 
@@ -263,34 +267,44 @@ export function MadinahAirportToHotelsClient() {
         <AnimatedSection className="py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-16">
+              <div className="mb-10">
                 <span className="text-[var(--gold)] font-heading font-bold text-sm uppercase tracking-widest block mb-4">{t("madinahAirportToHotels.howToBookEyebrow")}</span>
-                <h2 className="text-4xl font-heading font-bold text-[var(--text-1)]">{t("madinahAirportToHotels.howToBookTitle")}</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-[var(--text-1)]">{t("madinahAirportToHotels.howToBookTitle")}</h2>
               </div>
 
-              <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10">
-                <div className="space-y-6">
-                  <div className="flex gap-4">
-                    <div className="w-10 h-10 rounded-full bg-[var(--gold)] text-white flex items-center justify-center font-heading font-bold shrink-0">1</div>
-                    <div>
-                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">{t("madinahAirportToHotels.step1Title")}</h3>
-                      <p className="text-[var(--text-2)] text-base leading-relaxed font-body">{t("madinahAirportToHotels.step1Desc")}</p>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-stretch">
+                <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10">
+                  <div className="space-y-6">
+                    <div className="flex gap-4">
+                      <div className="w-10 h-10 rounded-full bg-[var(--gold)] text-white flex items-center justify-center font-heading font-bold shrink-0">1</div>
+                      <div>
+                        <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">{t("madinahAirportToHotels.step1Title")}</h3>
+                        <p className="text-[var(--text-2)] text-base leading-relaxed font-body">{t("madinahAirportToHotels.step1Desc")}</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-4">
+                      <div className="w-10 h-10 rounded-full bg-[var(--gold)] text-white flex items-center justify-center font-heading font-bold shrink-0">2</div>
+                      <div>
+                        <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">{t("madinahAirportToHotels.step2Title")}</h3>
+                        <p className="text-[var(--text-2)] text-base leading-relaxed font-body">{t("madinahAirportToHotels.step2Desc")}</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-4">
+                      <div className="w-10 h-10 rounded-full bg-[var(--gold)] text-white flex items-center justify-center font-heading font-bold shrink-0">3</div>
+                      <div>
+                        <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">{t("madinahAirportToHotels.step3Title")}</h3>
+                        <p className="text-[var(--text-2)] text-base leading-relaxed font-body">{t("madinahAirportToHotels.step3Desc")}</p>
+                      </div>
                     </div>
                   </div>
-                  <div className="flex gap-4">
-                    <div className="w-10 h-10 rounded-full bg-[var(--gold)] text-white flex items-center justify-center font-heading font-bold shrink-0">2</div>
-                    <div>
-                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">{t("madinahAirportToHotels.step2Title")}</h3>
-                      <p className="text-[var(--text-2)] text-base leading-relaxed font-body">{t("madinahAirportToHotels.step2Desc")}</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="w-10 h-10 rounded-full bg-[var(--gold)] text-white flex items-center justify-center font-heading font-bold shrink-0">3</div>
-                    <div>
-                      <h3 className="text-[var(--text-1)] font-heading font-bold text-lg mb-2">{t("madinahAirportToHotels.step3Title")}</h3>
-                      <p className="text-[var(--text-2)] text-base leading-relaxed font-body">{t("madinahAirportToHotels.step3Desc")}</p>
-                    </div>
-                  </div>
+                </div>
+
+                <div className="relative h-full min-h-[280px] rounded-[32px] overflow-hidden bg-[var(--bg-alt)]">
+                  <img
+                    src="/images/book-madinah-airport-to-hotel.webp"
+                    alt={t("madinahAirportToHotels.howToBookTitle")}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </div>

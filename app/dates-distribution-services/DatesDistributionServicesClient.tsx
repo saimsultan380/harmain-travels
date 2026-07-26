@@ -24,6 +24,7 @@ import {
   Truck,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const WhatsAppIcon = ({ size = 20, className = "" }: { size?: number; className?: string }) => (
   <svg
@@ -38,10 +39,24 @@ const WhatsAppIcon = ({ size = 20, className = "" }: { size?: number; className?
   </svg>
 );
 
-function ImagePlaceholder({ label }: { label: string }) {
+function ImagePlaceholder({ label, imageUrl }: { label: string; imageUrl?: string }) {
+  if (imageUrl) {
+    return (
+      <div className="rounded-[32px] overflow-hidden relative w-full h-full min-h-[280px]">
+        <Image
+          src={imageUrl}
+          alt={label}
+          fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="object-cover"
+        />
+      </div>
+    );
+  }
+
   return (
-    <div className="rounded-[32px] border-2 border-[var(--border)] bg-[var(--bg)] p-2 shadow-sm">
-      <div className="aspect-video rounded-[28px] border border-[var(--border)] bg-[var(--bg-alt)] relative overflow-hidden flex items-center justify-center">
+    <div className="rounded-[32px] border-2 border-[var(--border)] bg-[var(--bg)] p-2 shadow-sm h-full min-h-[280px]">
+      <div className="h-full rounded-[28px] border border-[var(--border)] bg-[var(--bg-alt)] relative overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--gold)]/10 via-transparent to-[var(--green)]/10" />
         <span className="relative z-10 text-xs font-heading font-bold uppercase tracking-widest text-[var(--text-2)] opacity-70">
           {label}
@@ -97,7 +112,10 @@ export function DatesDistributionServicesClient() {
 
       <main className="flex-grow overflow-hidden">
         <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-[var(--bg)] overflow-hidden flex flex-col justify-center min-h-[85vh]">
-          <div className="absolute inset-0 bg-[url('/images/dates-distribution-services.jpeg')] bg-cover bg-center bg-no-repeat z-0" />
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+            style={{ backgroundImage: "url('/images/khajoor-dates-distribution-services.webp')" }}
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/65 to-black/80 z-10" />
           <IslamicGeometricBg opacity={0.04} />
 
@@ -171,7 +189,7 @@ export function DatesDistributionServicesClient() {
 
         <AnimatedSection id="why" className="py-24 bg-[var(--bg-alt)]/30 border-y border-[var(--border)]">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-stretch">
               <div className="bg-[var(--bg)] border border-[var(--border)] rounded-[32px] p-8 md:p-10 shadow-sm">
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">
                   {t("datesDistribution.hadithBadge")}
@@ -190,7 +208,10 @@ export function DatesDistributionServicesClient() {
                 </div>
               </div>
 
-              <ImagePlaceholder label="Image Placeholder: Dates / Khajoor / Pilgrims" />
+              <ImagePlaceholder
+                label={t("datesDistribution.hadithTitle")}
+                imageUrl="/images/why-dates-distribution.webp"
+              />
             </div>
           </div>
         </AnimatedSection>
@@ -302,8 +323,11 @@ export function DatesDistributionServicesClient() {
 
         <AnimatedSection className="py-24">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
-              <ImagePlaceholder label="Image Placeholder: Ramadan / Iftar / Dates" />
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-stretch">
+              <ImagePlaceholder
+                label={t("datesDistribution.ramadanTitle")}
+                imageUrl="/images/distribution-special-dates-ramadan.webp"
+              />
 
               <div className="bg-[var(--bg-card)] border-2 border-[var(--gold)]/10 rounded-[32px] p-8 md:p-10 shadow-sm">
                 <div className="inline-block px-4 py-1.5 rounded-lg bg-[var(--gold-soft)] text-[var(--gold)] font-heading font-bold text-xs uppercase tracking-widest mb-6">

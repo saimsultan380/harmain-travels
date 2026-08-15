@@ -1,5 +1,27 @@
 export const blogPosts = [
   {
+    id: "taif-ziyarat-taxi-services-ziyarat-in-taif",
+    title: "Taif Ziyarat Taxi Services & Private Car for Ziyarat in Taif",
+    excerpt:
+      "Book Taif Ziyarat taxi services. Get Private cars to visit Taif Ziyarat places. You can also book a round trip from Makkah to Taif, Taif Ziyarat & return",
+    categories: ["taxi-guides"],
+    date: "2026-08-15",
+    readTime: "8 min read",
+    image: "/images/taif-ziyarat-taxi-services-private-car.webp",
+    author: "M Umar Irfan",
+  },
+  {
+    id: "madinah-train-station-to-masjid-nabawi-taxi-fare",
+    title: "Madinah Train Station to Masjid Nabawi & Med Hotel Taxi Fare",
+    excerpt:
+      "The general taxi fare from Madinah train station to Masjid Nabawi or Madinah hotel ranges from 80 SAR to 200 SAR, depending on vehicle. The distance is 12km.",
+    categories: ["taxi-fares"],
+    date: "2026-08-15",
+    readTime: "7 min read",
+    image: "/images/madinah-train-station-to-masjid-nabawi-taxi-fare.webp",
+    author: "M Umar Irfan",
+  },
+  {
     id: "jeddah-airport-to-makkah-staria-makkah-to-jeddah-airport-staria",
     title: "Jeddah Airport to Makkah Staria & Makkah to Jeddah Airport Staria",
     excerpt:

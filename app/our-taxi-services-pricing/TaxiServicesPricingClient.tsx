@@ -36,10 +36,10 @@ export function TaxiServicesPricingClient() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mx-auto max-w-6xl">
               <Image
-                src="/images/haramain rate list12-01.png"
+                src="/images/rate-list.jpg"
                 alt="Haramain Umrah Taxi Price List"
-                width={1200}
-                height={800}
+                width={1920}
+                height={1746}
                 className="w-full h-auto rounded-2xl"
                 priority
               />

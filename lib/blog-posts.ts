@@ -1,5 +1,38 @@
 export const blogPosts = [
   {
+    id: "how-to-gift-and-distribute-dates-in-makkah-and-haram",
+    title: "How to Gift and Distribute Dates in Makkah & Masjid Al Haram",
+    excerpt:
+      "Get our trusted services to distribute & gift dates in Makkah & Masjid Al Haram to the pilgrims and worshippers from anywhere in the world with transparency",
+    categories: ["other-services"],
+    date: "2026-08-31",
+    readTime: "8 min read",
+    image: "/images/how-to-gift-and-distribute-dates-in-makkah.webp",
+    author: "M Umar Irfan",
+  },
+  {
+    id: "how-to-feed-food-to-pilgrims-in-makkah",
+    title: "How to Feed Food to Pilgrims in Makkah from all over World?",
+    excerpt:
+      "If you want to donate meal boxes & food to the pilgrims in Makkah, Saudi Arabia from anywhere in the world, we will distribute them for you with transparency",
+    categories: ["other-services"],
+    date: "2026-08-31",
+    readTime: "8 min read",
+    image: "/images/how-to-feed-food-to-pilgrims-in-makkah.webp",
+    author: "M Umar Irfan",
+  },
+  {
+    id: "best-places-to-visit-in-jubail-attractions-in-jubail",
+    title: "Best Places to Visit in Jubail | Top Attractions in Jubail",
+    excerpt:
+      "Discover the best places to visit in Jubail, from Al Fanateer Beach and Corniche Jubail to parks, markets, and historic spots.",
+    categories: ["sight-seeings"],
+    date: "2026-08-31",
+    readTime: "9 min read",
+    image: "/images/best-places-to-visit-in-jubail.webp",
+    author: "M Umar Irfan",
+  },
+  {
     id: "taif-ziyarat-taxi-services-ziyarat-in-taif",
     title: "Taif Ziyarat Taxi Services & Private Car for Ziyarat in Taif",
     excerpt:

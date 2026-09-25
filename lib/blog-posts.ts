@@ -1,5 +1,27 @@
 export const blogPosts = [
   {
+    id: "niyat-hajj-badal-and-meaning",
+    title: "Hajj Badal Niyat: How to Perform Hajj Badal for Others?",
+    excerpt:
+      "Learn the correct Niyat Hajj Badal, Arabic niyyah, and how to make the intention for Hajj Badal on behalf of a deceased parent or another person, step by step.",
+    categories: ["other-services"],
+    date: "2026-09-25",
+    readTime: "9 min read",
+    image: "/images/hajj-badal-niyat-how-to-perform.webp",
+    author: "M Umar Irfan",
+  },
+  {
+    id: "niat-umrah-badal-and-meaning",
+    title: "Niat Umrah Badal: Meaning & How to Make Umrah Badal Niyat?",
+    excerpt:
+      "Learn the correct Niyat Umrah Badal, Arabic niyyah, and how to make the intention for Umrah on behalf of a deceased parent or another person, step by step.",
+    categories: ["other-services"],
+    date: "2026-09-25",
+    readTime: "9 min read",
+    image: "/images/niat-umrah-badal-meaning.webp",
+    author: "M Umar Irfan",
+  },
+  {
     id: "how-to-gift-and-distribute-dates-in-makkah-and-haram",
     title: "How to Gift and Distribute Dates in Makkah & Masjid Al Haram",
     excerpt:
